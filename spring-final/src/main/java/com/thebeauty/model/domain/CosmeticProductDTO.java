@@ -47,7 +47,7 @@ public class CosmeticProductDTO {
 		this.cosmReleaseDate = cosmReleaseDate;
 	}
 
-	/* getter setter*/
+	/* getter / setter */
 	public int getProdIdx() {
 		return prodIdx;
 	}
