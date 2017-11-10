@@ -25,7 +25,7 @@ public class CosmeticBrandDTO {
 		this.brandTypeName = brandTypeName;
 	}
 
-	/* getter setter*/
+	/* getter / setter */
 	public int brandTypeIdx() {
 		return brandTypeIdx;
 	}
