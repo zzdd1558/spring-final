@@ -12,6 +12,7 @@ package com.thebeauty.model.domain;
  *  - DELI_STATUS_CODE : 배송타입
  *  - DELI_STATUS_NAME : 배송상태
  */
+
 public class DeliveryStatusDTO {
 	private int deliStatusCode; // DELI_STATUS_CODE
 	private String deliStatusName; // DELI_STATUS_NAME
@@ -25,7 +26,7 @@ public class DeliveryStatusDTO {
 		this.deliStatusName = deliStatusName;
 	}
 
-	/*getter setter*/
+	/*getter / setter */
 	public int getDeliStatusCode() {
 		return deliStatusCode;
 	}
