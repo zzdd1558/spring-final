@@ -62,7 +62,7 @@ public class BoardDTO {
 		this.boardUserKey = boardUserKey;
 	}
 
-	/*getter setter*/
+	/*getter / setter*/
 	public int getBoardIdx() {
 		return boardIdx;
 	}
