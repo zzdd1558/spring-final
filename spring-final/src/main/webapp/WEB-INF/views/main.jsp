@@ -11,6 +11,20 @@ body, h1, h2, h3, h4, h5, h6 {
 .w3-bar-block .w3-bar-item {
 	padding: 20px
 }
+.quickTop a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: url("w3images/quick_top_btn.png") no-repeat 0 center;
+    text-indent: -9999em;
+}
+#mySidenav .quickTop {
+    position: fixed;
+    bottom: 0;
+    width: 40px;
+    height: 45px;
+}
 </style>
 </head>
 
@@ -25,12 +39,15 @@ body, h1, h2, h3, h4, h5, h6 {
 	<!-- Sidebar -->
 	
 	<div id="mySidenav" class="w3-sidebar w3-gray"
-		style="width: 4%; right: 0px;">
+		style="width: 40px; right: 0px;">
 		<a href="javascript:void(0)" onclick="OnOffNav()"
 			style="width: 10px; height: 55px; margin-left: -10px; background: skyblue; position: fixed; top: 50%;"></a>
-		<a href="#" class="w3-bar-item w3-button">Link 1</a> <a href="#"
-			class="w3-bar-item w3-button">Link 2</a> <a href="#"
-			class="w3-bar-item w3-button">Link 3</a>
+		<a href="#" class="w3-bar-item " >하나</a><br> 
+		<a href="#"	class="w3-bar-item ">둘둘</a><br>
+		<a href="#"	class="w3-bar-item ">셋셋</a><br>
+		<div class="quickTop" id="quickTop">
+		<a href="#">상단으로</a>
+		</div>
 	</div>
 
 	<!-- !MAIN CONTENTS! -->
@@ -42,9 +59,9 @@ body, h1, h2, h3, h4, h5, h6 {
 		
 		<div class="w3-light-grey w3-center">
 			<div class=" w3-bar ">
-				<a href="#" class="w3-bar-item w3-button ">Link 1</a> <a href="#"
-					class="w3-bar-item w3-button ">Link 2</a> <a href="#"
-					class="w3-bar-item w3-button ">Link 3</a>
+				<a href="#" class="w3-bar-item w3-button ">로그인</a> 
+				<a href="#"	class="w3-bar-item w3-button ">회원가입</a> 
+				<a href="#" class="w3-bar-item w3-button ">수고해주세요^^</a>
 			</div>
 		</div>
 
@@ -186,7 +203,60 @@ body, h1, h2, h3, h4, h5, h6 {
 		<%@ include file="/WEB-INF/include/include-footer.jspf"%>
 		</footer>
 		<!-- //Footer -->
-
 	</div>
+	
+	
+	<script type="text/javascript">
+	//------------------------SideBar script-----------------------
+	var flag=true;
+	function OnOffNav() {
+		//left: 50%; margin-left: -20px;
+		if(flag){
+		    document.getElementById("mySidenav").style.width = "8%";
+//	 	    document.getElementById("main").style.width = "92%";
+			document.getElementById("quickTop").style.marginLeft ="45px";
+			flag=false;
+		}else{
+			document.getElementById("mySidenav").style.width = "40px";
+//	 	    document.getElementById("main").style.width= "96%";
+			document.getElementById("quickTop").style.marginLeft ="0px";
+		    flag=true;
+		}
+		}
+
+	//  ------------------------SlideShow script------------------------
+	var slideIndex = 1;
+	showDivs(slideIndex);
+	function plusDivs(n) {
+		showDivs(slideIndex += n);
+	}
+
+	function currentDiv(n) {
+		showDivs(slideIndex = n);
+	}
+
+	function showDivs(n) {
+		var i;
+		var x = document.getElementsByClassName("mySlides");
+		var dots = document.getElementsByClassName("demo");
+		if (n > x.length) {
+			slideIndex = 1
+		}
+		if (n < 1) {
+			slideIndex = x.length
+		}
+		for (i = 0; i < x.length; i++) {
+			x[i].style.display = "none";
+		}
+		for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" w3-white", "");
+		}
+		x[slideIndex - 1].style.display = "block";
+		dots[slideIndex - 1].className += " w3-white";
+	}
+	
+	</script>
+	
+	
 </body>
 </html>
