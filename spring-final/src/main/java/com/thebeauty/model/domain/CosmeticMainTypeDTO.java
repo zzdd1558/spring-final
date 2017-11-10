@@ -29,7 +29,7 @@ public class CosmeticMainTypeDTO {
 		this.col = col;
 	}
 
-	/* getter setter*/
+	/* getter / setter */
 	public int getMainTypeIdx() {
 		return mainTypeIdx;
 	}
