@@ -25,7 +25,7 @@ public class BoardTypeDTO {
 		this.boardName = boardName;
 	}
 
-	/* getter setter*/
+	/* getter / setter*/
 	public String getBoardType() {
 		return boardType;
 	}
