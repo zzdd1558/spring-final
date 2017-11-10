@@ -12,7 +12,7 @@ public class HomeController {
 // main start
 	@RequestMapping(value = "openmallMain.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		return "main";
+		return "main";   
 	}
 	
 }

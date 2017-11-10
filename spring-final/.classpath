@@ -30,8 +30,5 @@
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/yunjin/Desktop/유틸/[자바 라이브러리]/JSTL/taglibs-standard-impl-1.2.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/yunjin/Desktop/유틸/[자바 라이브러리]/JSTL/taglibs-standard-spec-1.2.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/yunjin/Desktop/유틸/[자바 라이브러리]/OJDBC/ojdbc6.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
