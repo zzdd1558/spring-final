@@ -44,7 +44,7 @@ public class CommentDTO {
 		this.commentReSeq = commentReSeq;
 	}
 
-	/* getter / setter*/
+	/* getter / setter */
 	public int getCommentNum() {
 		return commentNum;
 	}
