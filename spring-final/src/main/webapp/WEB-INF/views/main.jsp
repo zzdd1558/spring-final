@@ -25,52 +25,69 @@ body, h1, h2, h3, h4, h5, h6 {
     width: 40px;
     height: 45px;
 }
+.mall-content{
+    max-width: 80%;
+    margin: auto;
+}
+.mall-button {
+    border: none;
+    display: inline-block;
+    outline: 0;
+    padding: 9px 5px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background-color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
 </style>
 </head>
 
 <body>
 	<!-- Header -->
-	
 	<header>
 		<%@ include file="/WEB-INF/include/include-header.jspf"%>
 	</header>
-
+	
+	<!-- 전체 div 잡아서 크기 조절 -->
+	<div class="wrap"style="max-width: 100%; margin: 0; padding: 0;">
 
 	<!-- Sidebar -->
-	
-	<div id="mySidenav" class="w3-sidebar w3-gray"
-		style="width: 40px; right: 0px;">
+	<div id="mySidenav" class="w3-sidebar"
+		style="width: 40px; right: 0px; background: #717075;" >
 		<a href="javascript:void(0)" onclick="OnOffNav()"
-			style="width: 10px; height: 55px; margin-left: -10px; background: skyblue; position: fixed; top: 50%;"></a>
-		<a href="#" class="w3-bar-item " >하나</a><br> 
-		<a href="#"	class="w3-bar-item ">둘둘</a><br>
-		<a href="#"	class="w3-bar-item ">셋셋</a><br>
+			style="width: 10px; height: 55px; margin-left: -10px; background:no-repeat center url('w3images/quick_open.png') #717075 ; position: fixed; top: 50%;"></a>
+		<div class="">
+		<ul class="quickIconBox">
+				<li class="qk1">
+				<a href="#" onclick="fnOnclickTrack('quick','매장안내');"> 매장안내 </a>
+				</li>
+				<li class="qk2">
+				<a href="#" onclick="fnOnclickTrack('quick','매장안내');"> 매장안내 </a>
+				</li>
+				<li class="qk3">
+					<a href="#" onclick="fnOnclickTrack('quick','장바구니');"> 장바구니 </a>
+				</li>
+				<li class="qk4">
+					<span> 최근본상품 <em>2</em> </span>
+				</li>
+			</ul>
+		</div>
 		<div class="quickTop" id="quickTop">
 		<a href="#">상단으로</a>
 		</div>
 	</div>
 
 	<!-- !MAIN CONTENTS! -->
-	
 	<!-- SlideShow -->
-	
-	<!-- 전체 div 잡아서 크기 조절 -->
-	<div id="main" style="max-width: 100%; margin: 0; padding: 0;">
-		
-		<div class="w3-light-grey w3-center">
-			<div class=" w3-bar ">
-				<a href="#" class="w3-bar-item w3-button ">로그인</a> 
-				<a href="#"	class="w3-bar-item w3-button ">회원가입</a> 
-				<a href="#" class="w3-bar-item w3-button ">수고해주세요^^</a>
-			</div>
-		</div>
-
-		<div class="w3-content w3-display-container">
-			<img class="mySlides" src="./w3images/img_nature_wide.jpg"
-				style="width: 100%"> <img class="mySlides"
-				src="./w3images/img_fjords_wide.jpg" style="width: 100%"> <img
-				class="mySlides" src="./w3images/img_mountains_wide.jpg"
-				style="width: 100%">
+		<div class="w3-display-container" style="width: 100%">
+			<img class="mySlides" src="./w3images/20171101172031244.jpg" style="width: 100%"> 
+			<img class="mySlides" src="./w3images/20171108105539245.jpg" style="width: 100%"> 
+			<img class="mySlides" src="./w3images/20171101172355313.jpg" style="width: 100%">
 			<div
 				class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
 				style="width: 100%">
@@ -89,7 +106,7 @@ body, h1, h2, h3, h4, h5, h6 {
 
 		<!-- !PAGE CONTENT! -->
 
-		<div style="width: 95%">
+		<div class="mall-content">
 
 			<!-- First Photo Grid-->
 			<div class="w3-row-padding w3-padding-16 w3-center" id="food">
@@ -169,7 +186,7 @@ body, h1, h2, h3, h4, h5, h6 {
 		<hr id="about">
 		<div class="w3-container w3-padding-32 w3-center"
 			style="background: url('./w3images/bg_find_yourLook.jpg');">
-			<div class="w3-content">
+			<div class="mall-content">
 				<h3>About Me, The Food Man</h3>
 				<br> <img src="./w3images/chef.jpg" alt="Me" class="w3-image"
 					style="display: block; margin: auto">
@@ -214,7 +231,7 @@ body, h1, h2, h3, h4, h5, h6 {
 		if(flag){
 		    document.getElementById("mySidenav").style.width = "8%";
 //	 	    document.getElementById("main").style.width = "92%";
-			document.getElementById("quickTop").style.marginLeft ="45px";
+			document.getElementById("quickTop").style.marginLeft ="2.7%";
 			flag=false;
 		}else{
 			document.getElementById("mySidenav").style.width = "40px";

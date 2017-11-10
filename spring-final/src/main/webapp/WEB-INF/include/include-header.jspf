@@ -1,7 +1,29 @@
 <%@ page pageEncoding="utf-8"%>
 <!-- Top menu -->
-<div class="w3-container " style= "max-width:100%; margin:0; padding:0;" >
-  <div class="w3-white w3-xlarge" style="max-width:100%;margin:auto;">
-    <div class="w3-center w3-padding-16">My Food</div>
-  </div>
+<div class="w3-container " style="max-width: 100%; margin: 0; padding: 0;">
+	<!-- 	<div class="w3-white w3-xlarge" style="max-width: 100%; margin: auto;"> -->
+	<!-- 		<div class="w3-center w3-padding-16">My Food</div> -->
+	<!-- 	</div> -->
+	<div class="headContainer" style="border-bottom: 1px solid #ccc;">
+		<div class="w3-row">
+			<div class="w3-third">
+				<span><a href="#" class="w3-button" target="_blank" id="gnbFirst">ENGLISH</a></span> 
+			</div>
+			<h1 class="w3-third w3-center">
+				<a href="#" onclick="location.replace('http://192.168.0.114:7664/final/')"><img src="http://www.etudehouse.com/web_resource/front/images/common/logo.png"alt="Etude House"></a>
+			</h1>
+			<div class="w3-third w3-center">
+				<span><a href="#" class="mall-button">로그인</a></span> 
+				<span><a href="#" class="mall-button">회원가입</a></span> 
+				<span><a href="#" class="mall-button">주문/배송 조회</a></span> 
+			</div>
+		</div>
+	</div>
+	<div class="w3-center w3-light-gray" style="border-bottom: 2.2px solid #eecaca;">
+		<div class=" w3-bar">
+			<a href="#" class="w3-bar-item w3-button ">OOOO</a> <a href="#"
+				class="w3-bar-item w3-button ">OOOO</a> <a href="#"
+				class="w3-bar-item w3-button ">OOOO</a>
+		</div>
+	</div>
 </div>
