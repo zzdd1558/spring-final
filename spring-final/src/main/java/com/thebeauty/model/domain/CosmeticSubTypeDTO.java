@@ -10,22 +10,22 @@ package com.thebeauty.model.domain;
  * 
  * COLUMN : 
  *  - MAIN_TYPE_IDX : 메인타입번호
- *  - COL : 서브타입번호
+ *  - SUB_TYPE_IDX : 서브타입번호
  *  - SUB_TYPE_NAME : 서브타입이름
  *
  */
 public class CosmeticSubTypeDTO {
 	private int mainTypeIdx; // MAIN_TYPE_IDX_PK
-	private int col; // COL
+	private int subTypeIdx; // SUB_TYPE_IDX
 	private String subTypeName; // SUB_TYPE_NAME
 	
 	/* 생성자 */
 	public CosmeticSubTypeDTO() {}
 
-	public CosmeticSubTypeDTO(int mainTypeIdx, int col, String subTypeName) {
+	public CosmeticSubTypeDTO(int mainTypeIdx, int subTypeIdx, String subTypeName) {
 		super();
 		this.mainTypeIdx = mainTypeIdx;
-		this.col = col;
+		this.subTypeIdx = subTypeIdx;
 		this.subTypeName = subTypeName;
 	}
 
@@ -39,11 +39,11 @@ public class CosmeticSubTypeDTO {
 	}
 
 	public int getCol() {
-		return col;
+		return subTypeIdx;
 	}
 
-	public void setCol(int col) {
-		this.col = col;
+	public void setCol(int subTypeIdx) {
+		this.subTypeIdx = subTypeIdx;
 	}
 
 	public String getSubTypeName() {
@@ -60,7 +60,7 @@ public class CosmeticSubTypeDTO {
 		builder.append("CosmeticSubTypeDTO [mainTypeIdx=");
 		builder.append(mainTypeIdx);
 		builder.append(", col=");
-		builder.append(col);
+		builder.append(subTypeIdx);
 		builder.append(", subTypeName=");
 		builder.append(subTypeName);
 		builder.append("]");
