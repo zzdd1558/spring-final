@@ -12,6 +12,7 @@ package com.thebeauty.model.domain;
  *  - FACE_TYPE_IDX : 피부타입 번호
  *  - FACE_NAME : 피부타입 이름	
  */
+
 public class FaceTypeDTO {
 	private int faceTypeIdx; // FACE_TYPE_IDX
 	private String faceName; // FACE_NAME
@@ -25,7 +26,7 @@ public class FaceTypeDTO {
 		this.faceName = faceName;
 	}
 
-	/*getter setter*/
+	/*getter / setter  */
 	public int getFaceTypeIdx() {
 		return faceTypeIdx;
 	}
