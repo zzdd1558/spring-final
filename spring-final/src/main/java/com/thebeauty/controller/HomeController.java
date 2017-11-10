@@ -1,4 +1,4 @@
-package com.cosmetics;
+package com.thebeauty.controller;
 
 import java.util.Locale;
 
