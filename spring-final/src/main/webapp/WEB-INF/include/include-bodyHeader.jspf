@@ -1,0 +1,60 @@
+<%@ page pageEncoding="utf-8"%>
+<!-- Top menu -->
+<header>
+	<div class="w3-container "
+		style="max-width: 100%; margin: 0; padding: 0;">
+		<!-- 	<div class="w3-white w3-xlarge" style="max-width: 100%; margin: auto;"> -->
+		<!-- 		<div class="w3-center w3-padding-16">My Food</div> -->
+		<!-- 	</div> -->
+		<div class="headContainer" style="border-bottom: 1.7px solid #eecaca;">
+			<div class="w3-row">
+				<div class="w3-third">
+					<span><a href="#" class="w3-button" target="_blank"
+						id="gnbFirst">ENGLISH</a></span>
+				</div>
+				<h1 class="w3-third w3-center">
+					<a href="#"
+						onclick="location.replace('http://192.168.0.114:7664/final/')"><img
+						src="http://www.etudehouse.com/web_resource/front/images/common/logo.png"
+						alt="Etude House"></a>
+				</h1>
+				<div class="w3-third w3-center">
+					<span><a href="#" class="mall-button">로그인</a></span> <span><a
+						href="${pageContext.request.contextPath}/userJoin.do"
+						class="mall-button">회원가입</a></span> <span><a href="#"
+						class="mall-button">주문/배송 조회</a></span>
+				</div>
+			</div>
+		</div>
+		<div class="w3-center w3-light-gray"
+			style="border-bottom: 1.7px solid #eecaca;">
+			<div class=" w3-bar">
+				<a href="#" class="w3-bar-item w3-button ">OOOO</a> <a href="#"
+					class="w3-bar-item w3-button ">OOOO</a> <a href="#"
+					class="w3-bar-item w3-button ">OOOO</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Sidebar -->
+	<div id="mySidenav" class="w3-sidebar"
+		style="width: 40px; right: 0px; background: #717075;">
+		<a href="javascript:void(0)" onclick="OnOffNav()"
+			style="width: 10px; height: 55px; margin-left: -10px; background: no-repeat center url('w3images/quick_open.png') #717075; position: fixed; top: 50%;"></a>
+		<div class="">
+			<ul class="quickIconBox">
+				<li class="qk1"><a href="#"
+					onclick="fnOnclickTrack('quick','매장안내');"> 매장안내 </a></li>
+				<li class="qk2"><a href="#"
+					onclick="fnOnclickTrack('quick','매장안내');"> 매장안내 </a></li>
+				<li class="qk3"><a href="#"
+					onclick="fnOnclickTrack('quick','장바구니');"> 장바구니 </a></li>
+				<li class="qk4"><span> 최근본상품 <em>2</em>
+				</span></li>
+			</ul>
+		</div>
+		<div class="quickTop" id="quickTop">
+			<a href="#">상단으로</a>
+		</div>
+	</div>
+</header>
