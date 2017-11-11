@@ -3,91 +3,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="/WEB-INF/include/include-head.jspf"%>
+<%@ include file="/WEB-INF/include/include-header.jspf"%>
 <style type="text/css">
 body, h1, h2, h3, h4, h5, h6 {
 	font-family: "Karma", sans-serif
 }
+
 .w3-bar-block .w3-bar-item {
 	padding: 20px
 }
-.quickTop a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    background: url("w3images/quick_top_btn.png") no-repeat 0 center;
-    text-indent: -9999em;
-}
-#mySidenav .quickTop {
-    position: fixed;
-    bottom: 0;
-    width: 40px;
-    height: 45px;
-}
-.mall-content{
-    max-width: 80%;
-    margin: auto;
-}
-.mall-button {
-    border: none;
-    display: inline-block;
-    outline: 0;
-    padding: 9px 5px;
-    vertical-align: middle;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    background-color: inherit;
-    text-align: center;
-    cursor: pointer;
-    white-space: nowrap;
+
+.mall-content {
+	max-width: 80%;
+	margin: auto;
 }
 
+.mall-button {
+	border: none;
+	display: inline-block;
+	outline: 0;
+	padding: 9px 5px;
+	vertical-align: middle;
+	overflow: hidden;
+	text-decoration: none;
+	color: inherit;
+	background-color: inherit;
+	text-align: center;
+	cursor: pointer;
+	white-space: nowrap;
+}
 </style>
 </head>
 
 <body>
 	<!-- Header -->
-	<header>
-		<%@ include file="/WEB-INF/include/include-header.jspf"%>
-	</header>
-	
+
+	<%@ include file="/WEB-INF/include/include-bodyHeader.jspf"%>
 	<!-- 전체 div 잡아서 크기 조절 -->
-	<div class="wrap"style="max-width: 100%; margin: 0; padding: 0;">
+	<div class="wrap" style="max-width: 100%; margin: 0; padding: 0;">
 
-	<!-- Sidebar -->
-	<div id="mySidenav" class="w3-sidebar"
-		style="width: 40px; right: 0px; background: #717075;" >
-		<a href="javascript:void(0)" onclick="OnOffNav()"
-			style="width: 10px; height: 55px; margin-left: -10px; background:no-repeat center url('w3images/quick_open.png') #717075 ; position: fixed; top: 50%;"></a>
-		<div class="">
-		<ul class="quickIconBox">
-				<li class="qk1">
-				<a href="#" onclick="fnOnclickTrack('quick','매장안내');"> 매장안내 </a>
-				</li>
-				<li class="qk2">
-				<a href="#" onclick="fnOnclickTrack('quick','매장안내');"> 매장안내 </a>
-				</li>
-				<li class="qk3">
-					<a href="#" onclick="fnOnclickTrack('quick','장바구니');"> 장바구니 </a>
-				</li>
-				<li class="qk4">
-					<span> 최근본상품 <em>2</em> </span>
-				</li>
-			</ul>
-		</div>
-		<div class="quickTop" id="quickTop">
-		<a href="#">상단으로</a>
-		</div>
-	</div>
 
-	<!-- !MAIN CONTENTS! -->
-	<!-- SlideShow -->
+
+		<!-- !MAIN CONTENTS! -->
+		<!-- SlideShow -->
 		<div class="w3-display-container" style="width: 100%">
-			<img class="mySlides" src="./w3images/20171101172031244.jpg" style="width: 100%"> 
-			<img class="mySlides" src="./w3images/20171108105539245.jpg" style="width: 100%"> 
-			<img class="mySlides" src="./w3images/20171101172355313.jpg" style="width: 100%">
+			<img class="mySlides" src="./w3images/20171101172031244.jpg"
+				style="width: 100%"> <img class="mySlides"
+				src="./w3images/20171108105539245.jpg" style="width: 100%"> <img
+				class="mySlides" src="./w3images/20171101172355313.jpg"
+				style="width: 100%">
 			<div
 				class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle"
 				style="width: 100%">
@@ -178,9 +142,9 @@ body, h1, h2, h3, h4, h5, h6 {
 			<!-- //Pagination -->
 		</div>
 		<!-- //!PAGE CONTENT! -->
-		
-		
-		
+
+
+
 
 		<!-- About Section -->
 		<hr id="about">
@@ -216,64 +180,44 @@ body, h1, h2, h3, h4, h5, h6 {
 
 
 		<!-- Footer -->
-		<footer class="w3-row-padding w3-padding-32">
 		<%@ include file="/WEB-INF/include/include-footer.jspf"%>
-		</footer>
 		<!-- //Footer -->
 	</div>
-	
-	
+
+
 	<script type="text/javascript">
-	//------------------------SideBar script-----------------------
-	var flag=true;
-	function OnOffNav() {
-		//left: 50%; margin-left: -20px;
-		if(flag){
-		    document.getElementById("mySidenav").style.width = "8%";
-//	 	    document.getElementById("main").style.width = "92%";
-			document.getElementById("quickTop").style.marginLeft ="2.7%";
-			flag=false;
-		}else{
-			document.getElementById("mySidenav").style.width = "40px";
-//	 	    document.getElementById("main").style.width= "96%";
-			document.getElementById("quickTop").style.marginLeft ="0px";
-		    flag=true;
-		}
+		//  ------------------------SlideShow script------------------------
+		var slideIndex = 1;
+		showDivs(slideIndex);
+		function plusDivs(n) {
+			showDivs(slideIndex += n);
 		}
 
-	//  ------------------------SlideShow script------------------------
-	var slideIndex = 1;
-	showDivs(slideIndex);
-	function plusDivs(n) {
-		showDivs(slideIndex += n);
-	}
+		function currentDiv(n) {
+			showDivs(slideIndex = n);
+		}
 
-	function currentDiv(n) {
-		showDivs(slideIndex = n);
-	}
-
-	function showDivs(n) {
-		var i;
-		var x = document.getElementsByClassName("mySlides");
-		var dots = document.getElementsByClassName("demo");
-		if (n > x.length) {
-			slideIndex = 1
+		function showDivs(n) {
+			var i;
+			var x = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("demo");
+			if (n > x.length) {
+				slideIndex = 1
+			}
+			if (n < 1) {
+				slideIndex = x.length
+			}
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			}
+			for (i = 0; i < dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" w3-white", "");
+			}
+			x[slideIndex - 1].style.display = "block";
+			dots[slideIndex - 1].className += " w3-white";
 		}
-		if (n < 1) {
-			slideIndex = x.length
-		}
-		for (i = 0; i < x.length; i++) {
-			x[i].style.display = "none";
-		}
-		for (i = 0; i < dots.length; i++) {
-			dots[i].className = dots[i].className.replace(" w3-white", "");
-		}
-		x[slideIndex - 1].style.display = "block";
-		dots[slideIndex - 1].className += " w3-white";
-	}
-	
 	</script>
-	
-	
+
+
 </body>
 </html>
