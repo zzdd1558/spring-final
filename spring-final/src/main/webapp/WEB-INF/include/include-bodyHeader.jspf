@@ -6,7 +6,7 @@
 		<!-- 	<div class="w3-white w3-xlarge" style="max-width: 100%; margin: auto;"> -->
 		<!-- 		<div class="w3-center w3-padding-16">My Food</div> -->
 		<!-- 	</div> -->
-		<div class="headContainer" style="border-bottom: 1.7px solid #eecaca;">
+		<div class="headContainer">
 			<div class="w3-row">
 				<div class="w3-third">
 					<span><a href="#" class="w3-button" target="_blank"
@@ -26,12 +26,12 @@
 				</div>
 			</div>
 		</div>
-		<div class="w3-center w3-light-gray"
-			style="border-bottom: 1.7px solid #eecaca;">
+		<div class="w3-center w3-light-white"
+			style="border-bottom: 1px solid #eecaca; border-top: 1px solid #eecaca;">
 			<div class=" w3-bar">
-				<a href="#" class="w3-bar-item w3-button ">OOOO</a> <a href="#"
-					class="w3-bar-item w3-button ">OOOO</a> <a href="#"
-					class="w3-bar-item w3-button ">OOOO</a>
+				<a href="#" class="w3-bar-item w3-button ">메뉴1</a> <a href="#"
+					class="w3-bar-item w3-button ">메뉴2</a> <a href="#"
+					class="w3-bar-item w3-button ">메뉴3</a>
 			</div>
 		</div>
 	</div>
