@@ -12,7 +12,9 @@ class InputKeyReg {
         this.REG_ID = /[^a-z0-9_-]/gi;
         this.REG_PASSWORD = /[^a-z0-9~!@#$%^&*]/gi;
         this.REG_EMAIL = /[^a-z0-9_\-@.]/gi;
-        this.REG_PHONE = /[^0-9]/gi;
+        
+        /* 오직 숫자만 가능*/
+        this.REG_ONLY_NUMBER = /[^0-9]/gi;
     }
 
     /* id keyup Event */
@@ -33,10 +35,10 @@ class InputKeyReg {
         uEmail.value = this.validRegex(regexp, emailValue);
     }
 
-    /* phone keyup Event */
-    keyUpPhone(phoneValue) {
-        let regexp = this.REG_PHONE;
-        uPhoneNumber.value = this.validRegex(regexp, phoneValue);
+    /* onlyNumber keyup Event */
+    keyUpOnlyNumber(thisObject , value) {
+        let regexp = this.REG_ONLY_NUMBER;
+        thisObject.value = this.validRegex(regexp, value);
     }
 
     /* 정규표현식 검사후 false면 ''로 치환 */
