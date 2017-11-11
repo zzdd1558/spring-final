@@ -15,4 +15,16 @@ public class HomeController {
 		return "main";   
 	}
 	
+	/* 회원가입 페이지 이동 */
+	@RequestMapping(value = "userJoin.do" , method = RequestMethod.GET)
+	public String userJoin() {
+		System.out.println("회원가입 페이지  호출");
+		return "userJoin";
+	}
+	@RequestMapping(value = "addressSearch.do")
+	public String addressSearch() {
+		System.out.println("addressSearch 호출");
+		return "addressSearch";
+	}
+	
 }
