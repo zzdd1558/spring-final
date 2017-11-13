@@ -20,6 +20,11 @@ a {
 	width: 40px;
 	height: 45px;
 }
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){
+		#mySidenav {
+			display: none;
+		}
+	}
 
 /* input태그 widt 부모 width에 100% , height는 40px; 고정  */
 input {
