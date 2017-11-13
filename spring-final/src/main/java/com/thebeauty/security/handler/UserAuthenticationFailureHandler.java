@@ -19,7 +19,7 @@ import org.springframework.stereotype.Component;
  *  로그인 실패시 onAuthenticationFailure 메소드가 자동 호출
  * */
 @Component //id="memberAuthenticationFailureHandler"
-public class MemberAuthenticationFailureHandler implements AuthenticationFailureHandler {
+public class UserAuthenticationFailureHandler implements AuthenticationFailureHandler {
 
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest req, HttpServletResponse res, AuthenticationException auth)

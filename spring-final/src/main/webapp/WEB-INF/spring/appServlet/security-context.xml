@@ -11,36 +11,22 @@
 
 
 
-	<security:http>
-		<security:intercept-url pattern="/*.do"
-			access="hasRole('USER')" />
-		<security:form-login />
-		<security:logout  />
+	<security:http use-expressions="true" auto-config="true">
+		<!-- <security:intercept-url pattern="/*.do" access="hasRole('USER')" /> -->
+		<security:form-login login-page="/loginForm"
+			login-processing-url="/login" username-parameter="id"
+			password-parameter="password" default-target-url="/"
+			authentication-failure-handler-ref="userAuthenticationFailureHandler" />
+		<security:logout invalidate-session="true"
+			delete-cookies="JSESSIONID" logout-url="/member/logout"
+			logout-success-url="/" />
 	</security:http>
 
-	<security:authentication-manager>
-		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="user" password="password"
-					authorities="ROLE_USER" />
-			</security:user-service>
-		</security:authentication-provider>
-	</security:authentication-manager>
 
-
-
-
-	<!-- <security:http use-expressions="true" auto-config="true"> <security:intercept-url 
-		pattern="/" access="isAuthenticated()" /> <security:form-login /> <security:logout 
-		/> -->
-	<!-- <security:form-login login-page="/loginForm" login-processing-url="/login" 
-		username-parameter="id" password-parameter="password" default-target-url="/" 
-		authentication-failure-handler-ref="memberAuthenticationFailureHandler" /> 
-		<security:logout invalidate-session="true" delete-cookies="JSESSIONID" logout-url="/member/logout" 
-		logout-success-url="/" /> </security:http> -->
 	<!-- 사용자 정보 조회 및 암호 비교를 위한 설정 -->
-	<!-- <security:authentication-manager> <security:authentication-provider 
-		ref="memberAuthenticationProvider" /> </security:authentication-manager> -->
+	<security:authentication-manager>
+		<security:authentication-provider ref="userAuthenticationProvider" />
+	</security:authentication-manager>
 
 </beans>
 
