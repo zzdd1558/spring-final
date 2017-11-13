@@ -1,5 +1,8 @@
 package com.thebeauty.model.service;
 
-public class UserJoinService {
+
+public interface UserJoinService {
 	
+	/** 회원가입 */
+	public abstract int userJoin();
 }

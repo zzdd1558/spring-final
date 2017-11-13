@@ -12,8 +12,8 @@
 
 
 	<security:http use-expressions="true" auto-config="true">
-		<!-- <security:intercept-url pattern="/*.do" access="hasRole('USER')" /> -->
-		<security:form-login login-page="/loginForm"
+		<security:intercept-url pattern="/userJoin1.do" access="hasRole('USER')" /> 
+		<security:form-login login-page="/userLogin.do"
 			login-processing-url="/login" username-parameter="id"
 			password-parameter="password" default-target-url="/"
 			authentication-failure-handler-ref="userAuthenticationFailureHandler" />
