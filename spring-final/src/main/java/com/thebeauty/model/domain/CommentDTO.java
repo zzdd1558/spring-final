@@ -1,22 +1,21 @@
 package com.thebeauty.model.domain;
 
-
 /**
- * @author ÀÓ´ëÈ£
- * @»ı¼ºÀÏ : 2017-11-10
+ * @author ì„ëŒ€í˜¸
+ * @ìƒì„±ì¼ : 2017-11-10
  * 
  * TABLE : COMMENT_TB
- *  - ´ñ±Û °Ô½ÃÆÇ
+ *  - ëŒ“ê¸€ ê²Œì‹œíŒ
  *  
  * COLUMN : 
- *  - COMMENT_NUM : ´ñ±Û ±Û¹øÈ£
- *  - COMMENT_BOARD : °Ô½Ã±Û ¹øÈ£
- *  - COMMENT_ID : ´ñ±Û ÀÛ¼ºÀÚ
- *  - COMMENT_DATE : ´ñ±Û ÀÛ¼ºÀÏ
- *  - COMMENT_PARENT : ºÎ¸ğ ´ñ±Û ¹øÈ£
- *  - COMMENT_CONTENT : ´ñ±Û ³»¿ë
- *  - COMMENT_LEV : ´ñ±Û ±íÀÌ
- *  - COMMENT_RE_SEQ : ´ñ±Û ¼ø¼­
+ *  - COMMENT_NUM : ëŒ“ê¸€ ê¸€ë²ˆí˜¸
+ *  - COMMENT_BOARD : ê²Œì‹œê¸€ ë²ˆí˜¸
+ *  - COMMENT_ID : ëŒ“ê¸€ ì‘ì„±ì
+ *  - COMMENT_DATE : ëŒ“ê¸€ ì‘ì„±ì¼
+ *  - COMMENT_PARENT : ë¶€ëª¨ ëŒ“ê¸€ ë²ˆí˜¸
+ *  - COMMENT_CONTENT : ëŒ“ê¸€ ë‚´ìš©
+ *  - COMMENT_LEV : ëŒ“ê¸€ ê¹Šì´
+ *  - COMMENT_RE_SEQ : ëŒ“ê¸€ ìˆœì„œ
  */
 public class CommentDTO {
 	private int commentNum; // COMMENT_NUM
@@ -28,7 +27,7 @@ public class CommentDTO {
 	private int commentLev; // COMMENT_LEV
 	private int commentReSeq; // COMMENT_RE_SEQ
 	
-	/* »ı¼ºÀú */
+	/* ìƒì„±ì */
 	public CommentDTO() {}
 
 	public CommentDTO(int commentNum, int commentBoard, String commentId, String commentDate, int commentParent,

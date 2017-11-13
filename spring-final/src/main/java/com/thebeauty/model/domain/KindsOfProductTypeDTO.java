@@ -1,17 +1,17 @@
 package com.thebeauty.model.domain;
 
 /**
- * @author ÃÖ À±Áø
- * @»ý¼ºÀÏ : 2017-11-10
+ * @author ìµœ ìœ¤ì§„
+ * @ìƒì„±ì¼ : 2017-11-10
  * TABLE : KINDS_OF_PRODUCT_TYPE_TB
- *  - µ¿ÀÏ È­ÀåÇ°ÀÇ »ö»ó ¹× ¿É¼Ç¿¡ ´ëÇÑ Å×ÀÌºí
+ *  - ë™ì¼ í™”ìž¥í’ˆì˜ ìƒ‰ìƒ ë° ì˜µì…˜ì— ëŒ€í•œ í…Œì´ë¸”
  *  
  * COLUMN : 
- * 	- CODE_OF_PROD :  »óÇ° ¿É¼Ç ÄÚµå
- *  - PROD_IDX : »óÇ°ÀÇ ÄÚµå
- *  - PROD_COUNT : »óÇ° Àç°í
- *  - PROD_PRICE : È­ÀåÇ° °¡°Ý
- *  - PROD_COLOR : ¿É¼Ç »ö»ó
+ *    - CODE_OF_PROD :  ìƒí’ˆ ì˜µì…˜ ì½”ë“œ
+ *  - PROD_IDX : ìƒí’ˆì˜ ì½”ë“œ
+ *  - PROD_COUNT : ìƒí’ˆ ìž¬ê³ 
+ *  - PROD_PRICE : í™”ìž¥í’ˆ ê°€ê²©
+ *  - PROD_COLOR : ì˜µì…˜ ìƒ‰ìƒ
  */
 
 public class KindsOfProductTypeDTO {
@@ -22,7 +22,7 @@ public class KindsOfProductTypeDTO {
 	private String prodPrice; // PROD_PRICE
 	private String prodColor; // PROD_COLOR
 
-	/* »ý¼ºÀÚ */
+	/* ìƒì„±ìž */
 	public KindsOfProductTypeDTO() {}
 	
 	public KindsOfProductTypeDTO(String codeOfProd, String prodIdx, String prodCount, String prodPrice,

@@ -2,22 +2,22 @@ package com.thebeauty.model.domain;
 
 
 /**
- * @author �Ӵ�ȣ
- * @������ : 2017-11-10
+ * @author 임대호
+ * @생성일 : 2017-11-10
  * 
  * TABLE : COSMETIC_PRODUCT_TB
- *  - ȭ��ǰ ��ǰ ���̺�
+ *  - 화장품 상품 테이블
  *  
  * COLUMN : 
- *  - PROD_IDX : ��ǰ�� �ڵ�
- *  - BRAND_TYPE_IDX : �귣�� �ڵ�
- *  - SUB_TYPE_IDX : ����Ÿ�� ��ȣ
- *  - FACE_TYPE_ID : �Ǻ�Ÿ�� ��ȣ
- *  - COSM_NAME : ȭ��ǰ �̸�
- *  - PA_VALUE : �ڿܼ� A ���� ����
- *  - SPF_VALUE : �ڿܼ� B ���� ����
- *  - PROD_INTRODUCE : ��ǰ �󼼼���
- *  - COSM_RELEASE_DATE : ȭ��ǰ �����
+ *  - PROD_IDX : 상품의 코드
+ *  - BRAND_TYPE_IDX : 브랜드 코드
+ *  - SUB_TYPE_IDX : 서브타입 번호
+ *  - FACE_TYPE_ID : 피부타입 번호
+ *  - COSM_NAME : 화장품 이름
+ *  - PA_VALUE : 자외선 A 차단 지수
+ *  - SPF_VALUE : 자외선 B 차단 지수
+ *  - PROD_INTRODUCE : 상품 상세설명
+ *  - COSM_RELEASE_DATE : 화장품 출시일
  */
 public class CosmeticProductDTO {
 	private int prodIdx; // PROD_IDX
@@ -30,7 +30,7 @@ public class CosmeticProductDTO {
 	private String prodIntroduce; // PROD_INTRODUCE
 	private String cosmReleaseDate; // COSM_RELEASE_DATE
 	
-	/* ������ */
+	/* 생성자 */
 	public CosmeticProductDTO() {}
 
 	public CosmeticProductDTO(int prodIdx, int brandTypeIdx, int subTypeIdx, int faceTypeId, String cosmName,

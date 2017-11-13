@@ -1,21 +1,21 @@
 package com.thebeauty.model.domain;
 
 /**
- * @author ÃÖ À±Áø
- * @»ý¼ºÀÏ : 2017-11-10
+ * @author ìµœ ìœ¤ì§„
+ * @ìƒì„±ì¼ : 2017-11-10
  * TABLE : ORDER_TB
- *  - ½ÇÁ¦ ÁÖ¹® Á¤º¸
+ *  - ì‹¤ì œ ì£¼ë¬¸ ì •ë³´
  *  
  * COLUMN : 
- * 	- ORDER_NUMBER : ÁÖ¹® ¹øÈ£
- * 	- ORDER_TOTAL_PRICE : »óÇ° ÃÑ °¡°Ý
- *  - ORDER_DATE : »óÇ° ÁÖ¹® ÀÏÀÚ
- *  - RES_NAME : ¹Þ´Â »ç¶÷ ÀÌ¸§
- *  - RES_PHONE : ¹Þ´Â »ç¶÷ ÈÞ´ëÆù¹øÈ£
- *  - RES_ADDR : ¹Þ´Â »ç¶÷ ¹è¼ÛÁö Á¤º¸
- *  - ORDER_REQUEST : ¹è¼ÛÁß ¿äÃ»»çÇ×
- *  - USER_KEY : È¸¿ø°íÀ¯¹øÈ£
- *  - DELI_STATUS_CODE : ¹è¼ÛÅ¸ÀÔ
+ *    - ORDER_NUMBER : ì£¼ë¬¸ ë²ˆí˜¸
+ *    - ORDER_TOTAL_PRICE : ìƒí’ˆ ì´ ê°€ê²©
+ *  - ORDER_DATE : ìƒí’ˆ ì£¼ë¬¸ ì¼ìž
+ *  - RES_NAME : ë°›ëŠ” ì‚¬ëžŒ ì´ë¦„
+ *  - RES_PHONE : ë°›ëŠ” ì‚¬ëžŒ íœ´ëŒ€í°ë²ˆí˜¸
+ *  - RES_ADDR : ë°›ëŠ” ì‚¬ëžŒ ë°°ì†¡ì§€ ì •ë³´
+ *  - ORDER_REQUEST : ë°°ì†¡ì¤‘ ìš”ì²­ì‚¬í•­
+ *  - USER_KEY : íšŒì›ê³ ìœ ë²ˆí˜¸
+ *  - DELI_STATUS_CODE : ë°°ì†¡íƒ€ìž…
  */
 
 public class OrderDTO {
@@ -30,7 +30,7 @@ public class OrderDTO {
 	private int userKey; // USER_KEY
 	private int deliStatusCode; // DELI_STATUS_CODE
 	
-	/* »ý¼ºÀÚ */
+	/* ìƒì„±ìž */
 	public OrderDTO() {}
 
 	public OrderDTO(int orderNumber, int orderTotalPrice, String orderorderDate, String resName, String resPhone,

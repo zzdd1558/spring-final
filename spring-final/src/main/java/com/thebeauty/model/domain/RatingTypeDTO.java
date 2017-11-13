@@ -1,23 +1,22 @@
 package com.thebeauty.model.domain;
 
 /**
- * @author ÃÖ À±Áø
- * @»ı¼ºÀÏ : 2017-11-10
+ * @author ìµœ ìœ¤ì§„
+ * @ìƒì„±ì¼ : 2017-11-10
  * TABLE : QUESTION_TB
- *  - È¸¿ø µî±Ş Å×ÀÌºí
+ *  - íšŒì› ë“±ê¸‰ í…Œì´ë¸”
  *  
  *  
  * COLUMN : 
- * 	- RATING_TYPE : È¸¿øÅ¸ÀÔ
- *  - RATING_NAME : È¸¿øµî±Ş
+ *    - RATING_TYPE : íšŒì›íƒ€ì…
+ *  - RATING_NAME : íšŒì›ë“±ê¸‰
  */
-
 
 public class RatingTypeDTO {
 	private String ratingType; // RATING_TYPE
 	private String ratingName; // RATING_NAME
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public RatingTypeDTO() {}
 
 	public RatingTypeDTO(String ratingType, String ratingName) {

@@ -1,21 +1,22 @@
 package com.thebeauty.model.domain;
 
 /**
- * @author ÃÖ À±Áø
- * @»ı¼ºÀÏ : 2017-11-10
+ * @author ìµœ ìœ¤ì§„
+ * @ìƒì„±ì¼ : 2017-11-10
  * TABLE : FAVORITE_COSMETIC_TB
- *  - Áñ°ÜÃ£±â ¹× ÁÁ¾Æ¿ä Ä«¿îÆ®¸¦ À§ÇÑ Å×ÀÌºí
+ *  - ì¦ê²¨ì°¾ê¸° ë° ì¢‹ì•„ìš” ì¹´ìš´íŠ¸ë¥¼ ìœ„í•œ í…Œì´ë¸”
  *  
  * COLUMN : 
- * 	- PROD_IDX : Áñ°ÜÃ£±â »óÇ°ÀÇ ÄÚµå
- *  - USER_KEY : Áñ°ÜÃ£±â È¸¿ø °íÀ¯ ¹øÈ£
+ *    - PROD_IDX : ì¦ê²¨ì°¾ê¸° ìƒí’ˆì˜ ì½”ë“œ
+ *  - USER_KEY : ì¦ê²¨ì°¾ê¸° íšŒì› ê³ ìœ  ë²ˆí˜¸
  */
+
 public class FavoriteCosmeticDTO {
 
 	private int prodIdx; // PROD_IDX
 	private int userKeyPkFk; // USER_KEY
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public FavoriteCosmeticDTO() {}
 	
 	public FavoriteCosmeticDTO(int prodIdx, int userKeyPkFk) {

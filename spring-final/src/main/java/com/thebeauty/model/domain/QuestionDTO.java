@@ -1,22 +1,21 @@
 package com.thebeauty.model.domain;
 
 /**
- * @author ÃÖ À±Áø
- * @»ı¼ºÀÏ : 2017-11-10
+ * @author ìµœ ìœ¤ì§„
+ * @ìƒì„±ì¼ : 2017-11-10
  * TABLE : QUESTION_TB
- *  - Áú¹® Å×ÀÌºí
+ *  - ì§ˆë¬¸ í…Œì´ë¸”
  *  
  * COLUMN : 
- * 	- QUESTION_KEY : Áú¹®Å¸ÀÔ
- *  - QUESTION_CONTENT : Áú¹®³»¿ë
+ *    - QUESTION_KEY : ì§ˆë¬¸íƒ€ì…
+ *  - QUESTION_CONTENT : ì§ˆë¬¸ë‚´ìš©
  */
-
 public class QuestionDTO {
 	
 	private int questionKey; // QUESTION_KEY
 	private String questionContent; // QUESTION_CONTENT
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public QuestionDTO() {	}
 
 	public QuestionDTO(int questionKey, String questionContent) {
