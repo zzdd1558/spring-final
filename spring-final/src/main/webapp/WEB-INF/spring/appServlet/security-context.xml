@@ -12,11 +12,15 @@
 
 
 	<security:http use-expressions="true" auto-config="true">
-		<security:intercept-url pattern="/userJoin1.do" access="hasRole('USER')" /> 
+	<!-- 접근 URL별 권한 설정 -->
+		<security:intercept-url pattern="/userJoin1.do" access="hasRole('USER')" />
+		
+	<!-- CUSTOM Login Form 설정 및 연동. --> 
 		<security:form-login login-page="/userLogin.do"
 			login-processing-url="/login" username-parameter="id"
 			password-parameter="password" default-target-url="/"
 			authentication-failure-handler-ref="userAuthenticationFailureHandler" />
+	<!-- logout관련 설정  (아직 확인해야할 부분 있음 )-->
 		<security:logout invalidate-session="true"
 			delete-cookies="JSESSIONID" logout-url="/member/logout"
 			logout-success-url="/" />
