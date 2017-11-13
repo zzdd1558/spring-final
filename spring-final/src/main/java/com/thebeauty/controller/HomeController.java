@@ -38,4 +38,10 @@ public class HomeController {
 		return "addressSearch";
 	}
 
+	/* 회원로그인 페이지 이동*/
+	@RequestMapping(value = "userLogin.do" , method = RequestMethod.GET)
+	public String userLogin() {
+		System.out.println("회원로그인 페이지 호출");
+		return "userLogin";
+	}
 }
