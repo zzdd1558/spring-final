@@ -7,7 +7,6 @@
 <title>회원가입</title>
 <%@ include file="/WEB-INF/include/include-header.jspf"%>
 
-<script src="${pageContext.request.contextPath}/utils/DateFormat.js"></script>
 <script src="${pageContext.request.contextPath}/utils/HttpRequest.js"></script>
 <script src="${pageContext.request.contextPath}/utils/InputValidator.js"></script>
 <script src="${pageContext.request.contextPath}/utils/InputKeyUpReg.js"></script>
@@ -62,7 +61,6 @@
 	width: 40px;
 	height: 40px;
 	text-align: center;
-	border: 1px solid #ccc;
 }
 
 .writeTitle {
@@ -117,13 +115,29 @@ ul li .answerBox {
 .answerBox .birthText {
 	width: 30%;
 }
+
+#addressBtn {
+	height: 40px;
+	line-height: 10px;
+}
+
+.w3-round-large{
+	height : 50px;
+	line-height:10px;
+	margin-right: 10px;
+}
+
+.serviceTitle{
+	border-bottom: 1px solid #cdc0c0a6;
+}
+
 </style>
 </head>
 <body>
 	<%@ include file="/WEB-INF/include/include-bodyHeader.jspf"%>
 	<div id='joinForm'>
-		<div class="w3-container">
-			<h5>회원 가입</h5>
+		<div class="w3-container serviceTitle">
+			<h3>회원 가입</h3>
 		</div>
 		<div class="w3-container">
 			<ul id='boxUl'>
@@ -135,7 +149,7 @@ ul li .answerBox {
 				</li>
 				<li>
 					<div class='questBox writeTitle'>아이디</div>
-					<div class='answerBox'>
+					<div class='answerBkox'>
 						<input type="text" name="u_id" id="u_id" placeholder="아이디">
 						<span style='font-size: 14px; color: gray'> 숫자 , 대·소문자 ,
 							특수문자( _- 만 사용가능)를 포함한 6 ~ 20자리의 아이디 </span>
@@ -162,12 +176,13 @@ ul li .answerBox {
 					<div class='writeBirth'>
 						<div class='answerBox'>
 							<div class='birthText'>
-								<input type=text maxlength="6" placeholder="예시) 930925 " id='u_birth_front'>
+								<input type=text maxlength="6" placeholder="예시) 930925 "
+									id='u_birth_front'>
 							</div>
 							<div class='hyphen'>-</div>
 							<div class='birthText'>
-								<input type="text" maxlength="1" class='birthGender' id='u_birth_gender'> *
-								* * * * *
+								<input type="text" maxlength="1" class='birthGender'
+									id='u_birth_gender'> * * * * * *
 							</div>
 						</div>
 					</div>
@@ -194,13 +209,11 @@ ul li .answerBox {
 							type="text" name="u_address" id="u_address_part" class='subAddr'
 							placeholder="도로명 주소" readonly="readonly"> <input
 							type="text" name="u_address" id="u_address_detail"
-							class='subAddr' placeholder="상세 주소 ">
-							
-							<input
+							class='subAddr' placeholder="상세 주소 "> <input
 							type="hidden" name="u_address_full" id="u_address_full" value=''>
-							
-							
-						<button onclick="addressPopup();">우편번호 조회</button>
+
+
+						<button id='addressBtn' onclick="addressPopup();">우편번호 조회</button>
 					</div>
 				</li>
 
@@ -212,7 +225,10 @@ ul li .answerBox {
 				</li>
 
 				<li>
-					<div>가입 취소</div>
+					<div class='answerBox w3-center' >
+						<button type="button" class="w3-button w3-white w3-border w3-round-large">가  입</button>
+						<button type="button" class="w3-button w3-white w3-border w3-round-large">취  소</button>
+					</div>
 				</li>
 			</ul>
 		</div>
