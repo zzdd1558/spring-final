@@ -73,10 +73,20 @@ input[type='text'], input[type='password'], input[type='number'] {
 }
 
 #joinForm {
-	width: 70%;
+	width: 50%;
  	margin-left: auto; 
 	margin-right: auto;
 }
+			@media only screen and (min-device-width : 481px) and (max-device-width : 700px){
+					#joinForm {
+						width: 70%;
+					}
+				}
+			@media only screen and (max-device-width : 480px){
+					#joinForm {
+						width: 101%;
+					}
+				}
 
 .w3-container>ul>li {
 	border-bottom: 1px solid #e5e5e5;
@@ -135,7 +145,7 @@ input[type='text'], input[type='password'], input[type='number'] {
 				<li>
 					<div class=" writeTitle">생년월일</div>
 					<div class='writeBirth'>
-							<div class='birthText' style="width:100px">
+							<div class='birthText'>
 								<input type=text maxlength="6" placeholder="예시) 930925 "
 									id='u_birth_front'>
 							</div>
@@ -161,8 +171,8 @@ input[type='text'], input[type='password'], input[type='number'] {
 				</li>
 
 				<li>
-						<div class="g-recaptcha" data-sitekey="6Le_WjcUAAAAACFZKaslkmpP5-Jcfl9H88AK6xhQ" style=" width: 100%;">
-							<div style="width: 304px; height: 78px;"><div><iframe src="https://www.google.com/recaptcha/api2/anchor?k=6Le_WjcUAAAAACFZKaslkmpP5-Jcfl9H88AK6xhQ&amp;co=aHR0cDovL2xvY2FsaG9zdDo3NjY0&amp;hl=ko&amp;v=r20171109115411&amp;size=normal&amp;cb=g82a3p6pklb0" width="304" height="78" role="presentation" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea></div>
+						<div class="g-recaptcha" data-sitekey="6Le_WjcUAAAAACFZKaslkmpP5-Jcfl9H88AK6xhQ" style=" width: 320px;">
+					<div><iframe src="https://www.google.com/recaptcha/api2/anchor?k=6Le_WjcUAAAAACFZKaslkmpP5-Jcfl9H88AK6xhQ&amp;co=aHR0cDovL2xvY2FsaG9zdDo3NjY0&amp;hl=ko&amp;v=r20171109115411&amp;size=normal&amp;cb=g82a3p6pklb0" width="100%" height="78" role="presentation" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid #c1c1c1; margin: 10px 25px; padding: 0px; resize: none;  display: none; "></textarea>
 						</div>
 				</li>
 

@@ -9,27 +9,24 @@
 <style>
 /* Style all input fields */
 
-body {
-	font-family: 'Noto', 'dotum', '돋움', 'verdana', 'sans-serif';
-	font-size: 14px;
-	color : #666;
-}
-
-input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    font-size: 16px;
-}
-
+/* body { */
+/* 	font-family: 'Noto', 'dotum', '돋움', 'verdana', 'sans-serif'; */
+/* 	font-size: 14px; */
+/* 	color : #666; */
+/* } */
+ input { 
+    width: 100%; 
+     padding: 12px; 
+     border: 1px solid #ccc; 
+     border-radius: 4px; 
+     box-sizing: border-box; 
+     margin-top: 6px; 
+    margin-bottom: 16px; 
+    font-size: 16px; 
+ } 
 label {
 	color: #999;
 }
-
 /* Style the submit button */
 input[type=submit] {
     background-color: #f54a7e;
@@ -43,62 +40,24 @@ input[type=submit] {
 	
     
 }
-
+.loginlink{
+	font-size: 14px;
+}
 .loginWrap {
-	width : 25%;
+	width :414px;
 	margin : auto;
     background-color: #ffebec;
     padding: 20px;
 	
 }
-
+@media only screen and (max-device-width : 413px){
+		.loginWrap{width :320px;}
+		.loginlink{font-size: 11px;}
+	}
 .loginBox {
 	text-align: center;
 	color : #999;
 }
-
-.txtLink {
-	overflow : hidden;
-	padding-top : 10px;
-	height : 35px;
-	border-top: 1px solid #f5f5f5;
-	border-bottom: 1px solid #f5f5f5;	
-}
-
-.txtLink li {
-	display: inline-block;
-	height : 15px;
-	line-height: 15px;
-	padding-right: 10px;
-	margin: auto;
-	vertical-align: middle;
-	text-align: center;
-	border-right: 1px solid #e5e5e5;
-}
-
-.txtLink li a {
-	font-size: 14px;
-	font-weight: 500;
-	color : #666;
-}
-
-ul, li {
-	list-style: none;
-}
-
-ul {
-	display: block;
-}
-
-li {
-	display: list-item;
-}
-
-a {
-	display: block;
-	text-decoration: none;
-}
-
 
 </style>
 </head>
@@ -122,11 +81,11 @@ a {
 
 				<input type="submit" value="로그인">
 			</form>
-				<ul class="txtLink">
-					<li><a href="#">아이디 찾기</a></li>
-					<li><a href="#">비밀번호 찾기</a></li>
-					<li><a href="#">회원가입</a></li>
-				</ul>
+				<div class="w3-bar loginlink w3-center"  >
+					<button class="w3-button">아이디찾기</button>
+					<button class="w3-button">비밀번호찾기</button>
+					<button class="w3-button">회원가입</button>
+				</div>
 		</div>
 		</div>
 

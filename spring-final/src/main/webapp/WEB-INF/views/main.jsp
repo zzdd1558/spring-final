@@ -4,37 +4,7 @@
 <html>
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf"%>
-<style type="text/css">
-body, h1, h2, h3, h4, h5, h6 {
-	font-family: "Karma", sans-serif
-}
-
-.w3-bar-block .w3-bar-item {
-	padding: 20px
-}
-
-.mall-content {
-	max-width: 80%;
-	margin: auto;
-}
-
-.mall-button {
-	border: none;
-	display: inline-block;
-	outline: 0;
-	padding: 9px 5px;
-	vertical-align: middle;
-	overflow: hidden;
-	text-decoration: none;
-	color: inherit;
-	background-color: inherit;
-	text-align: center;
-	cursor: pointer;
-	white-space: nowrap;
-}
-</style>
 </head>
-
 <body>
 	<!-- Header -->
 
