@@ -149,7 +149,7 @@ ul li .answerBox {
 				</li>
 				<li>
 					<div class='questBox writeTitle'>아이디</div>
-					<div class='answerBkox'>
+					<div class='answerBox'>
 						<input type="text" name="u_id" id="u_id" placeholder="아이디">
 						<span style='font-size: 14px; color: gray'> 숫자 , 대·소문자 ,
 							특수문자( _- 만 사용가능)를 포함한 6 ~ 20자리의 아이디 </span>
