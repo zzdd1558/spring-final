@@ -2,22 +2,22 @@ package com.thebeauty.model.domain;
 
 
 /**
- * @author ÀÓ´ëÈ£
- * @»ı¼ºÀÏ : 2017-11-10
+ * @author ì„ëŒ€í˜¸
+ * @ìƒì„±ì¼ : 2017-11-10
  * 
  * TABLE : FACE_TYPE_TB
- *  - ÇÇºÎÅ¸ÀÔ Å×ÀÌºí
+ *  - í”¼ë¶€íƒ€ì… í…Œì´ë¸”
  *  
  * COLUMN : 
- *  - FACE_TYPE_IDX : ÇÇºÎÅ¸ÀÔ ¹øÈ£
- *  - FACE_NAME : ÇÇºÎÅ¸ÀÔ ÀÌ¸§	
+ *  - FACE_TYPE_IDX : í”¼ë¶€íƒ€ì… ë²ˆí˜¸
+ *  - FACE_NAME : í”¼ë¶€íƒ€ì… ì´ë¦„   
  */
 
 public class FaceTypeDTO {
 	private int faceTypeIdx; // FACE_TYPE_IDX
 	private String faceName; // FACE_NAME
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public FaceTypeDTO() {}
 
 	public FaceTypeDTO(int faceTypeIdx, String faceName) {

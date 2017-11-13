@@ -2,21 +2,21 @@ package com.thebeauty.model.domain;
 
 
 /**
- * @author ÀÓ´ëÈ£
- * @»ı¼ºÀÏ : 2017-11-10
+ * @author ì„ëŒ€í˜¸
+ * @ìƒì„±ì¼ : 2017-11-10
  * 
  * TABLE : BOARD_TYPE_TB
- * 	- °Ô½ÃÆÇ Å¸ÀÔ Å×ÀÌºí
+ *    - ê²Œì‹œíŒ íƒ€ì… í…Œì´ë¸”
  * 
  * COLUMN : 
- *  - BOARD_TYPE : °Ô½Ã±Û Å¸ÀÔ
- *  - BOARD_NAME : °Ô½ÃÆÇ ÀÌ¸§
+ *  - BOARD_TYPE : ê²Œì‹œê¸€ íƒ€ì…
+ *  - BOARD_NAME : ê²Œì‹œíŒ ì´ë¦„
  */
 public class BoardTypeDTO {
 	private String boardType; // BOARD_TYPE
 	private String boardName; // BOARD_NAME
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public BoardTypeDTO() {}
 
 	public BoardTypeDTO(String boardType, String boardName) {

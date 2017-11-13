@@ -1,20 +1,19 @@
 package com.thebeauty.model.domain;
 
 /**
- * @author ÃÖ À±Áø
- * @»ı¼ºÀÏ : 2017-11-10
+ * @author ìµœ ìœ¤ì§„
+ * @ìƒì„±ì¼ : 2017-11-10
  * TABLE : SHOPPING_BASKET_TB
- *  - È¸¿ø Àå¹Ù±¸´Ï Å×ÀÌºí
+ *  - íšŒì› ì¥ë°”êµ¬ë‹ˆ í…Œì´ë¸”
  *  
  *  
  * COLUMN : 
- * 	- BASKET_IDX : Àå¹Ù±¸´Ï ÀÎµ¦½º
- *  - USER_KEY : È¸¿ø °íÀ¯ ¹øÈ£
- *  - KINDS_OF_PROD : »óÇ° ¿É¼Ç ÄÚµå
- *  - TOTAL_COUNT : »óÇ°¼ö·®
- *  - BASKET_DATE : »óÇ° ´ãÀº ³¯Â¥
+ *    - BASKET_IDX : ì¥ë°”êµ¬ë‹ˆ ì¸ë±ìŠ¤
+ *  - USER_KEY : íšŒì› ê³ ìœ  ë²ˆí˜¸
+ *  - KINDS_OF_PROD : ìƒí’ˆ ì˜µì…˜ ì½”ë“œ
+ *  - TOTAL_COUNT : ìƒí’ˆìˆ˜ëŸ‰
+ *  - BASKET_DATE : ìƒí’ˆ ë‹´ì€ ë‚ ì§œ
  */
-
 public class ShoppingBasketDTO {
 	
 	private int basketIdx;		 // BASKET_IDX
@@ -23,7 +22,7 @@ public class ShoppingBasketDTO {
 	private String totalCount; 	 // TOTAL_COUNT
 	private String basketDate; 	 // BASKET_DATE
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public ShoppingBasketDTO() {}
 
 	public ShoppingBasketDTO(int basketIdx, int userKey, String kindsOfProd, String totalCount, String basketDate) {

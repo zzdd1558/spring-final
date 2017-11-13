@@ -2,26 +2,26 @@ package com.thebeauty.model.domain;
 
 
 /**
- * @author ÀÓ´ëÈ£
- * @»ý¼ºÀÏ : 2017-11-10
+ * @author ìž„ëŒ€í˜¸
+ * @ìƒì„±ì¼ : 2017-11-10
  * TABLE : BOARD_TB
- * 	- °Ô½ÃÆÇ Å×ÀÌºí
+ *    - ê²Œì‹œíŒ í…Œì´ë¸”
  * 
  * COLUMN :
- *  - BOARD_IDX : °Ô½Ã±Û ¹øÈ£
- *  - BOARD_SUBJECT : ±Û Á¦¸ñ
- *  - BOARD_CONTENT : ±Û ³»¿ë
- *  - BOARD_FILE : Ã·ºÎÆÄÀÏ ÀÌ¸§
- *  - BOARD_RE_REF : ±Û ±×·ì ¹øÈ£
- *  - BOARD_LEV : ´äº¯±Û ±íÀÌ
- *  - BOARD_RE_SEQ : ´äº¯±Û ¼ø¼­
- *  - BOARD_COUNT : ±Û Á¶È¸¼ö
- *  - BOARD_DATE : ÀÛ¼º½Ã°£
- *  - BOARD_TYPE : °Ô½Ã±Û Å¸ÀÔ
- *  - BOARD_COSMETIC_NUM : »óÇ°¹øÈ£
- *  - BOARD_PARENT : ºÎ¸ð±Û ¹øÈ£
- *  - BOARD_USE_SCORE : »ç¿ë ÆòÁ¡
- *  - USER_KEY : È¸¿ø°íÀ¯¹øÈ£
+ *  - BOARD_IDX : ê²Œì‹œê¸€ ë²ˆí˜¸
+ *  - BOARD_SUBJECT : ê¸€ ì œëª©
+ *  - BOARD_CONTENT : ê¸€ ë‚´ìš©
+ *  - BOARD_FILE : ì²¨ë¶€íŒŒì¼ ì´ë¦„
+ *  - BOARD_RE_REF : ê¸€ ê·¸ë£¹ ë²ˆí˜¸
+ *  - BOARD_LEV : ë‹µë³€ê¸€ ê¹Šì´
+ *  - BOARD_RE_SEQ : ë‹µë³€ê¸€ ìˆœì„œ
+ *  - BOARD_COUNT : ê¸€ ì¡°íšŒìˆ˜
+ *  - BOARD_DATE : ìž‘ì„±ì‹œê°„
+ *  - BOARD_TYPE : ê²Œì‹œê¸€ íƒ€ìž…
+ *  - BOARD_COSMETIC_NUM : ìƒí’ˆë²ˆí˜¸
+ *  - BOARD_PARENT : ë¶€ëª¨ê¸€ ë²ˆí˜¸
+ *  - BOARD_USE_SCORE : ì‚¬ìš© í‰ì 
+ *  - USER_KEY : íšŒì›ê³ ìœ ë²ˆí˜¸
  */
 public class BoardDTO {
 	private int boardIdx; // BOARD_IDX
@@ -39,7 +39,7 @@ public class BoardDTO {
 	private int boardUseScore; // BOARD_USE_SCORE
 	private int boardUserKey; // USER_KEY
 	
-	/* »ý¼ºÀÚ */
+	/* ìƒì„±ìž */
 	public BoardDTO() {}
 
 	public BoardDTO(int boardIdx, String boardSubject, String boardContent, String boardFile, int boardReRef,

@@ -2,21 +2,21 @@ package com.thebeauty.model.domain;
 
 
 /**
- * @author ÀÓ´ëÈ£
- * @»ı¼ºÀÏ : 2017-11-10
+ * @author ì„ëŒ€í˜¸
+ * @ìƒì„±ì¼ : 2017-11-10
  * TABLE - COSMETIC_BRAND_TB
- * 	: È­ÀåÇ° ºê·£µå Å×ÀÌºí
+ *    : í™”ì¥í’ˆ ë¸Œëœë“œ í…Œì´ë¸”
  * 
  * COLUMN :
- *  - BRANDTYPE_IDX : ºê·£µå ÄÚµå
- *  - BRANDTYPE_NAME : ºê·£µå¸í
+ *  - BRANDTYPE_IDX : ë¸Œëœë“œ ì½”ë“œ
+ *  - BRANDTYPE_NAME : ë¸Œëœë“œëª…
  *
  */
 public class CosmeticBrandDTO {
 	private int brandTypeIdx; //BRANDTYPE_IDX
 	private String brandTypeName; //BRANDTYPE_NAME
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public CosmeticBrandDTO() {}
 
 	public CosmeticBrandDTO(int brandTypeIdx, String brandTypeName) {

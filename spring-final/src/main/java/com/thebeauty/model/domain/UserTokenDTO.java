@@ -2,21 +2,21 @@ package com.thebeauty.model.domain;
 
 
 /**
- * @author ÃÖ À±Áø
- * @»ı¼ºÀÏ : 2017-11-10
+ * @author ìµœ ìœ¤ì§„
+ * @ìƒì„±ì¼ : 2017-11-10
  * TABLE : USER_TOKEN_TB
- *  - È¸¿ø°¡ÀÔ ¹× ºñ¹Ğ¹øÈ£¸¦ Ã£±â À§ÇÑ ¸µÅ© Å×ÀÌºí
+ *  - íšŒì›ê°€ì… ë° ë¹„ë°€ë²ˆí˜¸ë¥¼ ì°¾ê¸° ìœ„í•œ ë§í¬ í…Œì´ë¸”
  *  
  * COLUMN : 
- * 	- USER_KEY_PK_FK : È¸¿ø °íÀ¯¹øÈ£
- *  - USER_TOKEN : È¸¿ø ½ÂÀÎ ÅäÅ«
+ *    - USER_KEY_PK_FK : íšŒì› ê³ ìœ ë²ˆí˜¸
+ *  - USER_TOKEN : íšŒì› ìŠ¹ì¸ í† í°
  */
 public class UserTokenDTO {
 
 	private int userKeyPkFk; // USER_KEY_PK_FK
 	private String userToken; // USER_TOKEN
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public UserTokenDTO() {	}
 
 	public UserTokenDTO(int userKeyPkFk, String userToken) {

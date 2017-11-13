@@ -1,15 +1,15 @@
 package com.thebeauty.model.domain;
 
 /**
- * @author ÃÖ À±Áø
- * @»ı¼ºÀÏ : 2017-11-10
+ * @author ìµœ ìœ¤ì§„
+ * @ìƒì„±ì¼ : 2017-11-10
  * TABLE : PRODUCT_IMAGE_PATH_TB
- *  - »óÇ° ¿É¼Ç¿¡´ëÇÑ °¢°¢ÀÇ ÀÌ¹ÌÁö
+ *  - ìƒí’ˆ ì˜µì…˜ì—ëŒ€í•œ ê°ê°ì˜ ì´ë¯¸ì§€
  *  
  * COLUMN : 
- * 	- NUM_OF_PROD_IDX : ÀÌ¹ÌÁö ¹øÈ£
- *  - CODE_OF_PROD : »óÇ° ¿É¼Ç ÄÚµå
- *  - PATH_OF_IMAGE : »óÇ° ÀÌ¹ÌÁö °æ·Î
+ *    - NUM_OF_PROD_IDX : ì´ë¯¸ì§€ ë²ˆí˜¸
+ *  - CODE_OF_PROD : ìƒí’ˆ ì˜µì…˜ ì½”ë“œ
+ *  - PATH_OF_IMAGE : ìƒí’ˆ ì´ë¯¸ì§€ ê²½ë¡œ
  */
 
 public class ProductImagePathDTO {
@@ -18,7 +18,7 @@ public class ProductImagePathDTO {
 	private String codeOfProd;	// CODE_OF_PROD
 	private String pathOfImage;	// PATH_OF_IMAGE
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public ProductImagePathDTO() {}
 
 	public ProductImagePathDTO(int numOfProdIdx, String codeOfProd, String pathOfImage) {

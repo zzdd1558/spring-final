@@ -1,18 +1,17 @@
 package com.thebeauty.model.domain;
 
 /**
- * @author ÃÖ À±Áø
- * @»ı¼ºÀÏ : 2017-11-10
+ * @author ìµœ ìœ¤ì§„
+ * @ìƒì„±ì¼ : 2017-11-10
  * TABLE : ORDER_ITEM_TB
- *  - ÁÖ¹®ÇÑ »óÇ°¿¡ ´ëÇÑ Á¤º¸
+ *  - ì£¼ë¬¸í•œ ìƒí’ˆì— ëŒ€í•œ ì •ë³´
  *  
  * COLUMN : 
- * 	- ORDER_ITEM_NUM : ÁÖ¹® »óÇ° ¹øÈ£
- *  - ORDER_NUM : ÁÖ¹® ¹øÈ£
- *  - CODE_OF_PROD : »óÇ° ¿É¼Ç ÄÚµå
- *  - ORDER_ITEM_COUNT : ÁÖ¹® ¼ö·®
+ *    - ORDER_ITEM_NUM : ì£¼ë¬¸ ìƒí’ˆ ë²ˆí˜¸
+ *  - ORDER_NUM : ì£¼ë¬¸ ë²ˆí˜¸
+ *  - CODE_OF_PROD : ìƒí’ˆ ì˜µì…˜ ì½”ë“œ
+ *  - ORDER_ITEM_COUNT : ì£¼ë¬¸ ìˆ˜ëŸ‰
  */
-
 public class OrderItemDTO {
 	
 	private int orderItemNum; // ORDER_ITEM_NUM
@@ -21,7 +20,7 @@ public class OrderItemDTO {
 	private int orderItemCount; // ORDER_ITEM_COUNT
 	
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public OrderItemDTO() {}
 	
 	public OrderItemDTO(int orderItemNum, int orderNum, int codeOfProd, int orderItemCount) {

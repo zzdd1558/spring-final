@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+
+	<context:component-scan
+		base-package="com.thebeauty.security.handler,com.thebeauty.security.provider" />
+
+
+
+	<security:http>
+		<security:intercept-url pattern="/*.do"
+			access="hasRole('USER')" />
+		<security:form-login />
+		<security:logout />
+	</security:http> <!-- provider -->
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="user" password="password"
+					authorities="ROLE_USER" />
+			</security:user-service>
+		</security:authentication-provider>
+	</security:authentication-manager>
+
+
+
+	<security:http use-expressions="true" auto-config="true">
+		<security:intercept-url pattern="/**"
+			access="isAuthenticated()" />
+		<security:form-login />
+		<security:logout />
+		<!-- <security:form-login login-page="/loginForm" login-processing-url="/login" 
+			username-parameter="id" password-parameter="password" default-target-url="/" 
+			authentication-failure-handler-ref="memberAuthenticationFailureHandler" /> 
+			<security:logout invalidate-session="true" delete-cookies="JSESSIONID" logout-url="/member/logout" 
+			logout-success-url="/" /> -->
+	</security:http>
+	<!-- 사용자 정보 조회 및 암호 비교를 위한 설정 -->
+	<!-- <security:authentication-manager> <security:authentication-provider 
+		ref="memberAuthenticationProvider" /> </security:authentication-manager> -->
+
+</beans>
+
+

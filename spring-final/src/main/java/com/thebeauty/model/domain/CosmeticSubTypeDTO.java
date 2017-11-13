@@ -2,16 +2,16 @@ package com.thebeauty.model.domain;
 
 
 /**
- * @author ÀÓ´ëÈ£
- * @»ı¼ºÀÏ : 2017-11-10
+ * @author ì„ëŒ€í˜¸
+ * @ìƒì„±ì¼ : 2017-11-10
  * 
  * TABLE : COSMETIC_SUB_TYPE_TB
- * 	- È­ÀåÇ° ÁßºĞ·ù Å×ÀÌºí
+ *    - í™”ì¥í’ˆ ì¤‘ë¶„ë¥˜ í…Œì´ë¸”
  * 
  * COLUMN : 
- *  - MAIN_TYPE_IDX : ¸ŞÀÎÅ¸ÀÔ¹øÈ£
- *  - SUB_TYPE_IDX : ¼­ºêÅ¸ÀÔ¹øÈ£
- *  - SUB_TYPE_NAME : ¼­ºêÅ¸ÀÔÀÌ¸§
+ *  - MAIN_TYPE_IDX : ë©”ì¸íƒ€ì…ë²ˆí˜¸
+ *  - SUB_TYPE_IDX : ì„œë¸Œíƒ€ì…ë²ˆí˜¸
+ *  - SUB_TYPE_NAME : ì„œë¸Œíƒ€ì…ì´ë¦„
  *
  */
 public class CosmeticSubTypeDTO {
@@ -19,7 +19,7 @@ public class CosmeticSubTypeDTO {
 	private int subTypeIdx; // SUB_TYPE_IDX
 	private String subTypeName; // SUB_TYPE_NAME
 	
-	/* »ı¼ºÀÚ */
+	/* ìƒì„±ì */
 	public CosmeticSubTypeDTO() {}
 
 	public CosmeticSubTypeDTO(int mainTypeIdx, int subTypeIdx, String subTypeName) {

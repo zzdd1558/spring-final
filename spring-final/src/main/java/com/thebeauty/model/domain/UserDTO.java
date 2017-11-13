@@ -1,30 +1,29 @@
 package com.thebeauty.model.domain;
 
 /**
- * @author ÃÖ À±Áø
- * @»ý¼ºÀÏ : 2017-11-10
+ * @author ìµœ ìœ¤ì§„
+ * @ìƒì„±ì¼ : 2017-11-10
  * TABLE : SHOPPING_BASKET_TB
- *  - È¸¿ø Àå¹Ù±¸´Ï Å×ÀÌºí
+ *  - íšŒì› ìž¥ë°”êµ¬ë‹ˆ í…Œì´ë¸”
  *  
  *  
  * COLUMN : 
- * - USER_KEY : È¸¿ø°íÀ¯¹øÈ£
- * - USER_ID : È¸¿ø¾ÆÀÌµð
- * - USER_PASSWORD : È¸¿ø ºñ¹Ð¹øÈ£
- * - USER_NAME : È¸¿ø ÀÌ¸§
- * - USER_GENDER : È¸¿ø ¼ºº°
- * - USER_BIRTH : È¸¿ø »ý³â¿ùÀÏ
- * - USER_PHONE : È¸¿ø ÀüÈ­¹øÈ£
- * - USER_EMAIL : È¸¿ø ÀÌ¸ÞÀÏ
- * - USER_ADDR : È¸¿ø ÁÖ¼Ò
- * - USER_ANSWER : È¸¿ø ´ä 
- * - USER_POINT : È¸¿ø Æ÷ÀÎÆ®
- * - USER_TOTAL_POINT : È¸¿ø ´©Àû Æ÷ÀÎÆ®
- * - USER_JOIN_DATE : °¡ÀÔÀÏÀÚ
- * - RATING_TYPE : È¸¿øÅ¸ÀÔ
- * - QUESTION_KEY : Áú¹®Å¸ÀÔ
+ * - USER_KEY : íšŒì›ê³ ìœ ë²ˆí˜¸
+ * - USER_ID : íšŒì›ì•„ì´ë””
+ * - USER_PASSWORD : íšŒì› ë¹„ë°€ë²ˆí˜¸
+ * - USER_NAME : íšŒì› ì´ë¦„
+ * - USER_GENDER : íšŒì› ì„±ë³„
+ * - USER_BIRTH : íšŒì› ìƒë…„ì›”ì¼
+ * - USER_PHONE : íšŒì› ì „í™”ë²ˆí˜¸
+ * - USER_EMAIL : íšŒì› ì´ë©”ì¼
+ * - USER_ADDR : íšŒì› ì£¼ì†Œ
+ * - USER_ANSWER : íšŒì› ë‹µ 
+ * - USER_POINT : íšŒì› í¬ì¸íŠ¸
+ * - USER_TOTAL_POINT : íšŒì› ëˆ„ì  í¬ì¸íŠ¸
+ * - USER_JOIN_DATE : ê°€ìž…ì¼ìž
+ * - RATING_TYPE : íšŒì›íƒ€ìž…
+ * - QUESTION_KEY : ì§ˆë¬¸íƒ€ìž…
  */
-
 public class UserDTO {
 	private int userKey; // USER_KEY
 	private String userId; // USER_ID
@@ -42,7 +41,7 @@ public class UserDTO {
 	private String ratingType; // RATING_TYPE
 	private int questionKey; // QUESTION_KEY
 	
-	/* »ý¼ºÀÚ*/
+	/* ìƒì„±ìž */
 	public UserDTO() {
 		// TODO Auto-generated constructor stub
 	}
