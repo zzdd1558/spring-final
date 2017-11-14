@@ -23,11 +23,12 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		return "main";
 	}
-	//test
-	@RequestMapping(value = "test.do", method = RequestMethod.GET)
-	public String test() {
-		return "test";
-	}
+//	test
+//	@RequestMapping(value = "test.do", method = RequestMethod.GET)
+//	public String test() {
+//		return "boardTest";
+//	}
+	
 
 	/* 회원가입 페이지 이동 */
 	@RequestMapping(value = "userJoin1.do", method = RequestMethod.GET)
@@ -37,6 +38,15 @@ public class HomeController {
 		return "userJoin";
 	}
 
+	/*board Write 단순 경로*/
+	@RequestMapping(value = "board/BoardWriteForm.do", method = RequestMethod.GET)
+	public String boardWriteForm() {
+		System.out.println("회원가입 페이지  호출");
+		test.test();
+		return "board/boardWrite";
+	}
+	
+	
 	@RequestMapping(value = "addressSearch.do")
 	public String addressSearch() {
 		System.out.println("addressSearch 호출");
