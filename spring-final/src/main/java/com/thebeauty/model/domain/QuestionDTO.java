@@ -8,7 +8,7 @@ package com.thebeauty.model.domain;
  *  
  * COLUMN : 
  *    - QUESTION_KEY : 질문타입
- *  - QUESTION_CONTENT : 질문내용
+ *    - QUESTION_CONTENT : 질문내용
  */
 public class QuestionDTO {
 	
