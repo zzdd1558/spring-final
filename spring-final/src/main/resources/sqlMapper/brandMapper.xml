@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="brandMapper">
+
+	<resultMap type="CosmeticBrandDTO" id="brandResultMap">
+		<result column="BRAND_TYPE_IDX" property="brandTypeIdx" />
+		<result column="BRAND_NAME" property="brandTypeName" />
+	</resultMap>
+	
+	<select id="brandAllSelect" resultMap="brandResultMap">
+		SELECT * FROM COSMETIC_BRAND_TB
+	</select>
+	
+	<select id="brandOneSelect" parameterType="CosmeticBrandDTO" resultType="brandResultMap">
+		SELECT BRAND_NAME FROM COSMETIC_BRAND_TB WHERE BRAND_TYPE_IDX = #{brandTypeIdx}
+	</select>
+	
+	<select id="maxIdx" resultType="String">
+		SELECT MAX(BRAND_TYPE_IDX) FROM COSMETIC_BRAND_TB
+	</select>
+	
+	<insert id="brandInsert" parameterType="CosmeticBrandDTO">
+		INSERT INTO COSMETIC_BRAND_TB VALUES (#{brandTypeIdx}, #{brandTypeName})
+	</insert>
+	
+	<delete id="brandOneDelete" parameterType="CosmeticBrandDTO">
+		DELETE FROM COSMETIC_BRAND_TB WHERE BRAND_TYPE_IDX = '#{brandTypeIdx}'
+	</delete>
+	
+</mapper>

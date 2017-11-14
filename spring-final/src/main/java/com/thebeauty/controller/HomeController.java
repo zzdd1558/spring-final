@@ -10,13 +10,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.thebeauty.model.dao.Test;
+import com.thebeauty.model.domain.CosmeticBrandDTO;
 import com.thebeauty.model.domain.FaceTypeDTO;
+import com.thebeauty.model.service.BrandService;
 
 @Controller
 public class HomeController {
 
 	@Autowired
 	private Test test;
+	
+	@Autowired
+	private BrandService brandService;
 
 	// main start
 	@RequestMapping(value = "openmallMain.do", method = RequestMethod.GET)
@@ -49,4 +54,5 @@ public class HomeController {
 		System.out.println("회원로그인 페이지 호출");
 		return "userLogin";
 	}
+	
 }
