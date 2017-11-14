@@ -34,7 +34,7 @@ public class HomeController {
 	public String userJoin() {
 		System.out.println("회원가입 페이지  호출");
 		test.test();
-		return "userJoin2";
+		return "userJoin";
 	}
 
 	@RequestMapping(value = "addressSearch.do")
