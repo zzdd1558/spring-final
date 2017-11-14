@@ -16,9 +16,9 @@ class HttpRequest {
     constructor() {
         this.httpRequest;
     }
-
+//httpRequest.sendRequest(httpRequest.getContextPath()+'/auth/validateUserId.do' , "id="+uId.value , idCheckFunc , "POST");
     /* 비동기처리시 사용할 함수 */
-    sendRequest(url, params, callback, method) {
+    sendRequest(url, params, callback, method,header,token) {
         this.httpRequest = new XMLHttpRequest();
         let httpMethod = method.toUpperCase();
         if (httpMethod != 'GET' && httpMethod != 'POST') {
@@ -29,12 +29,15 @@ class HttpRequest {
         if (httpMethod == 'GET' && httpParams != null) {
             httpUrl = httpUrl + "?" + httpParams;
         }
-        httpRequest.open(httpMethod, httpUrl, true);
-        httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        httpRequest.onreadystatechange = callback;
-
-        httpRequest.send(httpMethod == 'POST' ? httpParams : null);
+        this.httpRequest.open(httpMethod, httpUrl, true);
+        this.httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        
+        /* post전송시 필요한 _csrf 공격 방어 header 와 token*/
+        if(httpMethod == 'POST'){
+        	this.httpRequest.setRequestHeader(header,token)
+        }
+        this.httpRequest.onreadystatechange = callback;
+        this.httpRequest.send(httpMethod == 'POST' ? httpParams : null);
     }
     
     /* Javascript로 절대경로 구하기.*/

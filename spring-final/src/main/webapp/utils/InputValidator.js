@@ -27,6 +27,7 @@ class InputValidator {
 
     /*   password 유효성 검사*/
     isValidPassword(password) {
+    	console.log(this.isValidate(password, this.passwordReg));
         return this.isValidate(password, this.passwordReg);
     }
 
