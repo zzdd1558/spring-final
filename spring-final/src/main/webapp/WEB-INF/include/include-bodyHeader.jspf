@@ -20,7 +20,7 @@
 				</h1>
 				<div class="w3-third w3-center">
 					<span><a href="${pageContext.request.contextPath}/userLogin.do" class="mall-button">로그인</a></span>
-					<span><a href="${pageContext.request.contextPath}/userJoin.do"
+					<span><a href="${pageContext.request.contextPath}/userJoin1.do"
 						class="mall-button">회원가입</a></span> <span><a href="#"
 						class="mall-button">주문/배송 조회</a></span>
 				</div>

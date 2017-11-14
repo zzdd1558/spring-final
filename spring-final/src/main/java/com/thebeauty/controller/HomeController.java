@@ -30,7 +30,7 @@ public class HomeController {
 	}
 
 	/* 회원가입 페이지 이동 */
-	@RequestMapping(value = "userJoin.do", method = RequestMethod.GET)
+	@RequestMapping(value = "userJoin1.do", method = RequestMethod.GET)
 	public String userJoin() {
 		System.out.println("회원가입 페이지  호출");
 		test.test();
