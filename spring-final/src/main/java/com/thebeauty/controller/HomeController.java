@@ -23,6 +23,11 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		return "main";
 	}
+	//test
+	@RequestMapping(value = "test.do", method = RequestMethod.GET)
+	public String test() {
+		return "test";
+	}
 
 	/* 회원가입 페이지 이동 */
 	@RequestMapping(value = "userJoin.do", method = RequestMethod.GET)
