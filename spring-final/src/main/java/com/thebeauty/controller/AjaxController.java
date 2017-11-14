@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.thebeauty.model.dao.QuestionDAO;
 import com.thebeauty.model.dao.UserDAO;
+import com.thebeauty.model.domain.CosmeticBrandDTO;
 import com.thebeauty.model.domain.QuestionDTO;
+import com.thebeauty.model.service.AdminService;
 import com.thebeauty.model.service.UserJoinServiceImpl;
 
 @Controller
@@ -20,19 +22,20 @@ import com.thebeauty.model.service.UserJoinServiceImpl;
 public class AjaxController {
 	
 	@Autowired
-	UserDAO userDAO;
+	private UserDAO userDAO;
 
 	@Autowired
-	QuestionDAO questionDAO;
+	private QuestionDAO questionDAO;
 	
+	/*
+	@Autowired
+	private BrandService brandService;
+*/
 	
 	 /* 회원가입에 사용할 질문 비동기로 가져오는 URL */ 
 	@RequestMapping(value = "/question.do", method = RequestMethod.GET)
 	public @ResponseBody List<QuestionDTO> getAllQuestion()  {
 		List<QuestionDTO> list = questionDAO.selectAll();
-		
-		System.out.println(list.toString());
-		
 		return list;
 	}
 	
@@ -42,4 +45,19 @@ public class AjaxController {
 		int cnt = userDAO.validateUserId(userId);
 		return cnt;
 	}
+	
+	
+	/* 완성본 비동기 사용해서 처리할때 주석 풀어서 사용하면됨.*/
+/*
+	 모든 브랜드 가져오기 
+	@RequestMapping(value = "test1.do", method = RequestMethod.GET)
+	public String searchAll() {
+		List<CosmeticBrandDTO> list = null;
+		list = brandService.getAllBrand();
+		
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+		return "test/test";
+	}*/
 }

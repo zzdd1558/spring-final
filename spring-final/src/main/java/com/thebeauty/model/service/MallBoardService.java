@@ -11,7 +11,7 @@ public interface MallBoardService {
 	/*board insert*/
 	public abstract int insert(BoardDTO dto);
 	/*board idx*/
-	public abstract  int boardGetIDX();
+	public abstract  int boardGetIdx();
 	/*board detail*/
 	public abstract BoardDTO selectOneBoard(String boardSubject);
 	

@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.thebeauty.model.dao.BrandDAO;
+import com.thebeauty.model.dao.BrandDAOImpl;
 import com.thebeauty.model.domain.CosmeticBrandDTO;
 
 @Service
-public class BrandServiceImpl implements BrandService {
+public class AdminServiceImpl implements AdminService {
 	
 	@Autowired
-	private BrandDAO brandDAO;
+	private BrandDAOImpl brandDAO;
 	
 	@Override
 	/* 모든 브랜드 가져오기 */

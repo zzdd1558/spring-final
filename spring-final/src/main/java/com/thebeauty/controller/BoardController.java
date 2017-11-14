@@ -45,16 +45,11 @@ public class BoardController {
 		
 		@RequestMapping(value = "BoardWrite.do", method = RequestMethod.GET)
 		public String boardWrite(@ModelAttribute("board")BoardDTO dto) {
-			dto.setBoardCosmeticNum(1);
-			dto.setBoardCount(1);
-			dto.setBoardIdx(service.boardGetIDX()+1);
-			dto.setBoardLev(1);
-			dto.setBoardParent(1);
-			dto.setBoardReRef(1);
-			dto.setBoardReSeq(1);
-			dto.setBoardType("1");
-			dto.setBoardUserKey(1);
-			dto.setBoardUseScore(5);
+			dto.setBoardCosmeticNum(1); // 가변
+			dto.setBoardIdx(service.boardGetIdx()+1);
+			dto.setBoardType("1"); // 가변
+			dto.setBoardUserKey(1); // 가변
+			dto.setBoardUseScore(5); // 가변
 			service.insert(dto);
 
 			return "redirect:BoardListform.do";

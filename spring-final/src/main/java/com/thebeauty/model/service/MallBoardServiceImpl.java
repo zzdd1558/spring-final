@@ -42,9 +42,9 @@ public class MallBoardServiceImpl implements MallBoardService{
 
 
 	@Override
-	public int boardGetIDX() {
+	public int boardGetIdx() {
 		// TODO Auto-generated method stub
-		return boardDao.boardGetIDX();
+		return boardDao.boardGetIdx();
 				
 	}
 

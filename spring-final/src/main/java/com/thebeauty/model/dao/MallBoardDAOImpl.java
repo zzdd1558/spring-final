@@ -16,7 +16,7 @@ public class MallBoardDAOImpl implements MallBoardDAO {
 	@Override
 	public List<BoardDTO> selectAllboard() {
 		// TODO Auto-generated method stub
-		return sqlsesson.selectList("boardMapper.boardAllSelect");
+		return sqlsesson.selectList("boardMapper.boardSelectAll");
 	}
 
 	@Override
@@ -25,15 +25,15 @@ public class MallBoardDAOImpl implements MallBoardDAO {
 	}
 
 	@Override
-	public int boardGetIDX() {
+	public int boardGetIdx() {
 		// TODO Auto-generated method stub
-		return sqlsesson.selectOne("boardMapper.boardMaxIDX");
+		return sqlsesson.selectOne("boardMapper.boardMaxIdx");
 	}
 
 	@Override
 	public BoardDTO selectOneBoard(String boardSubject) {
 		// TODO Auto-generated method stub
-		return sqlsesson.selectOne("boardMapper.selectOneBoard", boardSubject);
+		return sqlsesson.selectOne("boardMapper.boardSearch", boardSubject);
 	}
 
 }

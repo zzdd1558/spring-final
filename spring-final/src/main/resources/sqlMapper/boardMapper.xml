@@ -19,18 +19,18 @@
 		<result column="USER_KEY"  property="boardUserKey"/>
 	</resultMap>
 
-	<select id="selectOneBoard" parameterType="String" resultMap="boardResultMap">
+	<select id="boardSearch" parameterType="String" resultMap="boardResultMap">
 		SELECT * 
 		FROM BOARD_TB WHERE BOARD_SUBJECT LIKE '%' || #{boardSubject} || '%'
 	</select>
 	
 	
-	<select id="boardMaxIDX" resultType="int" >
+	<select id="boardMaxIdx" resultType="int" >
 		SELECT MAX(BOARD_IDX)
 		FROM BOARD_TB 			
 	</select>
 	
-	<select id="boardAllSelect" resultMap="boardResultMap">
+	<select id="boardSelectAll" resultMap="boardResultMap">
 		SELECT * 
 		FROM BOARD_TB
 	</select>
@@ -39,8 +39,8 @@
 		INSERT INTO
 				BOARD_TB
 		 VALUES
-			(#{boardIdx},#{boardSubject},#{boardContent},#{boardFile},#{boardReRef},#{boardLev},#{boardReSeq},
-				#{boardCount},SYSDATE,#{boardType},#{boardCosmeticNum},#{boardParent},#{boardUseScore},#{boardUserKey})
+			(#{boardIdx},#{boardSubject},#{boardContent},#{boardFile},1,1,1,
+				1,SYSDATE,#{boardType},#{boardCosmeticNum},1,#{boardUseScore},#{boardUserKey})
 	</insert>
 	
 	

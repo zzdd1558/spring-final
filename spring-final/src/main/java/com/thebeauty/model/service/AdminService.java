@@ -4,7 +4,9 @@ import java.util.List;
 
 import com.thebeauty.model.domain.CosmeticBrandDTO;
 
-public interface BrandService {
+public interface AdminService {
+	
+	/* -------------- 브랜드 -------------- */
 	/* 모든 브랜드 가져오기 */
 	List<CosmeticBrandDTO> getAllBrand();
 	
@@ -16,4 +18,7 @@ public interface BrandService {
 
 	/* 브랜드 삭제하기 */
 	int removeBrand(int brandIdx);
+	
+	
+	
 }
