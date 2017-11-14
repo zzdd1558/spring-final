@@ -34,7 +34,6 @@ public class HomeController {
 	@RequestMapping(value = "userJoin1.do", method = RequestMethod.GET)
 	public String userJoin() {
 		System.out.println("회원가입 페이지  호출");
-		test.test();
 		return "userJoin";
 	}
 
@@ -56,6 +55,7 @@ public class HomeController {
 	/* 회원로그인 페이지 이동*/
 	@RequestMapping(value = "userLogin.do" , method = RequestMethod.GET)
 	public String userLogin() {
+		test.test();
 		System.out.println("회원로그인 페이지 호출");
 		return "userLogin";
 	}

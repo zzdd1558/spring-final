@@ -11,7 +11,7 @@
 
 	<security:http use-expressions="true" auto-config="true">
 	<!-- 접근 URL별 권한 설정 -->
-		<security:intercept-url pattern="/userJoin1.do" access="hasRole('USER')" />
+		<security:intercept-url pattern="/userJoin.do" access="hasRole('USER')" />
 		
 	<!-- CUSTOM Login Form 설정 및 연동. --> 
 		<security:form-login login-page="/userLogin.do"

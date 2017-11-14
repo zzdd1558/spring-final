@@ -18,6 +18,9 @@ public class Test {
 	public List<FaceTypeDTO> test() {
 		System.out.println(sqlSession);
 		System.out.println(sqlSession.selectList("testMapper.testSelect"));
+		String aa = sqlSession.selectOne("userMapper.userMaxIdx");
+		System.out.println(aa == null);
+		System.out.println(11);
 		return sqlSession.selectList("testMapper.testSelect");
 	}
 	
