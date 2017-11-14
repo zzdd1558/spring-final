@@ -11,7 +11,7 @@
 		SELECT * FROM COSMETIC_BRAND_TB
 	</select>
 	
-	<select id="brandOneSelect" parameterType="CosmeticBrandDTO" resultType="brandResultMap">
+	<select id="brandOneSelect" parameterType="CosmeticBrandDTO" resultMap="brandResultMap">
 		SELECT BRAND_NAME FROM COSMETIC_BRAND_TB WHERE BRAND_TYPE_IDX = #{brandTypeIdx}
 	</select>
 	

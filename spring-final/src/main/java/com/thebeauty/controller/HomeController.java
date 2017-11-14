@@ -28,12 +28,7 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		return "main";
 	}
-//	test
-//	@RequestMapping(value = "test.do", method = RequestMethod.GET)
-//	public String test() {
-//		return "boardTest";
-//	}
-	
+
 
 	/* 회원가입 페이지 이동 */
 	@RequestMapping(value = "userJoin1.do", method = RequestMethod.GET)
@@ -63,6 +58,18 @@ public class HomeController {
 		test.test();
 		System.out.println("회원로그인 페이지 호출");
 		return "userLogin";
+	}
+	
+	/* 모든 브랜드 가져오기 */
+	@RequestMapping(value = "test1.do", method = RequestMethod.GET)
+	public String searchAll() {
+		List<CosmeticBrandDTO> list = null;
+		list = brandService.getAllBrand();
+		
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+		return "test/test";
 	}
 	
 }
