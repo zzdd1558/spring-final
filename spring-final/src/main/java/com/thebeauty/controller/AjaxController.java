@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.thebeauty.model.dao.FaceTypeDAO;
 import com.thebeauty.model.dao.QuestionDAO;
 import com.thebeauty.model.dao.UserDAO;
 import com.thebeauty.model.domain.CosmeticBrandDTO;
+import com.thebeauty.model.domain.FaceTypeDTO;
 import com.thebeauty.model.domain.QuestionDTO;
 import com.thebeauty.model.service.AdminService;
 import com.thebeauty.model.service.UserJoinServiceImpl;
@@ -30,7 +32,12 @@ public class AjaxController {
 	/*
 	@Autowired
 	private BrandService brandService;
-*/
+	*/
+	
+	/*
+	@Autowired
+	private FaceTypeDAO faceTypeDAO;
+	*/
 	
 	 /* 회원가입에 사용할 질문 비동기로 가져오는 URL */ 
 	@RequestMapping(value = "/question.do", method = RequestMethod.GET)
@@ -60,4 +67,19 @@ public class AjaxController {
 		}
 		return "test/test";
 	}*/
+	
+	/* 피부타입 모두 가져오기 
+	@RequestMapping("test1.do")
+	public String SearchAll() {
+		List<FaceTypeDTO> list = null;
+		list = faceTypeDAO.allSelectFaceType();
+		
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+		return "test/test";
+	}*/
+	
+	
+	
 }

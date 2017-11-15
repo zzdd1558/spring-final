@@ -1,15 +1,21 @@
 package com.thebeauty.controller;
 
+import java.util.List;
 import java.util.Locale;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.thebeauty.model.dao.FaceTypeDAO;
+import com.thebeauty.model.domain.FaceTypeDTO;
+
 
 @Controller
 public class HomeController {
+	
 	
 	/* main page start*/
 	@RequestMapping(value = "openmallMain.do", method = RequestMethod.GET)
@@ -45,4 +51,6 @@ public class HomeController {
 		System.out.println("회원로그인 페이지 호출");
 		return "userLogin";
 	}
+	
+	
 }
