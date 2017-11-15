@@ -16,8 +16,6 @@ import com.thebeauty.model.domain.FaceTypeDTO;
 @Controller
 public class HomeController {
 	
-	@Autowired
-	private FaceTypeDAO faceTypeDAO;
 	
 	/* main page start*/
 	@RequestMapping(value = "openmallMain.do", method = RequestMethod.GET)
@@ -54,15 +52,5 @@ public class HomeController {
 		return "userLogin";
 	}
 	
-	/* 피부타입 모두 가져오기 */
-	@RequestMapping("test1.do")
-	public String SearchAll() {
-		List<FaceTypeDTO> list = null;
-		list = faceTypeDAO.allSelectFaceType();
-		
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
-		}
-		return "test/test";
-	}
+	
 }
