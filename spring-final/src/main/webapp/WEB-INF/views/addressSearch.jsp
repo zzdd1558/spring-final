@@ -4,7 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Insert title here</title>
+
 <%
 	request.setCharacterEncoding("UTF-8"); //해당시스템의 인코딩타입이 UTF-8일 경우
 	String inputYn = request.getParameter("inputYn");
@@ -62,7 +64,7 @@
 		<input type="hidden" id="confmKey" name="confmKey" value="" /> <input
 			type="hidden" id="returnUrl" name="returnUrl" value="" /> <input
 			type="hidden" id="resultType" name=" resultType " value="" />
-			
+
 		<!-- <input type="hidden" id="encodingType" name="encodingType" value="EUC-KR"/> -->
 	</form>
 

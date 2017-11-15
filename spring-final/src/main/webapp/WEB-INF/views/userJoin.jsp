@@ -139,34 +139,38 @@ input[type='text'], input[type='password'], input[type='number'] {
 						만 사용가능)를 포함한 6 ~ 20자리의 아이디 </span>
 				</li>
 				<li>
-					<div class=" writeTitle" required>비밀번호</div> <input type="text"
+					<div class=" writeTitle" required>비밀번호</div> <input type="password"
 					name="u_password" id="u_password" placeholder="비밀번호"> <span
 					style="font-size: 14px; color: gray"> 숫자 , 대·소문자 , 특수문자를 포함한
 						8~16자리의 비밀번호 </span>
 				</li>
 				<li>
-					<div class=" writeTitle" required>비밀번호 확인</div> <input type="text"
+					<div class=" writeTitle" required>비밀번호 확인</div> <input type="password"
 					name="u_password_confirm" id="u_password_confirm"
 					placeholder="비밀번호 확인"> <span></span>
 				</li>
 				<li>
 					<div class=" writeTitle">생년월일</div>
-					<div class='writeBirth'>
+					<div class='writeBirth' id='writeBirth'>
 						<div class='birthText'>
 							<input type=text maxlength="6" name='user_birth'
 								placeholder="예시) 930925 " id='u_birth_front' required>
+								
 						</div>
 						<div class='hyphen'>-</div>
 						<div class='birthText'>
 							<input type="text" maxlength="1" name='user_gender'
-								class='birthGender' id='u_birth_gender' required>  *  *  *  *  *  * 
+								class='birthGender' id='u_birth_gender' required>  *  *  *  *  *  *
+								<span></span> 
 						</div>
 					</div>
+					<span></span>
 				</li>
 				<li>
 					<div class=" writeTitle">휴대폰번호</div> <input type="text"
 					name="u_phone_number" id="u_phone_number"
 					placeholder="하이픈(-) 제외한 숫자만입력가능" maxlength="11" required>
+					<span></span>
 				</li>
 				<li>
 					<div class=" writeTitle">질문과 답</div> <select name='u_question'
@@ -174,6 +178,7 @@ input[type='text'], input[type='password'], input[type='number'] {
 						<option>테스트 질문 </option>
 				</select> <input type="text" name="u_answer" id="u_answer"
 					placeholder=" 정확하게 입력해주세요 " required>
+					<span></span>
 				</li>
 
 				<li>
@@ -189,11 +194,13 @@ input[type='text'], input[type='password'], input[type='number'] {
 					id="u_address_part" class="subAddr" placeholder="도로명 주소"
 					readonly="readonly" required> <input type="text" name="u_address"
 					id="u_address_detail" class="subAddr" placeholder="상세 주소 " required>
+					<div></div>
 					<button id="addressBtn" onclick="addressPopup();">우편번호 조회</button>
 				</li>
 
 				<li>
 					<div id="googleReCaptcha"></div>
+					<span></span>
 				</li>
 
 				<li>

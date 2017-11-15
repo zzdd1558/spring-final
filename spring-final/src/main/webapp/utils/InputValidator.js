@@ -27,7 +27,6 @@ class InputValidator {
 
     /*   password 유효성 검사*/
     isValidPassword(password) {
-    	console.log(this.isValidate(password, this.passwordReg));
         return this.isValidate(password, this.passwordReg);
     }
 
@@ -51,7 +50,7 @@ class InputValidator {
 
     /* value가 undefined가 아니고 length 가 0 이상이면 true 반환 */
     isSet(value) {
-        return this.isUndefined(value) && (value.length > 0 || value > 0);
+        return this.isUndefined(value) && (value.length > 0 || value > 0) && value != '';
     }
 
     /* value의 값이 undefined이면 true 반환 */

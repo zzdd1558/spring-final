@@ -9,156 +9,367 @@ let uPasswordConfirm = document.getElementById('u_password_confirm');
 let uName = document.getElementById('u_name');
 let uPhoneNumber = document.getElementById('u_phone_number');
 let uEmail = document.getElementById('u_email');
-let uAddress = document.getElementById('u_address');
+let uQuestion = document.getElementById('u_question');
+let uAnswer = document.getElementById('u_answer');
+let uAddressZipNo = document.getElementById('u_address_zip_no');
+let uAddressPart = document.getElementById('u_address_part');
+let uAddressDetail = document.getElementById('u_address_detail');
 let uBirthFront = document.getElementById('u_birth_front');
 let uBirthGender = document.getElementById('u_birth_gender');
-let uQuestion = document.getElementById('u_question');
 let uForm = document.getElementById('joinForm');
 let formSubmit = document.getElementById('submit');
 let formReset = document.getElementById('reset');
+let googleReCaptcha = document.getElementById('googleReCaptcha');
 let idCheck = false;
 
 /* spring-security에서 CSRF를 사용할 경우 header와 token 필요 */
 let token = document.getElementById('_csrf').getAttribute('content');
 let header = document.getElementById('_csrf_header').getAttribute('content');
 
+const checkColor = {
+    green: 'green',
+};
+/* 메세지 관련 */
+const checkMsg = {
+    /* 이름 관련 */
+    emptyName: '이름을 입력해주세요.',
 
+    /* 아이디 관련 */
+    validId: ' 숫자 ,대·소문자 또는 특수문자( - , _ )가 포함된 6 ~ 20자의 아이디만 사용가능합니다. ',
+    possibleId: ' 사용가능한  ID입니다. ',
+    impossibleId: ' 사용 불가능한 아이디입니다. ',
+    overlapId: ' 중복된 ID입니다. ',
+
+    /* 비밀번호 관련 */
+    emptyPassword: ' 비밀번호를 입력해주세요. ',
+    validPassword: ' 숫자 ,대·소문자 , 특수문자를 포함한 8~16자리의 비밀번호만 사용가능합니다. ',
+    possiblePassword: '사용 가능한 비밀번호 입니다 ',
+    notMatchPassword: ' 비밀번호가 일치하지 않습니다. ',
+    matchPassword: ' 비밀번호가 일치합니다 ',
+
+    /* 휴대폰 관련*/
+    emptyPhoneNumber: ' 휴대폰번호를 입력해주세요 . ',
+    impossiblePhoneNumber: ' 사용 불가능한 휴대폰번호 입니다. ',
+    possiblePhoneNumber: ' 사용 가능한 휴대폰번호 입니다. ',
+
+    /* 주민번호 관련*/
+    impossibleJumin: ' 빈칸이 있거나 사용불가능한 주민등록번호입니다. ',
+
+    /* 질문과 답 관련*/
+    emptyAnswer: ' 답변이 비어있거나 공백이 있으면 안됩니다. ',
+    selectQuestion: ' 질문을 선택해주세요. ',
+
+    /* 이메일 관련*/
+    emptyEmail: '이메일이 비어있습니다. 다시 확인해주세요. ',
+    validEmail: ' 정확한 이메일 형식이 아닙니다 . 다시 확인해주세요. ',
+
+    /* 우편번호 관련 */
+    searchAddress: ' 우편번호를 검색을 이용해주세요 . ',
+
+    /* 구글 리캡차 관련*/
+    checkReCaptcha: ' 로봇 확인 체크를 해주세요 . ',
+};
+
+
+/* form 전송전 유효성 체크 */
 formSubmit.addEventListener('click', function () {
-
-    if (!idCheck) {
-        let brother = uId.nextElementSibling;
-        brother.innerHTML = '사용할수 없는 ID입니다.';
-        brother.style.color = 'red';
+    let formBoolean = true;
+    /* ID 공백 체크 */
+    if (!inputValidator.isSet(uName.value)) {
+        checkContentFunc(uName, checkMsg.emptyName);
+        formBoolean = false;
     }
 
-
-    /*uForm.setAttribute('method', 'POST');
-    uForm.setAttribute('action', httpRequest.getContextPath() + '/auth/userJoin.do');*/
+    /* 아이디 유효성 체크 */
+    if (!inputValidator.isValidId(uId.value)) {
+        checkContentFunc(uId, checkMsg.validId);
+        formBoolean = false;
+    } else if (!idCheck) {
+        checkContentFunc(uId, checkMsg.impossibleId);
+        formBoolean = false;
+    }
     
+    /* 비밀번호 공백 체크 */
+    if (!inputValidator.isSet(uPassword.value)) {
+        checkContentFunc(uPassword, checkMsg.emptyPassword);
+        formBoolean = false;
+    }
+    /* 비밀번호 유효성 체크 */
+    else if (!inputValidator.isValidPassword(uPassword.value)) {
+        checkContentFunc(uPassword, checkMsg.validPassword);
+        formBoolean = false;
+    }
+    
+    /* 비밀번호 확인 공백 체크 */
+    if (!inputValidator.isSet(uPasswordConfirm.value)) {
+        checkContentFunc(uPasswordConfirm, checkMsg.emptyPassword);
+        formBoolean = false;
+    }
+    /* 비밀번호 확인 유효성 체크 */
+    else if (!inputValidator.isValidPassword(uPasswordConfirm.value)) {
+        checkContentFunc(uPasswordConfirm, checkMsg.validPassword);
+        formBoolean = false;
+    }
+    
+    /* 비밀번호 일치 여부 체크 */
+    else if (!inputValidator.isValidPasswordSame(uPassword , uPasswordConfirm)){
+        checkContentFunc(uPasswordConfirm, checkMsg.notMatchPassword);
+        formBoolean = false;
+    }
+    
+    /* 주민번호 공백 체크 및 유효성 체크*/
+    if (!inputValidator.isSet(uBirthFront.value) || uBirthFront.value.length != 6 || !inputValidator.isSet(uBirthGender.value) || uBirthGender.value.length != 1) {
+        checkContentFunc(document.getElementById('writeBirth'), checkMsg.impossibleJumin);
+        formBoolean = false;
+    }
+    
+    /* 휴대폰번호 공백 체크 */
+    if (!inputValidator.isSet(uPhoneNumber.value)) {
+        checkContentFunc(uPhoneNumber, checkMsg.emptyPhoneNumber);
+        formBoolean = false;
+    } 
+    
+    /* 휴대폰번호 유효성 체크 */
+    else if (!inputValidator.isValidPhone(uPhoneNumber.value)) {
+        checkContentFunc(uPhoneNumber, checkMsg.impossiblePhoneNumber);
+        formBoolean = false;
+    }
+
+    /* 질문 공백 체크 */
+    if (!inputValidator.isSet(uQuestion.value)) {
+        checkContentFunc(uAnswer, checkMsg.selectQuestion);
+        formBoolean = false;
+    }
+    
+    /* 답변 공백 체크 */
+    else if (!inputValidator.isSet(uAnswer.value.trim())) {
+        checkContentFunc(uAnswer, checkMsg.emptyAnswer);
+        formBoolean = false;
+    }
+
+    /* 이메일 공백 체크 */
+    if (!inputValidator.isSet(uEmail.value)) {
+        checkContentFunc(uEmail, checkMsg.emptyEmail);
+        formBoolean = false;
+    }
+    
+    /* 이메일 공백 체크 */
+    else if (!inputValidator.isValidEmail(uEmail.value)) {
+        checkContentFunc(uEmail, checkMsg.validEmail);
+        formBoolean = false;
+    }
+
+    /*  우편주소 공백 체크  */
+    if (!inputValidator.isSet(uAddressZipNo.value) || !inputValidator.isSet(uAddressDetail.value) || !inputValidator.isSet(uAddressPart.value)) {
+        checkContentFunc(uAddressDetail, checkMsg.searchAddress);
+        formBoolean = false;
+    }
+
+    /* 구글 리캡챠 체크유무 */
+    if(!inputValidator.isSet(grecaptcha.getResponse())){
+        checkContentFunc(googleReCaptcha , checkMsg.checkReCaptcha)
+        formBoolean = false;
+    }
+    	
+    
+    console.log(formBoolean);
+    
+    /*uForm.setAttribute('method', 'POST');
+     uForm.setAttribute('action', httpRequest.getContextPath() + '/auth/userJoin.do');*/
+
     return false;
-    /*console.log(grecaptcha.getResponse())*/
+
 });
 
 /* 취소 버튼 */
 formReset.addEventListener('click', function () {
-    if (confirm("회원가입을 취소 하시겠습니까?")) {
+    if (confirm('회원가입을 취소 하시겠습니까?')) {
         history.back();
     }
 });
 
-
-/* userId 비동기 아이디 중복 체크 */
-uId.addEventListener("blur", function () {
-	if(inputValidator.isValidId(uId.value)){
-		httpRequest.sendRequest(httpRequest.getContextPath()+'/ajax/validateUserId.do' , "id="+uId.value , idCheckFunc , "POST" , header, token);
-	}else{
-		checkContentFunc(uId, 'ID 양식을 확인해주세요', 'red');
-		idCheck = false;
-	}
-	
+googleReCaptcha.addEventListener('click' , function(){
+	focusResetValue(googleReCaptcha);
 });
 
+
+
+/* Ajax를 사용한 ID중복체크 callback Function */
 function idCheckFunc() {
     if (httpRequest.httpRequest.readyState == 4 && httpRequest.httpRequest.status == 200) {
-        let resData = httpRequest.httpRequest.responseText;
-        
-        if(resData == 1){
-        	checkContentFunc(uId,'중복된 ID입니다.','red');
-        	idCheck = false;
-        	
-        }else{
-        	checkContentFunc(uId, '사용가능한  ID입니다.', 'green');
-        	idCheck = true;
+        if (httpRequest.httpRequest.responseText == 1) {
+            checkContentFunc(uId, checkMsg.overlapId);
+            idCheck = false;
+        } else {
+            checkContentFunc(uId, checkMsg.possibleId, checkColor.green);
+            idCheck = true;
         }
     }
 }
 
-function getQuestion(){
-	httpRequest.sendRequest(httpRequest.getContextPath()+'/ajax/question.do' , null , setQuestionList , "GET" );
-}
-
-function setQuestionList(){
-	  if (httpRequest.httpRequest.readyState == 4 && httpRequest.httpRequest.status == 200) {
-	        let resData = httpRequest.httpRequest.responseText;
-	        resData = JSON.parse(resData);
-	        let result = `<option value='0' selected disabled>질문을 선택하세요.</option>`;
-	        for (let i = 0; i< resData.length; i++){
-	            result += `<option value=${resData[i].questionKey}>${resData[i].questionContent}</option>`;
-            }
-	        uQuestion.innerHTML = result;
-	    }
+/* Form에서 사용하여 사용가능불가능할 경우 span 태그에 보여줄 함수 */
+function checkContentFunc(object, msg, color = 'red') {
+    let brother = object.nextElementSibling;
+    brother.innerHTML = msg;
+    brother.style.color = color == '' ? 'red' : color;
 }
 
 
-function checkContentFunc(object , msg , color){
-	let brother = object.nextElementSibling;
-	brother.innerHTML = msg;
-	brother.style.color = color;
-	
+/* 회원가입 접근시 사용할 비동기 실행 함수 */
+function getQuestion() {
+    httpRequest.sendRequest(httpRequest.getContextPath() + '/ajax/question.do', null, setQuestionList, 'GET');
 }
+
+/* 회원가입 접근시 불러올 Question데이터 Ajax callback Function*/
+function setQuestionList() {
+    if (httpRequest.httpRequest.readyState == 4 && httpRequest.httpRequest.status == 200) {
+        let resData = JSON.parse(httpRequest.httpRequest.responseText);
+        let result = `<option value='0' selected disabled>질문을 선택하세요.</option>`;
+        for (let i = 0; i < resData.length; i++) {
+            result += `<option value=${resData[i].questionKey}>${resData[i].questionContent}</option>`;
+        }
+        uQuestion.innerHTML = result;
+    }
+}
+
 
 /* id 입력 keyUp이벤트 */
-uId.addEventListener("keyup", function () {
+uId.addEventListener('keyup', function () {
     inputKeyUpReg.keyUpId(uId.value);
 });
 
 /* password 입력 keyUp이벤트 */
-uPassword.addEventListener("keyup", function () {
+uPassword.addEventListener('keyup', function () {
     inputKeyUpReg.keyUpPassword(uPassword.value, uPassword);
 });
 
 /* password_Confirm 입력 keyUp이벤트 */
-uPasswordConfirm.addEventListener("keyup", function () {
+uPasswordConfirm.addEventListener('keyup', function () {
     inputKeyUpReg.keyUpPassword(uPasswordConfirm.value, uPasswordConfirm);
 });
 
 /* email 입력 keyUp이벤트 */
-uEmail.addEventListener("keyup", function () {
+uEmail.addEventListener('keyup', function () {
     inputKeyUpReg.keyUpEmail(uEmail.value);
 });
 
 /* phone_number 입력 keyUp이벤트 */
-uPhoneNumber.addEventListener("keyup", function () {
+uPhoneNumber.addEventListener('keyup', function () {
     inputKeyUpReg.keyUpOnlyNumber(uPhoneNumber, uPhoneNumber.value);
 });
 /* birth_front 입력 keyUp이벤트 */
-uBirthFront.addEventListener("keyup", function () {
+uBirthFront.addEventListener('keyup', function () {
     inputKeyUpReg.keyUpOnlyNumber(uBirthFront, uBirthFront.value);
 });
 
 /* birth_gender 입력 keyUp이벤트 */
-uBirthGender.addEventListener("keyup", function () {
+uBirthGender.addEventListener('keyup', function () {
     inputKeyUpReg.keyUpOnlyNumber(uBirthGender, uBirthGender.value);
 });
 
 
-/** 유효성할때 사용해야 함으로 아직 미완성*/
+function focusResetValue(object) {
+    object.nextElementSibling.innerHTML = '';
+}
+uName.addEventListener('focus', function () {
+    focusResetValue(uName);
+});
+
+uId.addEventListener('focus', function () {
+    focusResetValue(uId);
+});
+
+uPassword.addEventListener('focus', function () {
+    focusResetValue(uPassword);
+});
+
+uPasswordConfirm.addEventListener('focus', function () {
+    focusResetValue(uPasswordConfirm);
+});
+
+uPhoneNumber.addEventListener('focus', function () {
+    focusResetValue(uPhoneNumber);
+});
+
+uBirthFront.addEventListener('focus', function () {
+    focusResetValue(document.getElementById('writeBirth'));
+});
+
+uBirthGender.addEventListener('focus', function () {
+    focusResetValue(document.getElementById('writeBirth'));
+});
+
+uAnswer.addEventListener('focus', function () {
+    focusResetValue(uAnswer);
+});
+
+uEmail.addEventListener('focus', function () {
+    focusResetValue(uEmail);
+});
+
+
+/* blur event */
+uName.addEventListener('blur', function () {
+    if (inputValidator.isSet(uName.value)) {
+        uName.nextElementSibling.innerHTML = '';
+    } else {
+        checkContentFunc(uName, checkMsg.emptyName);
+    }
+});
+/* userId 비동기 아이디 중복 체크 */
+uId.addEventListener('blur', function () {
+    if (inputValidator.isValidId(uId.value)) {
+        httpRequest.sendRequest(httpRequest.getContextPath() + '/ajax/validateUserId.do', 'id=' + uId.value, idCheckFunc, 'POST', header, token);
+    } else {
+        checkContentFunc(uId, checkMsg.validId);
+        idCheck = false;
+    }
+});
 
 /* password 일치여부 확인 및 초기화 */
-uPassword.addEventListener("blur", function () {
+uPassword.addEventListener('blur', function () {
     uPasswordConfirm.value = '';
     let inputPassword = uPassword.value;
+    let msg = '';
+    let color = '';
     if (!inputValidator.isSet(inputPassword)) {
-        console.log("password 데이터가 비어있는 비동기 처리");
-
+        msg = checkMsg.emptyPassword;
     } else if (!inputValidator.isValidPassword(inputPassword)) {
-        console.log("password 규칙에 어긋난 처리");
+        msg = checkMsg.validPassword;
     } else {
-
+        msg = checkMsg.possiblePassword;
+        color = checkColor.green;
     }
+    checkContentFunc(uPassword, msg, color);
 });
 
-uPasswordConfirm.addEventListener("blur", function () {
+/* 비밀번호 확인에 대한 1차 유효성 검사 부분 */
+uPasswordConfirm.addEventListener('blur', function () {
     let inputPasswordConfirm = uPasswordConfirm.value;
+    let msg = '';
+    let color = '';
     if (!inputValidator.isSet(inputPasswordConfirm)) {
-        console.log("password_Confirm 데이터가 비어있는 비동기 처리");
+        msg = checkMsg.emptyPassword;
     } else if (!inputValidator.isValidPassword(inputPasswordConfirm)) {
-        console.log("password_Confirm 규칙에 어긋난 처리");
+        msg = checkMsg.validPassword;
     } else if (!(uPassword.value == inputPasswordConfirm)) {
-        console.log("비밀번호가 일치하지 않는다.");
+        msg = checkMsg.notMatchPassword;
+        uPassword.focus();
     } else {
-        console.log("비밀번호 일치");
+        msg = checkMsg.matchPassword;
+        color = checkColor.green;
     }
+    checkContentFunc(uPasswordConfirm, msg, color);
 });
 
+/* 휴대폰번호 1차 유효성 검사 */
+uPhoneNumber.addEventListener('blur', function () {
+    !inputValidator.isSet(uPhoneNumber.value) ? checkContentFunc(uPhoneNumber, checkMsg.emptyPhoneNumber) :
+        !inputValidator.isValidPhone(uPhoneNumber.value) ?
+            checkContentFunc(uPhoneNumber, checkMsg.impossiblePhoneNumber) :
+            checkContentFunc(uPhoneNumber, checkMsg.possiblePhoneNumber, checkColor.green);
+});
+
+
+/* 회원가입 로딩과 동시에 질문 데이터 Ajax로 가져오기*/
 getQuestion();
