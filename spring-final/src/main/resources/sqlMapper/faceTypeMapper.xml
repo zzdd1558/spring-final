@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="faceTypeMapper">
+	 
+	<resultMap type="faceTypeDTO" id="faceTypeResultMap">
+		<result column="FACE_TYPE_IDX" property="faceTypeIdx"/>
+		<result column="FACE_NAME" property="faceName"/>
+	</resultMap>
+	
+	<select id="faceTypeSelectAll" resultMap="faceTypeResultMap">
+		SELECT * FROM FACE_TYPE_TB
+	</select>
+	
+	<select id="faceTypeMaxIdx" resultType="int">
+		SELECT MAX(FACE_TYPE_IDX) FROM FACE_TYPE_TB
+	</select>
+	
+	<insert id="faceInsert" parameterType="faceTypeDTO">
+		INSERT INTO FACE_TYPE_TB VALUES (#{faceTypeIdx}, #{faceName})
+	</insert>
+	
+	<delete id="faceDelete" parameterType="int">
+		DELETE FACE_TYPE_TB WHERE FACE_TYPE_IDX = '#{faceTypeIdx}
+	</delete>
+</mapper>	
