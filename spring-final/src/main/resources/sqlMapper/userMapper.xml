@@ -20,21 +20,22 @@
 		<result column="QUESTION_KEY" property="questionKey" />
 	</resultMap>
 
-	<insert id="insertUser" parameterType="userDTO">
+	<insert id="insertUser" parameterType="userDTO"  >
 		INSERT INTO USER_TB 
 		    VALUES ( #{userKey} , #{userId} , #{userPassword} ,
 		             #{userName} , #{userGender} , #{userBirth} , 
 		             #{userPhone} , #{userEmail}, #{userAddr} ,
-		             #{userAnswer} , 0 , 0 , SYSDATE , 'A' , 1 )
+		             #{userAnswer} , 0 , 0 , SYSDATE , 'A' , ${questionKey} )
 	</insert>
 
 
-	<select id="userMaxIdx" resultType="int">
+	<select id="userMaxIdx" resultType="String">
 		SELECT MAX(USER_KEY) FROM
 		USER_TB
 	</select>
 	
-	<select id="validateCheckById" parameterType="String" resultType="int">
+	<select id="selectUserById" parameterType="String" resultMap="userResultMap">
 		SELECT * FROM USER_TB WHERE USER_ID = #{userId}
 	</select>
+	
 </mapper>

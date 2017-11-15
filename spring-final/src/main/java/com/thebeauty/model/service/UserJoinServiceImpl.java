@@ -20,20 +20,40 @@ public class UserJoinServiceImpl implements UserJoinService{
 	@Override
 	public int userJoin(UserDTO user) {
 		
-		
-		int key = Integer.parseInt(userDao.getUserMaxIdx());
-		System.out.println(key);
+		int key = userDao.getUserMaxIdx();
 		user.setUserKey( (key==0 ? 1 : key + 1));
 		
 		 /* 비밀번호 암호화 */ 
 		user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
+		return userDao.userJoin(user);
 		
-		return userDao.userJoin();
 	}
 
+	/* 회원 ID중복 여부 확인*/
 	@Override
 	public int validateUserId(String userId) {
-		
 		return userDao.validateUserId(userId);
 	}
+	
+	/* 해당 ID의 회원 정보 가져오기*/
+	@Override
+	public UserDTO getUserInfo(String userId) {
+		return userDao.getUserInfo(userId);
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

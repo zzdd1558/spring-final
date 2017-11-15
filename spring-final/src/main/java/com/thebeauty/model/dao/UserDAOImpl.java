@@ -4,6 +4,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.thebeauty.model.domain.UserDTO;
+
 @Repository
 public class UserDAOImpl implements UserDAO{
 
@@ -12,23 +14,26 @@ public class UserDAOImpl implements UserDAO{
 	
 	/* 회원가입 */
 	@Override
-	public int userJoin() {
-		
-		return 0;
+	public int userJoin(UserDTO user) {
+		return sqlSession.insert("userMapper.insertUser", user);
 	}
 	
 	/* maxIdx 가져오기 */
 	@Override
-	public String getUserMaxIdx() {
+	public int getUserMaxIdx() {
 		String idx = sqlSession.selectOne("userMapper.userMaxIdx") ;
-		return idx == null ? "0" : idx;
+		return idx == null ? 0 : Integer.parseInt(idx);
 	}
 
 	@Override
 	public int validateUserId(String userId) {
-		String idx = sqlSession.selectOne("userMapper.validateCheckById" , userId);
-		System.out.println("id check 유무: " + idx);
-		return idx == null ? 0 : 1;
+		UserDTO user  = sqlSession.selectOne("userMapper.selectUserById" , userId);
+		return user == null ? 0 : 1;
+	}
+	
+	@Override
+	public UserDTO getUserInfo(String userId) {
+		return sqlSession.selectOne("userMapper.selectUserById", userId);
 	}
 	
 	
