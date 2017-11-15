@@ -1,15 +1,23 @@
 package com.thebeauty.controller;
 
+import java.util.List;
 import java.util.Locale;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.thebeauty.model.dao.FaceTypeDAO;
+import com.thebeauty.model.domain.FaceTypeDTO;
+
 
 @Controller
 public class HomeController {
+	
+	@Autowired
+	private FaceTypeDAO faceTypeDAO;
 	
 	/* main page start*/
 	@RequestMapping(value = "openmallMain.do", method = RequestMethod.GET)
@@ -44,5 +52,17 @@ public class HomeController {
 	public String userLogin() {
 		System.out.println("회원로그인 페이지 호출");
 		return "userLogin";
+	}
+	
+	/* 피부타입 모두 가져오기 */
+	@RequestMapping("test1.do")
+	public String SearchAll() {
+		List<FaceTypeDTO> list = null;
+		list = faceTypeDAO.allSelectFaceType();
+		
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i));
+		}
+		return "test/test";
 	}
 }
