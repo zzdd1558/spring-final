@@ -3,6 +3,7 @@ package com.thebeauty.controller;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,12 +32,17 @@ public class AjaxController {
 	
 	/*
 	@Autowired
-	private BrandService brandService;
+	private BrandDAO brandDAO;
 	*/
 	
 	/*
 	@Autowired
 	private FaceTypeDAO faceTypeDAO;
+	*/
+	
+	/*
+	@Autowired
+	private DeliveryStatusDAO deliveryStatusDAO;
 	*/
 	
 	 /* 회원가입에 사용할 질문 비동기로 가져오는 URL */ 
@@ -47,7 +53,7 @@ public class AjaxController {
 	}
 	
 	/* 회원 ID 중복 비동기 처리하는 URL */
-	@RequestMapping(value = "/validateUserId.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/validateUserId.do", method = RequestMethod.GET)
 	public @ResponseBody int validateUserId(@RequestParam("id") String userId) throws IOException {
 		int cnt = userDAO.validateUserId(userId);
 		return cnt;
@@ -57,29 +63,24 @@ public class AjaxController {
 	/* 완성본 비동기 사용해서 처리할때 주석 풀어서 사용하면됨.*/
 /*
 	 모든 브랜드 가져오기 
-	@RequestMapping(value = "test1.do", method = RequestMethod.GET)
-	public String searchAll() {
-		List<CosmeticBrandDTO> list = null;
-		list = brandService.getAllBrand();
-		
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
-		}
-		return "test/test";
+	@RequestMapping(value = "brandList.do", method = RequestMethod.GET)
+	public @ResponseBody List<CosmeticBrandDTO> searchAll() {
+		List<CosmeticBrandDTO> list = brandDAO.allSelectBrand();
+		return list;
 	}*/
 	
 	/* 피부타입 모두 가져오기 
-	@RequestMapping("test1.do")
-	public String SearchAll() {
-		List<FaceTypeDTO> list = null;
-		list = faceTypeDAO.allSelectFaceType();
-		
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i));
-		}
-		return "test/test";
+	@RequestMapping("faceTypeList.do")
+	public @ResponseBody List<FaceTypeDTO> SearchAll() {
+		List<FaceTypeDTO> list = faceTypeDAO.allSelectFaceType();
+		return list;
 	}*/
 	
-	
+	/* 배송상태 가져오기 
+	@RequestMapping(value="deliveryList.do")
+	public @ResponseBody List<DeliveryStatusDTO> selectAll() {
+		List<DeliveryStatusDTO> list = deliveryStatusDAO.deliveryStatusSelectAll();
+		return list;
+	}*/
 	
 }

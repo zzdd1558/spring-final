@@ -17,7 +17,7 @@ let uAddressDetail = document.getElementById('u_address_detail');
 let uBirthFront = document.getElementById('u_birth_front');
 let uBirthGender = document.getElementById('u_birth_gender');
 let uForm = document.getElementById('joinForm');
-let formSubmit = document.getElementById('submit');
+let formSubmit = document.getElementById('submitBtn');
 let formReset = document.getElementById('reset');
 let googleReCaptcha = document.getElementById('googleReCaptcha');
 let idCheck = false;
@@ -36,7 +36,7 @@ const checkMsg = {
 
     /* 아이디 관련 */
     validId: ' 숫자 ,대·소문자 또는 특수문자( - , _ )가 포함된 6 ~ 20자의 아이디만 사용가능합니다. ',
-    possibleId: ' 사용가능한  ID입니다. ',
+    possibleId: ' 멋진 아이디에요! ',
     impossibleId: ' 사용 불가능한 아이디입니다. ',
     overlapId: ' 중복된 ID입니다. ',
 
@@ -163,6 +163,9 @@ formSubmit.addEventListener('click', function () {
     if (!inputValidator.isSet(uAddressZipNo.value) || !inputValidator.isSet(uAddressDetail.value) || !inputValidator.isSet(uAddressPart.value)) {
         checkContentFunc(uAddressDetail, checkMsg.searchAddress);
         formBoolean = false;
+        
+    }else{
+    	document.getElementById('userAddr').value = `${uAddressPart.value} ${uAddressDetail.value}`;
     }
 
     /* 구글 리캡챠 체크유무 */
@@ -174,10 +177,12 @@ formSubmit.addEventListener('click', function () {
     
     console.log(formBoolean);
     
-    /*uForm.setAttribute('method', 'POST');
-     uForm.setAttribute('action', httpRequest.getContextPath() + '/auth/userJoin.do');*/
-
-    return false;
+    if(formBoolean){
+    	uForm.setAttribute('method', 'POST');
+        uForm.setAttribute('action', httpRequest.getContextPath() + '/auth/userJoin.do');
+        uForm.submit();
+       }
+    
 
 });
 
@@ -319,7 +324,7 @@ uName.addEventListener('blur', function () {
 /* userId 비동기 아이디 중복 체크 */
 uId.addEventListener('blur', function () {
     if (inputValidator.isValidId(uId.value)) {
-        httpRequest.sendRequest(httpRequest.getContextPath() + '/ajax/validateUserId.do', 'id=' + uId.value, idCheckFunc, 'POST', header, token);
+        httpRequest.sendRequest(httpRequest.getContextPath() + '/ajax/validateUserId.do', 'id=' + uId.value, idCheckFunc, 'GET', header, token);
     } else {
         checkContentFunc(uId, checkMsg.validId);
         idCheck = false;
