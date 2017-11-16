@@ -6,15 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-
-<<<<<<< HEAD
-import com.thebeauty.model.dao.FaceTypeDAO;
-import com.thebeauty.model.domain.BoardDTO;
-import com.thebeauty.model.domain.FaceTypeDTO;
-=======
->>>>>>> branch 'master' of https://github.com/zzdd1558/spring-final
-
 
 @Controller
 public class HomeController {
