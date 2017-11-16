@@ -20,7 +20,7 @@
 	</insert>
 	
 	<delete id="brandDeleteByIdx" parameterType="cosmeticBrandDTO">
-		DELETE FROM COSMETIC_BRAND_TB WHERE BRAND_TYPE_IDX = '#{brandTypeIdx}'
+		DELETE FROM COSMETIC_BRAND_TB WHERE BRAND_TYPE_IDX = #{brandTypeIdx}
 	</delete>
 	
 </mapper>

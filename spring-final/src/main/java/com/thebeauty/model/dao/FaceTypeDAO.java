@@ -9,7 +9,7 @@ public interface FaceTypeDAO {
 	public List<FaceTypeDTO> allSelectFaceType();
 	
 	/* 가장높은 피부타입Idx 가져오기 */
-	public int selectIdx();
+	public int selectMaxIdx();
 	
 	/* 피부타입 추가하기 */
 	public int insertFaceType(FaceTypeDTO faceType);

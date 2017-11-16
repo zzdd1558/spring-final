@@ -20,6 +20,6 @@
 	</insert>
 	
 	<delete id="faceDelete" parameterType="int">
-		DELETE FACE_TYPE_TB WHERE FACE_TYPE_IDX = '#{faceTypeIdx}
+		DELETE FACE_TYPE_TB WHERE FACE_TYPE_IDX = #{faceTypeIdx}
 	</delete>
 </mapper>	

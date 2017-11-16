@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="deliveryStatusMapper">
+	 
+	<resultMap type="deliveryStatusDTO" id="deliveryStatusResultMap">
+		<result column="DELI_STATUS_CODE" property="deliStatusCode"/>
+		<result column="DELI_STATUS_NAME" property="deliStatusName"/>
+	</resultMap>
+	
+	<select id="deliveryStatusSelectAll" resultMap="deliveryStatusResultMap">
+		SELECT * FROM DELIVERY_STATUS_TB
+	</select>
+		
+	<select id="deliveryStatusMaxCode" resultType="int">
+		SELECT MAX(DELI_STATUS_CODE) FROM DELIVERY_STATUS_TB
+	</select>
+	
+	<insert id="deliveryStatusInsert" parameterType="deliveryStatusDTO">
+		INSERT INTO DELIVERY_STATUS_TB VALUES (#{deliStatusCode}, #{deliStatusName})
+	</insert>
+	
+	<delete id="deliveryStatusDelete" parameterType="int">
+		DELETE FROM DELIVERY_STATUS_TB WHERE DELI_STATUS_CODE = #{deliStatusCode}
+	</delete>
+</mapper>

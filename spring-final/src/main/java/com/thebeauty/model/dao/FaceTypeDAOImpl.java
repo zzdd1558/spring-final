@@ -22,7 +22,7 @@ public class FaceTypeDAOImpl implements FaceTypeDAO{
 	}
 	
 	/* 가장높은 피부타입Idx 가져오기 */
-	public int selectIdx() {
+	public int selectMaxIdx() {
 		return sqlSession.selectOne("faceTypeMapper.faceTypeMaxIdx");
 	}
 	
