@@ -9,4 +9,7 @@ public interface UserJoinService {
 	
 	/** userID 유무 확인 */
 	public abstract int validateUserId(String userId);
+	
+	/** user 정보 가져오기 */
+	public abstract UserDTO getUserInfo(String userId);
 }

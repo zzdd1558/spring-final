@@ -74,7 +74,8 @@ input[type=submit] {
 			<div class="loginBox">
 				<h2>로그인</h2>
 			</div>
-			<form action="/action_page.php">
+			<form action="${pageContext.request.contextPath}/auth/login.do" method='POST'>
+				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" >
 				<label for="usrname">아이디입력</label> <input type="text" id="usrname"
 					name="user_name" placeholder="Id"> <label for="psw">비밀번호입력</label>
 				<input type="password" id="psw" name="user_password" placeholder="Password">

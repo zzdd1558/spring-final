@@ -3,6 +3,7 @@ package com.thebeauty.controller;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,7 +53,7 @@ public class AjaxController {
 	}
 	
 	/* 회원 ID 중복 비동기 처리하는 URL */
-	@RequestMapping(value = "/validateUserId.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/validateUserId.do", method = RequestMethod.GET)
 	public @ResponseBody int validateUserId(@RequestParam("id") String userId) throws IOException {
 		int cnt = userDAO.validateUserId(userId);
 		return cnt;
