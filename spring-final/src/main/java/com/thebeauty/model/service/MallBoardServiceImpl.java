@@ -36,15 +36,22 @@ public class MallBoardServiceImpl implements MallBoardService{
 
 
 	@Override
-	public int insert(BoardDTO dto) {
-		int lev=dto.getBoardLev();
-		int seq=dto.getBoardReSeq();
-		boardDao.updateReSeq(dto);
-        dto.setBoardLev(lev+1);
-        dto.setBoardReSeq(seq+1);
+	public int insertBoard(BoardDTO dto) {
+		dto.setBoardIdx(boardGetIdx()+1);
+		dto.setBoardReRef(dto.getBoardIdx());
+		return boardDao.insertBoard(dto);
+	}
+	
+	@Override
+	public int insertReply(BoardDTO dto) {
+		dto.setBoardReRef(dto.getBoardIdx());
+		dto.setBoardLev(dto.getBoardLev()+1);
+		dto.setBoardReSeq(dto.getBoardReSeq()+1);
+		dto.setBoardIdx(boardGetIdx()+1);
 		return boardDao.insertBoard(dto);
 	}
 
+	
 
 	@Override
 	public int boardGetIdx() {
@@ -68,4 +75,7 @@ public class MallBoardServiceImpl implements MallBoardService{
 	public List<BoardDTO> listAll(int start, int end){
 			return boardDao.listAll(start, end);
 	}
+
+
+
 }

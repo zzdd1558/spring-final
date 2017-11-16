@@ -23,14 +23,7 @@ public class MallBoardDAOImpl implements MallBoardDAO {
 
 	@Override
 	public int insertBoard(BoardDTO dto) {
-		if(dto.getBoardReSeq()==0) {
-			dto.setBoardReRef(dto.getBoardIdx());
-		}
-		dto.setBoardCosmeticNum(1); // 가변
-		dto.setBoardType("1"); // 가변
-		dto.setBoardUserKey(1); // 가변
-		dto.setBoardUseScore(5); // 가변
-		
+		System.out.println(dto);
 		return sqlsession.insert("boardMapper.boardInsert",dto);
 	}
 		

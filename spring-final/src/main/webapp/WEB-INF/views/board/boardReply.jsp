@@ -32,7 +32,7 @@
     <table width="700" border="3" bordercolor="lightgray" align="center">
         <tr>
             <td id="title">작성자</td>
-             <td>sessionID로 확인</td>   
+             <td>${board.boardIdx}</td>   
         </tr>
             <tr>
             <td id="title">

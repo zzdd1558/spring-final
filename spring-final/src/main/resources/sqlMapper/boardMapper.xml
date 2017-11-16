@@ -39,7 +39,7 @@
 				BOARD_TB
 		 VALUES
 			(#{boardIdx},#{boardSubject},#{boardContent},'1',#{boardReRef},#{boardLev},#{boardReSeq},
-				0,SYSDATE,#{boardType},#{boardCosmeticNum},1,#{boardUseScore},#{boardUserKey})
+				0,SYSDATE,1,#{boardCosmeticNum},#{boardParent},#{boardUseScore},#{boardUserKey})
 	</insert>
 	
 	<update id="updateCount" parameterType="int">
@@ -61,7 +61,7 @@
     <include refid="pagingHeader"></include>
         SELECT *
         FROM BOARD_TB
-        order by BOARD_RE_REF desc, BOARD_RE_SEQ asc
+        order by BOARD_RE_REF desc , BOARD_RE_SEQ asc
     <include refid="pagingFooter"></include>    
 </select>
 				<!-- 페이징 sql -->

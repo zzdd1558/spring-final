@@ -62,10 +62,8 @@ public class BoardController {
 		
 		@RequestMapping(value = "BoardWrite.do", method = RequestMethod.GET)
 		public String boardWrite(@ModelAttribute("board")BoardDTO dto) {
-			System.out.println(dto);
-			dto.setBoardIdx(service.boardGetIdx()+1);
-			service.insert(dto);
-
+			System.out.println("boardWrite:"+dto);
+			service.insertBoard(dto);
 			return "redirect:BoardListform.do";
 		}
 		
@@ -81,9 +79,9 @@ public class BoardController {
 		@RequestMapping(value = "boardReply.do", method = RequestMethod.GET)
 		public String boardReply(@RequestParam int page,@ModelAttribute("boardForm") BoardDTO dto) {
 			int curpage=page;
-			System.out.println(dto);
-			dto.setBoardIdx(service.boardGetIdx()+1);
-			service.insert(dto);
+			System.out.println("boardReply:"+dto);
+			//답글 경우 ref-부모글의 grp,Seq-부모글의Seq+1,Lev-부모글의+1 
+			service.insertReply(dto);
 
 			return "redirect:BoardListform.do?page="+curpage;
 		}

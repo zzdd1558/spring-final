@@ -8,8 +8,10 @@ public interface MallBoardService {
 
 	/*board list*/
 	public abstract List<BoardDTO> selectAll();
-	/*board insert*/
-	public abstract int insert(BoardDTO dto);
+	/*board insertBoard*/
+	public abstract int insertBoard(BoardDTO dto);
+	/*board insertReply*/
+	public abstract int insertReply(BoardDTO dto);
 	/*board idx*/
 	public abstract  int boardGetIdx();
 	/*board detail*/
