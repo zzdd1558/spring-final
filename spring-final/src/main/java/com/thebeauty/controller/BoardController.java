@@ -1,6 +1,8 @@
 package com.thebeauty.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.thebeauty.model.domain.BoardDTO;
+import com.thebeauty.model.service.BoardPager;
 import com.thebeauty.model.service.MallBoardService;
 /**
  * 게시판 관련된 핸들러 컨틀리
@@ -25,34 +28,64 @@ public class BoardController {
 	
 	//boardform
 		@RequestMapping(value = "BoardListform.do", method = RequestMethod.GET)
-		public ModelAndView boardList() {
-			ModelAndView mv=new ModelAndView("board/boardList");
+		public ModelAndView boardList(@RequestParam(defaultValue="1") int curPage) {
+			ModelAndView mv=new ModelAndView("board/boardList1");
 			List<BoardDTO> list=service.selectAll();
+			int count=list.size();
+			BoardPager boardPager = new BoardPager(count, curPage);
+		    int start = boardPager.getPageBegin();
+		    int end = boardPager.getPageEnd();
+		    list=service.listAll(start,end);
+		    System.out.println(list);
+		    
+		    
+			Map<String, Object> map = new HashMap<String, Object>();
+		    map.put("list", list); // list
+		    map.put("count", count); // 레코드의 갯수
+		    map.put("boardPager", boardPager);
 			mv.addObject("list", list);
+			mv.addObject("map", map);
 			return mv;
 		}
 		
 		@RequestMapping(value="BoardDetailListform.do", method = RequestMethod.GET)
-		public ModelAndView boardDetail(@RequestParam String boardSubject) {
+		public ModelAndView boardDetail(@RequestParam int boardIdx,@RequestParam int curPage) {
 			ModelAndView mv=new ModelAndView("board/boardDetail");
-			System.out.println(boardSubject);
-			BoardDTO dto=service.selectOneBoard(boardSubject);
+			System.out.println(boardIdx);
+			BoardDTO dto=service.selectOneBoard(boardIdx);
 			System.out.println(dto);
 			mv.addObject("boardDTO", dto);
+			mv.addObject("pageNum", curPage);
 			return mv;
 		}
 		
 		
 		@RequestMapping(value = "BoardWrite.do", method = RequestMethod.GET)
 		public String boardWrite(@ModelAttribute("board")BoardDTO dto) {
-			dto.setBoardCosmeticNum(1); // 가변
+			System.out.println(dto);
 			dto.setBoardIdx(service.boardGetIdx()+1);
-			dto.setBoardType("1"); // 가변
-			dto.setBoardUserKey(1); // 가변
-			dto.setBoardUseScore(5); // 가변
 			service.insert(dto);
 
 			return "redirect:BoardListform.do";
 		}
+		
+		@RequestMapping(value = "BoardReplyForm.do", method = RequestMethod.GET)
+		public ModelAndView BoardReplyForm(@RequestParam int num,@RequestParam int page) {
+			ModelAndView mv=new ModelAndView("board/boardReply");
+			BoardDTO dto=service.selectOneBoard(num);
+			mv.addObject("board", dto);
+			mv.addObject("page", page);
+			return mv;
+		}
 	
+		@RequestMapping(value = "boardReply.do", method = RequestMethod.GET)
+		public String boardReply(@RequestParam int page,@ModelAttribute("boardForm") BoardDTO dto) {
+			int curpage=page;
+			System.out.println(dto);
+			dto.setBoardIdx(service.boardGetIdx()+1);
+			service.insert(dto);
+
+			return "redirect:BoardListform.do?page="+curpage;
+		}
+		
 }

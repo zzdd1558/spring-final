@@ -13,6 +13,7 @@ public interface MallBoardService {
 	/*board idx*/
 	public abstract  int boardGetIdx();
 	/*board detail*/
-	public abstract BoardDTO selectOneBoard(String boardSubject);
+	public abstract BoardDTO selectOneBoard(int boardIdx);
+	public List<BoardDTO> listAll(int start, int end);
 	
 }

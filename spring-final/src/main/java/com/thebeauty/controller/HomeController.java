@@ -8,8 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.thebeauty.model.dao.FaceTypeDAO;
+import com.thebeauty.model.domain.BoardDTO;
 import com.thebeauty.model.domain.FaceTypeDTO;
 
 
@@ -34,7 +36,7 @@ public class HomeController {
 	/*board Write 단순 경로*/
 	@RequestMapping(value = "board/BoardWriteForm.do", method = RequestMethod.GET)
 	public String boardWriteForm() {
-		System.out.println("회원가입 페이지  호출");
+//		System.out.println("BoardWrite.do");
 		return "board/boardWrite";
 	}
 	

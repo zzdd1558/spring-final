@@ -10,5 +10,9 @@ public interface MallBoardDAO {
 	public List<BoardDTO> selectAllboard();
 	public int insertBoard(BoardDTO dto);
 	public int boardGetIdx();
-	public BoardDTO selectOneBoard(String boardSubject);
+	public BoardDTO selectOneBoard(int boardIdx);
+	public int updateCount(int idx);
+	public List<BoardDTO> listAll(int start, int end);
+	public int updateReSeq(BoardDTO dto);
+
 }

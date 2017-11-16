@@ -19,11 +19,10 @@
 		<result column="USER_KEY"  property="boardUserKey"/>
 	</resultMap>
 
-	<select id="boardSearch" parameterType="String" resultMap="boardResultMap">
+	<select id="boardSearch" parameterType="int" resultMap="boardResultMap">
 		SELECT * 
-		FROM BOARD_TB WHERE BOARD_SUBJECT LIKE '%' || #{boardSubject} || '%'
+		FROM BOARD_TB WHERE BOARD_IDX =#{boardIdx} 
 	</select>
-	
 	
 	<select id="boardMaxIdx" resultType="int" >
 		SELECT MAX(BOARD_IDX)
@@ -39,10 +38,41 @@
 		INSERT INTO
 				BOARD_TB
 		 VALUES
-			(#{boardIdx},#{boardSubject},#{boardContent},#{boardFile},1,1,1,
-				1,SYSDATE,#{boardType},#{boardCosmeticNum},1,#{boardUseScore},#{boardUserKey})
+			(#{boardIdx},#{boardSubject},#{boardContent},'1',#{boardReRef},#{boardLev},#{boardReSeq},
+				0,SYSDATE,#{boardType},#{boardCosmeticNum},1,#{boardUseScore},#{boardUserKey})
 	</insert>
 	
+	<update id="updateCount" parameterType="int">
+		UPDATE BOARD_TB
+		SET BOARD_COUNT = BOARD_COUNT+1
+		WHERE BOARD_IDX=#{boardIdx}
+	</update>
+	
+	
+	<update id="updateReSeq" parameterType="boardDTO">
+		UPDATE BOARD_TB 
+		SET BOARD_RE_SEQ = BOARD_RE_SEQ+1
+		WHERE BOARD_RE_REF = #{boardReRef} and BOARD_RE_SEQ=#{boardReSeq}
+	</update>
+	
+	
+<select id="listAll" parameterType="hashMap"  resultMap="boardResultMap">
+    <!-- 목록 조회 및 페이징 전체 쿼리 -->
+    <include refid="pagingHeader"></include>
+        SELECT *
+        FROM BOARD_TB
+        order by BOARD_RE_REF desc, BOARD_RE_SEQ asc
+    <include refid="pagingFooter"></include>    
+</select>
+				<!-- 페이징 sql -->
+				<sql id="pagingHeader">
+				    SELECT * FROM (
+				        SELECT ROWNUM AS rn, A.* FROM (
+				</sql>
+				<sql id="pagingFooter">
+				        ) A
+				    ) WHERE rn BETWEEN #{start} AND #{end}
+				</sql>
 	
 </mapper>	
 

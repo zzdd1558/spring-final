@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.thebeauty.model.dao.MallBoardDAO;
 import com.thebeauty.model.domain.BoardDTO;
@@ -36,7 +37,11 @@ public class MallBoardServiceImpl implements MallBoardService{
 
 	@Override
 	public int insert(BoardDTO dto) {
-		// TODO Auto-generated method stub
+		int lev=dto.getBoardLev();
+		int seq=dto.getBoardReSeq();
+		boardDao.updateReSeq(dto);
+        dto.setBoardLev(lev+1);
+        dto.setBoardReSeq(seq+1);
 		return boardDao.insertBoard(dto);
 	}
 
@@ -50,10 +55,17 @@ public class MallBoardServiceImpl implements MallBoardService{
 
 
 	@Override
-	public BoardDTO selectOneBoard(String boardSubject) {
+	@Transactional
+	public BoardDTO selectOneBoard(int boardIdx) {
 		// TODO Auto-generated method stub
-		return boardDao.selectOneBoard(boardSubject);
+		 BoardDTO dto=boardDao.selectOneBoard(boardIdx);
+		 boardDao.updateCount(dto.getBoardIdx());
+		 return dto;
 	}
 
-	
+
+	@Override
+	public List<BoardDTO> listAll(int start, int end){
+			return boardDao.listAll(start, end);
+	}
 }

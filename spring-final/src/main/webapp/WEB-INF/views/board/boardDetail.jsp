@@ -5,6 +5,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+    <script type="text/javascript">
+        function changeView(value)
+        {
+            if(value == 0)    {
+            	location.href="BoardListAction.bo?page=${pageNum}";
+            }else if(value == 1){
+                location.href='BoardReplyForm.do?num=${boardDTO.boardIdx}&page=${pageNum}';
+            }
+                
+        }
+    </script>
 </head>
 <body>
 	
@@ -12,6 +24,7 @@
         <tr>
             <td id="title">작성자</td>
             <td>
+            ${boardDTO.boardIdx}
 			</td>
         </tr>
             <tr>
@@ -49,7 +62,10 @@
  
         <tr align="center" valign="middle">
             <td colspan="5">
-                <input type="button" value="뒤로가기" onclick="location.href='BoardListform.do'" >            
+            		<input type="button" value="수정" >
+                    <input type="button" value="삭제" >
+                    <input type="button" value="답글"  onclick="changeView(1)" >
+                	<input type="button" value="목록" 	onclick="changeView(0)" >            
             </td>
         </tr>
     </table> 
