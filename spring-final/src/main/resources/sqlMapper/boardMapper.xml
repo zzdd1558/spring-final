@@ -59,9 +59,15 @@
 <select id="listAll" parameterType="hashMap"  resultMap="boardResultMap">
     <!-- 목록 조회 및 페이징 전체 쿼리 -->
     <include refid="pagingHeader"></include>
-        SELECT *
-        FROM BOARD_TB
-        order by BOARD_RE_REF desc , BOARD_RE_SEQ asc
+<!--         SELECT * -->
+<!--         FROM BOARD_TB -->
+<!--         order by BOARD_RE_REF desc , BOARD_RE_SEQ asc -->
+			SELECT 	LEVEL,
+					BOARD_TB.*
+			FROM BOARD_TB
+                    START WITH BOARD_PARENT = 0
+                    CONNECT BY PRIOR BOARD_IDX = BOARD_PARENT
+                    ORDER SIBLINGS BY BOARD_RE_REF DESC
     <include refid="pagingFooter"></include>    
 </select>
 				<!-- 페이징 sql -->
@@ -73,6 +79,14 @@
 				        ) A
 				    ) WHERE rn BETWEEN #{start} AND #{end}
 				</sql>
+				
+<delete id="boardDelete" parameterType="int">
+	DELETE FROM BOARD_TB
+	WHERE BOARD_IDX = #{boardIdx}
+	CASE
+
+
+</delete>
 	
 </mapper>	
 

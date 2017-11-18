@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="commentMapper">
+	 
+	<resultMap type="CommentDTO" id="commentResultMap">
+		<result column="COMMENT_NUM"  property="commentNum"/>
+		<result column="COMMENT_BOARD"  property="commentBoard"/>
+		<result column="COMMENT_ID"  property="commentId"/>
+		<result column="COMMENT_DATE"  property="commentDate"/>
+		<result column="COMMENT_PARENT"  property="commentParent"/>
+		<result column="COMMENT_CONTENT"  property="commentContent"/>
+		<result column="COMMENT_LEV"  property="commentLev"/>
+		<result column="COMMENT_RE_SEQ"  property="commentReSeq"/>
+	</resultMap>
+
+	<select id="commentMaxIdx" resultType="int" >
+		SELECT MAX(COMMENT_NUM)
+		FROM COMMENT_TB			
+	</select>
+	
+	<insert id="commentInsert" parameterType="CommentDTO">
+			INSERT INTO COMMENT_TB
+			VALUES(#{commentNum},#{commentBoard},#{commentId},SYSDATE,#{commentParent},#{commentContent},#{commentLev},#{commentReSeq})
+	</insert>
+	
+	<select id="commentSelectAll" parameterType="int" resultMap="commentResultMap">
+			SELECT 	LEVEL,
+					COMMENT_TB.*
+			FROM 	COMMENT_TB
+			WHERE COMMENT_BOARD = #{commentBoard}
+                    START WITH COMMENT_PARENT = 0
+                    CONNECT BY PRIOR COMMENT_NUM = COMMENT_PARENT
+	</select>
+
+	<delete id="commentDelete" parameterType="int">
+			DELETE FROM COMMENT_TB
+			WHERE COMMENT_NUM= #{commentNum}
+	</delete>
+
+
+	
+
+	
+</mapper>	
+
+
+
+
+
+
+
+

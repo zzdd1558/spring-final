@@ -44,7 +44,8 @@ public class MallBoardServiceImpl implements MallBoardService{
 	
 	@Override
 	public int insertReply(BoardDTO dto) {
-		dto.setBoardReRef(dto.getBoardIdx());
+		dto.setBoardParent(dto.getBoardIdx());
+//		dto.setBoardReRef(dto.getBoardIdx());
 		dto.setBoardLev(dto.getBoardLev()+1);
 		dto.setBoardReSeq(dto.getBoardReSeq()+1);
 		dto.setBoardIdx(boardGetIdx()+1);

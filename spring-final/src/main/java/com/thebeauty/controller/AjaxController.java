@@ -1,19 +1,25 @@
 package com.thebeauty.controller;
 
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.thebeauty.model.dao.CommentDAO;
 import com.thebeauty.model.dao.FaceTypeDAO;
 import com.thebeauty.model.dao.QuestionDAO;
 import com.thebeauty.model.dao.UserDAO;
+import com.thebeauty.model.domain.CommentDTO;
 import com.thebeauty.model.domain.CosmeticBrandDTO;
 import com.thebeauty.model.domain.FaceTypeDTO;
 import com.thebeauty.model.domain.QuestionDTO;
@@ -29,6 +35,9 @@ public class AjaxController {
 
 	@Autowired
 	private QuestionDAO questionDAO;
+	
+	@Autowired
+	private CommentDAO commentDAO;
 	
 	/*
 	@Autowired
@@ -57,6 +66,14 @@ public class AjaxController {
 	public @ResponseBody int validateUserId(@RequestParam("id") String userId) throws IOException {
 		int cnt = userDAO.validateUserId(userId);
 		return cnt;
+	}
+	
+	@RequestMapping(value="/commentLsit.do", method = RequestMethod.GET)
+	public @ResponseBody String  commentList(CommentDTO dto,Model model) {
+		List<CommentDTO> list=commentDAO.selectAllComment(dto.getCommentBoard());
+		model.addAttribute("list1", list);
+		
+		return "sucess";
 	}
 	
 	
