@@ -7,13 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>회원로그인 페이지</title>
 <style>
-/* Style all input fields */
 
-/* body { */
-/* 	font-family: 'Noto', 'dotum', '돋움', 'verdana', 'sans-serif'; */
-/* 	font-size: 14px; */
-/* 	color : #666; */
-/* } */
  input { 
     width: 100%; 
      padding: 12px; 

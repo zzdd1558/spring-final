@@ -24,11 +24,14 @@ public class UserAuthenticationFailureHandler implements AuthenticationFailureHa
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest req, HttpServletResponse res, AuthenticationException auth)
 			throws IOException, ServletException {
+		System.out.println("error : "  +  auth.getMessage());
 		/*req.setAttribute("errorMessage", auth.getMessage());
 		req.getRequestDispatcher("/WEB-INF/views/member/loginForm.jsp").forward(req, res);*/
-
+		
+		/* auth.getMessage()에 따른 error page 설정 필요 */
+		
+		
 	}
-
 }
 
 

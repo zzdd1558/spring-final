@@ -6,7 +6,7 @@
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<context:component-scan
-		base-package="com.thebeauty.model.dao,com.thebeauty.model.service,com.thebeauty.model.domain" />
+		base-package="com.thebeauty.model.dao,com.thebeauty.model.service,com.thebeauty.model.domain,com.thebeauty.utils" />
 	<!-- 비밀번호를 암호화 하고 이를 기준으로 암호 비교 기능을 제공하는 스프링 빈 -->
 	<bean id="passwordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
