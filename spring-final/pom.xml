@@ -12,12 +12,14 @@
 		<org.springframework-version>4.3.4.RELEASE</org.springframework-version>
 	</properties>
 	<dependencies>
+		<!-- spring-webmvc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${org.springframework-version}</version>
 		</dependency>
 
+		<!-- spring-security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-core</artifactId>
@@ -41,25 +43,29 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>4.2.2.RELEASE</version>
 		</dependency>
-		<!-- db Transaction -->
+
+		<!-- aspectjweaver -->
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.7.4</version>
 		</dependency>
+
+		<!-- commons-dbcp -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
 			<version>1.4</version>
 		</dependency>
 
-		<!-- mybatis LIB -->
+		<!-- Log4j -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.14</version>
 		</dependency>
 
+		<!-- mybatis LIB -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis</artifactId>
@@ -78,6 +84,8 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>1.6.10</version>
 		</dependency>
+
+		<!-- 비동기처리 위한 jackson lib -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
@@ -88,6 +96,17 @@
 			<artifactId>cglib</artifactId>
 			<version>2.2.2</version>
 		</dependency>
-		
+
+		<!-- java Mail Service lib -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>4.3.4.RELEASE</version>
+		</dependency>
 	</dependencies>
 </project>

@@ -25,7 +25,7 @@
 		    VALUES ( #{userKey} , #{userId} , #{userPassword} ,
 		             #{userName} , #{userGender} , #{userBirth} , 
 		             #{userPhone} , #{userEmail}, #{userAddr} ,
-		             #{userAnswer} , 0 , 0 , SYSDATE , 'A' , ${questionKey} )
+		             #{userAnswer} , 0 , 0 , SYSDATE , 'N' , ${questionKey} )
 	</insert>
 
 
