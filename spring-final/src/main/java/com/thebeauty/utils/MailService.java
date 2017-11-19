@@ -1,4 +1,4 @@
-package com.thebeauty.model.service;
+package com.thebeauty.utils;
 
 import com.thebeauty.model.domain.MailServiceDTO;
 

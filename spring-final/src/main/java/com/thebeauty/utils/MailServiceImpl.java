@@ -1,4 +1,4 @@
-package com.thebeauty.model.service;
+package com.thebeauty.utils;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;

@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.thebeauty.model.domain.MailServiceDTO;
 import com.thebeauty.model.domain.UserDTO;
-import com.thebeauty.model.service.MailService;
 import com.thebeauty.model.service.UserJoinServiceImpl;
+import com.thebeauty.utils.MailService;
 
 @Controller
 @RequestMapping(value = "/auth")
