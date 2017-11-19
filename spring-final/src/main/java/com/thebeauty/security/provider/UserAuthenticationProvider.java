@@ -15,7 +15,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.thebeauty.customException.PermissionDiniedException;
+import com.thebeauty.customException.PermissionDeniedException;
 import com.thebeauty.model.dao.UserDAO;
 import com.thebeauty.model.domain.UserDTO;
 
@@ -46,7 +46,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider{
 		if(user == null) {
 			/** 아이디가 없을경우 error페이지로 넘겨줘야함 */
 			System.out.println("아이디가 존재하지 않습니다.");
-			throw new UsernameNotFoundException("notFountUser");
+			throw new UsernameNotFoundException("notFoundUser");
 			
 		}
 		
@@ -54,14 +54,14 @@ public class UserAuthenticationProvider implements AuthenticationProvider{
 		if(!passwordEncoder.matches((String)authentication.getCredentials() , user.getUserPassword())) {
 			/** 비밀번호가 없을경우 넘겨줘야함. */
 			System.out.println("비밀번호가 일치하지 않습니다");
-			throw new BadCredentialsException("비밀번호가 일치하지 않습니다.");
+			throw new BadCredentialsException("notMatchPassword");
 		}
 		
 		/* 권한이 없거나 'N' or 'n'일경우 */
 		System.out.println(user.getRatingType());
 		if(user.getRatingType() == null || user.getRatingType().equalsIgnoreCase("N")) {
 			System.out.println("회원승인이 필요합니다");
-			throw new PermissionDiniedException("회원승인이 필요합니다");
+			throw new PermissionDeniedException("permissionDenined");
 		}
 		
 		/* 사용자로부터 받아온 권한을 목록에 저장 */

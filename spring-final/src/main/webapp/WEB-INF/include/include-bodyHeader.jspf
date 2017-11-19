@@ -1,6 +1,6 @@
 <%@ page pageEncoding="utf-8"%>
 <!-- Top menu -->
-<header>
+<header id="header">
 	<div class="w3-container "
 		style="max-width: 100%; margin: 0; padding: 0;">
 		<!-- 	<div class="w3-white w3-xlarge" style="max-width: 100%; margin: auto;"> -->

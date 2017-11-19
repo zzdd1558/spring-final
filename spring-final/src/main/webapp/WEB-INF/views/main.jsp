@@ -27,7 +27,7 @@
 			</div>
 		</div>
 		
-		<div class="w3-center w3-container w3-section">
+		<div class="w3-center w3-container w3-section" id="slideNum">
 			<button class="w3-button demo" onclick="currentDiv(1)">1</button>
 			<button class="w3-button demo" onclick="currentDiv(2)">2</button>
 			<button class="w3-button demo" onclick="currentDiv(3)">3</button>
