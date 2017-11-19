@@ -36,6 +36,7 @@ public class MallBoardServiceImpl implements MallBoardService{
 
 
 	@Override
+	@Transactional
 	public int insertBoard(BoardDTO dto) {
 		dto.setBoardIdx(boardGetIdx()+1);
 		dto.setBoardReRef(dto.getBoardIdx());

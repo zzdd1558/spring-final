@@ -12,28 +12,30 @@ public class UserDAOImpl implements UserDAO{
 	@Autowired
 	private SqlSession sqlSession;
 	
-	/* 회원가입 */
+	/** 회원가입 */
 	@Override
 	public int userJoin(UserDTO user) {
 		return sqlSession.insert("userMapper.insertUser", user);
 	}
 	
-	/* maxIdx 가져오기 */
+	/** maxIdx 가져오기 */
 	@Override
 	public int getUserMaxIdx() {
 		String idx = sqlSession.selectOne("userMapper.userMaxIdx") ;
 		return idx == null ? 0 : Integer.parseInt(idx);
 	}
-
-	@Override
-	public int validateUserId(String userId) {
-		UserDTO user  = sqlSession.selectOne("userMapper.selectUserById" , userId);
-		return user == null ? 0 : 1;
-	}
 	
+	
+	/** 회원 정보 가져오기*/
 	@Override
 	public UserDTO getUserInfo(String userId) {
 		return sqlSession.selectOne("userMapper.selectUserById", userId);
+	}
+
+	/** 회원 권한 승인으로인한 Rating 변경*/
+	@Override
+	public int userPermissionUpdate(String userId) {
+		return sqlSession.update("userMapper.userPermissionUpdate", userId);
 	}
 	
 	

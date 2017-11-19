@@ -1,15 +1,22 @@
 package com.thebeauty.model.service;
 
 import com.thebeauty.model.domain.UserDTO;
+import com.thebeauty.model.domain.UserTokenDTO;
 
 public interface UserJoinService {
 	
 	/** 회원가입 */
-	public abstract int userJoin(UserDTO user);
+	public abstract int userJoin(UserDTO user , String encodeToken);
 	
-	/** userID 유무 확인 */
-	public abstract int validateUserId(String userId);
-	
+	/** 유저 토큰 생성 */
+	public abstract int createUserToken(int key,String encodeToken);
+
 	/** user 정보 가져오기 */
 	public abstract UserDTO getUserInfo(String userId);
+	
+	/** user 권한 승인으로 인한 Rating 업데이트 */
+	public abstract int userPermissionUpdate(String userId);
+	
+	/** 권한 승인후 token 삭제 */
+	public abstract int removeUserTokenByUserKey(UserTokenDTO userToken);
 }

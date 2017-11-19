@@ -23,6 +23,7 @@ import com.thebeauty.model.domain.CommentDTO;
 import com.thebeauty.model.domain.CosmeticBrandDTO;
 import com.thebeauty.model.domain.FaceTypeDTO;
 import com.thebeauty.model.domain.QuestionDTO;
+import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.service.AdminService;
 import com.thebeauty.model.service.UserJoinServiceImpl;
 
@@ -64,8 +65,8 @@ public class AjaxController {
 	/* 회원 ID 중복 비동기 처리하는 URL */
 	@RequestMapping(value = "/validateUserId.do", method = RequestMethod.GET)
 	public @ResponseBody int validateUserId(@RequestParam("id") String userId) throws IOException {
-		int cnt = userDAO.validateUserId(userId);
-		return cnt;
+		UserDTO user = userDAO.getUserInfo(userId);
+		return user==null ? 0 : 1;
 	}
 	
 	@RequestMapping(value="/commentLsit.do", method = RequestMethod.GET)
