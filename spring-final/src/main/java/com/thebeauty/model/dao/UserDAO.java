@@ -15,4 +15,7 @@ public interface UserDAO {
 	
 	/* 회원승인으로 인한 Rating 업데이트*/
 	public abstract int userPermissionUpdate(String userId);
+	
+	/* 아이디 가져오기 */
+	public abstract UserDTO getUserId(UserDTO user);
 }

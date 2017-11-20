@@ -38,7 +38,12 @@ public class UserDAOImpl implements UserDAO{
 		return sqlSession.update("userMapper.userPermissionUpdate", userId);
 	}
 	
-	
+	/** 사용자입력값으로 회원정보 가져오기 */
+	@Override
+	public UserDTO getUserId(UserDTO user) {
+		UserDTO dto=sqlSession.selectOne("userMapper.selectIdAndKey", user);
+		return dto;
+	}
 
 	
 }
