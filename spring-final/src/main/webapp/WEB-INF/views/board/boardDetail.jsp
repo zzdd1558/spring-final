@@ -11,7 +11,7 @@
         function changeView(value)
         {
             if(value == 0)    {
-            	location.href="BoardListAction.bo?page=${pageNum}";
+            	location.href="BoardListform.do?page=${pageNum}";
             }else if(value == 1){
                 location.href='BoardReplyForm.do?num=${boardDTO.boardIdx}&page=${pageNum}';
             }
