@@ -79,5 +79,17 @@ public class MallBoardServiceImpl implements MallBoardService{
 	}
 
 
+	@Override
+	public int deleteBoard(BoardDTO dto) {
+		return boardDao.deleteBoard(dto);
+	}
+
+
+	@Override
+	public int updateBoard(BoardDTO dto) {
+		return boardDao.updateBoard(dto);
+	}
+
+
 
 }

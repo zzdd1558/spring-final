@@ -45,4 +45,10 @@ public class CommentDAOImpl implements CommentDAO {
 		return sqlsession.delete("commentMapper.commentDelete", commentNum);
 	}
 
+	@Override
+	public int updateComment(CommentDTO dto) {
+		// TODO Auto-generated method stub
+		return sqlsession.update("commentMapper.commentUpdate", dto);
+	}
+
 }

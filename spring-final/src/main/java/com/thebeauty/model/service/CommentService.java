@@ -9,6 +9,8 @@ public interface CommentService {
 	public abstract int commentMaxIdx();
 	/*insertComment*/
 	public abstract int insertComment(CommentDTO dto);
+	/*updateComment*/
+	public abstract int updateComment(CommentDTO dto);
 	/*CommentList*/
 	public abstract List<CommentDTO> commentList(int boardNum);
 	/*delectComment*/
