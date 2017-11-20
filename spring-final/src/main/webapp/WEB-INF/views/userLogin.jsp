@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf"%>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원로그인 페이지</title>
 <style>
 /* Style all input fields */
@@ -14,16 +14,16 @@
 /* 	font-size: 14px; */
 /* 	color : #666; */
 /* } */
- input { 
+input { 
     width: 100%; 
-     padding: 12px; 
-     border: 1px solid #ccc; 
-     border-radius: 4px; 
-     box-sizing: border-box; 
-     margin-top: 6px; 
+    padding: 12px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
     margin-bottom: 16px; 
     font-size: 16px; 
- } 
+} 
 label {
 	color: #999;
 }
@@ -76,14 +76,14 @@ input[type=submit] {
 			</div>
 			<form action="${pageContext.request.contextPath}/auth/login.do" method='POST'>
 				<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" >
-				<label for="usrname">아이디입력</label> <input type="text" id="usrname"
-					name="user_name" placeholder="Id"> <label for="psw">비밀번호입력</label>
+				<label for="usrname">아이디입력</label> <input type="text" id="usrid"
+					name="user_id" placeholder="Id" value="${requestScope.id}"><label for="psw">비밀번호입력</label>
 				<input type="password" id="psw" name="user_password" placeholder="Password">
 
 				<input type="submit" value="로그인">
 			</form>
 				<div class="w3-bar loginlink w3-center"  >
-					<button class="w3-button">아이디찾기</button>
+					<button class="w3-button" onclick="location.href='idSearch.do'">아이디찾기</button>
 					<button class="w3-button">비밀번호찾기</button>
 					<button class="w3-button">회원가입</button>
 				</div>
