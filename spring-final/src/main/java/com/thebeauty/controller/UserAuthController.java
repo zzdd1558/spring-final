@@ -36,8 +36,9 @@ public class UserAuthController {
 		/* Mail관련 DTO 생성 */
 		MailServiceDTO mail = new MailServiceDTO();
 		
-		/* ID와 가입한 시간기준으로 생성될 개인 토큰키 */
-		String code = "http://localhost:8181/final/auth/permissionSuccess.do?tokenKey=";
+		/* ID와 가입한 시간기준으로 생성될 개인 토큰키 
+		 * ID security */
+		String code = "http://localhost:7664/final/auth/permissionSuccess.do?tokenKey=";
 		String token = user.getUserId() + ":" + System.currentTimeMillis();
 		byte[] userToken = token.getBytes("UTF-8");
 		String encodeToken = encoder.encodeToString(userToken);
@@ -87,13 +88,14 @@ public class UserAuthController {
 		if(user !=null) {
 			result++;
 		}
-		
+		/*id 인증 */
 		result += userJoinService.userPermissionUpdate(splitToken[0]);
+		/*email 인증시 removeTokenKey*/
 		result += userJoinService.removeUserTokenByUserKey(new UserTokenDTO(user.getUserKey() , tokenKey));
 		
 		/** 회원가입 성공했다고 보여주는 페이지와 or 만료된 페이지 필요 */
 		/*return result==3?"redirect:/index.jsp" : "redirect:/error.jsp";*/
-		return null;
+		return "test";
 	}
 
 }

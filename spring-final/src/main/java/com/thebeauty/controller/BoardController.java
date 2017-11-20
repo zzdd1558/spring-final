@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,17 +32,16 @@ public class BoardController {
 	private CommentService commentService;
 	
 	
-	//boardform
+		//boardList form 구현
 		@RequestMapping(value = "BoardListform.do", method = RequestMethod.GET)
 		public ModelAndView boardList(@RequestParam(defaultValue="1") int curPage) {
-			ModelAndView mv=new ModelAndView("board/boardList1");
+			ModelAndView mv=new ModelAndView("board/boardList");
 			List<BoardDTO> list=boardService.selectAll();
 			int count=list.size();
 			BoardPager boardPager = new BoardPager(count, curPage);
 		    int start = boardPager.getPageBegin();
 		    int end = boardPager.getPageEnd();
 		    list=boardService.listAll(start,end);
-		    System.out.println(list);
 		    
 		    
 			Map<String, Object> map = new HashMap<String, Object>();
@@ -53,19 +53,20 @@ public class BoardController {
 			return mv;
 		}
 		
+		//boardDetailList form 구현
 		@RequestMapping(value="BoardDetailListform.do", method = RequestMethod.GET)
 		public ModelAndView boardDetail(@RequestParam int boardIdx,@RequestParam int curPage) {
 			ModelAndView mv=new ModelAndView("board/boardDetail");
-			System.out.println(boardIdx);
 			BoardDTO dto=boardService.selectOneBoard(boardIdx);
 			List<CommentDTO> list=commentService.commentList(boardIdx);
+			System.out.println("comment순서: "+list);
 			mv.addObject("boardDTO", dto);
 			mv.addObject("pageNum", curPage);
 			mv.addObject("list",list);
 			return mv;
 		}
 		
-		
+		//boardWrite 글쓰기 구현
 		@RequestMapping(value = "BoardWrite.do", method = RequestMethod.GET)
 		public String boardWrite(@ModelAttribute("board")BoardDTO dto) {
 			System.out.println("boardWrite:"+dto);
@@ -73,6 +74,33 @@ public class BoardController {
 			return "redirect:BoardListform.do";
 		}
 		
+		//boardDelete 게시글 삭제 구현
+		@RequestMapping(value = "BoardDelete.do", method = RequestMethod.GET)
+		public String boardDelete(BoardDTO dto) {
+			System.out.println("delete:"+dto);
+			boardService.deleteBoard(dto);
+			
+			return "redirect:BoardListform.do";
+		}
+		
+		//boardUpdateform 게시글 수정form 구현
+		@RequestMapping(value = "BoardUpdateform.do", method = RequestMethod.GET)
+		public String BoardUpdateform(@RequestParam int boardIdx,Model model) {
+			BoardDTO dto=boardService.selectOneBoard(boardIdx);
+			model.addAttribute("boardDTO", dto);
+			return "board/boardUpdate";
+		}
+		//boardUpdate 게시글 수정 구현
+		@RequestMapping(value = "BoardUpdate.do", method = RequestMethod.GET)
+		public String BoardUpdate(@ModelAttribute("boardForm")BoardDTO dto) {
+		boardService.updateBoard(dto);
+			
+		return "redirect:BoardListform.do";
+		}
+		
+		
+		
+		//board 답글 form 구현
 		@RequestMapping(value = "BoardReplyForm.do", method = RequestMethod.GET)
 		public ModelAndView BoardReplyForm(@RequestParam int num,@RequestParam int page) {
 			ModelAndView mv=new ModelAndView("board/boardReply");
@@ -81,7 +109,8 @@ public class BoardController {
 			mv.addObject("page", page);
 			return mv;
 		}
-	
+		
+		//board 답글 달기 구현
 		@RequestMapping(value = "boardReply.do", method = RequestMethod.GET)
 		public String boardReply(@RequestParam int page,@ModelAttribute("boardForm") BoardDTO dto) {
 			int curpage=page;

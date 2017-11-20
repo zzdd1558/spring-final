@@ -16,6 +16,11 @@ public interface MallBoardService {
 	public abstract  int boardGetIdx();
 	/*board detail*/
 	public abstract BoardDTO selectOneBoard(int boardIdx);
+	/*board list page*/
 	public List<BoardDTO> listAll(int start, int end);
+	/*board detail delete*/
+	public abstract int deleteBoard(BoardDTO dto);
+	/*board detail update*/
+	public abstract int updateBoard(BoardDTO dto);
 	
 }

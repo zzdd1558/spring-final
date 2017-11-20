@@ -11,6 +11,7 @@ import com.thebeauty.model.domain.CommentDTO;
 
 @Service
 public class CommentServiceImpl implements CommentService {
+	
 
 	@Autowired
 	private CommentDAO dao;
@@ -27,6 +28,12 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
+	public int updateComment(CommentDTO dto) {
+		return dao.updateComment(dto);
+	}
+	
+	
+	@Override
 	public List<CommentDTO> commentList(int boardNum) {
 		return dao.selectAllComment(boardNum);
 	}
@@ -35,5 +42,6 @@ public class CommentServiceImpl implements CommentService {
 	public int deleteComment(int commentNum) {
 		return dao.deleteComment(commentNum);
 	}
+
 
 }

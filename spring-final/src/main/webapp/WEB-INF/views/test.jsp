@@ -159,7 +159,7 @@ html
 <body>
 
 <div id="slideshow">
-	<img class="slide" src="http://placehold.it/856x380/FF6347/FFFFFF&text=1" alt="1"/>
+	<img class="slide" src="http://placehold.it/856x380/FF6347/FFFFFF&text=access" alt="1"/>
   
   <img class="slide" src="http://placehold.it/856x380/6FC6F7/FFFFFF&text=2" alt="2"/>
   			

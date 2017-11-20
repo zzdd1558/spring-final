@@ -14,5 +14,8 @@ public interface MallBoardDAO {
 	public int updateCount(int idx);
 	public List<BoardDTO> listAll(int start, int end);
 	public int updateReSeq(BoardDTO dto);
+	public int deleteBoard(BoardDTO dto);
+	public int updateBoard(BoardDTO dto);
+	
 
 }

@@ -15,13 +15,23 @@
 
 	<select id="commentMaxIdx" resultType="int" >
 		SELECT MAX(COMMENT_NUM)
-		FROM COMMENT_TB			
+		FROM COMMENT_TB
 	</select>
 	
 	<insert id="commentInsert" parameterType="CommentDTO">
 			INSERT INTO COMMENT_TB
 			VALUES(#{commentNum},#{commentBoard},#{commentId},SYSDATE,#{commentParent},#{commentContent},#{commentLev},#{commentReSeq})
 	</insert>
+	
+	<update id="commentUpdate" parameterType="CommentDTO"> 
+			UPDATE COMMENT_TB
+			SET
+			COMMENT_CONTENT=#{commentContent},
+			COMMENT_DATE=SYSDATE
+			WHERE COMMENT_NUM=#{commentNum}
+	
+	</update>
+	
 	
 	<select id="commentSelectAll" parameterType="int" resultMap="commentResultMap">
 			SELECT 	LEVEL,
@@ -30,14 +40,13 @@
 			WHERE COMMENT_BOARD = #{commentBoard}
                     START WITH COMMENT_PARENT = 0
                     CONNECT BY PRIOR COMMENT_NUM = COMMENT_PARENT
+			ORDER BY COMMENT_DATE
 	</select>
 
 	<delete id="commentDelete" parameterType="int">
 			DELETE FROM COMMENT_TB
 			WHERE COMMENT_NUM= #{commentNum}
 	</delete>
-
-
 	
 
 	

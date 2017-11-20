@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="${pageContext.request.contextPath}/utils/HttpRequest.js"></script>
     <script type="text/javascript">
         function changeView(value)
@@ -14,6 +15,10 @@
             	location.href="BoardListform.do?page=${pageNum}";
             }else if(value == 1){
                 location.href='BoardReplyForm.do?num=${boardDTO.boardIdx}&page=${pageNum}';
+            }else if(value==2){
+            	location.href='BoardDelete.do?boardIdx=${boardDTO.boardIdx}&boardLev=${boardDTO.boardLev}&boardReSeq=${boardDTO.boardReSeq}';
+            }else if(value==3){
+            	location.href='BoardUpdateform.do?boardIdx=${boardDTO.boardIdx}';
             }
                 
         }
@@ -64,8 +69,8 @@
  
         <tr align="center" valign="middle">
             <td colspan="5">
-            		<input type="button" value="수정" >
-                    <input type="button" value="삭제" >
+            		<input type="button" value="수정" onclick="changeView(3)">
+                    <input type="button" value="삭제" onclick="changeView(2)">
                     <input type="button" value="답글"  onclick="changeView(1)" >
                 	<input type="button" value="목록" 	onclick="changeView(0)" >            
             </td>
@@ -94,8 +99,33 @@
                 <td width="100">
                     <div id="btn" style="text-align:center;">
                         <a href="#">[답변]</a><br>
-                        <a href="#">[수정]</a><br>    
+                        <a href="#" onclick="document.getElementById('id01').style.display='block'">[수정]</a><br>    
                         <a href="../comment/delectComment.do?commentNum=${comment.commentNum}&commentBoard=${boardDTO.boardIdx}&page=${pageNum}">[삭제]</a>
+                    	<div id="id01" class="w3-modal">
+						   <div class="w3-modal-content">
+						      <div class="w3-container">
+						        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+						        <form id="updateCommentForm" action="../comment/updateComment.do">
+					                <input type="hidden" name="commentBoard" value="${boardDTO.boardIdx}">
+					                <input type="hidden" name="commentId" value="${boardDTO.boardUserKey}">
+					                <input type="hidden" name="commentNum" value="${comment.commentNum}">
+					                <input type="hidden" name="page" value="${pageNum}">
+					                <!-- 아이디-->
+					                    <div>
+					                        ${boardDTO.boardIdx}
+					                    </div>
+					                <!-- 본문 작성-->
+					                    <div>
+					                        <textarea name="commentContent" rows="4" cols="70" ></textarea>
+					                    </div>
+					                <!-- 댓글 수정 버튼 -->
+					                    <div id="btn" style="text-align:center;">
+					                        <p><a href="#" onclick="document.getElementById('updateCommentForm').submit()">[수정하기]</a></p>    
+					                    </div>
+					            </form>
+						      </div>
+						   </div>
+						</div>
                     </div>
                 </td>
             </tr>

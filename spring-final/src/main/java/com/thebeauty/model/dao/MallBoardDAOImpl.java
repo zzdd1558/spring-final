@@ -65,4 +65,14 @@ public class MallBoardDAOImpl implements MallBoardDAO {
 		return sqlsession.update("boardMapper.updateReSeq",dto);
 	}
 
+	@Override
+	public int deleteBoard(BoardDTO dto) {
+		return sqlsession.delete("boardMapper.boardDelete", dto);
+	}
+
+	@Override
+	public int updateBoard(BoardDTO dto) {
+		return sqlsession.update("boardMapper.boardUpdate", dto);
+	}
+
 }

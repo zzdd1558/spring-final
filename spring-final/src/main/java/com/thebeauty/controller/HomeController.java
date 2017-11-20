@@ -24,12 +24,6 @@ public class HomeController {
 		return "userJoin";
 	}
 
-	/*board Write 단순 경로*/
-	@RequestMapping(value = "board/BoardWriteForm.do", method = RequestMethod.GET)
-	public String boardWriteForm() {
-
-		return "board/boardWrite";
-	}
 	
 	/* 우편주소 찾기위해 사용하는 URL*/
 	@RequestMapping(value = "addressSearch.do")
@@ -43,5 +37,11 @@ public class HomeController {
 		return "userLogin";
 	}
 	
+	/*==============           게시판 form 단순 경로            ============== */
+	/*board Writeform 단순 경로*/
+	@RequestMapping(value = "board/BoardWriteForm.do", method = RequestMethod.GET)
+	public String boardWriteForm() {
+		return "board/boardWrite";
+	}
 	
 }

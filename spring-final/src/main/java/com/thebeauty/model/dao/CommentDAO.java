@@ -10,4 +10,5 @@ public interface CommentDAO {
 	public List<CommentDTO> selectAllComment(int BoardIdx);
 	public int insertComment(CommentDTO dto);
 	public int deleteComment(int commentNum);
+	public int updateComment(CommentDTO dto);
 }
