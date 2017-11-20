@@ -42,11 +42,9 @@ public class HomeController {
 	public String boardWriteForm() {
 		return "board/boardWrite";
 	}
-	
-	/*==============           상품 page_example 단순 경로            ============== */
-	@RequestMapping(value = "GoodsPageForm.do", method = RequestMethod.GET)
-	public String GoodsPageForm(){
-		return "goodsPage";
+	/* 아디찾기 페이지 이동*/
+	@RequestMapping("idSearch.do")
+	public String idSearch() {
+		return "idSearch";
 	}
-	
 }
