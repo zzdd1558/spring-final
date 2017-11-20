@@ -44,4 +44,9 @@ public class HomeController {
 		return "board/boardWrite";
 	}
 	
+	/* 아디찾기 페이지 이동*/
+	@RequestMapping("idSearch.do")
+	public String idSearch() {
+		return "idSearch";
+	}
 }
