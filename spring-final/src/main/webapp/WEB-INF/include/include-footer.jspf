@@ -44,3 +44,4 @@
 	</div>
 </footer>
 <script src="${pageContext.request.contextPath }/javascripts/commons.js"></script>
+<script src="${pageContext.request.contextPath }/javascripts/W3.js"></script>

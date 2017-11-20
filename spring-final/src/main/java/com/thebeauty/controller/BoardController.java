@@ -32,7 +32,7 @@ public class BoardController {
 	private CommentService commentService;
 	
 	
-		//boardList form 구현
+	//boardList form 구현
 		@RequestMapping(value = "BoardListform.do", method = RequestMethod.GET)
 		public ModelAndView boardList(@RequestParam(defaultValue="1") int curPage) {
 			ModelAndView mv=new ModelAndView("board/boardList");

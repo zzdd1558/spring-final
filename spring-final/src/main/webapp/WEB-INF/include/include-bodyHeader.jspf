@@ -28,7 +28,7 @@
 			style="border-bottom: 1px solid #eecaca; border-top: 1px solid #eecaca;">
 			<div class=" w3-bar">
 				<a href="board/BoardListform.do" class="w3-bar-item w3-button ">boardList</a> 
-				<a href="#" class="w3-bar-item w3-button ">메뉴2</a> 
+				<a href="GoodsPageForm.do" class="w3-bar-item w3-button">상품 page</a> 
 				<a href="${pageContext.request.contextPath}/test1.do" class="w3-bar-item w3-button ">메뉴3</a>
 			</div>
 		</div>

@@ -10,11 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 	
-	
 	/* main page start*/
 	@RequestMapping(value = "openmallMain.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		return "main";
+		return "test/testIndex";
 	}
 
 
@@ -42,6 +41,12 @@ public class HomeController {
 	@RequestMapping(value = "board/BoardWriteForm.do", method = RequestMethod.GET)
 	public String boardWriteForm() {
 		return "board/boardWrite";
+	}
+	
+	/*==============           상품 page_example 단순 경로            ============== */
+	@RequestMapping(value = "GoodsPageForm.do", method = RequestMethod.GET)
+	public String GoodsPageForm(){
+		return "goodsPage";
 	}
 	
 }
