@@ -1,27 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-					<%@include file="/WEB-INF/include/include-header.jspf" %>
+<%@include file="/WEB-INF/include/include-header.jspf"%>
 </head>
 <body>
-					<!-- header -->
-					<%@include file="/WEB-INF/include/include-bodyHeader.jspf" %>	
-						<!-- //header -->
+	<!-- header -->
+	<%@include file="/WEB-INF/include/include-bodyHeader.jspf"%>
+	<!-- //header -->
 
-<div class="container">
+	<div class="container">
 		<div class="row">
 			<div class="col-md-8 modal_body_left modal_body_left1"
 				style="border-right: 1px dotted #C2C2C2; padding-right: 3em;">
 				<div style="display: block">
 					<div class="facts">
 						<div class="register">
-							<input type="text" id="IdFindUserName" value="IdFindUserName" placeholder="이름">
-							<input type="text" id="IdFindUserEmail" value="IdFindUserEmail" placeholder="이메일">
+							<input type="text" id="IdFindUserName" value="IdFindUserName"
+								placeholder="이름"> <input type="text"
+								id="IdFindUserEmail" value="IdFindUserEmail" placeholder="이메일">
 							<div>
-								<input type="button" id='IdFindSubmitBtn' value="아이디찾기"/> 
-								<input type="button" id='IdFindreset' value = "취소"/>
+								<input type="button" id='IdFindSubmitBtn' value="아이디찾기" /> <input
+									type="button" id='IdFindreset' value="취소" />
 							</div>
 						</div>
 					</div>
@@ -57,8 +58,8 @@
 		</div>
 	</div>
 
-					<!-- footer -->
-					<%@include file="/WEB-INF/include/include-footer.jspf" %>
-					<!-- //footer -->
+	<!-- footer -->
+	<%@include file="/WEB-INF/include/include-footer.jspf"%>
+	<!-- //footer -->
 </body>
 </html>

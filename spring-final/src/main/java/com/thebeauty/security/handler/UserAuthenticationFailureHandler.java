@@ -22,29 +22,29 @@ public class UserAuthenticationFailureHandler implements AuthenticationFailureHa
 	@Override
 	public void onAuthenticationFailure(HttpServletRequest req, HttpServletResponse res, AuthenticationException auth)
 			throws IOException, ServletException {
-		System.out.println("error : " + auth.getMessage());
 
 		/*
 		 * auth.getMessage() 종류 notFoundUser : id가 존재하지 않을경우 notMatchPassword : 비밀번호
 		 * 불일치할경우 permissionDenined : 이메일 인증이 되지 않은경우
 		 */
 
+		String msg = "";
+		String url = "/WEB-INF/views/error/errorHandlerPage.jsp";
+
 		switch (auth.getMessage()) {
 		case "notFoundUser":
+			msg = "존재하지 않는 ID입니다";
 			break;
 		case "notMatchPassword":
+			msg = "아이디 또는 비밀번호가 일치하지 않습니다";
 			break;
 		case "permissionDenined":
+			msg = "회원 승인이 되지않았습니다. 메일을 확인해주세요.";
 			break;
 		}
-		
-		req.setAttribute("errorMessage", auth.getMessage());
 
-		/*
-		 * req.setAttribute("errorMessage", auth.getMessage());
-		 * req.getRequestDispatcher("/WEB-INF/views/member/loginForm.jsp").forward(req,
-		 * res);
-		 */
+		req.setAttribute("errorMessage", auth.getMessage());
+		req.getRequestDispatcher(url).forward(req, res);
 
 		/* auth.getMessage()에 따른 error page 설정 필요 */
 	}
