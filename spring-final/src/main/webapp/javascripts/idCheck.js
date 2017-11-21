@@ -16,31 +16,17 @@ let formReset = document.getElementById('IdFindreset');
             checkContentFunc(findUserName, checkMsg.emptyName);
             formBoolean = false;
         }
-        
-        /* 질문 공백 체크 */
-        if (!inputValidator.isSet(uQuestion.value)) {
-            checkContentFunc(uAnswer, checkMsg.selectQuestion);
-            formBoolean = false;
-        }
-        
-        /* 답변 공백 체크 */
-        else if (!inputValidator.isSet(uAnswer.value.trim())) {
-            checkContentFunc(uAnswer, checkMsg.emptyAnswer);
-            formBoolean = false;
-        }
-        
         /* 이메일 공백 체크 */
         if (!inputValidator.isSet(findUserEmail.value)) {
             checkContentFunc(findUserEmail, checkMsg.emptyEmail);
             formBoolean = false;
         }
-        
         /* 이메일 유효성 체크 */
         else if (!inputValidator.isValidEmail(findUserEmail.value)) {
             checkContentFunc(findUserEmail, checkMsg.validEmail);
             formBoolean = false;
         }
-        
+        console.log(formBoolean);
         if(formBoolean){
         	IdFindForm.setAttribute('method', 'POST');
             IdFindForm.setAttribute('action', httpRequest.getContextPath() + '/auth/userIdSearch.do');

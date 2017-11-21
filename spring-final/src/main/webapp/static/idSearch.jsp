@@ -17,13 +17,17 @@
 				<div style="display: block">
 					<div class="facts">
 						<div class="register">
-							<input type="text" id="IdFindUserName" value="IdFindUserName"
-								placeholder="이름"> <input type="text"
-								id="IdFindUserEmail" value="IdFindUserEmail" placeholder="이메일">
-							<div>
-								<input type="button" id='IdFindSubmitBtn' value="아이디찾기" /> <input
-									type="button" id='IdFindreset' value="취소" />
-							</div>
+
+							<form id="IdFindForm">
+								<input type="hidden" name="${_csrf.parameterName}"
+									value="${_csrf.token}" /> <input type="text" name="userName"
+									id="IdFindUserName" placeholder="이름을 입력하세요"><span></span>
+								<input type="text" name="userEmail" id="IdFindUserEmail"
+									placeholder="이메일을 입력하세요"><span></span>
+							</form>
+							<input type="button" id='IdFindSubmitBtn' value="아이디찾기" /> <input
+								type="button" id='IdFindreset' value="취소" /> >>>>>>> branch
+							'master' of https://github.com/zzdd1558/spring-final.git
 						</div>
 					</div>
 				</div>
@@ -59,6 +63,7 @@
 	</div>
 
 	<!-- footer -->
+	<script src="${pageContext.request.contextPath}/javascripts/idCheck.js"></script>
 	<%@include file="/WEB-INF/include/include-footer.jspf"%>
 	<!-- //footer -->
 </body>
