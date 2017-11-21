@@ -10,6 +10,7 @@ let uName = document.getElementById('u_name');
 let uPhoneNumber = document.getElementById('u_phone_number');
 let uEmail = document.getElementById('u_email');
 let uQuestion = document.getElementById('u_question');
+let pwQuestion = document.getElementById('pwFindUserQuestion');
 let uAnswer = document.getElementById('u_answer');
 let uAddressZipNo = document.getElementById('u_address_zip_no');
 let uAddressPart = document.getElementById('u_address_part');
@@ -226,6 +227,7 @@ function setQuestionList() {
             result += `<option value=${resData[i].questionKey}>${resData[i].questionContent}</option>`;
         }
         uQuestion.innerHTML = result;
+        pwQuestion.innerHTML = result;
     }
 }
 
