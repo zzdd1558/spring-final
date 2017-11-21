@@ -21,8 +21,8 @@
 											<form action="#" method="post">
 												<input name="Email" placeholder="아이디" type="text" required="">
 												<input name="Password" placeholder="비밀번호" type="password" required="">
-												<div class="col-sm-12 text-right inputMarginTop">
-													<a href="${pageContext.request.contextPath}/static/idSearch.jsp">아이디 찾기</a><span> | </span><a href="#">비밀번호 찾기</a>
+												<div class="col-sm-12 text-right" style="margin-top: 1em;">
+													<a href="${pageContext.request.contextPath}/static/idSearch.jsp">아이디 찾기</a><span> | </span><a href="${pageContext.request.contextPath}/static/passwordSearch.jsp">비밀번호 찾기</a>
 												</div>
 												<div class="sign-up">
 													<input type="submit" value="로그인"/>
@@ -53,11 +53,11 @@
 												<input type="text" name="u_address_part" id="u_address_part" class="subAddr inputMarginTop" placeholder="도로명 주소" readonly="readonly" required><input type="text" name="u_address_detail" id="u_address_detail" class="inputMarginTop" class="subAddr" placeholder="상세 주소 " required>
 												<div>
 												</div>
-												<button id="addressBtn" class="inputMarginTop" onclick="addressPopup();">우편번호 조회</button>
+												<input type="button" id="addressBtn" class="inputMarginTop" onclick="addressPopup();" value="우편번호 조회" style="margin: 1em 0;"/>
 												<div id="googleReCaptcha" class="inputMarginTop">
 												</div>
 												<span></span>
-												<div class="sign-up" ">
+												<div class="sign-up">
 													<input type="button" value="회원가입" id="submitBtn"/>
 												</div>
 											</form>

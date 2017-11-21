@@ -1,17 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<!-- header -->
 <%@include file="/WEB-INF/include/include-header.jspf"%>
-<!-- header -->
 </head>
 <body>
 	<!-- header -->
 	<%@include file="/WEB-INF/include/include-bodyHeader.jspf"%>
-	<!-- header -->
-
+	<!-- //header -->
 
 	<div class="container">
 		<div class="row">
@@ -20,17 +17,15 @@
 				<div style="display: block">
 					<div class="facts">
 						<div class="register">
-							<input type="text" value="pwFinehName" placeholder="이름">
-							<input type="text" value="pwFinehId" placeholder="아이디"> <input
-								type="text" value="pwFineEmail" placeholder="이메일">
-							<div>질문과 답</div>
+							<input type="text" placeholder="이름"> <input type="text"
+								placeholder="아이디"> <input type="text" placeholder="이메일">
 							<select name='questionKey' id='pwFindUserQuestion'>
-								<option>테스트 질문 </option>
+								<option>질문을 선택해주세요.</option>
 							</select> <input type="text" name=userAnswer id="pwFindUserAnswer"
-								placeholder="답을 정확하게 입력해주세요" required> <span></span>
+								placeholder="정확한 답을 입력해주세요." required> <span></span>
 							<div>
-								<input type="button" id='pwFindBtn' value="비밀번호 찾기"/> 
-								<input type="button" id='pwFindReset' value = "취소"/>
+								<input type="button" id='pwFindBtn' value="비밀번호 찾기" /> <input
+									type="button" id='pwFindReset' value="취소" />
 							</div>
 						</div>
 					</div>
