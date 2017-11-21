@@ -9,24 +9,6 @@
 					<!-- header -->
 					<%@include file="/WEB-INF/include/include-bodyHeader.jspf" %>	
 						<!-- //header -->
-<!-- banner -->
-	<div class="banner10" id="home1">
-		<div class="container">
-			<h2>Single Page</h2>
-		</div>
-	</div>
-<!-- //banner -->
-
-<!-- breadcrumbs -->
-	<div class="breadcrumb_dress">
-		<div class="container">
-			<ul>
-				<li><a href="${pageContext.request.contextPath}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
-				<li>Single Page</li>
-			</ul>
-		</div>
-	</div>
-<!-- //breadcrumbs -->
 <!-- single -->
 	<div class="single">
 		<div class="container">
@@ -468,23 +450,7 @@
 		</div>
 	</div>
 <!-- //single -->
-<!-- newsletter -->
-	<div class="newsletter">
-		<div class="container">
-			<div class="col-md-6 w3agile_newsletter_left">
-				<h3>Newsletter</h3>
-				<p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
-			</div>
-			<div class="col-md-6 w3agile_newsletter_right">
-				<form action="#" method="post">
-					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-					<input type="submit" value="">
-				</form>
-			</div>
-			<div class="clearfix"> </div>
-		</div>
-	</div>
-<!-- //newsletter -->
+
 					<!-- footer -->
 					<%@include file="/WEB-INF/include/include-footer.jspf" %>
 					<!-- //footer -->

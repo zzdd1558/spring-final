@@ -5,6 +5,9 @@ import java.util.Base64;
 import java.util.Base64.Decoder;
 import java.util.Base64.Encoder;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,7 +37,7 @@ public class UserAuthController {
 
 	/* 회원가입 페이지 이동 */
 	@RequestMapping(value = "/userJoin.do", method = RequestMethod.POST)
-	public String userJoinAuth(UserDTO user) throws UnsupportedEncodingException {
+	public String userJoinAuth(UserDTO user,HttpServletRequest request) throws UnsupportedEncodingException {
 		/* Base64기반의 encoder객체 생성*/
 		Encoder encoder = Base64.getEncoder();
 		
@@ -43,7 +46,7 @@ public class UserAuthController {
 		
 		/* ID와 가입한 시간기준으로 생성될 개인 토큰키 
 		 * ID security */
-		String code = "http://localhost:7664/final/auth/permissionSuccess.do?tokenKey=";
+		String code = "http://localhost:"+request.getServerPort()+"/final/auth/permissionSuccess.do?tokenKey=";
 		String token = user.getUserId() + ":" + System.currentTimeMillis();
 		byte[] userToken = token.getBytes("UTF-8");
 		String encodeToken = encoder.encodeToString(userToken);

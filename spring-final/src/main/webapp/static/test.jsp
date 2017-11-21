@@ -178,7 +178,7 @@
 										</ul>
 									</div>
 								</div>
-								<h5><a href="${pageContext.request.contextPath}/product/test.do">Dresses</a></h5>
+								<h5><a href="${pageContext.request.contextPath}/static/single.jsp">Dresses</a></h5>
 								<div class="simpleCart_shelfItem">
 									<p><span>$420</span> <i class="item_price">$340</i></p>
 									<p><a class="item_add" href="#">Add to cart</a></p>
