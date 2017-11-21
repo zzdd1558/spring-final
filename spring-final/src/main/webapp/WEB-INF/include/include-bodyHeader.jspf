@@ -8,7 +8,7 @@
 			</div>
 			<div class="modal-body modal-body-sub">
 				<div class="row">
-					<div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2; padding-right: 3em;">
+					<div class="col-md-8 modal_body_left modal_body_left1" style="border-right: 1px dotted #C2C2C2; padding-right: 3em;"> 
 						<div class="sap_tabs">
 							<div id="horizontalTab" style="display: block; width: 100%; margin: 0px;">
 								<ul>
@@ -80,6 +80,7 @@
 						<div id="OR" class="hidden-xs">
 							OR
 						</div>
+
 					</div>
 					<div class="col-md-4 modal_body_right modal_body_right1">
 						<div class="row text-center sign-with">
@@ -128,7 +129,7 @@
 			</div>
 		</div>
 		<div class="cart box_1">
-			<a href="checkout.html">
+			<a href="${pageContext.request.contextPath}/static/checkout.jsp">
 			<div class="total">
 				<span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span>
 				items)
@@ -143,6 +144,7 @@
 		</div>
 		<div class="clearfix">
 		</div>
+
 	</div>
 </div>
 <div class="navigation">
@@ -164,28 +166,28 @@
 						<div class="col-sm-3">
 							<ul class="multi-column-dropdown">
 								<h6>Clothing</h6>
-								<li><a href="dresses.html">Dresses<span>New</span></a></li>
-								<li><a href="sweaters.html">Sweaters</a></li>
-								<li><a href="skirts.html">Shorts & Skirts</a></li>
-								<li><a href="jeans.html">Jeans</a></li>
-								<li><a href="shirts.html">Shirts & Tops<span>New</span></a></li>
+								<li><a href="${pageContext.request.contextPath}/static/dresses.jsp">Dresses<span>New</span></a></li>
+								<li><a href="${pageContext.request.contextPath}/static/sweaters.jsp">Sweaters</a></li>
+								<li><a href="${pageContext.request.contextPath}/static/skirts.jsp">Shorts & Skirts</a></li>
+								<li><a href="${pageContext.request.contextPath}/static/jeans.jsp">Jeans</a></li>
+								<li><a href="${pageContext.request.contextPath}/static/shirts.jsp">Shirts & Tops<span>New</span></a></li>
 							</ul>
 						</div>
 						<div class="col-sm-3">
 							<ul class="multi-column-dropdown">
 								<h6>Ethnic Wear</h6>
-								<li><a href="salwars.html">Salwars</a></li>
-								<li><a href="sarees.html">Sarees<span>New</span></a></li>
-								<li><a href="products.html"><i>Summer Store</i></a></li>
+								<li><a href="${pageContext.request.contextPath}/static/salwars.jsp">Salwars</a></li>
+								<li><a href="${pageContext.request.contextPath}/static/sarees.jsp">Sarees<span>New</span></a></li>
+								<li><a href="${pageContext.request.contextPath}/static/products.jsp"><i>Summer Store</i></a></li>
 							</ul>
 						</div>
 						<div class="col-sm-2">
 							<ul class="multi-column-dropdown">
 								<h6>Foot Wear</h6>
-								<li><a href="sandals.html">Flats</a></li>
-								<li><a href="sandals.html">Sandals</a></li>
-								<li><a href="sandals.html">Boots</a></li>
-								<li><a href="sandals.html">Heels</a></li>
+								<li><a href="${pageContext.request.contextPath}/static/sandals.jsp">Flats</a></li>
+								<li><a href="${pageContext.request.contextPath}/static/sandals.jsp">Sandals</a></li>
+								<li><a href="${pageContext.request.contextPath}/static/sandals.jsp">Boots</a></li>
+								<li><a href="${pageContext.request.contextPath}/static/sandals.jsp">Heels</a></li>
 							</ul>
 						</div>
 						<div class="col-sm-4">
@@ -202,8 +204,8 @@
 				</ul>
 				</li>
 				<li><a href="${pageContext.request.contextPath}/static/about.jsp">About Us</a></li>
-				<li><a href="short-codes.html">Short Codes</a></li>
-				<li><a href="mail.html">Mail Us</a></li>
+				<li><a href="${pageContext.request.contextPath}/static/short-codes.jsp">Short Codes</a></li>
+				<li><a href="${pageContext.request.contextPath}/static/mail.jsp">Mail Us</a></li>
 			</ul>
 		</div>
 		</nav>

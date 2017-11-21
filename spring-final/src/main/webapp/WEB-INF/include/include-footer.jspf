@@ -16,28 +16,28 @@
 			<div class="col-md-3 w3_footer_grid">
 				<h3>Information</h3>
 				<ul class="info">
-					<li><a href="about.html">About Us</a></li>
-					<li><a href="mail.html">Contact Us</a></li>
-					<li><a href="short-codes.html">Short Codes</a></li>
-					<li><a href="faq.html">FAQ's</a></li>
-					<li><a href="products.html">Special Products</a></li>
+					<li><a href="${pageContext.request.contextPath}/static/about.jsp">About Us</a></li>
+					<li><a href="${pageContext.request.contextPath}/static/mail.jsp">Contact Us</a></li>
+					<li><a href="${pageContext.request.contextPath}/static/short-codes.jsp">Short Codes</a></li>
+					<li><a href="${pageContext.request.contextPath}/static/faq.jsp">FAQ's</a></li>
+					<li><a href="${pageContext.request.contextPath}/static/products.jsp">Special Products</a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 w3_footer_grid">
 				<h3>Category</h3>
 				<ul class="info">
-					<li><a href="dresses.html">Dresses</a></li>
-					<li><a href="sweaters.html">Sweaters</a></li>
-					<li><a href="shirts.html">Shirts</a></li>
-					<li><a href="sarees.html">Sarees</a></li>
-					<li><a href="skirts.html">Shorts & Skirts</a></li>
+					<li><a href="${pageContext.request.contextPath}/static/dresses.jsp">Dresses</a></li>
+					<li><a href="${pageContext.request.contextPath}/static/sweaters.jsp">Sweaters</a></li>
+					<li><a href="${pageContext.request.contextPath}/static/shirts.jsp">Shirts</a></li>
+					<li><a href="${pageContext.request.contextPath}/static/sarees.jsp">Sarees</a></li>
+					<li><a href="${pageContext.request.contextPath}/static/skirts.jsp">Shorts & Skirts</a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 w3_footer_grid">
 				<h3>Profile</h3>
 				<ul class="info">
-					<li><a href="products.html">Summer Store</a></li>
-					<li><a href="checkout.html">My Cart</a></li>
+					<li><a href="${pageContext.request.contextPath}/static/products.jsp">Summer Store</a></li>
+					<li><a href="${pageContext.request.contextPath}/static/checkout.jsp">My Cart</a></li>
 				</ul>
 				<h4>Follow Us</h4>
 				<div class="agileits_social_button">
