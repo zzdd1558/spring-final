@@ -5,14 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>아이디찾기</title>
 <%@ include file="/WEB-INF/include/include-header.jspf"%>
-<script src="${pageContext.request.contextPath}/utils/HttpRequest.js"></script>
-<script src="${pageContext.request.contextPath}/utils/InputValidator.js"></script>
-<script src="${pageContext.request.contextPath}/utils/InputKeyUpReg.js"></script>
-<script>
-	let httpRequest = new HttpRequest();
-	let inputValidator = new InputValidator();
-	let inputKeyUpReg = new InputKeyReg();
-</script>
+
 <style>
 /* social sns 공유하기 이미지에 마우스 hover시 pointer 주기 */
 .snsShare {
