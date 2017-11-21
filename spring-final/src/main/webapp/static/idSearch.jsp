@@ -26,8 +26,7 @@
 									placeholder="이메일을 입력하세요"><span></span>
 							</form>
 							<input type="button" id='IdFindSubmitBtn' value="아이디찾기" /> <input
-								type="button" id='IdFindreset' value="취소" /> >>>>>>> branch
-							'master' of https://github.com/zzdd1558/spring-final.git
+								type="button" id='IdFindreset' value="취소" />
 						</div>
 					</div>
 				</div>
