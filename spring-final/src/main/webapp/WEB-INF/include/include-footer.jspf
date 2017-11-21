@@ -63,4 +63,4 @@
 		</div>
 	</div>
 	
-<script src="javascripts/test/modernizr-custom.js"></script>	
+<script src="${pageContext.request.contextPath}/javascripts/test/modernizr-custom.js"></script>	
