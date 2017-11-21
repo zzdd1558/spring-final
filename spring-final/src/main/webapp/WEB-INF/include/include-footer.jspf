@@ -1,46 +1,66 @@
 <%@ page pageEncoding="utf-8"%>
-<footer class="w3-row-padding w3-padding-32">
-	<div class="w3-third">
-		<h3>FOOTER</h3>
-		<p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo
-			condimentum, porta lectus vitae, ultricies congue gravida diam non
-			fringilla.</p>
-		<p>
-			Powered by <a href="https://www.w3schools.com/w3css/default.asp"
-				target="_blank">w3.css</a>
-		</p>
+	
+	<div class="footer">
+		<div class="container">
+			<div class="w3_footer_grids">
+				<div class="col-md-3 w3_footer_grid">
+					<h3>Contact</h3>
+					<p>Duis aute irure dolor in reprehenderit in voluptate velit esse.</p>
+					<ul class="address">
+						<li><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>1234k Avenue, 4th block, <span>New York City.</span></li>
+						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:info@example.com">info@example.com</a></li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+1234 567 567</li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3>Information</h3>
+					<ul class="info"> 
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="mail.html">Contact Us</a></li>
+						<li><a href="short-codes.html">Short Codes</a></li>
+						<li><a href="faq.html">FAQ's</a></li>
+						<li><a href="products.html">Special Products</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3>Category</h3>
+					<ul class="info"> 
+						<li><a href="dresses.html">Dresses</a></li>
+						<li><a href="sweaters.html">Sweaters</a></li>
+						<li><a href="shirts.html">Shirts</a></li>
+						<li><a href="sarees.html">Sarees</a></li>
+						<li><a href="skirts.html">Shorts & Skirts</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 w3_footer_grid">
+					<h3>Profile</h3>
+					<ul class="info"> 
+						<li><a href="products.html">Summer Store</a></li>
+						<li><a href="checkout.html">My Cart</a></li>
+					</ul>
+					<h4>Follow Us</h4>
+					<div class="agileits_social_button">
+						<ul>
+							<li><a href="#" class="facebook"> </a></li>
+							<li><a href="#" class="twitter"> </a></li>
+							<li><a href="#" class="google"> </a></li>
+							<li><a href="#" class="pinterest"> </a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+		<div class="footer-copy">
+			<div class="footer-copy1">
+				<div class="footer-copy-pos">
+					<a href="#home1" class="scroll"><img src="images/test/arrow.png" alt=" " class="img-responsive" /></a>
+				</div>
+			</div>
+			<div class="container">
+				<p>&copy; 2016 Women's Fashion. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+			</div>
+		</div>
 	</div>
-
-	<div class="w3-third">
-		<h3>BLOG POSTS</h3>
-		<ul class="w3-ul w3-hoverable">
-			<li class="w3-padding-16"><img src="./w3images/workshop.jpg"
-				class="w3-left w3-margin-right" style="width: 50px"> <span
-				class="w3-large">Lorem</span><br> <span>Sed mattis nunc</span></li>
-			<li class="w3-padding-16"><img src="./w3images/gondol.jpg"
-				class="w3-left w3-margin-right" style="width: 50px"> <span
-				class="w3-large">Ipsum</span><br> <span>Praes tinci sed</span></li>
-		</ul>
-	</div>
-
-	<div class="w3-third w3-serif">
-		<h3>POPULAR TAGS</h3>
-		<p>
-			<span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span
-				class="w3-tag w3-dark-grey w3-small w3-margin-bottom">New
-				York</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dinner</span>
-			<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Salmon</span>
-			<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">France</span>
-			<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Drinks</span>
-			<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Ideas</span>
-			<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Flavors</span>
-			<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Cuisine</span>
-			<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Chicken</span>
-			<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Dressing</span>
-			<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fried</span>
-			<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Fish</span>
-			<span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Duck</span>
-		</p>
-	</div>
-</footer>
-<script src="${pageContext.request.contextPath }/javascripts/commons.js"></script>
+	
+<script src="javascripts/test/modernizr-custom.js"></script>	
