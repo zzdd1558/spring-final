@@ -2,104 +2,64 @@
 <!DOCTYPE html PUBLIC>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>아이디찾기</title>
 <%@ include file="/WEB-INF/include/include-header.jspf"%>
-<script src="${pageContext.request.contextPath}/utils/HttpRequest.js"></script>
-<script src="${pageContext.request.contextPath}/utils/InputValidator.js"></script>
-<script src="${pageContext.request.contextPath}/utils/InputKeyUpReg.js"></script>
-<script>
-	let httpRequest = new HttpRequest();
-	let inputValidator = new InputValidator();
-	let inputKeyUpReg = new InputKeyReg();
-</script>
-<style>
-/* social sns 공유하기 이미지에 마우스 hover시 pointer 주기 */
-.snsShare {
-	cursor: pointer;
-}
-
-.writeTitle {
-	margin-bottom: 7px;
-	font-weight: 1000;
-	color: #333;
-}
-
-input[type='text'] {
-	padding: 0 5px 0 10px;
-	margin: 2px;
-}
-
-#idSearchForm {
-	width: 50%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-@media only screen and (min-device-width : 481px) and (max-device-width
-	: 700px) {
-	#idSearchForm {
-		width: 70%;
-	}
-}
-
-@media only screen and (max-device-width : 480px) {
-	#idSearchForm {
-		width: 101%;
-	}
-}
-
-.w3-round-large {
-	height: 50px;
-	line-height: 10px;
-	margin-right: 10px;
-}
-
-.serviceTitle {
-	border-bottom: 1px solid #cdc0c0a6;
-}
-
-</style>
 </head>
 <body>
 	<%@ include file="/WEB-INF/include/include-bodyHeader.jspf"%>
-	<div class="wrap" style="max-width: 100%; margin: 0; padding: 0;">
-	<form id="idSearchForm">
-		<input type="hidden" name="${_csrf.parameterName}"
-			value="${_csrf.token}" />
-		<div class="w3-container serviceTitle w3-center">
-			<h3>아이디 찾기</h3>
+	<!-- banner -->
+	<div class="banner10" id="home1">
+		<div class="container">
+			<h2>About Us</h2>
 		</div>
-		<div class="w3-margin-left">
-			<ul id="boxUl" class="w3-ul" style="padding-left: 1px">
-				<li>
-					<div class=" writeTitle">이름</div> <input type="text"
-					name="userName" id="u_name" placeholder="이름" required> <span></span>
-				</li>
-				<li>
-					<div class=" writeTitle">이메일</div> <input type="text"
-					name="userEmail" id="u_email" placeholder="이메일 주소" required>
-					<span style="font-size: 14px; color: gray">회원 가입여부를 판단할 메일이니
-						정확하게 입력해주세요.</span>
-				</li>
-				<li>
-					<div class=" writeTitle">질문과 답</div> <select name='questionKey'
-					id='u_question'>
-						<option>테스트 질문 </option>
-				</select> <input type="text" name=userAnswer id="u_answer"
-					placeholder="답을 정확하게 입력해주세요" required> <span></span>
-				</li>
-				<li>
-					<div class="answerBox w3-center">
-						<button type="button" id='submitBtn'
-							class="w3-button w3-white w3-border w3-round-large">찾 기</button>
-						<button type="button" id='reset'
-							class="w3-button w3-white w3-border w3-round-large">취 소</button>
-					</div>
-				</li>
+	</div>
+<!-- //banner -->
+
+<!-- breadcrumbs -->
+	<div class="breadcrumb_dress">
+		<div class="container">
+			<ul>
+				<li><a href="${pageContext.request.contextPath}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
+				<li>About Us</li>
 			</ul>
 		</div>
-	</form>
+	</div>
+<!-- //breadcrumbs -->
+	
+				<form class="form-horizontal centered text-center " role="form" id="IdFindForm">
+			    <div class="form-group">
+			        <label for="IdFindUserName" class="col-sm-2 control-label">이름 :
+			        </label>
+			            <input type="email" class="form-control" id="IdFindUserName" placeholder="이름을 입력하세요"><span></span>
+			    </div>
+			    <div class="form-group">
+			        <label for="IdFindUserEmail" class="col-sm-2 control-label">E_Mail :
+			        </label>
+			            <input type="email" class="form-control" id="IdFindUserEmail" placeholder="E_Mail을 입력하세요"><span></span>
+			    </div>
+			    <div class="form-group">
+			            <button type="button" id='IdFindSubmitBtn' class="btn btn-default">아이디 찾기</button>
+			            <button type="button" id='IdFindreset' class="btn btn-default">취 소</button>
+			    </div>
+			</form>
+
+<!-- newsletter -->
+	<div class="newsletter">
+		<div class="container">
+			<div class="col-md-6 w3agile_newsletter_left">
+				<h3>Newsletter</h3>
+				<p>Excepteur sint occaecat cupidatat non proident, sunt.</p>
+			</div>
+			<div class="col-md-6 w3agile_newsletter_right">
+				<form action="#" method="post">
+					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
+					<input type="submit" value="">
+				</form>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+<!-- //newsletter -->
+	
 		<script src="${pageContext.request.contextPath}/javascripts/idCheck.js"></script>
 		<!-- footer -->
 		<%@ include file="/WEB-INF/include/include-footer.jspf"%>

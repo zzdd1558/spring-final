@@ -57,7 +57,7 @@
 												<div id="googleReCaptcha" class="inputMarginTop">
 												</div>
 												<span></span>
-												<div class="sign-up" ">
+												<div class="sign-up">
 													<input type="button" value="회원가입" id="submitBtn"/>
 												</div>
 											</form>
