@@ -27,14 +27,12 @@
 										<div class="register">
 											<form action="#" method="post">
 												<input name="Email" placeholder="아이디" type="text"
-													required=""> 
-												<input name="Password"
+													required=""> <input name="Password"
 													placeholder="비밀번호" type="password" required="">
-												
+
 												<div class="col-sm-12 text-right inputMarginTop">
-													<a href="#">아이디 찾기</a>
-													<span> | </span>
-													<a href="#">비밀번호 찾기</a>
+													<a href="#">아이디 찾기</a> <span> | </span> <a href="#">비밀번호
+														찾기</a>
 												</div>
 												<div class="sign-up">
 													<input type="submit" value="로그인" />
@@ -52,46 +50,54 @@
 												<input type="hidden" name="${_csrf.parameterName}"
 													value="${_csrf.token}" /> <input type="hidden"
 													name="userAddr" id="userAddr" value="" /> <input
-													type="text" name="userName" id="u_name" placeholder="이름" class="inputMarginTop"
-													required> <input type="text" name="userId"
-													id="u_id" placeholder="아이디" class="inputMarginTop" required> <span
+													type="text" name="userName" id="u_name" placeholder="이름"
+													class="inputMarginTop" required> <input type="text"
+													name="userId" id="u_id" placeholder="아이디"
+													class="inputMarginTop" required> <span
 													style="font-size: 14px; color: gray"> 숫자 , 대·소문자
 													,특수문자( _- 만 사용가능)를 포함한 6 ~ 20자리의 아이디 </span> <input
 													type="password" name="userPassword" id="u_password"
 													placeholder="비밀번호" class="inputMarginTop"> <span
 													style="font-size: 14px; color: gray"> 숫자 , 대·소문자 ,
 													특수문자를 포함한 8~16자리의 비밀번호 </span> <input type="password"
-													id="u_password_confirm" placeholder="비밀번호 확인" class="inputMarginTop"> <span></span>
+													id="u_password_confirm" placeholder="비밀번호 확인"
+													class="inputMarginTop"> <span></span>
 												<div class="inputMarginTop" id='writeBirth'>
 													<input type=text maxlength="6" name='userBirth'
-														placeholder="예시) 930925 " id='u_birth_front' required style="width:48%; text-align:center;">
-													<input type="text" maxlength="1" name='userGender' style="width:20%; text-align:center;"
+														placeholder="예시) 930925 " id='u_birth_front' required
+														style="width: 48%; text-align: center;"> <input
+														type="text" maxlength="1" name='userGender'
+														style="width: 20%; text-align: center;"
 														class='birthGender' id='u_birth_gender' required>
-													*  *  *  *  *  * 
+													* * * * * *
 												</div>
-												<span></span> 
-												<input type="text" name="userPhone"
-													id="u_phone_number" placeholder="휴대폰번호 단,하이픈(-) 제외한 숫자만입력가능" class="inputMarginTop"
-													maxlength="11" required> <div></div> 
-													<select
-													name='questionKey' id='u_question' class="inputMarginTop">
+												<span></span> <input type="text" name="userPhone"
+													id="u_phone_number"
+													placeholder="휴대폰번호 단,하이픈(-) 제외한 숫자만입력가능"
+													class="inputMarginTop" maxlength="11" required>
+												<div></div>
+												<select name='questionKey' id='u_question'
+													class="inputMarginTop">
 													<option>테스트 질문</option>
-												</select> <input type="text" name=userAnswer id="u_answer" class="inputMarginTop"
-													placeholder=" 정확하게 입력해주세요 " required> <span></span>
-												<input type="text" name="userEmail" id="u_email"
-													placeholder="이메일 주소" class="inputMarginTop" required> <span
+												</select> <input type="text" name=userAnswer id="u_answer"
+													class="inputMarginTop" placeholder=" 정확하게 입력해주세요 " required>
+												<span></span> <input type="text" name="userEmail"
+													id="u_email" placeholder="이메일 주소" class="inputMarginTop"
+													required> <span
 													style="font-size: 14px; color: gray">회원 승인여부를 판단할
 													메일이 전송되니 정확하게 입력해주세요.</span> <input type="text"
 													name="u_address_total" id="u_address_zip_no"
-													placeholder="우편번호 5자리" readonly="readonly" class="inputMarginTop" required>
-												<input type="text" name="u_address_part" id="u_address_part"
-													class="subAddr inputMarginTop" placeholder="도로명 주소" readonly="readonly" 
-													required> <input type="text"
-													name="u_address_detail" id="u_address_detail" class="inputMarginTop"
-													class="subAddr" placeholder="상세 주소 " required>
+													placeholder="우편번호 5자리" readonly="readonly"
+													class="inputMarginTop" required> <input type="text"
+													name="u_address_part" id="u_address_part"
+													class="subAddr inputMarginTop" placeholder="도로명 주소"
+													readonly="readonly" required> <input type="text"
+													name="u_address_detail" id="u_address_detail"
+													class="inputMarginTop" class="subAddr" placeholder="상세 주소 "
+													required>
 												<div></div>
-												<button id="addressBtn" class="inputMarginTop" onclick="addressPopup();">우편번호
-													조회</button>
+												<button id="addressBtn" class="inputMarginTop"
+													onclick="addressPopup();">우편번호 조회</button>
 												<div id="googleReCaptcha" class="inputMarginTop"></div>
 												<span></span>
 												<div class="sign-up"">
@@ -124,28 +130,23 @@
 							</div>
 							<div class="col-md-12">
 								<ul class="social">
-									<li class="social_facebook"><a
-										onclick="socialShareType.shareURL('facebook')"
-										class="entypo-facebook"></a></li>
-									<li class="social_dribbble"><img
+									<li class="social_facebook"><img
+										src="/final/images/social/facebook_icon_color.png" alt=""
+										class="snsShare"
+										onclick="socialShareType.shareURL('facebook')"></li>
+									<li class="social_kakao"><img
 										src="/final/images/social/kakaoStory.png" alt=""
 										class="snsShare" onclick="socialShareType.shareURL('kakao')">
 									</li>
-									<li class="social_twitter"><img
+									<li class="social_naver"><img
 										src="/final/images/social/naver_icon_green.png" alt=""
 										class="snsShare" onclick="socialShareType.shareURL('naver')">
 									</li>
-									<li class="social_behance"><img
+									<li class="social_twitter"><img
 										src="/final/images/social/twitter_icon.png" alt=""
 										class="snsShare" onclick="socialShareType.shareURL('twitter')">
 									</li>
 								</ul>
-								<!-- 									<ul class="social"> -->
-								<!-- 										<li class="social_facebook"><a href="#" class="entypo-facebook"></a></li> -->
-								<!-- 										<li class="social_dribbble"><a href="#" class="entypo-dribbble"></a></li> -->
-								<!-- 										<li class="social_twitter"><a href="#" class="entypo-twitter"></a></li> -->
-								<!-- 										<li class="social_behance"><a href="#" class="entypo-behance"></a></li> -->
-								<!-- 									</ul> -->
 							</div>
 
 						</div>
@@ -251,7 +252,7 @@
 								<div class="clearfix"></div>
 							</div>
 						</ul></li>
-					<li><a href="about.html">About Us</a></li>
+					<li><a href="static/about.jsp">About Us</a></li>
 					<li><a href="short-codes.html">Short Codes</a></li>
 					<li><a href="mail.html">Mail Us</a></li>
 				</ul>
