@@ -1,4 +1,8 @@
 <%@ page pageEncoding="utf-8" %>
+<script src="${pageContext.request.contextPath}/javascripts/modernizr-custom.js"></script>
+<script src="${pageContext.request.contextPath}/javascripts/signup.js"></script>
+<script src="${pageContext.request.contextPath}/javascripts/addressPopup.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 <div class="footer">
 	<div class="container">
 		<div class="w3_footer_grids">
@@ -66,7 +70,3 @@
 		</div>
 	</div>
 </div>
-<script src="${pageContext.request.contextPath}/javascripts/modernizr-custom.js"></script>
-<script src="${pageContext.request.contextPath}/javascripts/signup.js"></script>
-<script src="${pageContext.request.contextPath}/javascripts/addressPopup.js"></script>
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
