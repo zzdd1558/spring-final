@@ -22,7 +22,7 @@
 												<input name="Email" placeholder="아이디" type="text" required="">
 												<input name="Password" placeholder="비밀번호" type="password" required="">
 												<div class="col-sm-12 text-right inputMarginTop">
-													<a href="${pageContext.request.contextPath}/static/idSearch.jsp">아이디 찾기</a><span> | </span><a href="#">비밀번호 찾기</a>
+													<a href="${pageContext.request.contextPath}/static/idSearch.jsp">아이디 찾기</a><span> | </span><a href="${pageContext.request.contextPath}/static/passwordSearch.jsp">비밀번호 찾기</a>
 												</div>
 												<div class="sign-up">
 													<input type="submit" value="로그인"/>

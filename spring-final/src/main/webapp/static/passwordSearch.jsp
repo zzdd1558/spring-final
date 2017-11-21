@@ -17,11 +17,17 @@
 				<div style="display: block">
 					<div class="facts">
 						<div class="register">
-							<input type="text" id="IdFindUserName" value="IdFindUserName" placeholder="이름">
-							<input type="text" id="IdFindUserEmail" value="IdFindUserEmail" placeholder="이메일">
+							<input type="text" value="pwFinehName" placeholder="이름">
+							<input type="text" value="pwFinehId" placeholder="아이디"> <input
+								type="text" value="pwFineEmail" placeholder="이메일">
+							<div>질문과 답</div>
+							<select name='questionKey' id='pwFindUserQuestion'>
+								<option>테스트 질문 </option>
+							</select> <input type="text" name=userAnswer id="pwFindUserAnswer"
+								placeholder="답을 정확하게 입력해주세요" required> <span></span>
 							<div>
-								<input type="button" id='IdFindSubmitBtn' value="아이디찾기"/> 
-								<input type="button" id='IdFindreset' value = "취소"/>
+								<input type="button" id='pwFindBtn' value="비밀번호 찾기"/> 
+								<input type="button" id='pwFindReset' value = "취소"/>
 							</div>
 						</div>
 					</div>
@@ -55,7 +61,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 
 					<!-- footer -->
 					<%@include file="/WEB-INF/include/include-footer.jspf" %>
