@@ -26,11 +26,11 @@
 									<div class="facts">
 										<div class="register">
 											<form action="#" method="post">
-												<input name="Email" placeholder="Email Address" type="text"
+												<input name="Email" placeholder="아이디" type="text"
 													required=""> <input name="Password"
-													placeholder="Password" type="password" required="">
+													placeholder="비밀번호" type="password" required="">
 												<div class="sign-up">
-													<input type="submit" value="Sign in" />
+													<input type="submit" value="로그인" />
 												</div>
 											</form>
 										</div>
@@ -40,15 +40,55 @@
 								<div class="tab-2 resp-tab-content" aria-labelledby="tab_item-1">
 									<div class="facts">
 										<div class="register">
-											<form action="#" method="post">
-												<input placeholder="Name" name="Name" type="text"
-													required=""> <input placeholder="Email Address"
-													name="Email" type="email" required=""> <input
-													placeholder="Password" name="Password" type="password"
-													required=""> <input placeholder="Confirm Password"
-													name="Password" type="password" required="">
-												<div class="sign-up">
-													<input type="submit" value="Create Account" />
+
+											<form id="joinForm">
+												<input type="hidden" name="${_csrf.parameterName}"
+													value="${_csrf.token}" /> <input type="hidden"
+													name="userAddr" id="userAddr" value="" /> <input
+													type="text" name="userName" id="u_name" placeholder="이름" class="inputMarginTop"
+													required> <input type="text" name="userId"
+													id="u_id" placeholder="아이디" class="inputMarginTop" required> <span
+													style="font-size: 14px; color: gray"> 숫자 , 대·소문자
+													,특수문자( _- 만 사용가능)를 포함한 6 ~ 20자리의 아이디 </span> <input
+													type="password" name="userPassword" id="u_password"
+													placeholder="비밀번호" class="inputMarginTop"> <span
+													style="font-size: 14px; color: gray"> 숫자 , 대·소문자 ,
+													특수문자를 포함한 8~16자리의 비밀번호 </span> <input type="password"
+													id="u_password_confirm" placeholder="비밀번호 확인" class="inputMarginTop"> <span></span>
+												<div class="inputMarginTop" id='writeBirth'>
+													<input type=text maxlength="6" name='userBirth'
+														placeholder="예시) 930925 " id='u_birth_front' required style="width:48%; text-align:center;">
+													<input type="text" maxlength="1" name='userGender' style="width:20%; text-align:center;"
+														class='birthGender' id='u_birth_gender' required>
+													*  *  *  *  *  * 
+												</div>
+												<span></span> 
+												<input type="text" name="userPhone"
+													id="u_phone_number" placeholder="휴대폰번호 단,하이픈(-) 제외한 숫자만입력가능" class="inputMarginTop"
+													maxlength="11" required> <div></div> 
+													<select
+													name='questionKey' id='u_question' class="inputMarginTop">
+													<option>테스트 질문</option>
+												</select> <input type="text" name=userAnswer id="u_answer" class="inputMarginTop"
+													placeholder=" 정확하게 입력해주세요 " required> <span></span>
+												<input type="text" name="userEmail" id="u_email"
+													placeholder="이메일 주소" class="inputMarginTop" required> <span
+													style="font-size: 14px; color: gray">회원 승인여부를 판단할
+													메일이 전송되니 정확하게 입력해주세요.</span> <input type="text"
+													name="u_address_total" id="u_address_zip_no"
+													placeholder="우편번호 5자리" readonly="readonly" class="inputMarginTop" required>
+												<input type="text" name="u_address_part" id="u_address_part"
+													class="subAddr inputMarginTop" placeholder="도로명 주소" readonly="readonly" 
+													required> <input type="text"
+													name="u_address_detail" id="u_address_detail" class="inputMarginTop"
+													class="subAddr" placeholder="상세 주소 " required>
+												<div></div>
+												<button id="addressBtn" class="inputMarginTop" onclick="addressPopup();">우편번호
+													조회</button>
+												<div id="googleReCaptcha" class="inputMarginTop"></div>
+												<span></span>
+												<div class="sign-up"">
+													<input type="button" value="회원가입" id="submitBtn" />
 												</div>
 											</form>
 										</div>

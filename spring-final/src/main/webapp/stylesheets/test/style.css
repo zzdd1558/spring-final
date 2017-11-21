@@ -1315,6 +1315,7 @@ h2.resp-accordion {
 	color:#212121;
 	width:100%;
 	font-size:14px;
+	border-radius: 5px;
 }
 .register input[type="password"],.register input[type="email"]{
 	margin:1em 0 0;
@@ -1335,7 +1336,26 @@ div#horizontalTab ul {
 	font-size:1em;
 	text-transform:uppercase;
 	margin:2em 0 0;
+	border-radius: 5px;
 }
+
+.register input[type="button"]{
+	outline:none;
+	border:none;
+	background:#212121;
+	padding:10px 0;
+	color:#fff;
+	width:40%;
+	font-size:1em;
+	text-transform:uppercase;
+	margin:2em 0 0;
+}
+
+.register input[type="button"]:hover{
+	background:#ff9b05;
+}
+
+
 .register input[type="submit"]:hover{
 	background:#ff9b05;
 }
@@ -4320,4 +4340,8 @@ td.invert-image a img {
 	.close1, .close2, .close3 {
 		right: 111px;
 	}
+}
+
+.inputMarginTop{
+	margin-top: 1em;
 }

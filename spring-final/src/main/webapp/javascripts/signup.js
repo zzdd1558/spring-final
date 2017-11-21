@@ -18,7 +18,6 @@ let uBirthFront = document.getElementById('u_birth_front');
 let uBirthGender = document.getElementById('u_birth_gender');
 let uForm = document.getElementById('joinForm');
 let formSubmit = document.getElementById('submitBtn');
-let formReset = document.getElementById('reset');
 let googleReCaptcha = document.getElementById('googleReCaptcha');
 let idCheck = false;
 
@@ -184,13 +183,6 @@ formSubmit.addEventListener('click', function () {
        }
     
 
-});
-
-/* 취소 버튼 */
-formReset.addEventListener('click', function () {
-    if (confirm('회원가입을 취소 하시겠습니까?')) {
-        history.back();
-    }
 });
 
 googleReCaptcha.addEventListener('click' , function(){
