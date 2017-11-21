@@ -1,6 +1,7 @@
 package com.thebeauty.security.handler;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +30,7 @@ public class UserAuthenticationFailureHandler implements AuthenticationFailureHa
 		 */
 
 		String msg = "";
-		String url = "/WEB-INF/views/error/errorHandlerPage.jsp";
+		String url = "/final/static/error/errorHandlerPage.jsp?errorMessage=";
 
 		switch (auth.getMessage()) {
 		case "notFoundUser":
@@ -43,9 +44,9 @@ public class UserAuthenticationFailureHandler implements AuthenticationFailureHa
 			break;
 		}
 
-		req.setAttribute("errorMessage", auth.getMessage());
-		req.getRequestDispatcher(url).forward(req, res);
-
-		/* auth.getMessage()에 따른 error page 설정 필요 */
+		msg = URLEncoder.encode(msg,"UTF-8");
+		msg = msg.replaceAll("\\+", "%20");
+		
+		res.sendRedirect(url + msg);
 	}
 }

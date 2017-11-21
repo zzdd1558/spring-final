@@ -16,6 +16,7 @@
 	
 	<script charset="utf-8">
 		alert(document.getElementById("error").value); 
+		history.go(-1);
 	</script>
 </body>
 </html>
