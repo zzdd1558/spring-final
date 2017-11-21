@@ -28,8 +28,8 @@
 					</a>
 				</div>
 					<!-- pop-up-box -->    
-						<link href="stylesheets/test/popuo-box.css" rel="stylesheet" type="text/css" property="" media="all" />
-						<script src="javascripts/test/jquery.magnific-popup.js" type="text/javascript"></script>
+						<link href="${pageContext.request.contextPath}/stylesheets/popuo-box.css" rel="stylesheet" type="text/css" property="" media="all" />
+						<script src="${pageContext.request.contextPath}/javascripts/jquery.magnific-popup.js" type="text/javascript"></script>
 					<!--//pop-up-box -->
 					
 					<div id="small-dialog" class="mfp-hide">
@@ -874,8 +874,8 @@
 				<div class="timer_wrap">
 					<div id="counter"> </div>
 				</div>
-				<script src="javascripts/test/jquery.countdown.js"></script>
-				<script src="javascripts/test/script.js"></script>
+				<script src="${pageContext.request.contextPath}/javascripts/jquery.countdown.js"></script>
+				<script src="${pageContext.request.contextPath}/javascripts/script.js"></script>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -934,7 +934,7 @@
 							</article>
 						</div>
 					</div>
-						<script src="javascripts/test/jquery.wmuSlider.js"></script> 
+						<script src="${pageContext.request.contextPath}/javascripts/jquery.wmuSlider.js"></script> 
 						<script>
 							$('.example1').wmuSlider();         
 						</script> 
@@ -1115,7 +1115,7 @@
 								
 							});
 					</script>
-					<script type="text/javascript" src="javascripts/test/jquery.flexisel.js"></script>
+					<script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/jquery.flexisel.js"></script>
 		</div>
 	</div>
 <!-- //top-brands -->
