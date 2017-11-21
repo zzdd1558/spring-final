@@ -175,15 +175,11 @@ formSubmit.addEventListener('click', function () {
     }
     	
     
-    console.log(formBoolean);
-    
     if(formBoolean){
     	uForm.setAttribute('method', 'POST');
         uForm.setAttribute('action', httpRequest.getContextPath() + '/auth/userJoin.do');
         uForm.submit();
        }
-    
-
 });
 
 googleReCaptcha.addEventListener('click' , function(){
