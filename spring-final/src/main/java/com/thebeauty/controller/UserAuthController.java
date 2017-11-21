@@ -107,6 +107,8 @@ public class UserAuthController {
 	@RequestMapping(value = "/userIdSearch.do", method = RequestMethod.POST)
 	public String userIdSearchAuth(UserDTO user) throws UnsupportedEncodingException {
 		/* Base64기반의 encoder객체 생성*/
+		System.out.println(111);
+		System.out.println(user);
 		Encoder encoder = Base64.getEncoder();
 		
 		/* Mail관련 DTO 생성 */
@@ -114,6 +116,7 @@ public class UserAuthController {
 		
 		/* 입력한 값으로 ID가져오기 */
 		System.out.println(user.getUserName());
+		System.out.println(user.getUserEmail());
 		user = userIdSearchService.getUserId(user);
 		
 		if(user!=null) {

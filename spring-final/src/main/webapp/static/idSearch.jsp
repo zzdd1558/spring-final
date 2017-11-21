@@ -19,8 +19,8 @@
 						<div class="register">
 							<form id="IdFindForm">
 							<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-							<input type="text" id="IdFindUserName"  placeholder="이름을 입력하세요"><span></span>
-							<input type="text" id="IdFindUserEmail" placeholder="이메일을 입력하세요"><span></span>
+							<input type="text" name="userName" id="IdFindUserName"  placeholder="이름을 입력하세요"><span></span>
+							<input type="text" name="userEmail" id="IdFindUserEmail" placeholder="이메일을 입력하세요"><span></span>
 							<div>
 							</div>
 							</form>
