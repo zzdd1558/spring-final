@@ -13,7 +13,7 @@ public class HomeController {
 	/* main page start*/
 	@RequestMapping(value = "openmallMain.do", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		return "test/testIndex";
+		return "main";
 	}
 
 

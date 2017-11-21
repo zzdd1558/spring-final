@@ -46,10 +46,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 		});
 	});
+<<<<<<< HEAD
 	
 	let socialShareType = new SocialShareType();
 	
 	
+=======
+>>>>>>> branch 'master' of https://github.com/zzdd1558/spring-final
 </script>
 
 
