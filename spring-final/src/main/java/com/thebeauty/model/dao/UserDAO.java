@@ -18,4 +18,7 @@ public interface UserDAO {
 	
 	/* 아이디 가져오기 */
 	public abstract UserDTO getUserId(UserDTO user);
+	
+	/* 비밀번호 찾기 */
+	public abstract int findPassword(UserDTO user);
 }

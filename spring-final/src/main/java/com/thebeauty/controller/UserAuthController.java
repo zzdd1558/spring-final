@@ -5,17 +5,20 @@ import java.net.URLEncoder;
 import java.util.Base64;
 import java.util.Base64.Decoder;
 import java.util.Base64.Encoder;
+import java.util.UUID;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.thebeauty.model.dao.UserDAO;
 import com.thebeauty.model.domain.MailServiceDTO;
 import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.domain.UserTokenDTO;
@@ -23,6 +26,10 @@ import com.thebeauty.model.service.UserIdSearchServiceImpl;
 import com.thebeauty.model.service.UserJoinServiceImpl;
 import com.thebeauty.utils.MailService;
 
+/**
+ * @author yunjin
+ *
+ */
 @Controller
 @RequestMapping(value = "/auth")
 public class UserAuthController {
@@ -35,7 +42,11 @@ public class UserAuthController {
 
 	@Autowired
 	UserIdSearchServiceImpl userIdSearchService;
+	
+	/* alert 페이지 */
+	private String url = "redirect:/static/handler/HandlerPage.jsp?Message=";
 
+	 
 	/* 회원가입 페이지 이동 */
 	@RequestMapping(value = "/userJoin.do", method = RequestMethod.POST)
 	public String userJoinAuth(UserDTO user,HttpServletRequest request) throws UnsupportedEncodingException {
@@ -80,9 +91,9 @@ public class UserAuthController {
 		return "redirect:/index.jsp";
 	}
 
+	/** 사용자 이메일 인증시 권한 생성.*/
 	@RequestMapping(value = "/permissionSuccess.do", method = RequestMethod.GET)
 	public String permission(@RequestParam String tokenKey) throws UnsupportedEncodingException {
-		System.out.println(tokenKey);
 		int result = 0;
 		Decoder decode = Base64.getDecoder();
 
@@ -108,7 +119,7 @@ public class UserAuthController {
 
 	/* 아이디찾기 페이지 이동 */
 	@RequestMapping(value = "/userIdSearch.do", method = RequestMethod.POST)
-	public String userIdSearchAuth(UserDTO user) throws UnsupportedEncodingException {
+	public String userIdSearchAuth(UserDTO user , HttpServletRequest request) throws UnsupportedEncodingException {
 		/* Base64기반의 encoder객체 생성 */
 		Encoder encoder = Base64.getEncoder();
 
@@ -119,11 +130,11 @@ public class UserAuthController {
 		
 		user = userIdSearchService.getUserId(user);
 		String msg = "";
-		String url = "redirect:/static/error/errorHandlerPage.jsp?errorMessage=";
+		url = "redirect:/static/error/errorHandlerPage.jsp?errorMessage=";
 		if (user != null) {
 
 			/* ID와 현재시간기준으로 생성될 개인 토큰키 */
-			String code = "http://localhost:12345/final/auth/userIdLogin.do?tokenKey=";
+			String code = "http://localhost:"+ request.getServerPort() + "/final/auth/userIdLogin.do?tokenKey=";
 			String token = user.getUserId() + ":" + System.currentTimeMillis();
 			byte[] userToken = token.getBytes("UTF-8");
 			String encodeToken = encoder.encodeToString(userToken);
@@ -155,11 +166,7 @@ public class UserAuthController {
 		}else {
 			msg = "존재하지 않는 아이디 입니다.";
 		}
-		
-		msg = URLEncoder.encode(msg,"UTF-8");
-		msg = msg.replaceAll("\\+", "%20");
-		
-		return url + msg;
+		return url + encodeMsg(msg);
 	}
 
 	/* 메일인증 후 토큰 삭제 및 아이디 보여주는 창으로 이동 */
@@ -188,10 +195,36 @@ public class UserAuthController {
 		return "idView";
 	}
 
+	/** 일단 보류 */
 	@RequestMapping(value = "/searchIdLogin.do", method = RequestMethod.GET)
 	public String searchIdLogin(@RequestParam("userId") String id, Model model) {
 		model.addAttribute("id", id);
 		return "userLogin";
+	}
+	
+	
+	
+	
+	/** 비밀번호 찾기 
+	 * @throws UnsupportedEncodingException */
+	@RequestMapping(value = "/userPasswordSearch.do", method = RequestMethod.POST)
+	public String userPasswordSearchAuth(UserDTO user) throws UnsupportedEncodingException {
+		int result = userJoinService.findPassword(user);
+		String msg = "";
+		if(result == 1) {
+			msg = "등록하신 이메일로 임시 비밀번호 변경페이지를 보내드렸습니다.";
+		}else {
+			msg = "존재하지 않는 사용자 정보입니다";
+		}
+		
+		return url + encodeMsg(msg);
+	}
+	
+	public String encodeMsg(String msg) throws UnsupportedEncodingException {
+		String encodeMsg = URLEncoder.encode(msg,"UTF-8");
+		encodeMsg = encodeMsg.replaceAll("\\+", "%20");
+		
+		return encodeMsg;
 	}
 
 }

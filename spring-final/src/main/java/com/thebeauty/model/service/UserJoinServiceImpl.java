@@ -60,6 +60,11 @@ public class UserJoinServiceImpl implements UserJoinService{
 		return userTokenDao.removeTokenByIdAndByToken(userToken);
 	}
 	
+	@Override
+	public int findPassword(UserDTO user) {
+		return userDao.findPassword(user);
+	}
+	
 }
 
 

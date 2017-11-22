@@ -7,15 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>	
-	<% String msg = request.getParameter("errorMessage");
+	<% String msg = request.getParameter("Message");
 		System.out.println(msg);
 		
 		
 	%>
-	<input type="hidden" id='error' value="<%= msg %>">
+	<input type="hidden" id='msg' value="<%= msg %>">
 	
 	<script charset="utf-8">
-		alert(document.getElementById("error").value); 
+		alert(document.getElementById("msg").value); 
 		history.go(-1);
 	</script>
 </body>

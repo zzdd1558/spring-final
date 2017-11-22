@@ -30,7 +30,7 @@ public class UserAuthenticationFailureHandler implements AuthenticationFailureHa
 		 */
 
 		String msg = "";
-		String url = "/final/static/error/errorHandlerPage.jsp?errorMessage=";
+		String url = "/final/static/handler/HandlerPage.jsp?Message=";
 
 		switch (auth.getMessage()) {
 		case "notFoundUser":
