@@ -3,26 +3,128 @@
 <!DOCTYPE html>
 <html>
 <head>
-					<%@include file="/WEB-INF/include/include-header.jspf" %>
+	<%@include file="/WEB-INF/include/include-header.jspf" %>
+
+<style type="text/css">
+
+.line-top{
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border-top: 1px solid #e5e5e5;
+}
+
+.list-items{
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+}
+.line-bottom{
+ 	position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+.prd_cnt_box {
+    position: relative;
+    margin: 10px 0 0;
+    min-height: 60px;
+    padding: 20px;
+    border: 1px solid #e9e9e9;
+    background: #f9f9f9;
+}
+.prd_cnt_box .cont_area {
+    position: absolute;
+    bottom: 9px;
+    right: 22px;
+    max-width: 50%;
+}
+.prd_total_price {
+    overflow: hidden;
+    height: 60px;
+    margin: 10px 0 0;
+    padding: 18px 0 0;
+    border-bottom: 2px solid #ee782f;
+    color: #ff8942;
+    font-weight: 700;
+}
+.btn-box{
+	margin-top:20px;
+	height:70px;
+}
+.btn-box button{
+	height:inherit;
+}
+.prd-btn{
+	width: 40%;
+	background: #ee782f;
+	color: #fff;
+}
+.favor-btn{
+	width: 18%;
+	background: url(http://www.oliveyoung.co.kr/pc-static-root/image/comm/ico_zzim.png) no-repeat 50% 50%;
+    text-indent: -9999px;
+}
+.prd-options{
+	margin-top:10px;
+	height:50px;
+}
+.prd-options select{
+	height:inherit;
+	width:100%;
+	padding-top: 10px
+}
+
+</style>
 </head>
 <body>
 					<!-- header -->
 					<%@include file="/WEB-INF/include/include-bodyHeader.jspf" %>	
 						<!-- //header -->
+
 <!-- single -->
 	<div class="single">
 		<div class="container">
-			<div class="col-md-4 single-left">
-				<div class="flexslider">
+			<div class="prd-info col-md-6 single-left">
+							<div class="rating1">
+					<span class="starRating">
+						<input id="rating5" type="radio" name="rating" value="5"checked>
+						<label for="rating5">5</label>
+						<input id="rating4" type="radio" name="rating" value="4">
+						<label for="rating4">4</label>
+						<input id="rating3" type="radio" name="rating" value="3" >
+						<label for="rating3">3</label>
+						<input id="rating2" type="radio" name="rating" value="2">
+						<label for="rating2">2</label>
+						<input id="rating1" type="radio" name="rating" value="1">
+						<label for="rating1">1</label>
+					</span>
+				</div>
+				<div class="flexslider" style="width:90%;">
 					<ul class="slides">
-						<li data-thumb="${pageContext.request.contextPath}/images/test/a.jpg">
-							<div class="thumb-image"> <img src="${pageContext.request.contextPath}/images/test/a.jpg" data-imagezoom="true" class="img-responsive"> </div>
+<%-- 						<li data-thumb="${pageContext.request.contextPath}/images/test/a.jpg"> --%>
+						<li data-thumb="http://image.etude.co.kr//upload/sapimg/20171114141135575.png">
+							<div class="thumb-image"> 
+<%-- 							<img src="${pageContext.request.contextPath}/images/test/a.jpg" data-imagezoom="true" class="img-responsive"> </div> --%>
+							<img src="http://image.etude.co.kr//upload/sapimg/20171114141135575.png" data-imagezoom="true" class="img-responsive"> </div>
 						</li>
-						<li data-thumb="${pageContext.request.contextPath}/images/test/b.jpg">
-							 <div class="thumb-image"> <img src="${pageContext.request.contextPath}/images/test/b.jpg" data-imagezoom="true" class="img-responsive"> </div>
+<%-- 						<li data-thumb="${pageContext.request.contextPath}/images/test/b.jpg"> --%>
+						<li data-thumb="http://image.etude.co.kr//upload/sapimg/20171114141146334.png">
+							 <div class="thumb-image"> 
+<%-- 							 <img src="${pageContext.request.contextPath}/images/test/b.jpg" data-imagezoom="true" class="img-responsive"> </div> --%>
+							 <img src="http://image.etude.co.kr//upload/sapimg/20171114141146334.png" data-imagezoom="true" class="img-responsive"> </div>
 						</li>
-						<li data-thumb="${pageContext.request.contextPath}/images/test/c.jpg">
-						   <div class="thumb-image"> <img src="${pageContext.request.contextPath}/images/test/c.jpg" data-imagezoom="true" class="img-responsive"> </div>
+<%-- 						<li data-thumb="${pageContext.request.contextPath}/images/test/c.jpg"> --%>
+						<li data-thumb="http://image.etude.co.kr//upload/sapimg/20171114143819141.png">
+						   <div class="thumb-image"> 
+<%-- 						   <img src="${pageContext.request.contextPath}/images/test/c.jpg" data-imagezoom="true" class="img-responsive"> </div> --%>
+						   <img src="http://image.etude.co.kr//upload/sapimg/20171114143819141.png" data-imagezoom="true" class="img-responsive"> </div>
 						</li> 
 					</ul>
 				</div>
@@ -43,50 +145,40 @@
 					<script src="${pageContext.request.contextPath}/javascripts/imagezoom.js"></script>
 				<!-- //zooming-effect -->
 			</div>
-			<div class="col-md-8 single-right">
-				<h3>Swan Miami Red Skirt</h3>
-				<div class="rating1">
-					<span class="starRating">
-						<input id="rating5" type="radio" name="rating" value="5">
-						<label for="rating5">5</label>
-						<input id="rating4" type="radio" name="rating" value="4">
-						<label for="rating4">4</label>
-						<input id="rating3" type="radio" name="rating" value="3" checked>
-						<label for="rating3">3</label>
-						<input id="rating2" type="radio" name="rating" value="2">
-						<label for="rating2">2</label>
-						<input id="rating1" type="radio" name="rating" value="1">
-						<label for="rating1">1</label>
-					</span>
-				</div>
-					<div class="description">
-						<h5><i>Description</i></h5>
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-							eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-							Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut 
-							odit aut fugit, sed quia consequuntur magni dolores eos qui 
-							ratione voluptatem sequi nesciunt.</p>
-					</div>
-					<div class="color-quality">
-						<div class="color-quality-left">
-							<h5>Color : </h5>
-							<ul>
-								<li><a href="#"><span></span>Red</a></li>
-								<li><a href="#" class="brown"><span></span>Yellow</a></li>
-								<li><a href="#" class="purple"><span></span>Purple</a></li>
-								<li><a href="#" class="gray"><span></span>Violet</a></li>
-							</ul>
-						</div>
-						<div class="color-quality-right">
-							<h5>Quality :</h5>
-							 <div class="quantity"> 
+			<div class="col-md-6 single-right">
+			<h3>온라인전용 1주차 섀도우컬러 20%SALE(11.16~22)</h3>
+			<h5>룩 앳 마이 아이즈 NEW소녀 감성 아이섀도우</h5><br>
+				<ul>
+						<li class="list-items">판매가 <span style="float:right;"><i>19000원</i></span></li>
+						<li class="line-top">카드할인혜택	<span style="float:right;"><i>The CJ카드 추가 10%</i></span></li >
+						<li class="list-items">CJ ONE 포인트 예상적립<span style="float:right;"><span >2%</span>적립 </span></li>
+						<li class="line-top">배송비<span style="float:right;">	무료배송 </span></li>
+						<li class="line-bottom">배송기간<span style="float:right;">평균 3일 이내 배송</span></li>
+				</ul>
+				
+				<div class="prd-options">
+					<select class="form-control" name="prdOption">
+					  <option value="" selected disabled hidden >옵션을 선택하세요</option>
+					  <option value="1">DB에저장된 옵션 +value:1</option>
+					  <option value="2">DB에저장된 옵션 +value:2</option>
+					  <option value="3">DB에저장된 옵션 +value:3</option>
+					  <option value="4">DB에저장된 옵션 +value:4</option>
+					  <option value="5">DB에저장된 옵션 +value:5</option>
+					</select>
+				</div>								
+<!-- 옵션이 없을 시에 활용 -->			
+					<div class="prd_cnt_box">
+							<span style="font-size:14px;">구매수량 :</span>
+							 <div class="cont_area"> 
 								<div class="quantity-select">                           
 									<div class="entry value-minus1">&nbsp;</div>
 									<div class="entry value1"><span>1</span></div>
 									<div class="entry value-plus1 active">&nbsp;</div>
 								</div>
 							</div>
-							<!--quantity-->
+					</div>
+				
+<!-- 							quantity -->
 									<script>
 									$('.value-plus1').on('click', function(){
 										var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
@@ -97,41 +189,26 @@
 										var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
 										if(newVal>=1) divUpd.text(newVal);
 									});
-									</script>
-								<!--quantity-->
+ 									</script>
+<!-- 								quantity -->
 
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="occasional">
-						<h5>Occasion :</h5>
-						<div class="colr ert">
-							<div class="check">
-								<label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Occasion Wear</label>
-							</div>
-						</div>
-						<div class="colr">
-							<div class="check">
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>Party Wear</label>
-							</div>
-						</div>
-						<div class="colr">
-							<div class="check">
-								<label class="checkbox"><input type="checkbox" name="checkbox"><i> </i>Formal Wear</label>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-					<div class="simpleCart_shelfItem">
-							<p><span>$320</span> <i class="item_price">$250</i></p>
-							<p><a class="item_add" href="#">Add to cart</a></p>
-						</div>
-
+<!-- 						<div class="clearfix"> </div> -->
+<!-- 					</div> -->
+					
+					<div class="prd_total_price">
+					<span style="float:left;font-size: 21px;padding-top: 10px;">상품금액 합계</span>
+					<span style="float:right;font-size: 30px;"><span>28,000</span>원</span>
+				</div>
+				
+				<div class="btn-box">
+					<button class="prd-btn btn btn-default btn-lg">장바구니</button>
+					<button class="prd-btn btn btn-default btn-lg">구매하기</button>
+					<button class="favor-btn btn btn-default btn-lg">찜하기</button>
+				</div>
 			</div>
-			<div class="clearfix"> </div>
 		</div>
+			<div class="clearfix"> </div>
 	</div>
-
 	<div class="additional_info">
 		<div class="container">
 			<div class="sap_tabs">	
@@ -450,6 +527,10 @@
 		</div>
 	</div>
 <!-- //single -->
+
+
+
+
 
 					<!-- footer -->
 					<%@include file="/WEB-INF/include/include-footer.jspf" %>
