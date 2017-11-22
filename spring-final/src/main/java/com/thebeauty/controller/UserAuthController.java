@@ -6,24 +6,17 @@ import java.net.URLEncoder;
 import java.util.Base64;
 import java.util.Base64.Decoder;
 import java.util.Base64.Encoder;
-import java.util.UUID;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.thebeauty.model.dao.UserDAO;
 import com.thebeauty.model.domain.MailServiceDTO;
 import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.domain.UserTokenDTO;
@@ -67,7 +60,7 @@ public class UserAuthController {
 		String token = user.getUserId() + ":" + System.currentTimeMillis();
 		byte[] userToken = token.getBytes("UTF-8");
 		String encodeToken = encoder.encodeToString(userToken);
-
+		String msg = "";
 		/** 회원 가입 */
 		int createToken = userJoinService.userJoin(user, encodeToken);
 
@@ -85,17 +78,17 @@ public class UserAuthController {
 			mail.setTo(user.getUserEmail());
 			mail.setFrom("zzdd1558@gmail.com");
 
-			if (!mailService.send(mail)) {
-				System.out.println("메일전송 실패");
-			} else {
-				System.out.println("메일전송 성공");
-			}
-
+			msg = "회원가입 승인에 대한 주소를 이메일로 보내드렸습니다";
+			
+			threadToSendMail(mail);
+			
+		}else {
+			msg = "회원가입 실패하였습니다.";
 		}
 
-		return "redirect:/index.jsp";
+		return "redirect:/static/handler/redirectHandlerPage.jsp?Message=" + encodeMsg(msg);
 	}
-
+	
 	/** 사용자 이메일 인증시 권한 생성. */
 	@RequestMapping(value = "/permissionSuccess.do", method = RequestMethod.GET)
 	public String permission(@RequestParam String tokenKey) throws UnsupportedEncodingException {
@@ -119,7 +112,7 @@ public class UserAuthController {
 
 		/** 회원가입 성공했다고 보여주는 페이지와 or 만료된 페이지 필요 */
 		/* return result==3?"redirect:/index.jsp" : "redirect:/error.jsp"; */
-		return "test";
+		return  "redirect:/static/handler/redirectHandlerPage.jsp?Message=" + encodeMsg("회원승인이 완료되었습니다.");
 	}
 
 	/* 아이디찾기 페이지 이동 */
@@ -135,7 +128,7 @@ public class UserAuthController {
 
 		user = userIdSearchService.getUserId(user);
 		String msg = "";
-		url = "redirect:/static/error/errorHandlerPage.jsp?errorMessage=";
+		url = "redirect:/static/handler/redirectHandlerPage.jsp?Message=";
 		if (user != null) {
 
 			/* ID와 현재시간기준으로 생성될 개인 토큰키 */
@@ -160,13 +153,11 @@ public class UserAuthController {
 				mail.setTo(user.getUserEmail());
 				mail.setFrom("zzdd1558@gmail.com");
 
-				if (!mailService.send(mail)) {
-					System.out.println("메일전송 실패");
-					msg = "이메일전송에 실패하였습니다.";
-				} else {
-					System.out.println("메일전송 성공");
-					url = "redirect:/index.jsp";
-				}
+				
+				
+				msg = "회원님의 아이디를 이메일로 보내드렸습니다.";
+				
+				threadToSendMail(mail);
 			}
 		} else {
 			msg = "존재하지 않는 아이디 입니다.";
@@ -213,7 +204,8 @@ public class UserAuthController {
 	 * @throws UnsupportedEncodingException
 	 */
 	@RequestMapping(value = "/userPasswordSearch.do", method = RequestMethod.POST)
-	public String userPasswordSearchAuth(UserDTO findUser, HttpServletRequest request) throws UnsupportedEncodingException {
+	public String userPasswordSearchAuth(UserDTO findUser, HttpServletRequest request)
+			throws UnsupportedEncodingException {
 
 		UserDTO user = userJoinService.findPassword(findUser);
 		String msg = "";
@@ -230,7 +222,7 @@ public class UserAuthController {
 			String token = user.getUserId() + ":" + System.currentTimeMillis();
 			byte[] userToken = token.getBytes("UTF-8");
 			String encodeToken = encoder.encodeToString(userToken);
-			
+
 			int createToken = userJoinService.createUserToken(user.getUserKey(), encodeToken);
 
 			if (createToken == 1) {
@@ -247,13 +239,9 @@ public class UserAuthController {
 				mail.setTo(user.getUserEmail());
 				mail.setFrom("zzdd1558@gmail.com");
 
-				if (!mailService.send(mail)) {
-					System.out.println("메일전송 실패");
-					msg = "이메일전송에 실패하였습니다.";
-				} else {
-					System.out.println("메일전송 성공");
-					msg = "등록하신 이메일로 임시 비밀번호 변경페이지를 보내드렸습니다.";
-				}
+				msg = "등록하신 이메일로 임시 비밀번호 변경페이지를 보내드렸습니다.";
+
+				threadToSendMail(mail);
 			}
 		} else {
 			msg = "존재하지 않는 사용자 정보입니다";
@@ -264,36 +252,34 @@ public class UserAuthController {
 
 	/** 메일인증 후 토큰 삭제 및 아이디 보여주는 창으로 이동 */
 	@RequestMapping(value = "/findUserPassword.do", method = RequestMethod.GET)
-	public String  findUserPassword(@RequestParam String tokenKey, HttpServletRequest req) throws IOException {
+	public String findUserPassword(@RequestParam String tokenKey, HttpServletRequest req) throws IOException {
 		req.setAttribute("token", tokenKey);
 		return "changePassword";
 	}
-	
+
 	/** 비밀번호 변경하는 부분. */
 	@RequestMapping(value = "/changePassword.do", method = RequestMethod.POST)
-	public String changePassword(@RequestParam("token") String tokenKey , @RequestParam String changePassword ) throws ServletException, IOException {
-		
+	public String changePassword(@RequestParam("token") String tokenKey, @RequestParam String changePassword)
+			throws ServletException, IOException {
+
 		Decoder decode = Base64.getDecoder();
-		String returnUrl = "";
+		String returnUrl = "redirect:/static/handler/redirectHandlerPage.jsp?Message=";
 		byte[] token = decode.decode(tokenKey.getBytes("UTF-8"));
 		String decodeToken = new String(token);
 
 		/* 출력된 정보를 :를 기준으로 split */
 		String[] splitToken = decodeToken.split(":");
 
-		int result = userJoinService.userPasswordChange(splitToken[0], changePassword , tokenKey);
-		
-		if(result == 1) {
-			returnUrl = "main";
-		}else {
-			returnUrl = url + encodeMsg("만료된 토큰입니다.");
+		int result = userJoinService.userPasswordChange(splitToken[0], changePassword, tokenKey);
+
+		if (result == 1) {
+			returnUrl = returnUrl + encodeMsg("비밀번호가 변경되었습니다"); 
+			/*returnUrl = "main";*/
+		} else {
+			returnUrl = returnUrl + encodeMsg("만료된 토큰입니다.");
 		}
 		return returnUrl;
 	}
-	
-	
-	
-	
 
 	/* get방식 쿼리스트잉의 한글 처리 */
 	public String encodeMsg(String msg) throws UnsupportedEncodingException {
@@ -301,6 +287,19 @@ public class UserAuthController {
 		encodeMsg = encodeMsg.replaceAll("\\+", "%20");
 
 		return encodeMsg;
+	}
+
+	
+
+	
+	public void threadToSendMail ( MailServiceDTO mail) {
+		new Thread(new Runnable() {
+			
+			@Override
+			public void run() {
+				mailService.send(mail);
+			}
+		}).start();
 	}
 
 }
