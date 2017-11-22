@@ -19,4 +19,7 @@ public interface UserJoinService {
 	
 	/** 권한 승인후 token 삭제 */
 	public abstract int removeUserTokenByUserKey(UserTokenDTO userToken);
+	
+	/** 비밀번호 찾기*/
+	public abstract int findPassword(UserDTO user);
 }

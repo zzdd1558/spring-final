@@ -50,4 +50,11 @@
 		SELECT * FROM USER_TB WHERE USER_NAME=#{userName} AND USER_EMAIL=#{userEmail}
 	</select>
 	
+	<select id="findPassword" parameterType="userDTO" resultMap="userResultMap">
+		SELECT * FROM USER_TB 
+			WHERE USER_NAME = #{userName} AND USER_ID = #{userId} AND USER_EMAIL = #{userEmail} AND
+				  QUESTION_KEY = #{questionKey} AND USER_ANSWER = #{userAnswer}
+	</select>
+	
+	
 </mapper>

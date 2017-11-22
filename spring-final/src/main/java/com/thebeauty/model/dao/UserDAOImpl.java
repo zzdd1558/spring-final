@@ -45,5 +45,10 @@ public class UserDAOImpl implements UserDAO{
 		return dto;
 	}
 
-	
+	/** 비밀번호 찾기*/
+	@Override
+	public int findPassword(UserDTO user) {
+		UserDTO dto = sqlSession.selectOne("userMapper.findPassword",user);
+		return dto == null ? 0 : 1;
+	}
 }

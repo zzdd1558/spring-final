@@ -12,23 +12,34 @@
 
 	<div class="container">
 		<div class="row">
+
 			<div class="col-md-8 modal_body_left modal_body_left1"
 				style="border-right: 1px dotted #C2C2C2; padding-right: 3em;">
 				<div style="display: block">
-					<div class="facts">
-						<div class="register">
-							<input type="text" placeholder="이름"> <input type="text"
-								placeholder="아이디"> <input type="text" placeholder="이메일">
-							<select name='questionKey' id='pwFindUserQuestion'>
-								<option>질문을 선택해주세요.</option>
-							</select> <input type="text" name=userAnswer id="pwFindUserAnswer"
-								placeholder="정확한 답을 입력해주세요." required> <span></span>
-							<div>
-								<input type="button" id='pwFindBtn' value="비밀번호 찾기" /> <input
-									type="button" id='pwFindReset' value="취소" />
+					<form id='findPasswordForm'>
+						<div class="facts">
+							<div class="register">
+								<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+								<input type="text" name="userName" id="findPasswordName" placeholder="이름"> 
+								<span></span>
+								<input type="text" name="userId" id="findPasswordId" placeholder="아이디">
+								<span></span> 
+								<input type="text" name="userEmail" id="findPasswordEmail" placeholder="이메일">
+								<span></span>
+								<select name='questionKey' id='findPasswordUserQuestion'>
+									<option>질문을 선택해주세요.</option>
+								</select>
+								<span></span> 
+								<input type="text" name=userAnswer id="findPasswordUserAnswer" placeholder="정확한 답을 입력해주세요." required> <span></span>
+								
+								<div>
+									<input type="button" id='findPasswordBtn' value="비밀번호 찾기" />
+									<input type="button" id='findPasswordReset' value="취소" />
+								</div>
 							</div>
+
 						</div>
-					</div>
+					<form>
 				</div>
 				<div id="OR" class="hidden-xs">OR</div>
 			</div>
@@ -59,10 +70,9 @@
 				</div>
 			</div>
 		</div>
-		
+		<script src="${pageContext.request.contextPath}/javascripts/findPassword.js">
 		<!-- footer -->
 		<%@include file="/WEB-INF/include/include-footer.jspf"%>
 		<!-- footer -->
-		
 </body>
 </html>
