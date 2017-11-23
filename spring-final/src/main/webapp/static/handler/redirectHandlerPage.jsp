@@ -4,15 +4,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<script src='${pageContext.request.contextPath}/utils/HttpRequest.js'></script>
+
+
 </head>
 <body>	
 	<% String msg = request.getParameter("Message");%>
 	<input type="hidden" id='msg' value="<%= msg %>">
 	
 	<script charset="utf-8">
+		let httpRequest = new HttpRequest();
 		alert(document.getElementById("msg").value); 
-		history.go(-1);
+		location.href = httpRequest.getContextPath() + "/index.jsp";
 	</script>
+	
 </body>
 </html>
