@@ -45,5 +45,19 @@ public class UserDAOImpl implements UserDAO{
 		return dto;
 	}
 
+	/** 비밀번호를 찾고자 하는 user가 존재하는지 */
+	@Override
+	public UserDTO findPassword(UserDTO user) {
+		UserDTO dto = sqlSession.selectOne("userMapper.findPassword",user);
+		return dto == null ? null : dto;
+	}
+
+	 /** 비밀번호 변경*/
+	@Override
+	public int changePassword(UserDTO user) {
+		int check = sqlSession.update("userMapper.changePassword",user);
+		return check;
+	}
+	
 	
 }

@@ -10,6 +10,7 @@ let uName = document.getElementById('u_name');
 let uPhoneNumber = document.getElementById('u_phone_number');
 let uEmail = document.getElementById('u_email');
 let uQuestion = document.getElementById('u_question');
+let pwQuestion = document.getElementById('findPasswordUserQuestion');
 let uAnswer = document.getElementById('u_answer');
 let uAddressZipNo = document.getElementById('u_address_zip_no');
 let uAddressPart = document.getElementById('u_address_part');
@@ -174,15 +175,11 @@ formSubmit.addEventListener('click', function () {
     }
     	
     
-    console.log(formBoolean);
-    
     if(formBoolean){
     	uForm.setAttribute('method', 'POST');
         uForm.setAttribute('action', httpRequest.getContextPath() + '/auth/userJoin.do');
         uForm.submit();
-       }
-    
-
+    }
 });
 
 googleReCaptcha.addEventListener('click' , function(){
@@ -226,6 +223,7 @@ function setQuestionList() {
             result += `<option value=${resData[i].questionKey}>${resData[i].questionContent}</option>`;
         }
         uQuestion.innerHTML = result;
+        pwQuestion.innerHTML = result;
     }
 }
 

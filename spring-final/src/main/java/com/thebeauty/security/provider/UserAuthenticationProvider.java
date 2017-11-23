@@ -30,7 +30,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider{
 	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-		
+		System.out.println("provider");
 		if (!supports(authentication.getClass())) {
 			return null;
 		}

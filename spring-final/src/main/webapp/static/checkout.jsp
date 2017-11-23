@@ -148,6 +148,7 @@
 								<!--quantity-->
 				</table>
 			</div>
+			<div id="demo"></div>
 			<div class="checkout-left">	
 				<div class="checkout-left-basket">
 					<h4>Continue to basket</h4>
