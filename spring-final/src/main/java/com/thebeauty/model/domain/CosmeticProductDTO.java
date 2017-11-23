@@ -1,5 +1,6 @@
 package com.thebeauty.model.domain;
 
+import java.util.List;
 
 /**
  * @author 임대호
@@ -16,6 +17,7 @@ package com.thebeauty.model.domain;
  *  - COSM_NAME : 화장품 이름
  *  - PA_VALUE : 자외선 A 차단 지수
  *  - SPF_VALUE : 자외선 B 차단 지수
+ *  - PROD_INFOTYPE : 상품 설명타입
  *  - PROD_INTRODUCE : 상품 상세설명
  *  - COSM_RELEASE_DATE : 화장품 출시일
  */
@@ -27,14 +29,16 @@ public class CosmeticProductDTO {
 	private String cosmName; // COSM_NAME
 	private int paValue; // PA_VALUE
 	private int spfValue; // SPF_VALUE
+	private String prodInfoType;	// PROD_INFOTYPE
 	private String prodIntroduce; // PROD_INTRODUCE
 	private String cosmReleaseDate; // COSM_RELEASE_DATE
+	private List<KindsOfProductTypeDTO> optionList; //KindsOfProductTypeDTO_List
 	
 	/* 생성자 */
 	public CosmeticProductDTO() {}
 
 	public CosmeticProductDTO(int prodIdx, int brandTypeIdx, int subTypeIdx, int faceTypeId, String cosmName,
-			int paValue, int spfValue, String prodIntroduce, String cosmReleaseDate) {
+			int paValue, int spfValue, String prodIntroduce, String cosmReleaseDate,String prodInfoType,List<KindsOfProductTypeDTO> optionList) {
 		super();
 		this.prodIdx = prodIdx;
 		this.brandTypeIdx = brandTypeIdx;
@@ -45,6 +49,8 @@ public class CosmeticProductDTO {
 		this.spfValue = spfValue;
 		this.prodIntroduce = prodIntroduce;
 		this.cosmReleaseDate = cosmReleaseDate;
+		this.prodInfoType=prodInfoType;
+		this.optionList=optionList;
 	}
 
 	/* getter / setter */
@@ -103,6 +109,14 @@ public class CosmeticProductDTO {
 	public void setSpfValue(int spfValue) {
 		this.spfValue = spfValue;
 	}
+	
+	public String getProdInfoType() {
+		return prodInfoType;
+	}
+
+	public void setProdInfoType(String prodInfoType) {
+		this.prodInfoType = prodInfoType;
+	}
 
 	public String getProdIntroduce() {
 		return prodIntroduce;
@@ -118,6 +132,14 @@ public class CosmeticProductDTO {
 
 	public void setCosmReleaseDate(String cosmReleaseDate) {
 		this.cosmReleaseDate = cosmReleaseDate;
+	}
+
+	public List<KindsOfProductTypeDTO> getOptionlist() {
+		return optionList;
+	}
+
+	public void setOptionlist(List<KindsOfProductTypeDTO> optionlist) {
+		optionList = optionlist;
 	}
 
 	@Override
@@ -139,8 +161,12 @@ public class CosmeticProductDTO {
 		builder.append(spfValue);
 		builder.append(", prodIntroduce=");
 		builder.append(prodIntroduce);
+		builder.append(", prodInfoType=");
+		builder.append(prodInfoType);
 		builder.append(", cosmReleaseDate=");
 		builder.append(cosmReleaseDate);
+		builder.append(", optionList=");
+		builder.append(optionList);
 		builder.append("]");
 		return builder.toString();
 	}

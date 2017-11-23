@@ -291,7 +291,7 @@ public class UserAuthController {
 
 	
 
-	
+	/* mail보내기 인증시 backhand단으로 Thread 설정*/
 	public void threadToSendMail ( MailServiceDTO mail) {
 		new Thread(new Runnable() {
 			

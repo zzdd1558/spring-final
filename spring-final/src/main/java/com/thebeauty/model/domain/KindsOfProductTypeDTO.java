@@ -12,6 +12,7 @@ package com.thebeauty.model.domain;
  *  - PROD_COUNT : 상품 재고
  *  - PROD_PRICE : 화장품 가격
  *  - PROD_COLOR : 옵션 색상
+ *  - PRODUCT_NAME: 옵션 이름
  */
 
 public class KindsOfProductTypeDTO {
@@ -21,18 +22,19 @@ public class KindsOfProductTypeDTO {
 	private String prodCount; // PROD_COUNT
 	private String prodPrice; // PROD_PRICE
 	private String prodColor; // PROD_COLOR
-
+	private String prodName; //PRODUCT_NAME
 	/* 생성자 */
 	public KindsOfProductTypeDTO() {}
 	
 	public KindsOfProductTypeDTO(String codeOfProd, String prodIdx, String prodCount, String prodPrice,
-			String prodColor) {
+			String prodColor,String prodName) {
 		super();
 		this.codeOfProd = codeOfProd;
 		this.prodIdx = prodIdx;
 		this.prodCount = prodCount;
 		this.prodPrice = prodPrice;
 		this.prodColor = prodColor;
+		this.prodName=prodName;
 	}
 
 	/* setter / getter */
@@ -75,6 +77,13 @@ public class KindsOfProductTypeDTO {
 	public void setProdColor(String prodColor) {
 		this.prodColor = prodColor;
 	}
+	public String getProdName() {
+		return prodName;
+	}
+
+	public void setProdName(String prodName) {
+		this.prodName = prodName;
+	}
 
 	@Override
 	public String toString() {
@@ -89,6 +98,8 @@ public class KindsOfProductTypeDTO {
 		builder.append(prodPrice);
 		builder.append(", prodColor=");
 		builder.append(prodColor);
+		builder.append(", prodName=");
+		builder.append(prodName);
 		builder.append("]");
 		return builder.toString();
 	}

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -77,11 +77,21 @@
 }
 .prd-options select{
 	height:inherit;
-	width:100%;
+	width:90%;
 	padding-top: 10px
 }
 
 </style>
+<script type="text/javascript">
+		var a = JSON.parse('${listOfString}');	
+	window.onload = function() {
+		var result=`<option value="" selected disabled /hidden >옵션을 선택하세요</option>`;
+		for (var i = 0; i < a.length; i++) {
+			result+=`<option value=`+a[i].codeOfProd+`>`+a[i].prodName+`</option>`;
+		}
+		document.getElementsByTagName('select')[1].innerHTML = result;
+	}
+</script>
 </head>
 <body>
 					<!-- header -->
@@ -149,7 +159,7 @@
 			<h3>온라인전용 1주차 섀도우컬러 20%SALE(11.16~22)</h3>
 			<h5>룩 앳 마이 아이즈 NEW소녀 감성 아이섀도우</h5><br>
 				<ul>
-						<li class="list-items">판매가 <span style="float:right;"><i>19000원</i></span></li>
+						<li class="list-items">판매가 <span style="float:right;"><i>${price}</i>원</span></li>
 						<li class="line-top">카드할인혜택	<span style="float:right;"><i>The CJ카드 추가 10%</i></span></li >
 						<li class="list-items">CJ ONE 포인트 예상적립<span style="float:right;"><span >2%</span>적립 </span></li>
 						<li class="line-top">배송비<span style="float:right;">	무료배송 </span></li>
@@ -157,29 +167,43 @@
 				</ul>
 				
 				<div class="prd-options">
+					<a style="float:right;"href="javascript:onSelectOption()" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span></a>
 					<select class="form-control" name="prdOption">
-					  <option value="" selected disabled hidden >옵션을 선택하세요</option>
-					  <option value="1">DB에저장된 옵션 +value:1</option>
-					  <option value="2">DB에저장된 옵션 +value:2</option>
-					  <option value="3">DB에저장된 옵션 +value:3</option>
-					  <option value="4">DB에저장된 옵션 +value:4</option>
-					  <option value="5">DB에저장된 옵션 +value:5</option>
 					</select>
 				</div>								
-<!-- 옵션이 없을 시에 활용 -->			
-					<div class="prd_cnt_box">
-							<span style="font-size:14px;">구매수량 :</span>
-							 <div class="cont_area"> 
-								<div class="quantity-select">                           
-									<div class="entry value-minus1">&nbsp;</div>
-									<div class="entry value1"><span>1</span></div>
-									<div class="entry value-plus1 active">&nbsp;</div>
-								</div>
-							</div>
-					</div>
+<!-- 옵션이 없을 시에 활용 -->
+				<form id="demobox" name="prdOrder" action="test1.do">
+				<input type="hidden" name="prodIdx" value="${prd.prodIdx}">
+				<input type="hidden" name="subTypeIdx" value="${prd.subTypeIdx}">
+				<input type="hidden" name="codeOfProd" value="">
+				</form>
 				
 <!-- 							quantity -->
 									<script>
+									var prdCodes=new Array();
+									function onSelectOption() {
+										var prdCode=$(".form-control option:selected").val();
+										var prdName=$(".form-control option:selected").text();
+																					
+										document.getElementById("demobox").innerHTML+=
+											`<div  class="prd_cnt_box">
+											<span style="font-size:14px;">`+prdName+`</span>
+										 <div class="cont_area"> 
+											<div class="quantity-select">                           
+												<div class="entry value-minus1">&nbsp;</div>
+												<div class="entry value1"><span>1</span></div>
+												<div class="entry value-plus1 active">&nbsp;</div>
+											</div>
+										</div>
+									</div>`;
+									
+									}
+									
+									function purchase(){
+										var b=document.getElementsByName('codeOfProd');
+										b[0].value=prdCodes;
+									}
+									
 									$('.value-plus1').on('click', function(){
 										var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
 										divUpd.text(newVal);
@@ -202,9 +226,17 @@
 				
 				<div class="btn-box">
 					<button class="prd-btn btn btn-default btn-lg">장바구니</button>
-					<button class="prd-btn btn btn-default btn-lg">구매하기</button>
+					<button class="prd-btn btn btn-default btn-lg" onclick="purchase();document.getElementById('demobox').submit();">구매하기</button>
 					<button class="favor-btn btn btn-default btn-lg">찜하기</button>
 				</div>
+				<script type="text/javascript">
+				function purchase(){
+					var b=document.getElementsByName('codeOfProd');
+					b[0].value=prdCodes;
+					console.log(b[0]);
+					document.getElementById("demobox").onsubmit;
+				}
+				</script>
 			</div>
 		</div>
 			<div class="clearfix"> </div>
