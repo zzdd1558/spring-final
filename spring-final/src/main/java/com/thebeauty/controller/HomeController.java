@@ -47,4 +47,9 @@ public class HomeController {
 	public String idSearch() {
 		return "idSearch";
 	}
+	
+	@RequestMapping(value = "productView.do", method = RequestMethod.GET)
+	public String productSearch() {
+		return "static/dress";
+	}
 }

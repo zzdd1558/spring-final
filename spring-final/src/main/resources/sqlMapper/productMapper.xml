@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="productMapper">
+	 
+	<resultMap type="cosmeticProductDTO" id="productResultMap">
+		<result column="PROD_IDX"  property="prodIdx"/>
+		<result column="BRAND_TYPE_IDX"  property="brandTypeIdx"/>
+		<result column="SUB_TYPE_IDX"  property="subTypeIdx"/>
+		<result column="FACE_TYPE_ID"  property="faceTypeId"/>
+		<result column="COSM_NAME"  property="cosmName"/>
+		<result column="PA_VALUE"  property="paValue"/>
+		<result column="SPF_VALUE"  property="spfValue"/>
+		<result column="PROD_INTRODUCE"  property="prodIntroduce"/>
+		<result column="COSM_RELEASE_DATE"  property="cosmReleaseDate"/>
+	</resultMap>
+	
+	<select id="productSelectAll" resultMap="productResultMap">
+		SELECT * FROM COSMETIC_PRODUCT_TB
+	</select>
+	
+	<select id="productSelectAllBySubIdx" parameterType="int" resultMap="productResultMap">
+		SELECT * FROM COSMETIC_PRODUCT_TB WHERE SUB_TYPE_IDX = #{subTypeIdx}
+	</select>
+	
+	<select id="productSelectAllByProdIdx" parameterType="int" resultMap="productResultMap">
+		SELECT * FROM COSMETIC_PRODUCT_TB WHERE PROD_IDX = #{prodIdx}
+	</select>
+	
+	<insert id="procuctInsert" parameterType="cosmeticProductDTO">
+		INSERT INTO COSMETIC_PRODUCT_TB VALUES (#{prodIdx},#{brandTypeIdx},#{subTypeIdx},#{faceTypeId},#{cosmName},#{paValue},#{spfValue},#{prodIntroduce},#{cosmReleaseDate})
+	</insert>
+	
+	<update id="productUpdateByProdIdx" parameterType="cosmeticProductDTO">
+		UPDATE COSMETIC_PRODUCT_TB 
+		SET BRAND_TYPE_IDX = #{brandTypeIdx}
+		, SUB_TYPE_IDX = #{subTypeIdx}
+		, FACE_TYPE_ID = #{faceTypeId}
+		, COSM_NAME = #{cosmName}
+		, PA_VALUE = #{paValue}
+		, SPF_VALUE = #{spfValue}
+		, PROD_INTRODUCE = #{prodIntroduce}
+		, COSM_RELEASE_DATE = #{cosmReleaseDate}
+		where PROD_IDX = #{prodIdx}
+	</update>
+	
+	<delete id="productDeleteByProdIdx" parameterType="int">
+		DELETE FROM COSMETIC_PRODUCT_TB WHERE PROD_IDX = #{prodIdx}
+	</delete>
+</mapper>
