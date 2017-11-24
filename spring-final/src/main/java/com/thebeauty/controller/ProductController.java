@@ -3,6 +3,7 @@ package com.thebeauty.controller;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.JSONWrappedObject;
 import com.thebeauty.model.domain.CosmeticProductDTO;
+import com.thebeauty.model.domain.CosmeticSubTypeDTO;
 import com.thebeauty.model.domain.KindsOfProductTypeDTO;
 import com.thebeauty.model.service.ProductService;
 
@@ -25,21 +27,21 @@ public class ProductController{
 	@Autowired
 	private ProductService service;
 	
-	@RequestMapping(value = "test.do", method = RequestMethod.GET)
+	@RequestMapping(value = "prdDetail", method = RequestMethod.GET)
 	public ModelAndView boardWriteForm() { /*int productNum*/
-		
+		ModelAndView mv=new  ModelAndView("test");
 		ObjectMapper mapper=new ObjectMapper();
 		
-		ModelAndView mv=new  ModelAndView("test");
-		CosmeticProductDTO dto=service.SelectAllByProdIdx(1);
-		List<KindsOfProductTypeDTO> list=dto.getOptionlist();
-		String price=list.get(0).getProdPrice();
+		CosmeticProductDTO dto=service.selectAllByProdIdx(1);
+		System.out.println(dto);
+		List<KindsOfProductTypeDTO> optionList=dto.getOptionlist();
+		String price=optionList.get(0).getProdPrice();
 		
 		mv.addObject("price", price);
 		mv.addObject("prd", dto);
-		mv.addObject("list", list);
+		mv.addObject("list", optionList);
 		try {
-			String listOfString=mapper.writeValueAsString(list);
+			String listOfString=mapper.writeValueAsString(optionList);
 			mv.addObject("listOfString", listOfString);
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
@@ -59,5 +61,16 @@ public class ProductController{
 			System.out.println(a);
 		}
 		return "test";
+	}
+	@RequestMapping(value = "productView.do", method = RequestMethod.GET)
+	public ModelAndView productView(@RequestParam int subTypeIdx) { /*int productNum*/
+		ModelAndView mv=new ModelAndView("prdList");
+		System.out.println(subTypeIdx);
+		String subTypeName=service.mainTypeName(subTypeIdx);
+		List<CosmeticProductDTO> prdList=service.sellectAllBySubTypeIdx(subTypeIdx);
+		mv.addObject("subTypeName", subTypeName);
+		mv.addObject("prdList", prdList);
+		
+		return mv;
 	}
 }

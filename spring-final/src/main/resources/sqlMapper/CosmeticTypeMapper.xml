@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cosmeticTypeMapper">
+	 
+	 <resultMap type="CosmeticSubTypeDTO" id="subTypeResultMap">
+	 	<result column="SUB_TYPE_IDX" property="subTypeIdx"/>
+	 	<result column="MAIN_TYPE_IDX_PK" property="mainTypeIdx"/>
+	 	<result column="SUB_NAME" property="subTypeName"/>
+	 </resultMap>
+ 
+ 	<resultMap type="CosmeticMainTypeDTO" id="MainTypeResultMap">
+		<result column="MAIN_TYPE_IDX"  property="mainTypeIdx"/>
+		<result column="MAIN_NAME"  property="mainTypeName"/>
+	 	<collection  property="subTypeList" resultMap="subTypeResultMap"/>
+	</resultMap>
+	
+	
+	<select id="categorySelect" resultMap="MainTypeResultMap">
+		SELECT  COSM_MAIN.*,COSM_SUB.*
+	    FROM COSMETIC_MAIN_TYPE_TB COSM_MAIN 
+	    	INNER JOIN COSMETIC_SUB_TYPE_TB COSM_SUB
+	    	ON COSM_MAIN.MAIN_TYPE_IDX = COSM_SUB.MAIN_TYPE_IDX
+	    ORDER BY COSM_MAIN.MAIN_TYPE_IDX ASC , COSM_SUB.SUB_TYPE_IDX ASC
+	</select>
+	
+	<select id="mainTypeName"  parameterType="int" resultMap="subTypeResultMap">
+		SELECT  COSM_MAIN.MAIN_NAME
+	    FROM COSMETIC_MAIN_TYPE_TB COSM_MAIN 
+	    	INNER JOIN COSMETIC_SUB_TYPE_TB COSM_SUB
+	    	ON COSM_MAIN.MAIN_TYPE_IDX = COSM_SUB.MAIN_TYPE_IDX
+	    WHERE SUB_TYPE_IDX=#{subTypeIdx}
+	</select>
+	
+	
+</mapper>

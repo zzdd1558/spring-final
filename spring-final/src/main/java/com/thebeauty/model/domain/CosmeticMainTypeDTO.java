@@ -1,5 +1,6 @@
 package com.thebeauty.model.domain;
 
+import java.util.List;
 
 /**
  * @author 임대호
@@ -10,23 +11,23 @@ package com.thebeauty.model.domain;
  * 
  * COLUMN : 
  *  - MAIN_TYPE_IDX : 메인타입번호
- *  - MAIN_TYPE_NAME : 메인타입이름
- *  - COL : 서브타입번호
+ *  - MAIN_NAME : 메인타입이름
  *
  */
 public class CosmeticMainTypeDTO {
 	private int mainTypeIdx; // MAIN_TYPE_IDX
-	private String mainTypeName; // MAIN_TYPE_NAME
-	private int col; // COL
+	private String mainTypeName; // MAIN_NAME
+	private List<CosmeticSubTypeDTO> subTypeList;
+	
 	
 	/* 생성자 */
 	public CosmeticMainTypeDTO() {}
 
-	public CosmeticMainTypeDTO(int mainTypeIdx, String mainTypeName, int col) {
+	public CosmeticMainTypeDTO(int mainTypeIdx, String mainTypeName, int col,List<CosmeticSubTypeDTO> subTypeList) {
 		super();
 		this.mainTypeIdx = mainTypeIdx;
 		this.mainTypeName = mainTypeName;
-		this.col = col;
+		this.subTypeList=subTypeList;
 	}
 
 	/* getter / setter */
@@ -46,12 +47,12 @@ public class CosmeticMainTypeDTO {
 		this.mainTypeName = mainTypeName;
 	}
 
-	public int getCol() {
-		return col;
+	public List<CosmeticSubTypeDTO> getSubTypeList() {
+		return subTypeList;
 	}
 
-	public void setCol(int col) {
-		this.col = col;
+	public void setSubTypeList(List<CosmeticSubTypeDTO> subTypeList) {
+		this.subTypeList = subTypeList;
 	}
 
 	@Override
@@ -61,9 +62,10 @@ public class CosmeticMainTypeDTO {
 		builder.append(mainTypeIdx);
 		builder.append(", mainTypeName=");
 		builder.append(mainTypeName);
-		builder.append(", col=");
-		builder.append(col);
+		builder.append(", subTypeList=");
+		builder.append(subTypeList);
 		builder.append("]");
 		return builder.toString();
 	}
+	
 }

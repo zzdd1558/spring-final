@@ -221,7 +221,7 @@
 					
 					<div class="prd_total_price">
 					<span style="float:left;font-size: 21px;padding-top: 10px;">상품금액 합계</span>
-					<span style="float:right;font-size: 30px;"><span>28,000</span>원</span>
+					<span style="float:right;font-size: 30px;"><span>${price}</span>원</span>
 				</div>
 				
 				<div class="btn-box">

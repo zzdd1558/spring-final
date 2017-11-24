@@ -1114,6 +1114,11 @@
 								});
 								
 							});
+							
+					var listdata='${listOfString}';		
+					listdata=JSON.parse(listdata);
+					console.log(listdata);
+							
 					</script>
 					<script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/jquery.flexisel.js"></script>
 		</div>

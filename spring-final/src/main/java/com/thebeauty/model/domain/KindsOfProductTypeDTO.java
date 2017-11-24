@@ -23,11 +23,12 @@ public class KindsOfProductTypeDTO {
 	private String prodPrice; // PROD_PRICE
 	private String prodColor; // PROD_COLOR
 	private String prodName; //PRODUCT_NAME
+	private ProductImagePathDTO imgDTO; //IMGDTO
 	/* 생성자 */
 	public KindsOfProductTypeDTO() {}
 	
 	public KindsOfProductTypeDTO(String codeOfProd, String prodIdx, String prodCount, String prodPrice,
-			String prodColor,String prodName) {
+			String prodColor,String prodName,ProductImagePathDTO imgDTO) {
 		super();
 		this.codeOfProd = codeOfProd;
 		this.prodIdx = prodIdx;
@@ -35,6 +36,7 @@ public class KindsOfProductTypeDTO {
 		this.prodPrice = prodPrice;
 		this.prodColor = prodColor;
 		this.prodName=prodName;
+		this.imgDTO=imgDTO;
 	}
 
 	/* setter / getter */
@@ -85,6 +87,14 @@ public class KindsOfProductTypeDTO {
 		this.prodName = prodName;
 	}
 
+	public ProductImagePathDTO getImgDTO() {
+		return imgDTO;
+	}
+
+	public void setImgDTO(ProductImagePathDTO imgDTO) {
+		this.imgDTO = imgDTO;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -100,7 +110,11 @@ public class KindsOfProductTypeDTO {
 		builder.append(prodColor);
 		builder.append(", prodName=");
 		builder.append(prodName);
+		builder.append(", imgDTO=");
+		builder.append(imgDTO);
 		builder.append("]");
 		return builder.toString();
 	}
+
+	
 }

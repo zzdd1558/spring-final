@@ -8,7 +8,7 @@
 	 	<result column="PROD_COUNT" property="prodCount"/>
 	 	<result column="PROD_PRICE" property="prodPrice"/>
 	 	<result column="PROD_COLOR" property="prodColor"/>
-	 	<result column="PRODUCT_NAME" property="prodName"/>
+	 	<result column="PROD_NAME" property="prodName"/>
 	 </resultMap>
  
  	<resultMap type="cosmeticProductDTO" id="productResultMap">
@@ -24,10 +24,11 @@
 		<result column="COSM_RELEASE_DATE"  property="cosmReleaseDate"/>
 		<collection property="optionList" resultMap="prdOptionReultMap"></collection>
 	</resultMap>
-
+	
 	
 	<select id="productSelectAll" resultMap="productResultMap">
-		SELECT * FROM COSMETIC_PRODUCT_TB
+		SELECT * FROM COSMETIC_PRODUCT_TB 
+		WHERE SUB_TYPE_IDX = #{subTypeIdx}
 	</select>
 	
 	<select id="productSelectAllBySubIdx" parameterType="int" resultMap="productResultMap">
@@ -43,7 +44,7 @@
 	</insert>
 	
 	<update id="productUpdateByProdIdx" parameterType="cosmeticProductDTO">
-		UPDATE COSMETIC_PRODUCT_TB 
+		UPDATE COSMETIC_PRODUCT_TB, 
 		SET BRAND_TYPE_IDX = #{brandTypeIdx}
 		, SUB_TYPE_IDX = #{subTypeIdx}
 		, FACE_TYPE_ID = #{faceTypeId}
