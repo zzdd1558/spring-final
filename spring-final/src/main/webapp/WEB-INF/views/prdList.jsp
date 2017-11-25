@@ -63,14 +63,11 @@
 							<div class="agile_ecommerce_tab_left dresses_grid">
 								<div class="sk-wrapper hs-wrapper2">
 									<img src="/final/images/${map[prd.prodIdx][0].imgDTO.pathOfImage}.png" alt=" " class="img-responsive">
-									<div class="w3_hs_bottom w3_hs_bottom_sub1">
-										<ul>
-											<li>
-												<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-											</li>
-										</ul>
+										<div class="w3_hs_bottom w3_hs_bottom_sub1">
+											<a href="#" data-toggle="modal" data-target="#myModal6" style="bottom: 15px; right: 0; position: absolute;width: 100%;">
+											<span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="font-size: 160%;"></span></a>
+										</div>
 									</div>
-								</div>
 								<h5><a href="/final/product/prdDetail.do">${prd.cosmName}</a></h5>
 								<div class="simpleCart_shelfItem">
 									<p><i class="item_price">${map[prd.prodIdx][0].prodPrice}</i>원</p>
