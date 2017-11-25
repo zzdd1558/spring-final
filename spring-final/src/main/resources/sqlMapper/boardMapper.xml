@@ -78,11 +78,7 @@
 
 
 	<select id="listAll" parameterType="hashMap" resultMap="boardResultMap">
-		<!-- 목록 조회 및 페이징 전체 쿼리 -->
 		<include refid="pagingHeader"></include>
-		<!-- SELECT * -->
-		<!-- FROM BOARD_TB -->
-		<!-- order by BOARD_RE_REF desc , BOARD_RE_SEQ asc -->
 		SELECT LEVEL,
 		BOARD_TB.*
 		FROM BOARD_TB
