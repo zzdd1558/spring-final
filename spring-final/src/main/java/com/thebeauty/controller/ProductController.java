@@ -2,6 +2,7 @@ package com.thebeauty.controller;
 
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -65,11 +66,17 @@ public class ProductController{
 	@RequestMapping(value = "productView.do", method = RequestMethod.GET)
 	public ModelAndView productView(@RequestParam int subTypeIdx) { /*int productNum*/
 		ModelAndView mv=new ModelAndView("prdList");
-		System.out.println(subTypeIdx);
-		String subTypeName=service.mainTypeName(subTypeIdx);
 		List<CosmeticProductDTO> prdList=service.sellectAllBySubTypeIdx(subTypeIdx);
-		mv.addObject("subTypeName", subTypeName);
+		System.out.println(prdList);
+		Map<Integer,List<KindsOfProductTypeDTO>> map=new HashMap<>();
+		for (CosmeticProductDTO cosmeticProductDTO : prdList) {
+			List<KindsOfProductTypeDTO> kprdList=cosmeticProductDTO.getOptionlist();
+			System.out.println(cosmeticProductDTO.getProdIdx()+","+kprdList);
+			map.put(cosmeticProductDTO.getProdIdx(), kprdList);
+		}
+		
 		mv.addObject("prdList", prdList);
+		mv.addObject("map", map);
 		
 		return mv;
 	}

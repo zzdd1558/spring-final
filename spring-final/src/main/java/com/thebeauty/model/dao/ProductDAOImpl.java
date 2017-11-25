@@ -24,7 +24,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<CosmeticProductDTO> sellectAllBySubTypeIdx(int subTypeIdx) {
-		return sqlsession.selectList("productMapper.productSelectAll", subTypeIdx);
+		return sqlsession.selectList("productMapper.productSelectAllBySubIdx", subTypeIdx);
 	}
 
 

@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="productMapper">
+	 <resultMap type="ProductImagePathDTO" id="imgResultMap">
+	 	<id column="NUM_OF_PROD_IDX" property="numOfProdIdx"/>
+	 	<result column="CODE_OF_PROD" property="codeOfProd"/>
+	 	<result column="PATH_OF_IMAGE" property="pathOfImage"/>
+	 </resultMap>
 	 
 	 <resultMap type="KindsOfProductTypeDTO" id="prdOptionReultMap">
-	 	<result column="CODE_OF_PROD" property="codeOfProd"/>
+	 	<id column="CODE_OF_PROD" property="codeOfProd"/>
 	 	<result column="PROD_IDX" property="prodIdx"/>
 	 	<result column="PROD_COUNT" property="prodCount"/>
 	 	<result column="PROD_PRICE" property="prodPrice"/>
 	 	<result column="PROD_COLOR" property="prodColor"/>
 	 	<result column="PROD_NAME" property="prodName"/>
+	 	<collection property="imgDTO" resultMap="imgResultMap"></collection>
 	 </resultMap>
  
  	<resultMap type="cosmeticProductDTO" id="productResultMap">
-		<result column="PROD_IDX"  property="prodIdx"/>
+		<id column="PROD_IDX"  property="prodIdx"/>
 		<result column="BRAND_TYPE_IDX"  property="brandTypeIdx"/>
 		<result column="SUB_TYPE_IDX"  property="subTypeIdx"/>
 		<result column="FACE_TYPE_ID"  property="faceTypeId"/>
@@ -32,11 +38,20 @@
 	</select>
 	
 	<select id="productSelectAllBySubIdx" parameterType="int" resultMap="productResultMap">
-		SELECT * FROM COSMETIC_PRODUCT_TB prd,KINDS_OF_PRODUCT_TYPE_TB kprd WHERE prd.PROD_IDX=kprd.PROD_IDX AND SUB_TYPE_IDX = #{subTypeIdx}
+		SELECT * 
+		FROM COSMETIC_PRODUCT_TB prd LEFT JOIN KINDS_OF_PRODUCT_TYPE_TB kprd 
+		ON  prd.PROD_IDX=kprd.PROD_IDX
+		LEFT JOIN PRODUCT_IMAGE_PATH_TB iprd
+		ON  kprd.CODE_OF_PROD=iprd.CODE_OF_PROD
+		WHERE prd.SUB_TYPE_IDX = #{subTypeIdx}
+		ORDER BY kprd.PROD_IDX asc
+       
 	</select>
 	
 	<select id="productSelectAllByProdIdx" parameterType="int" resultMap="productResultMap">
-		SELECT * FROM COSMETIC_PRODUCT_TB prd,KINDS_OF_PRODUCT_TYPE_TB kprd  WHERE prd.PROD_IDX=kprd.PROD_IDX AND  prd.PROD_IDX = #{prodIdx}
+		SELECT *
+		FROM COSMETIC_PRODUCT_TB prd,KINDS_OF_PRODUCT_TYPE_TB kprd  
+		WHERE prd.PROD_IDX=kprd.PROD_IDX AND  prd.PROD_IDX = #{prodIdx}
 	</select>
 	
 	<insert id="procuctInsert" parameterType="cosmeticProductDTO">
