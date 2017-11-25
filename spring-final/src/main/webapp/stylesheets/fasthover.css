@@ -5,6 +5,13 @@
 	margin: 0 auto;
 	overflow: hidden;
 }
+.sk-wrapper{
+	width: 196px;
+    height: 223px;
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+}
 .hs-wrapper1{
 	width: 255px !important;
     height:340px !important;

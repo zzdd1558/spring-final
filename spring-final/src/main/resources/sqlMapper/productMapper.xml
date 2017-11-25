@@ -44,7 +44,7 @@
 		LEFT JOIN PRODUCT_IMAGE_PATH_TB iprd
 		ON  kprd.CODE_OF_PROD=iprd.CODE_OF_PROD
 		WHERE prd.SUB_TYPE_IDX = #{subTypeIdx}
-		ORDER BY kprd.PROD_IDX asc
+		ORDER BY kprd.PROD_IDX asc, iprd.CODE_OF_PROD asc
        
 	</select>
 	

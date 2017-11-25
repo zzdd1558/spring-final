@@ -61,10 +61,8 @@
 					<c:forEach items="${prdList}" var="prd">	
 						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
 							<div class="agile_ecommerce_tab_left dresses_grid">
-								<div class="hs-wrapper hs-wrapper2">
-									<c:forEach items="${map[prd.prodIdx]}" var="option">	
-									<img src="/final/images/${option.imgDTO.pathOfImage}" alt=" " class="img-responsive">
-									</c:forEach>
+								<div class="sk-wrapper hs-wrapper2">
+									<img src="/final/images/${map[prd.prodIdx][0].imgDTO.pathOfImage}.png" alt=" " class="img-responsive">
 									<div class="w3_hs_bottom w3_hs_bottom_sub1">
 										<ul>
 											<li>
@@ -75,7 +73,7 @@
 								</div>
 								<h5><a href="/final/product/prdDetail.do">${prd.cosmName}</a></h5>
 								<div class="simpleCart_shelfItem">
-									<p><i class="item_price">${map[prd.prodIdx][0].prodPrice}</i></p>
+									<p><i class="item_price">${map[prd.prodIdx][0].prodPrice}</i>원</p>
 									<p><a class="item_add" href="#">장바구니</a></p>
 								</div>
 							</div>
