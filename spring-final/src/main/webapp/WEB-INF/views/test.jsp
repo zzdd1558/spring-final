@@ -84,10 +84,11 @@
 </style>
 <script type="text/javascript">
 		var a = JSON.parse('${listOfString}');	
+		console.log(a);
 	window.onload = function() {
 		var result=`<option value="" selected disabled /hidden >옵션을 선택하세요</option>`;
 		for (var i = 0; i < a.length; i++) {
-			result+=`<option value=`+a[i].codeOfProd+`>`+a[i].prodName+`</option>`;
+			result+=`<option value=`+(i+1)+`>`+a[i].prodName+`</option>`;
 		}
 		document.getElementsByTagName('select')[1].innerHTML = result;
 	}
@@ -118,37 +119,23 @@
 				</div>
 				<div class="flexslider" style="width:90%;">
 					<ul class="slides">
-<%-- 						<li data-thumb="${pageContext.request.contextPath}/images/test/a.jpg"> --%>
-						<li data-thumb="http://image.etude.co.kr//upload/sapimg/20171114141135575.png">
-							<div class="thumb-image"> 
-<%-- 							<img src="${pageContext.request.contextPath}/images/test/a.jpg" data-imagezoom="true" class="img-responsive"> </div> --%>
-							<img src="http://image.etude.co.kr//upload/sapimg/20171114141135575.png" data-imagezoom="true" class="img-responsive"> </div>
+					<c:forEach items="${list}" var="a"> 	
+						<li data-thumb="/final/images/cosmetic/1/${prd.subTypeIdx}/${prd.prodIdx}/${a.imgDTO.pathOfImage}.png">
+							<img src="/final/images/cosmetic/1/${prd.subTypeIdx}/${prd.prodIdx}/${a.imgDTO.pathOfImage}.png" class="img-responsive">
 						</li>
-<%-- 						<li data-thumb="${pageContext.request.contextPath}/images/test/b.jpg"> --%>
-						<li data-thumb="http://image.etude.co.kr//upload/sapimg/20171114141146334.png">
-							 <div class="thumb-image"> 
-<%-- 							 <img src="${pageContext.request.contextPath}/images/test/b.jpg" data-imagezoom="true" class="img-responsive"> </div> --%>
-							 <img src="http://image.etude.co.kr//upload/sapimg/20171114141146334.png" data-imagezoom="true" class="img-responsive"> </div>
-						</li>
-<%-- 						<li data-thumb="${pageContext.request.contextPath}/images/test/c.jpg"> --%>
-						<li data-thumb="http://image.etude.co.kr//upload/sapimg/20171114143819141.png">
-						   <div class="thumb-image"> 
-<%-- 						   <img src="${pageContext.request.contextPath}/images/test/c.jpg" data-imagezoom="true" class="img-responsive"> </div> --%>
-						   <img src="http://image.etude.co.kr//upload/sapimg/20171114143819141.png" data-imagezoom="true" class="img-responsive"> </div>
-						</li> 
+					</c:forEach>	
 					</ul>
 				</div>
 				<!-- flixslider -->
 					<script defer src="${pageContext.request.contextPath}/javascripts/jquery.flexslider.js"></script>
 					<link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheets/flexslider.css" type="text/css" media="screen" />
 					<script>
-					// Can also be used with $(document).ready()
 					$(window).load(function() {
-					  $('.flexslider').flexslider({
-						animation: "slide",
-						controlNav: "thumbnails"
-					  });
-					});
+						  $('.flexslider').flexslider({
+						    animation: "slide",
+						    controlNav: "thumbnails"
+						  });
+						});
 					</script>
 				<!-- flixslider -->
 				<!-- zooming-effect -->
@@ -156,8 +143,8 @@
 				<!-- //zooming-effect -->
 			</div>
 			<div class="col-md-6 single-right">
-			<h3>온라인전용 1주차 섀도우컬러 20%SALE(11.16~22)</h3>
-			<h5>룩 앳 마이 아이즈 NEW소녀 감성 아이섀도우</h5><br>
+			<h3>${prd.cosmName}</h3>
+			<h5>${prd.prodIntroduce}</h5><br>
 				<ul>
 						<li class="list-items">판매가 <span style="float:right;"><i>${price}</i>원</span></li>
 						<li class="line-top">카드할인혜택	<span style="float:right;"><i>The CJ카드 추가 10%</i></span></li >
@@ -168,7 +155,7 @@
 				
 				<div class="prd-options">
 					<a style="float:right;"href="javascript:onSelectOption()" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-plus"></span></a>
-					<select class="form-control" name="prdOption">
+					<select id="optionList"class="form-control" name="prdOption">
 					</select>
 				</div>								
 <!-- 옵션이 없을 시에 활용 -->
@@ -193,7 +180,7 @@
 												<div class="entry value-minus1">&nbsp;</div>
 												<div class="entry value1"><span>1</span></div>
 												<div class="entry value-plus1 active">&nbsp;</div>
-											</div>
+											</div> 
 										</div>
 									</div>`;
 									

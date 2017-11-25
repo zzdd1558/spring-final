@@ -49,9 +49,13 @@
 	</select>
 	
 	<select id="productSelectAllByProdIdx" parameterType="int" resultMap="productResultMap">
-		SELECT *
-		FROM COSMETIC_PRODUCT_TB prd,KINDS_OF_PRODUCT_TYPE_TB kprd  
-		WHERE prd.PROD_IDX=kprd.PROD_IDX AND  prd.PROD_IDX = #{prodIdx}
+		SELECT * 
+		FROM COSMETIC_PRODUCT_TB prd LEFT JOIN KINDS_OF_PRODUCT_TYPE_TB kprd 
+		ON  prd.PROD_IDX=kprd.PROD_IDX
+		LEFT JOIN PRODUCT_IMAGE_PATH_TB iprd
+		ON  kprd.CODE_OF_PROD=iprd.CODE_OF_PROD
+		WHERE prd.PROD_IDX = #{prodIdx}
+		ORDER BY kprd.PROD_IDX asc, iprd.CODE_OF_PROD asc
 	</select>
 	
 	<insert id="procuctInsert" parameterType="cosmeticProductDTO">

@@ -62,13 +62,13 @@
 						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
 							<div class="agile_ecommerce_tab_left dresses_grid">
 								<div class="sk-wrapper hs-wrapper2">
-									<img src="/final/images/${map[prd.prodIdx][0].imgDTO.pathOfImage}.png" alt=" " class="img-responsive">
+									<img src="/final/images/cosmetic/1/${prd.subTypeIdx}/${prd.prodIdx}/${map[prd.prodIdx][0].imgDTO.pathOfImage}.png" alt=" " class="img-responsive">
 										<div class="w3_hs_bottom w3_hs_bottom_sub1">
 											<a href="#" data-toggle="modal" data-target="#myModal6" style="bottom: 15px; right: 0; position: absolute;width: 100%;">
 											<span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="font-size: 160%;"></span></a>
 										</div>
 									</div>
-								<h5><a href="/final/product/prdDetail.do">${prd.cosmName}</a></h5>
+								<h5><a href="#" onclick="prdDetail('${prd.prodIdx}')">${prd.cosmName}</a></h5>
 								<div class="simpleCart_shelfItem">
 									<p><i class="item_price">${map[prd.prodIdx][0].prodPrice}</i>원</p>
 									<p><a class="item_add" href="#">장바구니</a></p>
@@ -78,6 +78,11 @@
 					</c:forEach>	
 						<div class="clearfix"> </div>
 					</div>
+					<script type="text/javascript">
+						function prdDetail(prodIdx){
+							location.href="${pageContext.request.contextPath}/product/prdDetail.do?prodIdx="+prodIdx;
+						}
+					</script>
 		<!--==================Modal 부분==================-->				
 					<div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
 						<div class="modal-dialog" role="document">

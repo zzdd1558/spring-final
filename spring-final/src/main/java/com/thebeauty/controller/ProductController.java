@@ -15,9 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONWrappedObject;
 import com.thebeauty.model.domain.CosmeticProductDTO;
-import com.thebeauty.model.domain.CosmeticSubTypeDTO;
 import com.thebeauty.model.domain.KindsOfProductTypeDTO;
 import com.thebeauty.model.service.ProductService;
 
@@ -29,12 +27,13 @@ public class ProductController{
 	private ProductService service;
 	
 	@RequestMapping(value = "prdDetail", method = RequestMethod.GET)
-	public ModelAndView boardWriteForm() { /*int productNum*/
+	public ModelAndView boardWriteForm(@RequestParam int prodIdx) { /*int productNum*/
 		ModelAndView mv=new  ModelAndView("test");
 		ObjectMapper mapper=new ObjectMapper();
 		
-		CosmeticProductDTO dto=service.selectAllByProdIdx(1);
-		System.out.println(dto);
+		
+		
+		CosmeticProductDTO dto=service.selectAllByProdIdx(prodIdx);
 		List<KindsOfProductTypeDTO> optionList=dto.getOptionlist();
 		String price=optionList.get(0).getProdPrice();
 		
@@ -67,11 +66,9 @@ public class ProductController{
 	public ModelAndView productView(@RequestParam int subTypeIdx) { /*int productNum*/
 		ModelAndView mv=new ModelAndView("prdList");
 		List<CosmeticProductDTO> prdList=service.sellectAllBySubTypeIdx(subTypeIdx);
-		System.out.println(prdList);
 		Map<Integer,List<KindsOfProductTypeDTO>> map=new HashMap<>();
 		for (CosmeticProductDTO cosmeticProductDTO : prdList) {
 			List<KindsOfProductTypeDTO> kprdList=cosmeticProductDTO.getOptionlist();
-			System.out.println(cosmeticProductDTO.getProdIdx()+","+kprdList);
 			map.put(cosmeticProductDTO.getProdIdx(), kprdList);
 		}
 		
