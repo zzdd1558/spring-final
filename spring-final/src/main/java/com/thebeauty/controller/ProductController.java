@@ -61,15 +61,21 @@ public class ProductController{
 		}
 		return "test";
 	}
+	
+	
 	@RequestMapping(value = "productView.do", method = RequestMethod.GET)
 	public ModelAndView productView(
 			@RequestParam int subTypeIdx,
 			@RequestParam int mainTypeIdx
 		){ 
 		ModelAndView mv=new ModelAndView("prdList");
+		
+		/** 선언부*/
 		List<CosmeticProductDTO> prdList=service.sellectAllBySubTypeIdx(subTypeIdx);
 		Map<Integer,List<KindsOfProductTypeDTO>> map=new HashMap<>();
 		Map<Integer,ProductImagePathDTO> imgMap=new HashMap<>();
+		
+		/** 실제 로직 */
 		for (CosmeticProductDTO cosmeticProductDTO : prdList) {
 			List<KindsOfProductTypeDTO> kprdList=cosmeticProductDTO.getOptionlist();
 			if(kprdList.get(0).getCodeOfProd()==0) {
@@ -81,6 +87,8 @@ public class ProductController{
 			}
 		}
 		System.out.println(imgMap);
+		
+		/** 아이템 추가 */
 		mv.addObject("prdList", prdList);
 		mv.addObject("map", map);
 		mv.addObject("mainTypeIdx",mainTypeIdx);

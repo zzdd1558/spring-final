@@ -1119,6 +1119,7 @@
 					
 					
 					function setCategoryList(){
+						
 						let result = '<ul class="dropdown-menu multi-column columns-3">';
 						for (let i = 0; i < Math.ceil(productList.length / 4); i++) {
 							result += '<div class="row">';
@@ -1140,7 +1141,7 @@
 							result += '</div>';
 						}
 						result += '</ul>';
-						
+						window.sessionStorage.setItem('staticProductList' , JSON.stringify(productList));
 						window.sessionStorage.setItem('categoryList' , result);
 					}
 					
