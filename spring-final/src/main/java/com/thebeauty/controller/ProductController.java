@@ -17,6 +17,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thebeauty.model.domain.CosmeticProductDTO;
 import com.thebeauty.model.domain.KindsOfProductTypeDTO;
+import com.thebeauty.model.domain.ProductImagePathDTO;
 import com.thebeauty.model.service.ProductService;
 
 @Controller
@@ -31,8 +32,6 @@ public class ProductController{
 		ModelAndView mv=new  ModelAndView("test");
 		ObjectMapper mapper=new ObjectMapper();
 		
-		
-		
 		CosmeticProductDTO dto=service.selectAllByProdIdx(prodIdx);
 		List<KindsOfProductTypeDTO> optionList=dto.getOptionlist();
 		String price=optionList.get(0).getProdPrice();
@@ -40,11 +39,11 @@ public class ProductController{
 		mv.addObject("price", price);
 		mv.addObject("prd", dto);
 		mv.addObject("list", optionList);
+		
 		try {
 			String listOfString=mapper.writeValueAsString(optionList);
 			mv.addObject("listOfString", listOfString);
 		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return mv;
@@ -63,17 +62,29 @@ public class ProductController{
 		return "test";
 	}
 	@RequestMapping(value = "productView.do", method = RequestMethod.GET)
-	public ModelAndView productView(@RequestParam int subTypeIdx) { /*int productNum*/
+	public ModelAndView productView(
+			@RequestParam int subTypeIdx,
+			@RequestParam int mainTypeIdx
+		){ 
 		ModelAndView mv=new ModelAndView("prdList");
 		List<CosmeticProductDTO> prdList=service.sellectAllBySubTypeIdx(subTypeIdx);
 		Map<Integer,List<KindsOfProductTypeDTO>> map=new HashMap<>();
+		Map<Integer,ProductImagePathDTO> imgMap=new HashMap<>();
 		for (CosmeticProductDTO cosmeticProductDTO : prdList) {
 			List<KindsOfProductTypeDTO> kprdList=cosmeticProductDTO.getOptionlist();
-			map.put(cosmeticProductDTO.getProdIdx(), kprdList);
+			if(kprdList.get(0).getCodeOfProd()==0) {
+				continue;
+			}else {
+				map.put(cosmeticProductDTO.getProdIdx(), kprdList);
+				List<ProductImagePathDTO> imgList=service.idxImgSelect(kprdList.get(0).getCodeOfProd());
+				imgMap.put(kprdList.get(0).getCodeOfProd(), imgList.get(0));
+			}
 		}
-		
+		System.out.println(imgMap);
 		mv.addObject("prdList", prdList);
 		mv.addObject("map", map);
+		mv.addObject("mainTypeIdx",mainTypeIdx);
+		mv.addObject("imgMap", imgMap);
 		
 		return mv;
 	}

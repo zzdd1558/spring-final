@@ -1,5 +1,7 @@
 package com.thebeauty.model.domain;
 
+import java.util.List;
+
 /**
  * @author 최 윤진
  * @생성일 : 2017-11-10
@@ -15,13 +17,13 @@ package com.thebeauty.model.domain;
 public class ProductImagePathDTO {
 
 	private int numOfProdIdx;	// NUM_OF_PROD_IDX
-	private String codeOfProd;	// CODE_OF_PROD
+	private int codeOfProd;	// CODE_OF_PROD
 	private String pathOfImage;	// PATH_OF_IMAGE
 	
 	/* 생성자 */
 	public ProductImagePathDTO() {}
 
-	public ProductImagePathDTO(int numOfProdIdx, String codeOfProd, String pathOfImage) {
+	public ProductImagePathDTO(int numOfProdIdx, int codeOfProd, String pathOfImage) {
 		super();
 		this.numOfProdIdx = numOfProdIdx;
 		this.codeOfProd = codeOfProd;
@@ -37,11 +39,11 @@ public class ProductImagePathDTO {
 		this.numOfProdIdx = numOfProdIdx;
 	}
 
-	public String getCodeOfProd() {
+	public int getCodeOfProd() {
 		return codeOfProd;
 	}
 
-	public void setCodeOfProd(String codeOfProd) {
+	public void setCodeOfProd(int codeOfProd) {
 		this.codeOfProd = codeOfProd;
 	}
 
@@ -65,4 +67,9 @@ public class ProductImagePathDTO {
 		builder.append("]");
 		return builder.toString();
 	}
+
+
+
+
+
 }

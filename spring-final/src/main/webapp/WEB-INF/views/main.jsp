@@ -1118,16 +1118,21 @@
 					let productList=JSON.parse('${listOfString}');
 					
 					
-					
 					function setCategoryList(){
 						let result = '<ul class="dropdown-menu multi-column columns-3">';
 						for (let i = 0; i < Math.ceil(productList.length / 4); i++) {
 							result += '<div class="row">';
 							for (let k = i*4;  k < ((i+1)*4 >productList.length ? productList.length : (i+1)*4) ; k++) {
 								result += '<div class="col-sm-3"><ul class="multi-column-dropdown"><h6>'+ productList[k].mainTypeName +'</h6>';
-								
 								for (let j = 0;  j< productList[k].subTypeList.length; j++) {
-										result += '<li><a href="/final/product/productView.do?subTypeIdx=' + productList[k].subTypeList[j].subTypeIdx + '">' + productList[k].subTypeList[j].subTypeName + '</a></li>';	
+									var mainTypeIdx;
+									if((productList[k].subTypeList[j].subTypeIdx+"").length===3) {
+										mainTypeIdx=(productList[k].subTypeList[j].subTypeIdx+"").substring(0,1);
+									}
+									else{
+										mainTypeIdx=(productList[k].subTypeList[j].subTypeIdx+"").substring(0,2);
+									}
+									result += '<li><a href="/final/product/productView.do?mainTypeIdx=' + mainTypeIdx + '&subTypeIdx=' + productList[k].subTypeList[j].subTypeIdx + '">' + productList[k].subTypeList[j].subTypeName + '</a></li>';	
 								}	
 								
 								result += '</ul></div>';
