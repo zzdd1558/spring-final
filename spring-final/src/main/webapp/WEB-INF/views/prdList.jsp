@@ -71,7 +71,6 @@
 								<h5><a href="#" onclick="prdDetail('${prd.prodIdx}')">${prd.cosmName}</a></h5>
 								<div class="simpleCart_shelfItem">
 									<p><i class="item_price">${map[prd.prodIdx][0].prodPrice}</i>원</p>
-									<p><a class="item_add" href="#">장바구니</a></p>
 								</div>
 							</div>
 						</div>

@@ -39,10 +39,11 @@
 	
 	<select id="productSelectAllBySubIdx" parameterType="int" resultMap="productResultMap">
 		SELECT * 
-		FROM COSMETIC_PRODUCT_TB prd LEFT JOIN KINDS_OF_PRODUCT_TYPE_TB kprd 
-		ON  prd.PROD_IDX=kprd.PROD_IDX
-		LEFT JOIN PRODUCT_IMAGE_PATH_TB iprd
-		ON  kprd.CODE_OF_PROD=iprd.CODE_OF_PROD
+			FROM COSMETIC_PRODUCT_TB prd 
+				LEFT JOIN KINDS_OF_PRODUCT_TYPE_TB kprd 
+			ON  prd.PROD_IDX=kprd.PROD_IDX
+				LEFT JOIN PRODUCT_IMAGE_PATH_TB iprd
+			ON  kprd.CODE_OF_PROD=iprd.CODE_OF_PROD
 		WHERE prd.SUB_TYPE_IDX = #{subTypeIdx}
 		ORDER BY kprd.PROD_IDX asc, iprd.CODE_OF_PROD asc
        

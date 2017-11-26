@@ -1,14 +1,35 @@
 <%@ page pageEncoding="utf-8"%>
 <script>
-	function getCategoryList() {
-		if (window.sessionStorage.getItem('categoryList') != null) {
-			$('#category')
-					.append(window.sessionStorage.getItem('categoryList'));
-		} else {
+        function checkWebStorageAvailable() {
+                try {
+                        if (!localStorage) {
+                                return "브라우저에서 localStorage를 지원하지 않습니다. 장바구니 기능을 사용하실수 없습니다.";
+                        }
+                }catch ( exception ){
+                        return exception + "발생으로 장바구니 사용 불가";
+                }
+        }
 
-		}
+        var storageMsg = checkWebStorageAvailable();
+
+        function getCategoryList() {
+	        if(storageMsg){
+	                alert(storageMsg);
+	        }else{
+	                if (window.sessionStorage.getItem('categoryList') != null) {
+	                        $('#category').append(window.sessionStorage.getItem('categoryList'));
+	                } else {
+	
+	                }
+	        }
+
 	}
-</script>
+
+
+
+
+
+	</script>
 <div class="modal fade" id="myModal88" tabindex="-1" role="dialog"
 	aria-labelledby="myModal88" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
@@ -128,7 +149,7 @@
 						<script type="text/javascript">
 							$(document).ready(function() {
 								$('#horizontalTab').easyResponsiveTabs({
-									type : 'default', //Types: default, vertical, accordion           
+									type : 'default', //Types: default, vertical, accordion
 									width : 'auto', //auto or any width like 600px
 									fit : true
 								// 100% fit in a container
