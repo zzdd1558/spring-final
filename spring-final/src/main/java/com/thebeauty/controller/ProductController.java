@@ -78,6 +78,7 @@ public class ProductController{
 		/** 실제 로직 */
 		for (CosmeticProductDTO cosmeticProductDTO : prdList) {
 			List<KindsOfProductTypeDTO> kprdList=cosmeticProductDTO.getOptionlist();
+			System.out.println(cosmeticProductDTO);
 			if(kprdList.get(0).getCodeOfProd()==0) {
 				continue;
 			}else {
@@ -86,13 +87,14 @@ public class ProductController{
 				imgMap.put(kprdList.get(0).getCodeOfProd(), imgList.get(0));
 			}
 		}
-		System.out.println(imgMap);
 		
 		/** 아이템 추가 */
 		mv.addObject("prdList", prdList);
 		mv.addObject("map", map);
 		mv.addObject("mainTypeIdx",mainTypeIdx);
 		mv.addObject("imgMap", imgMap);
+		
+		
 		
 		return mv;
 	}

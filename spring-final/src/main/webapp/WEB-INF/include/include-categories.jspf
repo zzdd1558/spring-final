@@ -8,12 +8,12 @@
 						</div>
 					</div>
 <script type="text/javascript">
+	document.getElementById('mainTypeName').innerHTML=JSON.parse(sessionStorage.staticProductList)['${mainTypeIdx}'-1].mainTypeName;
 	var categoryList=JSON.parse(sessionStorage.staticProductList);
 	var collapseIdx=[`One`,`Two`,`Thr`,`Four`,`Five`,`Six`,`Svn`,`Egt`,`Nine`,`Ten`];
 		function prdViewListCategory(){	
 			var result="";
 			for(i=0;i<categoryList.length;i++){
-				console.log(categoryList[i].mainTypeName);
 				result+='<div class="panel panel-default">';
 				result+='<div class="panel-heading" role="tab" id="heading'+collapseIdx[i]+'">';
 				result+='<h4 class="panel-title asd">';

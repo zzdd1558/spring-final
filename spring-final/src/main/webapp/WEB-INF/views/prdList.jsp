@@ -22,7 +22,7 @@
 		<div class="container">
 			<ul>
 				<li><a href="${pageContext.request.contextPath}/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a> <i>/</i></li>
-				<li>Session값넣기</li>
+				<li id="mainTypeName"></li>
 			</ul>
 		</div>
 	</div>
@@ -64,7 +64,7 @@
 								<div class="sk-wrapper hs-wrapper2">
 									<img src="/final/images/cosmetic/${mainTypeIdx}/${prd.subTypeIdx}/${prd.prodIdx}/${imgMap[map[prd.prodIdx][0].codeOfProd].pathOfImage}.png" alt=" " class="img-responsive">
 										<div class="w3_hs_bottom w3_hs_bottom_sub1">
-											<a href="#" onclick="modalAjax(${prd.subTypeIdx},${prd.prodIdx})" data-toggle="modal" data-target="#myModal6" style="bottom: 15px; right: 0; position: absolute;width: 100%;">
+											<a href="#" onclick="modalAjax(${prd.prodIdx})" data-toggle="modal" data-target="#myModal6" style="bottom: 15px; right: 0; position: absolute;width: 100%;">
 											<span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="font-size: 160%;"></span></a>
 										</div>
 									</div>
@@ -80,8 +80,25 @@
 						<div class="clearfix"> </div>
 					</div>
 					<script type="text/javascript">
-						function modalAjax(subTypeIdx,prodIdx){
-							
+						function modalAjax(prodIdx){
+							httpRequest.sendRequest(httpRequest.getContextPath()+'/ajax/prdModal.do','prodIdx='+prodIdx,ViewModal,'GET');
+						}
+						function ViewModal(){
+
+						    if (this.readyState == 4 && this.status == 200) {
+						    	var resData=this.responseText;
+						    	resData=JSON.parse(resData);
+						    	console.log(resData);
+						    	console.log(resData.cosmName);
+						    	console.log(resData.prodIntroduce);
+						    	console.log(resData.prodInfoType);
+								for(i=0;i<resData.optionlist.length;i++){
+									console.log(resData.optionlist[i].imgDTO.pathOfImage);
+									var a=resData.optionlist[i].imgDTO.pathOfImage;
+									document.getElementById('mdoalTest').innerHTML+='${imgMap[map['+resData.prdIdx+'][0].codeOfProd].pathOfImage}<br>';
+									document.getElementById('mdoalTest').innerHTML+=a+"<br>";
+								}							
+						    }
 						}
 						function prdDetail(prodIdx){
 							location.href="${pageContext.request.contextPath}/product/prdDetail.do?prodIdx="+prodIdx;
@@ -95,36 +112,7 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>						
 								</div>
 								<section>
-									<div class="modal-body">
-										<div class="col-md-5 modal_body_left">
-											<img src="/final/images/cosmetic/1/101/1/101_1.png" alt=" " class="img-responsive">
-										</div>
-										<div class="col-md-7 modal_body_right">
-											<p>화장품 이름</p>
-											<div class="rating">
-												<div class="rating-left">
-													<img src="/final/images/test/star-.png" alt=" " class="img-responsive">
-												</div>
-												<div class="rating-left">
-													<img src="/final/images/test/star-.png" alt=" " class="img-responsive">
-												</div>
-												<div class="rating-left">
-													<img src="/final/images/test/star-.png" alt=" " class="img-responsive">
-												</div>
-												<div class="rating-left">
-													<img src="/final/images/test/star.png" alt=" " class="img-responsive">
-												</div>
-												<div class="rating-left">
-													<img src="/final/images/test/star.png" alt=" " class="img-responsive">
-												</div>
-												<div class="clearfix"> </div>
-											</div>
-											<div class="modal_body_right_cart simpleCart_shelfItem">
-												<p><i class="item_price">가격을 넣어야되요</i></p>
-												<p><a class="item_add" href="#">장바구니</a></p>
-											</div>
-											<h5>이미지 넣기</h5>
-										</div>
+									<div class="modal-body" id='mdoalTest'>
 										<div class="clearfix"> </div>
 									</div>
 								</section>
