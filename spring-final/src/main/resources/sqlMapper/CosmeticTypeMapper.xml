@@ -4,7 +4,7 @@
 	 
 	 <resultMap type="CosmeticSubTypeDTO" id="subTypeResultMap">
 	 	<result column="SUB_TYPE_IDX" property="subTypeIdx"/>
-	 	<result column="MAIN_TYPE_IDX_PK" property="mainTypeIdx"/>
+	 	<result column="MAIN_TYPE_IDX" property="mainTypeIdx"/>
 	 	<result column="SUB_NAME" property="subTypeName"/>
 	 </resultMap>
  

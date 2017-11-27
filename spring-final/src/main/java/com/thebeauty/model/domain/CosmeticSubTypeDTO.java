@@ -15,7 +15,7 @@ package com.thebeauty.model.domain;
  *
  */
 public class CosmeticSubTypeDTO {
-	private int mainTypeIdx; // MAIN_TYPE_IDX_PK
+	private int mainTypeIdx; // MAIN_TYPE_IDX
 	private int subTypeIdx; // SUB_TYPE_IDX
 	private String subTypeName; // SUB_NAME
 	
