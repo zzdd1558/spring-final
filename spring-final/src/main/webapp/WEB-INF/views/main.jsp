@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheets/flexslider.css" type="text/css" media="screen" />
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf"%>
 
@@ -26,31 +26,24 @@
 <%@ include file="/WEB-INF/include/include-bodyHeader.jspf"%>
 	<!-- //header -->
 <!-- banner -->
-	<div class="w3-content w3-section" style="max-width: 1200px">
-		<img class="mySlides" src="images/test/201711001.png" style="width: 100%">
-		<img class="mySlides" src="images/test/201711002.jpg" style="width: 100%">
-		<img class="mySlides" src="images/test/201711003.jpg" style="width: 100%">
+	<div class="flexslider">
+		<ul class="slides">
+			<li><img src="images/test/201711001.png" /></li>
+			<li><img src="images/test/201711002.jpg" /></li>
+			<li><img src="images/test/201711003.jpg" /></li>
+		</ul>
 	</div>
 	<!-- //banner -->
-	
-	<script>
-var myIndex = 0;
-carousel();
+	<script defer src="${pageContext.request.contextPath}/javascripts/jquery.flexslider.js"></script>
+	<script type="text/javascript">
+		$(window).load(function() {
+			$('.flexslider').flexslider({
+				animation : "slide"
+			});
+		});
+	</script>
 
-function carousel() {
-    var i;
-    var x = document.getElementsByClassName("mySlides");
-    for (i = 0; i < x.length; i++) {
-       x[i].style.display = "none";  
-    }
-    myIndex++;
-    if (myIndex > x.length) {myIndex = 1}    
-    x[myIndex-1].style.display = "block";  
-    setTimeout(carousel, 2000); // Change image every 2 seconds
-}
-</script>
-
-<!-- best seller -->
+	<!-- best seller -->
 	<div class="bestSeller">
 		<div class="container">
 			<h3>BEST SELLER</h3>
@@ -59,22 +52,12 @@ function carousel() {
 				<div id="flexiselDemo1">
 				<div class="col-md-3 agileinfo_new_products_grid">
 					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
+						<div class="sk-wrapper hs-wrapper1">
 							<img src="images/test/27.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/28.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/29.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/30.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/27.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/28.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/29.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/30.jpg" alt=" " class="img-responsive" />
 							<div class="w3_hs_bottom w3_hs_bottom_sub">
-								
-										<a href="#" data-toggle="modal" data-target="#myModal6" style="bottom: 15px;
-    right: 0;
-    position: absolute;
-    width: 100%;"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="font-size: 160%;"></span></a>
-									
+										<a href="#" data-toggle="modal" data-target="#myModal6" 
+										style="bottom: 15px; right: 0; position: absolute; width: 100%;">
+										<span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="font-size: 160%;"></span></a>
 							</div>
 						</div>
 						<h5><a href="single.html">Skirts</a></h5>
@@ -235,17 +218,17 @@ function carousel() {
 			<div class="col-md-7 wthree_banner_bottom_right">
 				<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 					<ul id="myTab" class="nav nav-tabs" role="tablist">
-						<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home">T-shirts</a></li>
-						<li role="presentation"><a href="#skirts" role="tab" id="skirts-tab" data-toggle="tab" aria-controls="skirts">Skirts</a></li>
-						<li role="presentation"><a href="#watches" role="tab" id="watches-tab" data-toggle="tab" aria-controls="watches">Watches</a></li>
-						<li role="presentation"><a href="#sandals" role="tab" id="sandals-tab" data-toggle="tab" aria-controls="sandals">Sandals</a></li>
-						<li role="presentation"><a href="#jewellery" role="tab" id="jewellery-tab" data-toggle="tab" aria-controls="jewellery">Jewellery</a></li>
+						<li role="presentation" class="active"><a href="#home" id="" role="tab" data-toggle="tab" aria-controls="home"><img src="images/test/Mamonde.jpg"></a></li>
+						<li role="presentation"><a href="#skirts" role="tab" id="skirts-tab" data-toggle="tab" aria-controls="skirts"><img src="images/test/inisfree.jpg"></a></li>
+						<li role="presentation"><a href="#watches" role="tab" id="watches-tab" data-toggle="tab" aria-controls="watches"><img src="images/test/etude.jpg"></a></li>
+						<li role="presentation"><a href="#sandals" role="tab" id="sandals-tab" data-toggle="tab" aria-controls="sandals"><img src="images/test/hera.png"></a></li>
+						<li role="presentation"><a href="#jewellery" role="tab" id="jewellery-tab" data-toggle="tab" aria-controls="jewellery"><img src="images/test/aritaum.png"></a></li>
 					</ul>
 					<div id="myTabContent" class="tab-content">
 						<div role="tabpanel" class="tab-pane fade active in" id="home" aria-labelledby="home-tab">
 							<div class="agile_ecommerce_tabs">
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
+									<div class="sk-wrapper">
 										<img src="images/test/6.jpg" alt=" " class="img-responsive" />
 										<img src="images/test/4.jpg" alt=" " class="img-responsive" />
 										<img src="images/test/5.jpg" alt=" " class="img-responsive" />
