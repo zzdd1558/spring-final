@@ -201,35 +201,34 @@ function carousel() {
 <!-- banner-bottom -->
 	<div class="banner-bottom">
 		<div class="container">
-			
+
 			<div class="col-md-5 wthree_banner_bottom_left">
 				<div class="video-img">
 					<a class="play-icon popup-with-zoom-anim" href="#small-dialog">
 						<span class="glyphicon glyphicon-expand" aria-hidden="true"></span>
 					</a>
 				</div>
-					<!-- pop-up-box -->    
+					<!-- pop-up-box -->
 						<link href="${pageContext.request.contextPath}/stylesheets/popuo-box.css" rel="stylesheet" type="text/css" property="" media="all" />
 						<script src="${pageContext.request.contextPath}/javascripts/jquery.magnific-popup.js" type="text/javascript"></script>
 					<!--//pop-up-box -->
-					
+
 					<div id="small-dialog" class="mfp-hide">
 						<iframe src="https://player.vimeo.com/video/23259282?title=0&byline=0&portrait=0"></iframe>
 					</div>
 					<script>
 						$(document).ready(function() {
-						$('.popup-with-zoom-anim').magnificPopup({
-							type: 'inline',
-							fixedContentPos: false,
-							fixedBgPos: true,
-							overflowY: 'auto',
-							closeBtnInside: true,
-							preloader: false,
-							midClick: true,
-							removalDelay: 300,
-							mainClass: 'my-mfp-zoom-in'
-						});
-																						
+							$('.popup-with-zoom-anim').magnificPopup({
+								type: 'inline',
+								fixedContentPos: false,
+								fixedBgPos: true,
+								overflowY: 'auto',
+								closeBtnInside: true,
+								preloader: false,
+								midClick: true,
+								removalDelay: 300,
+								mainClass: 'my-mfp-zoom-in'
+							});
 						});
 					</script>
 			</div>
@@ -635,7 +634,7 @@ function carousel() {
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -644,12 +643,12 @@ function carousel() {
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look women's shirt</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -693,7 +692,7 @@ function carousel() {
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -702,12 +701,12 @@ function carousel() {
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look black women's jeans</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -751,7 +750,7 @@ function carousel() {
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -760,12 +759,12 @@ function carousel() {
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look women's Watch</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -809,7 +808,7 @@ function carousel() {
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -818,12 +817,12 @@ function carousel() {
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look women's Sandal</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -867,7 +866,7 @@ function carousel() {
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -876,12 +875,12 @@ function carousel() {
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look women's Necklace</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -925,7 +924,7 @@ function carousel() {
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -934,12 +933,12 @@ function carousel() {
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look women's Jacket</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -983,7 +982,7 @@ function carousel() {
 					<div class="modal-dialog" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 							</div>
 							<section>
 								<div class="modal-body">
@@ -992,12 +991,12 @@ function carousel() {
 									</div>
 									<div class="col-md-7 modal_body_right">
 										<h4>a good look women's Long Skirt</h4>
-										<p>Ut enim ad minim veniam, quis nostrud 
-											exercitation ullamco laboris nisi ut aliquip ex ea 
-											commodo consequat.Duis aute irure dolor in 
-											reprehenderit in voluptate velit esse cillum dolore 
-											eu fugiat nulla pariatur. Excepteur sint occaecat 
-											cupidatat non proident, sunt in culpa qui officia 
+										<p>Ut enim ad minim veniam, quis nostrud
+											exercitation ullamco laboris nisi ut aliquip ex ea
+											commodo consequat.Duis aute irure dolor in
+											reprehenderit in voluptate velit esse cillum dolore
+											eu fugiat nulla pariatur. Excepteur sint occaecat
+											cupidatat non proident, sunt in culpa qui officia
 											deserunt mollit anim id est laborum.</p>
 										<div class="rating">
 											<div class="rating-left">
@@ -1080,34 +1079,34 @@ function carousel() {
 					</div>
 					<div class="wmuSlider example1">
 						<div class="wmuSliderWrapper">
-							<article style="position: absolute; width: 100%; opacity: 0;"> 
+							<article style="position: absolute; width: 100%; opacity: 0;">
 								<div class="banner-wrap">
 									<div class="w3agile_special_deals_grid_left_grid1">
 										<img src="images/test/1.png" alt=" " class="img-responsive" />
-										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
+										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate
+											velit esse quam nihil molestiae consequatur, vel illum qui dolorem
 											eum fugiat quo voluptas nulla pariatur</p>
 										<h4>Laura</h4>
 									</div>
 								</div>
 							</article>
-							<article style="position: absolute; width: 100%; opacity: 0;"> 
+							<article style="position: absolute; width: 100%; opacity: 0;">
 								<div class="banner-wrap">
 									<div class="w3agile_special_deals_grid_left_grid1">
 										<img src="images/test/2.png" alt=" " class="img-responsive" />
-										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
+										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate
+											velit esse quam nihil molestiae consequatur, vel illum qui dolorem
 											eum fugiat quo voluptas nulla pariatur</p>
 										<h4>Michael</h4>
 									</div>
 								</div>
 							</article>
-							<article style="position: absolute; width: 100%; opacity: 0;"> 
+							<article style="position: absolute; width: 100%; opacity: 0;">
 								<div class="banner-wrap">
 									<div class="w3agile_special_deals_grid_left_grid1">
 										<img src="images/test/3.png" alt=" " class="img-responsive" />
-										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-											velit esse quam nihil molestiae consequatur, vel illum qui dolorem 
+										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate
+											velit esse quam nihil molestiae consequatur, vel illum qui dolorem
 											eum fugiat quo voluptas nulla pariatur</p>
 										<h4>Rosy</h4>
 									</div>
@@ -1115,10 +1114,10 @@ function carousel() {
 							</article>
 						</div>
 					</div>
-						<script src="${pageContext.request.contextPath}/javascripts/jquery.wmuSlider.js"></script> 
+						<script src="${pageContext.request.contextPath}/javascripts/jquery.wmuSlider.js"></script>
 						<script>
-							$('.example1').wmuSlider();         
-						</script> 
+							$('.example1').wmuSlider();
+						</script>
 				</div>
 				<div class="col-md-5 w3agile_special_deals_grid_right">
 					<img src="images/test/25.jpg" alt=" " class="img-responsive" />
@@ -1138,7 +1137,7 @@ function carousel() {
 		<div class="container">
 			<h3>Top Brands</h3>
 			<div class="sliderfig">
-				<ul id="flexiselDemo1">			
+				<ul id="flexiselDemo1">
 					<li>
 						<img src="images/test/4.png" alt=" " class="img-responsive" />
 					</li>
@@ -1161,20 +1160,20 @@ function carousel() {
 								$("#flexiselDemo1").flexisel({
 									visibleItems: 4,
 									animationSpeed: 1000,
-									autoPlay: false,
-									autoPlaySpeed: 3000,    		
+									autoPlay: true,
+									autoPlaySpeed: 3000,
 									pauseOnHover: true,
 									enableResponsiveBreakpoints: true,
-									responsiveBreakpoints: { 
-										portrait: { 
+									responsiveBreakpoints: {
+										portrait: {
 											changePoint:480,
 											visibleItems: 1
-										}, 
-										landscape: { 
+										},
+										landscape: {
 											changePoint:640,
 											visibleItems:2
 										},
-										tablet: { 
+										tablet: {
 											changePoint:768,
 											visibleItems: 3
 										}
@@ -1182,11 +1181,42 @@ function carousel() {
 								});
 								
 							});
-							
-					var listdata='${listOfString}';		
-					listdata=JSON.parse(listdata);
-					console.log(listdata);
-							
+
+
+					let productList=JSON.parse('${listOfString}');
+					
+					
+					function setCategoryList(){
+						
+						let result = '<ul class="dropdown-menu multi-column columns-3">';
+						for (let i = 0; i < Math.ceil(productList.length / 4); i++) {
+							result += '<div class="row">';
+							for (let k = i*4;  k < ((i+1)*4 >productList.length ? productList.length : (i+1)*4) ; k++) {
+								result += '<div class="col-sm-3"><ul class="multi-column-dropdown"><h6>'+ productList[k].mainTypeName +'</h6>';
+								for (let j = 0;  j< productList[k].subTypeList.length; j++) {
+									var mainTypeIdx;
+									if((productList[k].subTypeList[j].subTypeIdx+"").length===3) {
+										mainTypeIdx=(productList[k].subTypeList[j].subTypeIdx+"").substring(0,1);
+									}
+									else{
+										mainTypeIdx=(productList[k].subTypeList[j].subTypeIdx+"").substring(0,2);
+									}
+									result += '<li><a href="/final/product/productView.do?mainTypeIdx=' + mainTypeIdx + '&subTypeIdx=' + productList[k].subTypeList[j].subTypeIdx + '">' + productList[k].subTypeList[j].subTypeName + '</a></li>';	
+								}	
+								
+								result += '</ul></div>';
+							}
+							result += '</div>';
+						}
+						result += '</ul>';
+						window.sessionStorage.setItem('staticProductList' , JSON.stringify(productList));
+						window.sessionStorage.setItem('categoryList' , result);
+					}
+					
+
+					setCategoryList();
+					
+
 					</script>
 					<script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/jquery.flexisel.js"></script>
 		</div>

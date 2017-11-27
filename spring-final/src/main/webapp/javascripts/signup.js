@@ -368,3 +368,7 @@ uPhoneNumber.addEventListener('blur', function () {
 
 /* 회원가입 로딩과 동시에 질문 데이터 Ajax로 가져오기*/
 getQuestion();
+
+
+
+

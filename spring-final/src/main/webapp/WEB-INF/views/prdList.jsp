@@ -58,29 +58,35 @@
 					</div>
 				<!--==================//sorting 분류!!==================-->
 					<div class="w3ls_dresses_grid_right_grid3">
-					<c:forEach items="${prdList}" var="prd">	
+					<c:forEach items="${prdList}" var="prd">
 						<div class="col-md-4 agileinfo_new_products_grid agileinfo_new_products_grid_dresses">
 							<div class="agile_ecommerce_tab_left dresses_grid">
 								<div class="sk-wrapper hs-wrapper2">
-									<img src="/final/images/${map[prd.prodIdx][0].imgDTO.pathOfImage}.png" alt=" " class="img-responsive">
-									<div class="w3_hs_bottom w3_hs_bottom_sub1">
-										<ul>
-											<li>
-												<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-											</li>
-										</ul>
+									<img src="/final/images/cosmetic/${mainTypeIdx}/${prd.subTypeIdx}/${prd.prodIdx}/${imgMap[map[prd.prodIdx][0].codeOfProd].pathOfImage}.png" alt=" " class="img-responsive">
+										<div class="w3_hs_bottom w3_hs_bottom_sub1">
+											<a href="#" onclick="modalAjax(${prd.subTypeIdx},${prd.prodIdx})" data-toggle="modal" data-target="#myModal6" style="bottom: 15px; right: 0; position: absolute;width: 100%;">
+											<span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="font-size: 160%;"></span></a>
+										</div>
 									</div>
-								</div>
-								<h5><a href="/final/product/prdDetail.do">${prd.cosmName}</a></h5>
+								<h5 style="width: 205.575px;height: 33.600px;">
+								<a href="#" onclick="prdDetail('${prd.prodIdx}')">${prd.cosmName}</a>
+								</h5>
 								<div class="simpleCart_shelfItem">
 									<p><i class="item_price">${map[prd.prodIdx][0].prodPrice}</i>원</p>
-									<p><a class="item_add" href="#">장바구니</a></p>
 								</div>
 							</div>
 						</div>
 					</c:forEach>	
 						<div class="clearfix"> </div>
 					</div>
+					<script type="text/javascript">
+						function modalAjax(subTypeIdx,prodIdx){
+							
+						}
+						function prdDetail(prodIdx){
+							location.href="${pageContext.request.contextPath}/product/prdDetail.do?prodIdx="+prodIdx;
+						}
+					</script>
 		<!--==================Modal 부분==================-->				
 					<div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
 						<div class="modal-dialog" role="document">
@@ -91,17 +97,10 @@
 								<section>
 									<div class="modal-body">
 										<div class="col-md-5 modal_body_left">
-											<img src="/final/images/test/39.jpg" alt=" " class="img-responsive">
+											<img src="/final/images/cosmetic/1/101/1/101_1.png" alt=" " class="img-responsive">
 										</div>
 										<div class="col-md-7 modal_body_right">
-											<h4>a good look women's Long Skirt</h4>
-											<p>Ut enim ad minim veniam, quis nostrud 
-												exercitation ullamco laboris nisi ut aliquip ex ea 
-												commodo consequat.Duis aute irure dolor in 
-												reprehenderit in voluptate velit esse cillum dolore 
-												eu fugiat nulla pariatur. Excepteur sint occaecat 
-												cupidatat non proident, sunt in culpa qui officia 
-												deserunt mollit anim id est laborum.</p>
+											<p>화장품 이름</p>
 											<div class="rating">
 												<div class="rating-left">
 													<img src="/final/images/test/star-.png" alt=" " class="img-responsive">
@@ -121,18 +120,10 @@
 												<div class="clearfix"> </div>
 											</div>
 											<div class="modal_body_right_cart simpleCart_shelfItem">
-												<p><span>$320</span> <i class="item_price">$250</i></p>
-												<p><a class="item_add" href="#">Add to cart</a></p>
+												<p><i class="item_price">가격을 넣어야되요</i></p>
+												<p><a class="item_add" href="#">장바구니</a></p>
 											</div>
-											<h5>Color</h5>
-											<div class="color-quality">
-												<ul>
-													<li><a href="#"><span></span>Red</a></li>
-													<li><a href="#" class="brown"><span></span>Yellow</a></li>
-													<li><a href="#" class="purple"><span></span>Purple</a></li>
-													<li><a href="#" class="gray"><span></span>Violet</a></li>
-												</ul>
-											</div>
+											<h5>이미지 넣기</h5>
 										</div>
 										<div class="clearfix"> </div>
 									</div>
@@ -146,147 +137,7 @@
 			</div>
 		</div>
 		</div>
-<%-- 	
-<div class="w3l_related_products">
-		<div class="container">
-			<h3>Related Products</h3>
-			<ul id="flexiselDemo2">			
-				<li>
-					<div class="w3l_related_products_grid">
-						<div class="agile_ecommerce_tab_left dresses_grid">
-							<div class="hs-wrapper hs-wrapper3">
-								<img src="${pageContext.request.contextPath}/images/test/31.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/32.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/33.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/34.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/31.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/32.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/33.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/34.jpg" alt=" " class="img-responsive">
-								<div class="w3_hs_bottom">
-									<div class="flex_ecommerce">
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</div>
-								</div>
-							</div>
-							<h5><a href="${pageContext.request.contextPath}/static/single.jsp">Sweater</a></h5>
-							<div class="simpleCart_shelfItem">
-								<p class="flexisel_ecommerce_cart"><span>$312</span> <i class="item_price">$212</i></p>
-								<p><a class="item_add" href="#">Add to cart</a></p>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="w3l_related_products_grid">
-						<div class="agile_ecommerce_tab_left dresses_grid">
-							<div class="hs-wrapper hs-wrapper3">
-								<img src="${pageContext.request.contextPath}/images/test/32.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/31.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/33.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/34.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/31.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/32.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/33.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/34.jpg" alt=" " class="img-responsive" />
-								<div class="w3_hs_bottom">
-									<div class="flex_ecommerce">
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</div>
-								</div>
-							</div>
-							<h5><a href="${pageContext.request.contextPath}/static/single.jsp">Sweater</a></h5>
-							<div class="simpleCart_shelfItem">
-								<p class="flexisel_ecommerce_cart"><span>$432</span> <i class="item_price">$323</i></p>
-								<p><a class="item_add" href="#">Add to cart</a></p>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="w3l_related_products_grid">
-						<div class="agile_ecommerce_tab_left dresses_grid">
-							<div class="hs-wrapper hs-wrapper3">
-								<img src="${pageContext.request.contextPath}/images/test/34.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/37.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/30.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/36.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/37.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/30.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/36.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/38.jpg" alt=" " class="img-responsive" />
-								<div class="w3_hs_bottom">
-									<div class="flex_ecommerce">
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</div>
-								</div>
-							</div>
-							<h5><a href="${pageContext.request.contextPath}/static/single.jsp">Sweater</a></h5>
-							<div class="simpleCart_shelfItem">
-								<p class="flexisel_ecommerce_cart"><span>$323</span> <i class="item_price">$310</i></p>
-								<p><a class="item_add" href="#">Add to cart</a></p>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="w3l_related_products_grid">
-						<div class="agile_ecommerce_tab_left dresses_grid">
-							<div class="hs-wrapper hs-wrapper3">
-								<img src="${pageContext.request.contextPath}/images/test/55.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/34.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/30.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/36.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/37.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/30.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/36.jpg" alt=" " class="img-responsive" />
-								<img src="${pageContext.request.contextPath}/images/test/38.jpg" alt=" " class="img-responsive" />
-								<div class="w3_hs_bottom">
-									<div class="flex_ecommerce">
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</div>
-								</div>
-							</div>
-							<h5><a href="${pageContext.request.contextPath}/static/single.jsp">Sweater</a></h5>
-							<div class="simpleCart_shelfItem">
-								<p class="flexisel_ecommerce_cart"><span>$256</span> <i class="item_price">$200</i></p>
-								<p><a class="item_add" href="#">Add to cart</a></p>
-							</div>
-						</div>
-					</div>
-				</li>
-			</ul>
-				<script type="text/javascript">
-					$(window).load(function() {
-						$("#flexiselDemo2").flexisel({
-							visibleItems:4,
-							animationSpeed: 1000,
-							autoPlay: true,
-							autoPlaySpeed: 3000,    		
-							pauseOnHover: true,
-							enableResponsiveBreakpoints: true,
-							responsiveBreakpoints: { 
-								portrait: { 
-									changePoint:480,
-									visibleItems: 1
-								}, 
-								landscape: { 
-									changePoint:640,
-									visibleItems:2
-								},
-								tablet: { 
-									changePoint:768,
-									visibleItems: 3
-								}
-							}
-						});
-						
-					});
-				</script>
-				<script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/jquery.flexisel.js"></script>
-		</div>
-	</div> 
---%>
+
 <!-- //dresses -->
 <!-- newsletter -->
 	<div class="newsletter">

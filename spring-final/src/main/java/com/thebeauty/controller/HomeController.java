@@ -28,7 +28,6 @@ public class HomeController {
 	@RequestMapping(value = "openmallMain.do", method = RequestMethod.GET)
 	public String home(Model model) {
 		List<CosmeticMainTypeDTO> list=service.categorySelect();
-		System.out.println(list);
 		
 		ObjectMapper mapper=new ObjectMapper();
 		
@@ -40,7 +39,6 @@ public class HomeController {
 			e.printStackTrace();
 		}
 		
-//		model.addAttribute("list", list);
 		return "main";
 		
 	}

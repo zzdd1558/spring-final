@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.thebeauty.model.domain.CosmeticMainTypeDTO;
 import com.thebeauty.model.domain.CosmeticProductDTO;
+import com.thebeauty.model.domain.ProductImagePathDTO;
 @Repository
 public class ProductDAOImpl implements ProductDAO {
 
@@ -38,6 +39,12 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public String mainTypeName(int subTypeIdx) {
 		return sqlsession.selectOne("cosmeticTypeMapper.mainTypeName", subTypeIdx);
+	}
+
+
+	@Override
+	public List<ProductImagePathDTO> idxImgSelect(int codeOfProd) {
+		return sqlsession.selectList("productMapper.idxImgSelect", codeOfProd);
 	}
 
 

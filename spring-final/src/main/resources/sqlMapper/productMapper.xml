@@ -31,6 +31,13 @@
 		<collection property="optionList" resultMap="prdOptionReultMap"></collection>
 	</resultMap>
 	
+	<select id="idxImgSelect" resultMap="imgResultMap">
+		SELECT * 
+		FROM  PRODUCT_IMAGE_PATH_TB 
+		WHERE CODE_OF_PROD=#{codeOfProd} 
+		ORDER BY NUM_OF_PROD_IDX
+	</select>
+	
 	
 	<select id="productSelectAll" resultMap="productResultMap">
 		SELECT * FROM COSMETIC_PRODUCT_TB 
@@ -38,20 +45,23 @@
 	</select>
 	
 	<select id="productSelectAllBySubIdx" parameterType="int" resultMap="productResultMap">
-		SELECT * 
+		SELECT prd.*,kprd.*,iprd.*
 		FROM COSMETIC_PRODUCT_TB prd LEFT JOIN KINDS_OF_PRODUCT_TYPE_TB kprd 
 		ON  prd.PROD_IDX=kprd.PROD_IDX
 		LEFT JOIN PRODUCT_IMAGE_PATH_TB iprd
 		ON  kprd.CODE_OF_PROD=iprd.CODE_OF_PROD
 		WHERE prd.SUB_TYPE_IDX = #{subTypeIdx}
-		ORDER BY kprd.PROD_IDX asc, iprd.CODE_OF_PROD asc
-       
+		ORDER BY prd.PROD_IDX ASC, kprd.CODE_OF_PROD ASC, iprd.NUM_OF_PROD_IDX ASC
 	</select>
 	
 	<select id="productSelectAllByProdIdx" parameterType="int" resultMap="productResultMap">
-		SELECT *
-		FROM COSMETIC_PRODUCT_TB prd,KINDS_OF_PRODUCT_TYPE_TB kprd  
-		WHERE prd.PROD_IDX=kprd.PROD_IDX AND  prd.PROD_IDX = #{prodIdx}
+		SELECT prd.*,kprd.*,iprd.* 
+		FROM COSMETIC_PRODUCT_TB prd LEFT JOIN KINDS_OF_PRODUCT_TYPE_TB kprd 
+		ON  prd.PROD_IDX=kprd.PROD_IDX
+		LEFT JOIN PRODUCT_IMAGE_PATH_TB iprd
+		ON  kprd.CODE_OF_PROD=iprd.CODE_OF_PROD
+		WHERE prd.PROD_IDX = #{prodIdx}
+		ORDER BY prd.PROD_IDX ASC, kprd.CODE_OF_PROD ASC, iprd.NUM_OF_PROD_IDX ASC
 	</select>
 	
 	<insert id="procuctInsert" parameterType="cosmeticProductDTO">

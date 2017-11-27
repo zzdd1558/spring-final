@@ -17,8 +17,8 @@ package com.thebeauty.model.domain;
 
 public class KindsOfProductTypeDTO {
 	
-	private String codeOfProd; // CODE_OF_PROD
-	private String prodIdx; // PROD_IDX
+	private int codeOfProd; // CODE_OF_PROD
+	private int prodIdx; // PROD_IDX
 	private String prodCount; // PROD_COUNT
 	private String prodPrice; // PROD_PRICE
 	private String prodColor; // PROD_COLOR
@@ -27,7 +27,7 @@ public class KindsOfProductTypeDTO {
 	/* 생성자 */
 	public KindsOfProductTypeDTO() {}
 	
-	public KindsOfProductTypeDTO(String codeOfProd, String prodIdx, String prodCount, String prodPrice,
+	public KindsOfProductTypeDTO(int codeOfProd, int prodIdx, String prodCount, String prodPrice,
 			String prodColor,String prodName,ProductImagePathDTO imgDTO) {
 		super();
 		this.codeOfProd = codeOfProd;
@@ -40,19 +40,19 @@ public class KindsOfProductTypeDTO {
 	}
 
 	/* setter / getter */
-	public String getCodeOfProd() {
+	public int getCodeOfProd() {
 		return codeOfProd;
 	}
 
-	public void setCodeOfProd(String codeOfProd) {
+	public void setCodeOfProd(int codeOfProd) {
 		this.codeOfProd = codeOfProd;
 	}
 
-	public String getProdIdx() {
+	public int getProdIdx() {
 		return prodIdx;
 	}
 
-	public void setProdIdx(String prodIdx) {
+	public void setProdIdx(int prodIdx) {
 		this.prodIdx = prodIdx;
 	}
 
