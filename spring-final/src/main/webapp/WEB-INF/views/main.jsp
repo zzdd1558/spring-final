@@ -8,8 +8,6 @@
 <%@ include file="/WEB-INF/include/include-header.jspf"%>
 
 <style>
-.mySlides {display:none;}
-
 .tit {
 	font-size : 48px;
 	line-height: 54px;
@@ -1143,7 +1141,7 @@
 								$("#flexiselDemo1").flexisel({
 									visibleItems: 4,
 									animationSpeed: 1000,
-									autoPlay: true,
+									autoPlay: false,
 									autoPlaySpeed: 3000,
 									pauseOnHover: true,
 									enableResponsiveBreakpoints: true,
