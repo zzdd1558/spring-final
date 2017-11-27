@@ -167,6 +167,26 @@
 				
 <!-- 							quantity -->
 									<script>
+
+									/** plus 버튼 클릭시 발생할 이벤트 */
+									function incrementProductValue(event){
+									    let thisNode = event;
+									    let childNode = thisNode.previousElementSibling.childNodes[0];
+									    childNode.innerHTML = Number(childNode.innerHTML) + 1;
+									}
+
+									/** minus 버튼 클릭시 발생할 이벤트 */
+									function decrementProductValue(event){
+									    let thisNode = event;
+									    let childNode = thisNode.nextElementSibling.childNodes[0];
+									    if(childNode.innerHTML <= 1){
+									        childNode.innerHTML = 1;
+									    }else{
+									        childNode.innerHTML = Number(childNode.innerHTML) - 1;
+									    }
+									}
+									
+									
 									var prdCodes=new Array();
 									function onSelectOption() {
 										var prdCode=$(".form-control option:selected").val();
@@ -177,9 +197,9 @@
 											<span style="font-size:14px;">`+prdName+`</span>
 										 <div class="cont_area"> 
 											<div class="quantity-select">                           
-												<div class="entry value-minus1">&nbsp;</div>
+												<div class="entry value-minus1" onclick='decrementProductValue(this);'>&nbsp;</div>
 												<div class="entry value1"><span>1</span></div>
-												<div class="entry value-plus1 active">&nbsp;</div>
+												<div class="entry value-plus1 active" onclick='incrementProductValue(this);'>&nbsp;</div>
 											</div> 
 										</div>
 									</div>`;
