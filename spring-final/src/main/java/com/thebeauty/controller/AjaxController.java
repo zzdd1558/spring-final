@@ -1,11 +1,9 @@
 package com.thebeauty.controller;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.ibatis.annotations.Param;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,19 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.thebeauty.model.dao.CommentDAO;
-import com.thebeauty.model.dao.FaceTypeDAO;
+import com.thebeauty.model.dao.ProductDAO;
 import com.thebeauty.model.dao.QuestionDAO;
 import com.thebeauty.model.dao.UserDAO;
 import com.thebeauty.model.domain.CommentDTO;
-import com.thebeauty.model.domain.CosmeticBrandDTO;
-import com.thebeauty.model.domain.FaceTypeDTO;
+import com.thebeauty.model.domain.CosmeticProductDTO;
 import com.thebeauty.model.domain.QuestionDTO;
 import com.thebeauty.model.domain.UserDTO;
-import com.thebeauty.model.service.AdminService;
-import com.thebeauty.model.service.UserJoinServiceImpl;
 
 @Controller
 @RequestMapping(value="/ajax")
@@ -39,6 +33,9 @@ public class AjaxController {
 	
 	@Autowired
 	private CommentDAO commentDAO;
+	
+	@Autowired
+	private ProductDAO productDAO;
 	
 	/*
 	@Autowired
@@ -76,6 +73,16 @@ public class AjaxController {
 		
 		return "sucess";
 	}
+	
+	/*prdList page Modal에 Ajax 적용*/
+	@RequestMapping(value="/prdModal.do",method=RequestMethod.GET)
+	public @ResponseBody CosmeticProductDTO prdModal(@RequestParam int prodIdx){
+		CosmeticProductDTO dto=productDAO.selectAllByProdIdx(prodIdx);
+		System.out.println(dto);
+		
+		return dto;
+	}
+	
 	
 	
 	/* 완성본 비동기 사용해서 처리할때 주석 풀어서 사용하면됨.*/
