@@ -2,20 +2,201 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <head>
 <%@ include file="/WEB-INF/include/include-header.jspf"%>
+
+<style>
+.mySlides {display:none;}
+
+.tit {
+	font-size : 48px;
+	line-height: 54px;
+	font-family : 'ngb';
+	color : #222;
+	letter-spacing: -1px;
+}
+</style>
 </head>
+
+
 <body>
 	<!-- header -->
 <%@ include file="/WEB-INF/include/include-bodyHeader.jspf"%>
 	<!-- //header -->
 <!-- banner -->
-	<div class="banner" id="home1">
+	<div class="w3-content w3-section" style="max-width: 1200px">
+		<img class="mySlides" src="images/test/201711001.png" style="width: 100%">
+		<img class="mySlides" src="images/test/201711002.jpg" style="width: 100%">
+		<img class="mySlides" src="images/test/201711003.jpg" style="width: 100%">
+	</div>
+	<!-- //banner -->
+	
+	<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+}
+</script>
+
+<!-- best seller -->
+	<div class="bestSeller">
 		<div class="container">
-			<h3>fashions fade, <span>style is eternal</span></h3>
+			<h3>BEST SELLER</h3>
+			<div class="agileinfo_new_products_grids">
+			<div class="sliderfig">
+				<div id="flexiselDemo1">
+				<div class="col-md-3 agileinfo_new_products_grid">
+					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+						<div class="hs-wrapper hs-wrapper1">
+							<img src="images/test/27.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/28.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/29.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/30.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/27.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/28.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/29.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/30.jpg" alt=" " class="img-responsive" />
+							<div class="w3_hs_bottom w3_hs_bottom_sub">
+								
+										<a href="#" data-toggle="modal" data-target="#myModal6" style="bottom: 15px;
+    right: 0;
+    position: absolute;
+    width: 100%;"><span class="glyphicon glyphicon-eye-open" aria-hidden="true" style="font-size: 160%;"></span></a>
+									
+							</div>
+						</div>
+						<h5><a href="single.html">Skirts</a></h5>
+						<div class="simpleCart_shelfItem">
+							<p><span>$320</span> <i class="item_price">$250</i></p>
+							<p><a class="item_add" href="#">Add to cart</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 agileinfo_new_products_grid">
+					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+						<div class="hs-wrapper hs-wrapper1">
+							<img src="images/test/27.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/28.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/29.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/30.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/27.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/28.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/29.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/30.jpg" alt=" " class="img-responsive" />
+							<div class="w3_hs_bottom w3_hs_bottom_sub">
+								<ul>
+									<li>
+										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<h5><a href="single.html">Skirts</a></h5>
+						<div class="simpleCart_shelfItem">
+							<p><span>$320</span> <i class="item_price">$250</i></p>
+							<p><a class="item_add" href="#">Add to cart</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 agileinfo_new_products_grid">
+					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+						<div class="hs-wrapper hs-wrapper1">
+							<img src="images/test/31.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/32.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/33.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/34.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/31.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/32.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/33.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/34.jpg" alt=" " class="img-responsive" />
+							<div class="w3_hs_bottom w3_hs_bottom_sub">
+								<ul>
+									<li>
+										<a href="#" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<h5><a href="single.html">Jackets</a></h5>
+						<div class="simpleCart_shelfItem">
+							<p><span>$320</span> <i class="item_price">$250</i></p>
+							<p><a class="item_add" href="#">Add to cart</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 agileinfo_new_products_grid">
+					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+						<div class="hs-wrapper hs-wrapper1">
+							<img src="images/test/37.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/30.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/36.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/38.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/37.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/30.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/36.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/38.jpg" alt=" " class="img-responsive" />
+							<div class="w3_hs_bottom w3_hs_bottom_sub">
+								<ul>
+									<li>
+										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<h5><a href="single.html">Dresses</a></h5>
+						<div class="simpleCart_shelfItem">
+							<p><span>$320</span> <i class="item_price">$250</i></p>
+							<p><a class="item_add" href="#">Add to cart</a></p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-3 agileinfo_new_products_grid">
+					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+						<div class="hs-wrapper hs-wrapper1">
+							<img src="images/test/40.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/41.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/42.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/43.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/40.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/41.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/42.jpg" alt=" " class="img-responsive" />
+							<img src="images/test/43.jpg" alt=" " class="img-responsive" />
+							<div class="w3_hs_bottom w3_hs_bottom_sub">
+								<ul>
+									<li>
+										<a href="#" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<h5><a href="single.html">Jeans</a></h5>
+						<div class="simpleCart_shelfItem">
+							<p><span>$320</span> <i class="item_price">$250</i></p>
+							<p><a class="item_add" href="#">Add to cart</a></p>
+						</div>
+					</div>
+				</div>
+				
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			
+		</div>
 		</div>
 	</div>
-<!-- //banner -->
+<!-- //new-products -->
 
 <!-- banner-bottom -->
 	<div class="banner-bottom">
@@ -951,120 +1132,7 @@
 		</div>
 	</div>
 <!-- //special-deals -->
-<!-- new-products -->
-	<div class="new-products">
-		<div class="container">
-			<h3>New Products</h3>
-			<div class="agileinfo_new_products_grids">
-				<div class="col-md-3 agileinfo_new_products_grid">
-					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
-							<img src="images/test/27.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/28.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/29.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/30.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/27.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/28.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/29.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/30.jpg" alt=" " class="img-responsive" />
-							<div class="w3_hs_bottom w3_hs_bottom_sub">
-								<ul>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<h5><a href="single.html">Skirts</a></h5>
-						<div class="simpleCart_shelfItem">
-							<p><span>$320</span> <i class="item_price">$250</i></p>
-							<p><a class="item_add" href="#">Add to cart</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 agileinfo_new_products_grid">
-					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
-							<img src="images/test/31.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/32.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/33.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/34.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/31.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/32.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/33.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/34.jpg" alt=" " class="img-responsive" />
-							<div class="w3_hs_bottom w3_hs_bottom_sub">
-								<ul>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#myModal5"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<h5><a href="single.html">Jackets</a></h5>
-						<div class="simpleCart_shelfItem">
-							<p><span>$320</span> <i class="item_price">$250</i></p>
-							<p><a class="item_add" href="#">Add to cart</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 agileinfo_new_products_grid">
-					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
-							<img src="images/test/37.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/30.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/36.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/38.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/37.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/30.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/36.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/38.jpg" alt=" " class="img-responsive" />
-							<div class="w3_hs_bottom w3_hs_bottom_sub">
-								<ul>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<h5><a href="single.html">Dresses</a></h5>
-						<div class="simpleCart_shelfItem">
-							<p><span>$320</span> <i class="item_price">$250</i></p>
-							<p><a class="item_add" href="#">Add to cart</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 agileinfo_new_products_grid">
-					<div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-						<div class="hs-wrapper hs-wrapper1">
-							<img src="images/test/40.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/41.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/42.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/43.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/40.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/41.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/42.jpg" alt=" " class="img-responsive" />
-							<img src="images/test/43.jpg" alt=" " class="img-responsive" />
-							<div class="w3_hs_bottom w3_hs_bottom_sub">
-								<ul>
-									<li>
-										<a href="#" data-toggle="modal" data-target="#myModal1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</li>
-								</ul>
-							</div>
-						</div>
-						<h5><a href="single.html">Jeans</a></h5>
-						<div class="simpleCart_shelfItem">
-							<p><span>$320</span> <i class="item_price">$250</i></p>
-							<p><a class="item_add" href="#">Add to cart</a></p>
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-		</div>
-	</div>
-<!-- //new-products -->
+
 <!-- top-brands -->
 	<div class="top-brands">
 		<div class="container">
@@ -1093,7 +1161,7 @@
 								$("#flexiselDemo1").flexisel({
 									visibleItems: 4,
 									animationSpeed: 1000,
-									autoPlay: true,
+									autoPlay: false,
 									autoPlaySpeed: 3000,    		
 									pauseOnHover: true,
 									enableResponsiveBreakpoints: true,

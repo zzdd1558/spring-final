@@ -429,7 +429,7 @@ ul.multi-column-dropdown h6 {
 }
 /*-- //banner --*/
 /*-- banner-bottom --*/
-.banner-bottom,.team,.checkout,.additional_info,.team-bottom,.single,.mail,.special-deals,.about,.faq,.typo,.new-products,.banner-bottom1,.top-brands,.dresses,.w3l_related_products{
+.banner-bottom,.team,.checkout,.additional_info,.team-bottom,.single,.mail,.special-deals,.about,.faq,.typo,.bestSeller,.banner-bottom1,.top-brands,.dresses,.w3l_related_products{
 	padding:5em 0;
 }
 .modal-body iframe {
@@ -746,14 +746,14 @@ ul.multi-column-dropdown h6 {
 }
 /*-- //banner-bottom --*/
 /*-- special-deals --*/
-.special-deals h2,.new-products h3,.top-brands h3,.w3l_related_products h3,.team h3,.mail h3{
+.special-deals h2,.bestSeller h3,.top-brands h3,.w3l_related_products h3,.team h3,.mail h3{
 	font-size:2em;
 	color:#212121;
 	position:relative;
 	padding-bottom:1em;
 	text-align:center;
 }
-.special-deals h2:before,.new-products h3:before,.top-brands h3:before,.w3l_related_products h3:before,.team h3:before,.mail h3:before{
+.special-deals h2:before,.bestSeller h3:before,.top-brands h3:before,.w3l_related_products h3:before,.team h3:before,.mail h3:before{
 	content: '';
     position: absolute;
     top: 27%;
@@ -762,7 +762,7 @@ ul.multi-column-dropdown h6 {
     height: 1px;
     width: 10%;
 }
-.special-deals h2:after,.new-products h3:after,.top-brands h3:after,.w3l_related_products h3:after,.team h3:after,.mail h3:after{
+.special-deals h2:after,.bestSeller h3:after,.top-brands h3:after,.w3l_related_products h3:after,.team h3:after,.mail h3:after{
 	content: '';
     position: absolute;
     bottom: 79%;
@@ -941,17 +941,17 @@ ul.wmuSliderPagination {
 }
 /*-- //wmuslider --*/
 /*-- //special-deals --*/
-/*-- new-products --*/
+/*-- bestSeller --*/
 .agileinfo_new_products_grids {
     margin: 3em 0 0;
 }
 .w3_hs_bottom_sub ul {
     padding:9.5em 0 0 !important;
 }
-/*-- //new-products --*/
+/*-- //bestSeller --*/
 /*-- banner-bottom1 --*/
 .agileinfo_banner_bottom1_grid_left{
-	background:url(../images/test/44.jpg) no-repeat 0px 0px;
+	background:url(../images/test/201711dis.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -962,8 +962,8 @@ ul.wmuSliderPagination {
 	padding:0;
 }
 .agileinfo_banner_bottom1_grid_left{
-	text-align: right;
-	padding: 6em 5em 0 0;
+	text-align: left;
+	padding: 6em 5em 0 5em;
 }
 .agileinfo_banner_bottom1_grid_left h3{
 	font-size: 14px;
@@ -996,7 +996,7 @@ ul.wmuSliderPagination {
 	background:url(../images/test/img-sp.png) no-repeat 112px -38px;
 }
 .agileinfo_banner_bottom1_grid_right{
-	background:url(../images/test/45.jpg) no-repeat 0px 0px;
+	background:url(../images/test/201711count.jpg) no-repeat 0px 0px;
 	background-size:cover;
 	-webkit-background-size:cover;
 	-moz-background-size:cover;
@@ -1523,9 +1523,7 @@ h3.other-nw {
     margin: .5em 0 0.5em 7em;
     color:#212121;
 }
-.new-products {
-    background:#BEE5E2;
-}
+
 .w3ls_dresses_grid_left_grid h3{
 	font-size: 1.5em;
     color: #212121;
@@ -1812,7 +1810,7 @@ select.select_item {
 }
 /*---- Nav ---*/
 .nbs-flexisel-nav-left, .nbs-flexisel-nav-right {
-	width:40px;
+	width:25px;
 	height:40px;
 	position: absolute;
 	cursor: pointer;
@@ -1821,12 +1819,12 @@ select.select_item {
 .nbs-flexisel-nav-left {
 	left:-5%;
 	top:38% !important;
-	background:url(../images/test/left-arrow.png) no-repeat 0px 0px;
+	background:url(../images/test/left-a.png) no-repeat 0px 0px;
 }
 .nbs-flexisel-nav-right {
 	right:-5%;
 	top:38% !important;
-	background:url(../images/test/right-arrow.png) no-repeat 0px 0px;
+	background:url(../images/test/right-a.png) no-repeat 0px 0px;
 }
 /*--//flexisel--*/
 .w3l_related_products_grid{
@@ -2680,7 +2678,7 @@ td.invert-image a img {
 	.agileinfo_banner_bottom1_grid_right h4 {
 		width: 30%;
 	}
-	.banner-bottom, .team, .checkout, .additional_info, .team-bottom, .single, .mail, .special-deals, .about, .faq, .typo, .new-products, .banner-bottom1, .top-brands, .dresses, .w3l_related_products {
+	.banner-bottom, .team, .checkout, .additional_info, .team-bottom, .single, .mail, .special-deals, .about, .faq, .typo, .bestSeller, .banner-bottom1, .top-brands, .dresses, .w3l_related_products {
 		padding: 4em 0;
 	}
 	.footer-copy-pos {
@@ -2759,11 +2757,11 @@ td.invert-image a img {
 	.w3agile_special_deals_grid_left_grid1 {
 		padding: 1em 1em 4.3em;
 	}
-	.special-deals h2:before, .new-products h3:before, .top-brands h3:before, .w3l_related_products h3:before, .team h3:before, .mail h3:before {
+	.special-deals h2:before, .bestSeller h3:before, .top-brands h3:before, .w3l_related_products h3:before, .team h3:before, .mail h3:before {
 		left: 22%;
 		width: 15%;
 	}
-	.special-deals h2:after, .new-products h3:after, .top-brands h3:after, .w3l_related_products h3:after, .team h3:after, .mail h3:after {
+	.special-deals h2:after, .bestSeller h3:after, .top-brands h3:after, .w3l_related_products h3:after, .team h3:after, .mail h3:after {
 		right: 40%;
 		width: 13%;
 	}
@@ -2913,13 +2911,13 @@ td.invert-image a img {
 	.agileinfo_banner_bottom1_grid_right {
 		padding: 8.5em 0 0;
 	}
-	.banner-bottom, .team, .checkout, .additional_info, .team-bottom, .single, .mail, .special-deals, .about, .faq, .typo, .new-products, .banner-bottom1, .top-brands, .dresses, .w3l_related_products {
+	.banner-bottom, .team, .checkout, .additional_info, .team-bottom, .single, .mail, .special-deals, .about, .faq, .typo, .bestSeller, .banner-bottom1, .top-brands, .dresses, .w3l_related_products {
 		padding: 3em 0;
 	}
-	.special-deals h2, .new-products h3, .top-brands h3, .w3l_related_products h3, .team h3, .mail h3 {
+	.special-deals h2, .bestSeller h3, .top-brands h3, .w3l_related_products h3, .team h3, .mail h3 {
 		font-size: 1.8em;
 	}
-	.special-deals h2:before, .new-products h3:before, .top-brands h3:before, .w3l_related_products h3:before, .team h3:before, .mail h3:before {
+	.special-deals h2:before, .bestSeller h3:before, .top-brands h3:before, .w3l_related_products h3:before, .team h3:before, .mail h3:before {
 		left: 18%;
 	}
 	.w3agile_special_deals_grids {
@@ -3413,13 +3411,13 @@ td.invert-image a img {
 	.agileinfo_banner_bottom1_grid_left {
 		background-position: -85px 0px;
 	}
-	.special-deals h2, .new-products h3, .top-brands h3, .w3l_related_products h3, .team h3, .mail h3 {
+	.special-deals h2, .bestSeller h3, .top-brands h3, .w3l_related_products h3, .team h3, .mail h3 {
 		font-size: 1.6em;
 	}
 	.w3agile_special_deals_grid_right {
 		width: 72%;
 	}
-	.banner-bottom, .team, .checkout, .additional_info, .team-bottom, .single, .mail, .special-deals, .about, .faq, .typo, .new-products, .banner-bottom1, .top-brands, .dresses, .w3l_related_products {
+	.banner-bottom, .team, .checkout, .additional_info, .team-bottom, .single, .mail, .special-deals, .about, .faq, .typo, .bestSeller, .banner-bottom1, .top-brands, .dresses, .w3l_related_products {
 		padding: 2em 0;
 	}
 	.agileinfo_new_products_grid {
@@ -3524,7 +3522,7 @@ td.invert-image a img {
 	.w3ls_about_grid_right {
 		margin: 1em 0 0;
 	}
-	.special-deals h2:before, .new-products h3:before, .top-brands h3:before, .w3l_related_products h3:before, .team h3:before, .mail h3:before {
+	.special-deals h2:before, .bestSeller h3:before, .top-brands h3:before, .w3l_related_products h3:before, .team h3:before, .mail h3:before {
 		left:18%;
 	}
 	.mail h3:before {
@@ -3650,11 +3648,11 @@ td.invert-image a img {
 	.agileinfo_banner_bottom1_grid_right h4 {
 		width: 30%;
 	}
-	.special-deals h2:before, .new-products h3:before, .top-brands h3:before, .w3l_related_products h3:before, .team h3:before, .mail h3:before {
+	.special-deals h2:before, .bestSeller h3:before, .top-brands h3:before, .w3l_related_products h3:before, .team h3:before, .mail h3:before {
 		left: 7%;
 		width: 20%;
 	}
-	.special-deals h2:after, .new-products h3:after, .top-brands h3:after, .w3l_related_products h3:after, .team h3:after, .mail h3:after {
+	.special-deals h2:after, .bestSeller h3:after, .top-brands h3:after, .w3l_related_products h3:after, .team h3:after, .mail h3:after {
 		right: 36%;
 		width: 20%;
 	}
@@ -3933,7 +3931,7 @@ td.invert-image a img {
 	.w3agile_special_deals_grid_right_pos h4, .w3agile_special_deals_grid_right_pos h5 {
 		font-size: 1.5em;
 	}
-	.special-deals h2:before, .new-products h3:before, .top-brands h3:before, .w3l_related_products h3:before, .team h3:before, .mail h3:before {
+	.special-deals h2:before, .bestSeller h3:before, .top-brands h3:before, .w3l_related_products h3:before, .team h3:before, .mail h3:before {
 		left: 1%;
 	}
 	.w3agile_newsletter_right input[type="submit"] {
@@ -4021,7 +4019,7 @@ td.invert-image a img {
 	.banner1, .banner2, .banner3, .banner4, .banner5, .banner6, .banner7, .banner8, .banner9 {
 		min-height: 150px;
 	}
-	.special-deals h2, .new-products h3, .top-brands h3, .w3l_related_products h3, .team h3, .mail h3 {
+	.special-deals h2, .bestSeller h3, .top-brands h3, .w3l_related_products h3, .team h3, .mail h3 {
 		font-size: 1.4em;
 	}
 	.color-quality-left {
@@ -4216,10 +4214,10 @@ td.invert-image a img {
 	}
 	.agileinfo_banner_bottom1_grid_left a, .team-bottom a {
 		font-size: 14px;
-		background: url(../images/test/img-sp.png) no-repeat 93px -5px;
+		background: url(../images/test/201711dis.jpg) no-repeat 93px -5px;
 	}
 	.agileinfo_banner_bottom1_grid_left a:hover, .team-bottom a:hover {
-		background:url(../images/test/img-sp.png) no-repeat 93px -39px;
+		background:url(../images/test/201711dis.jpg) no-repeat 93px -39px;
 	}
 	.top-brands img {
 		width: 60%;
@@ -4281,7 +4279,7 @@ td.invert-image a img {
 	.modal-body {
 		padding: 0em 1em 0em;
 	}
-	.special-deals h2, .new-products h3, .top-brands h3, .w3l_related_products h3, .team h3, .mail h3 {
+	.special-deals h2, .bestSeller h3, .top-brands h3, .w3l_related_products h3, .team h3, .mail h3 {
 		font-size: 1.2em;
 	}
 	.banner2 {
