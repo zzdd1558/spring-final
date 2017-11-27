@@ -37,14 +37,14 @@ public class ProductDAOImpl implements ProductDAO {
 
 
 	@Override
-	public String mainTypeName(int subTypeIdx) {
-		return sqlsession.selectOne("cosmeticTypeMapper.mainTypeName", subTypeIdx);
+	public  CosmeticMainTypeDTO mainTypeIdx(int subTypeIdx) {
+		return sqlsession.selectOne("cosmeticTypeMapper.mainTypeSelect", subTypeIdx);
 	}
 
-
+	
 	@Override
-	public List<ProductImagePathDTO> idxImgSelect(int codeOfProd) {
-		return sqlsession.selectList("productMapper.idxImgSelect", codeOfProd);
+	public List<ProductImagePathDTO> codeImgSelect(int codeOfProd) {
+		return sqlsession.selectList("productMapper.codeImgSelect", codeOfProd);
 	}
 
 

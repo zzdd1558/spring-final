@@ -42,9 +42,12 @@ public class BoardController {
 		    int start = boardPager.getPageBegin();
 		    int end = boardPager.getPageEnd();
 		    list=boardService.listAll(start,end);
-		    
-		    
-			Map<String, Object> map = new HashMap<String, Object>();
+		    Map<String, Object> map = new HashMap<String, Object>();
+
+		    for (BoardDTO boardDTO : list) {
+				map.put("UserKey"+boardDTO.getBoardUserKey(), boardService.boardUserName(boardDTO.getBoardUserKey()));
+			}
+		    System.out.println(map);
 		    map.put("list", list); // list
 		    map.put("count", count); // 레코드의 갯수
 		    map.put("boardPager", boardPager);

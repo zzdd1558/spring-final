@@ -120,8 +120,8 @@
 				<div class="flexslider" style="width:90%;">
 					<ul class="slides">
 					<c:forEach items="${list}" var="a"> 	
-						<li data-thumb="/final/images/cosmetic/1/${prd.subTypeIdx}/${prd.prodIdx}/${a.imgDTO.pathOfImage}.png">
-							<img src="/final/images/cosmetic/1/${prd.subTypeIdx}/${prd.prodIdx}/${a.imgDTO.pathOfImage}.png" class="img-responsive">
+						<li data-thumb="/final/images/cosmetic/${mainType}/${prd.subTypeIdx}/${prd.prodIdx}/${a.imgDTO.pathOfImage}.png">
+							<img src="/final/images/cosmetic/${mainType}/${prd.subTypeIdx}/${prd.prodIdx}/${a.imgDTO.pathOfImage}.png" class="img-responsive">
 						</li>
 					</c:forEach>	
 					</ul>
@@ -235,7 +235,10 @@
 					<ul>
 						<li class="resp-tab-item" aria-controls="tab_item-0" role="tab"><span>Product Information</span></li>
 						<li class="resp-tab-item" aria-controls="tab_item-1" role="tab"><span>Reviews</span></li>
-					</ul>		
+					</ul>
+					
+				<!--=======================상품 상세 내용 출력=======================-->		
+					
 					<div class="tab-1 resp-tab-content additional_info_grid" aria-labelledby="tab_item-0">
 						<h3>Swan Miami Red Skirt</h3>
 						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
@@ -248,301 +251,37 @@
 							velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat 
 							quo voluptas nulla pariatur.</p>
 					</div>	
-
-					<div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1">
-						<h4>(2) Reviews</h4>
-						<div class="additional_info_sub_grids">
-							<div class="col-xs-2 additional_info_sub_grid_left">
-								<img src="${pageContext.request.contextPath}/images/test/1.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="col-xs-10 additional_info_sub_grid_right">
-								<div class="additional_info_sub_grid_rightl">
-									<a href="single.html">Laura</a>
-									<h5>April 03, 2016.</h5>
-									<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-										velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat 
-										quo voluptas nulla pariatur.</p>
-								</div>
-								<div class="additional_info_sub_grid_rightr">
-									<div class="rating">
-										<div class="rating-left">
-											<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="${pageContext.request.contextPath}/images/test/star.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="${pageContext.request.contextPath}/images/test/star.png" alt=" " class="img-responsive">
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="additional_info_sub_grids">
-							<div class="col-xs-2 additional_info_sub_grid_left">
-								<img src="${pageContext.request.contextPath}/images/test/2.png" alt=" " class="img-responsive" />
-							</div>
-							<div class="col-xs-10 additional_info_sub_grid_right">
-								<div class="additional_info_sub_grid_rightl">
-									<a href="single.html">Michael</a>
-									<h5>April 04, 2016.</h5>
-									<p>Quis autem vel eum iure reprehenderit qui in ea voluptate 
-										velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat 
-										quo voluptas nulla pariatur.</p>
-								</div>
-								<div class="additional_info_sub_grid_rightr">
-									<div class="rating">
-										<div class="rating-left">
-											<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="${pageContext.request.contextPath}/images/test/star.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="${pageContext.request.contextPath}/images/test/star.png" alt=" " class="img-responsive">
-										</div>
-										<div class="rating-left">
-											<img src="${pageContext.request.contextPath}/images/test/star.png" alt=" " class="img-responsive">
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="review_grids">
-							<h5>Add A Review</h5>
-							<form action="#" method="post">
-								<input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-								<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-								<input type="text" name="Telephone" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
-								<textarea name="Review" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Add Your Review';}" required="">Add Your Review</textarea>
-								<input type="submit" value="Submit" >
-							</form>
-						</div>
-					</div> 			        					            	      
+				<!--=======================//상품 상세 내용 출력=======================-->	
+				
+					
+				<!--=======================Reiew 게시판 출력=======================-->
+					<div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1" id="ReviewBoard"></div>
+				<!--=======================//Reiew 게시판 출력=======================-->	 			        					            	      
 				</div>	
 			</div>
 			<script src="${pageContext.request.contextPath}/javascripts/easyResponsiveTabs.js" type="text/javascript"></script>
 			<script type="text/javascript">
 				$(document).ready(function () {
+					
+					httpRequest.sendRequest(httpRequest.getContextPath()+'/board/BoardListform.do',"",boardForm,'GET');
+					function boardForm(){
+						  if (this.readyState == 4 && this.status == 200) {
+							  var resData=this.responseText;
+						    	console.log(resData);
+						    	document.getElementById("ReviewBoard").innerHTML+=resData;
+						    	
+						  }
+					}
+					
+					
 					$('#horizontalTab1').easyResponsiveTabs({
 						type: 'default', //Types: default, vertical, accordion           
 						width: 'auto', //auto or any width like 600px
 						fit: true   // 100% fit in a container
 					});
 				});
+				
 			</script>
-		</div>
-	</div>
-	<div class="w3l_related_products">
-		<div class="container">
-			<h3>Related Products</h3>
-			<ul id="flexiselDemo2">			
-				<li>
-					<div class="w3l_related_products_grid">
-						<div class="agile_ecommerce_tab_left dresses_grid">
-							<div class="hs-wrapper hs-wrapper3">
-								<img src="${pageContext.request.contextPath}/images/test/ss1.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss2.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss3.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss4.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss5.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss6.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss7.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss8.jpg" alt=" " class="img-responsive">
-								<div class="w3_hs_bottom">
-									<div class="flex_ecommerce">
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</div>
-								</div>
-							</div>
-							<h5><a href="single.html">Pink Flared Skirt</a></h5>
-							<div class="simpleCart_shelfItem">
-								<p class="flexisel_ecommerce_cart"><span>$312</span> <i class="item_price">$212</i></p>
-								<p><a class="item_add" href="#">Add to cart</a></p>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="w3l_related_products_grid">
-						<div class="agile_ecommerce_tab_left dresses_grid">
-							<div class="hs-wrapper hs-wrapper3">
-								<img src="${pageContext.request.contextPath}/images/test/ss2.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss3.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss4.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss5.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss6.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss9.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss7.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss8.jpg" alt=" " class="img-responsive">
-								<div class="w3_hs_bottom">
-									<div class="flex_ecommerce">
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</div>
-								</div>
-							</div>
-							<h5><a href="single.html">Red Pencil Skirt</a></h5>
-							<div class="simpleCart_shelfItem">
-								<p class="flexisel_ecommerce_cart"><span>$432</span> <i class="item_price">$323</i></p>
-								<p><a class="item_add" href="#">Add to cart</a></p>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="w3l_related_products_grid">
-						<div class="agile_ecommerce_tab_left dresses_grid">
-							<div class="hs-wrapper hs-wrapper3">
-								<img src="${pageContext.request.contextPath}/images/test/ss3.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss4.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss5.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss6.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss7.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss8.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss9.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss1.jpg" alt=" " class="img-responsive">
-								<div class="w3_hs_bottom">
-									<div class="flex_ecommerce">
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</div>
-								</div>
-							</div>
-							<h5><a href="single.html">Yellow Cotton Skirt</a></h5>
-							<div class="simpleCart_shelfItem">
-								<p class="flexisel_ecommerce_cart"><span>$323</span> <i class="item_price">$310</i></p>
-								<p><a class="item_add" href="#">Add to cart</a></p>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="w3l_related_products_grid">
-						<div class="agile_ecommerce_tab_left dresses_grid">
-							<div class="hs-wrapper hs-wrapper3">
-								<img src="${pageContext.request.contextPath}/images/test/ss4.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss5.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss6.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss7.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss8.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss9.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss1.jpg" alt=" " class="img-responsive">
-								<img src="${pageContext.request.contextPath}/images/test/ss2.jpg" alt=" " class="img-responsive">
-								<div class="w3_hs_bottom">
-									<div class="flex_ecommerce">
-										<a href="#" data-toggle="modal" data-target="#myModal6"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-									</div>
-								</div>
-							</div>
-							<h5><a href="single.html">Black Short</a></h5>
-							<div class="simpleCart_shelfItem">
-								<p class="flexisel_ecommerce_cart"><span>$256</span> <i class="item_price">$200</i></p>
-								<p><a class="item_add" href="#">Add to cart</a></p>
-							</div>
-						</div>
-					</div>
-				</li>
-			</ul>
-				<script type="text/javascript">
-					$(window).load(function() {
-						$("#flexiselDemo2").flexisel({
-							visibleItems:4,
-							animationSpeed: 1000,
-							autoPlay: true,
-							autoPlaySpeed: 3000,    		
-							pauseOnHover: true,
-							enableResponsiveBreakpoints: true,
-							responsiveBreakpoints: { 
-								portrait: { 
-									changePoint:480,
-									visibleItems: 1
-								}, 
-								landscape: { 
-									changePoint:640,
-									visibleItems:2
-								},
-								tablet: { 
-									changePoint:768,
-									visibleItems: 3
-								}
-							}
-						});
-						
-					});
-				</script>
-				<script type="text/javascript" src="${pageContext.request.contextPath}/javascripts/jquery.flexisel.js"></script>
-		</div>
-	</div>
-	<div class="modal video-modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModal6">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>						
-				</div>
-				<section>
-					<div class="modal-body">
-						<div class="col-md-5 modal_body_left">
-							<img src="${pageContext.request.contextPath}/images/test/39.jpg" alt=" " class="img-responsive" />
-						</div>
-						<div class="col-md-7 modal_body_right">
-							<h4>a good look women's Long Skirt</h4>
-							<p>Ut enim ad minim veniam, quis nostrud 
-								exercitation ullamco laboris nisi ut aliquip ex ea 
-								commodo consequat.Duis aute irure dolor in 
-								reprehenderit in voluptate velit esse cillum dolore 
-								eu fugiat nulla pariatur. Excepteur sint occaecat 
-								cupidatat non proident, sunt in culpa qui officia 
-								deserunt mollit anim id est laborum.</p>
-							<div class="rating">
-								<div class="rating-left">
-									<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="${pageContext.request.contextPath}/images/test/star.png" alt=" " class="img-responsive" />
-								</div>
-								<div class="rating-left">
-									<img src="${pageContext.request.contextPath}/images/test/star.png" alt=" " class="img-responsive" />
-								</div>
-								<div class="clearfix"> </div>
-							</div>
-							<div class="modal_body_right_cart simpleCart_shelfItem">
-								<p><span>$320</span> <i class="item_price">$250</i></p>
-								<p><a class="item_add" href="#">Add to cart</a></p>
-							</div>
-							<h5>Color</h5>
-							<div class="color-quality">
-								<ul>
-									<li><a href="#"><span></span>Red</a></li>
-									<li><a href="#" class="brown"><span></span>Yellow</a></li>
-									<li><a href="#" class="purple"><span></span>Purple</a></li>
-									<li><a href="#" class="gray"><span></span>Violet</a></li>
-								</ul>
-							</div>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</section>
-			</div>
 		</div>
 	</div>
 <!-- //single -->

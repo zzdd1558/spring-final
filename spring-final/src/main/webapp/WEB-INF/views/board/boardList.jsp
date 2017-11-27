@@ -21,14 +21,6 @@
     </form>
     <!-- 레코드의 갯수를 출력 -->
     ${map.count}개의 게시물이 있습니다.
-    <table border="1" width="600px">
-        <tr>
-            <th>번호</th>
-            <th>제목</th>
-            <th>이름</th>
-            <th>작성일</th>
-            <th>조회수</th>
-        </tr>
 <%--         <c:forEach var="row" items="${map.list}"> --%>
 <!--         <tr> -->
 <%--             <td>${row.boardIdx}</td> --%>
@@ -40,7 +32,41 @@
 <!--         </tr>     -->
 <%--         </c:forEach> --%>
 		 <c:forEach var="board" items="${map.list}">
-            <tr>
+                        <div class="additional_info_sub_grids">
+							<div class="col-xs-2 additional_info_sub_grid_left">
+								<img src="${pageContext.request.contextPath}/images/test/1.png" alt=" " class="img-responsive" />
+							</div>
+							<div class="col-xs-10 additional_info_sub_grid_right">
+								<div class="additional_info_sub_grid_rightl">
+									<a href="single.html"> ${map['${}']}</a>
+									<h5>${board.boardDate}</h5>
+									<p>${board.boardSubject}</p>
+								</div>
+								<div class="additional_info_sub_grid_rightr">
+									<div class="rating">
+										<div class="rating-left">
+											<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive">
+										</div>
+										<div class="rating-left">
+											<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive">
+										</div>
+										<div class="rating-left">
+											<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive">
+										</div>
+										<div class="rating-left">
+											<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive">
+										</div>
+										<div class="rating-left">
+											<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive">
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+<%--             <tr>
                 <td>${board.boardIdx}</td>
                 <td align="left">
                     <c:if test="${board.boardLev > 0}">
@@ -57,8 +83,9 @@
                 </td>
                 <td>${board.boardDate}</td>
                 <td>${board.boardCount}</td>
-            </tr>
+            </tr> --%>
         </c:forEach>
+<%--   <table>   
         <tr>
             <td colspan="5">
                 <!-- **처음페이지로 이동 : 현재 페이지가 1보다 크면  [처음]하이퍼링크를 화면에 출력-->
@@ -95,6 +122,10 @@
                 </c:if>
             </td>
         </tr>
-</table>
+</table> --%>
+<script type="text/javascript">
+	console.log('${map}');
+
+</script>
 </body>
 </html>

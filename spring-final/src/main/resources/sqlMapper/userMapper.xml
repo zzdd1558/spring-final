@@ -63,5 +63,11 @@
 		WHERE USER_ID = #{userId}
 	</update>
 	
+	<select id="userNameSelect" parameterType="int" resultType="String">
+		SELECT USER_TB.USER_NAME
+		FROM USER_TB
+		WHERE USER_KEY=#{userKey}
+	</select>
+	
 	
 </mapper>

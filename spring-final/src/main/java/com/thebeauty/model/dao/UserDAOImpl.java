@@ -58,6 +58,11 @@ public class UserDAOImpl implements UserDAO{
 		int check = sqlSession.update("userMapper.changePassword",user);
 		return check;
 	}
+	/** user이름 가져오기*/
+	@Override
+	public String userNameSelect(int userKey) {
+		return sqlSession.selectOne("userMapper.userNameSelect", userKey);
+	}
 	
 	
 }

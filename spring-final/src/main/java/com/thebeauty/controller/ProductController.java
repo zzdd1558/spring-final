@@ -1,7 +1,5 @@
 package com.thebeauty.controller;
 
-
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.thebeauty.model.domain.CosmeticMainTypeDTO;
 import com.thebeauty.model.domain.CosmeticProductDTO;
 import com.thebeauty.model.domain.KindsOfProductTypeDTO;
 import com.thebeauty.model.domain.ProductImagePathDTO;
@@ -33,12 +32,14 @@ public class ProductController{
 		ObjectMapper mapper=new ObjectMapper();
 		
 		CosmeticProductDTO dto=service.selectAllByProdIdx(prodIdx);
+		CosmeticMainTypeDTO mainTypeDTO=service.mainTypeIdx(dto.getSubTypeIdx());
 		List<KindsOfProductTypeDTO> optionList=dto.getOptionlist();
 		String price=optionList.get(0).getProdPrice();
 		
 		mv.addObject("price", price);
 		mv.addObject("prd", dto);
 		mv.addObject("list", optionList);
+		mv.addObject("mainType",mainTypeDTO.getMainTypeIdx());
 		
 		try {
 			String listOfString=mapper.writeValueAsString(optionList);
@@ -78,18 +79,18 @@ public class ProductController{
 		/** 실제 로직 */
 		for (CosmeticProductDTO cosmeticProductDTO : prdList) {
 			List<KindsOfProductTypeDTO> kprdList=cosmeticProductDTO.getOptionlist();
-			System.out.println(cosmeticProductDTO);
 			if(kprdList.get(0).getCodeOfProd()==0) {
 				continue;
 			}else {
 				map.put(cosmeticProductDTO.getProdIdx(), kprdList);
-				List<ProductImagePathDTO> imgList=service.idxImgSelect(kprdList.get(0).getCodeOfProd());
+				List<ProductImagePathDTO> imgList=service.codeImgSelect(kprdList.get(0).getCodeOfProd());
 				imgMap.put(kprdList.get(0).getCodeOfProd(), imgList.get(0));
 			}
 		}
 		
 		/** 아이템 추가 */
 		mv.addObject("prdList", prdList);
+		mv.addObject("listSize", prdList.size());
 		mv.addObject("map", map);
 		mv.addObject("mainTypeIdx",mainTypeIdx);
 		mv.addObject("imgMap", imgMap);

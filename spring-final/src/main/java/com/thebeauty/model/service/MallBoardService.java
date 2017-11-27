@@ -1,6 +1,7 @@
 package com.thebeauty.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.thebeauty.model.domain.BoardDTO;
 
@@ -22,5 +23,7 @@ public interface MallBoardService {
 	public abstract int deleteBoard(BoardDTO dto);
 	/*board detail update*/
 	public abstract int updateBoard(BoardDTO dto);
+	/*board username 가져오기*/
+	public abstract String boardUserName(int userKey);
 	
 }

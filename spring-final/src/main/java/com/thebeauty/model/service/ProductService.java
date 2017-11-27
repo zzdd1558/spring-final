@@ -11,6 +11,6 @@ public interface ProductService {
 	public abstract CosmeticProductDTO selectAllByProdIdx(int prodIdx);
 	public abstract List<CosmeticProductDTO> sellectAllBySubTypeIdx(int subTypeIdx);
 	public abstract List<CosmeticMainTypeDTO> categorySelect();
-	public abstract String mainTypeName(int subTypeIdx);
-	public abstract List<ProductImagePathDTO> idxImgSelect(int codeOfProd);
+	public abstract CosmeticMainTypeDTO mainTypeIdx(int subTypeIdx);
+	public abstract List<ProductImagePathDTO> codeImgSelect(int codeOfProd);
 }
