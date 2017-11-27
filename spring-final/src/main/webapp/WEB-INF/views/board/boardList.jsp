@@ -38,7 +38,7 @@
 							</div>
 							<div class="col-xs-10 additional_info_sub_grid_right">
 								<div class="additional_info_sub_grid_rightl">
-									<a href="single.html"> ${map['${}']}</a>
+									<a href="single.html"> ${map['board.boardUserKey']}${board.boardUserKey}</a>
 									<h5>${board.boardDate}</h5>
 									<p>${board.boardSubject}</p>
 								</div>
@@ -124,7 +124,7 @@
         </tr>
 </table> --%>
 <script type="text/javascript">
-	console.log('${map}');
+	console.log('${map['1']}');
 
 </script>
 </body>
