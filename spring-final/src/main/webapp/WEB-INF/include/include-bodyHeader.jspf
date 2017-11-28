@@ -1,3 +1,7 @@
+<%@page import="com.thebeauty.model.domain.UserDTO"%>
+<%@page
+	import="org.springframework.security.core.context.SecurityContextHolder"%>
+<%@page import="org.springframework.security.core.Authentication"%>
 <%@ page pageEncoding="utf-8"%>
 <%@taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -192,20 +196,16 @@
 </div>
 <div class="header">
 	<div class="container">
-		<sec:authorize access="! isAuthenticated()">
-			<div class="w3l_login">
-				<a href="#" data-toggle="modal" data-target="#myModal88"><span
-					class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-			</div>
-		</sec:authorize>
+
 		<sec:authorize access="isAuthenticated()">
-			<sec:authorize access="hasRole('A')">
+			<sec:authorize access='hasRole("ADMIN")'>
 				<div class="w3l_login">
-					<a href="#" data-toggle="modal" data-target="#myModal88"><span
-						class="glyphicon glyphicon-user" aria-hidden="true"></span>sdojfhdskjfhsdfhdsifhdsiufdshiu</a>
+					<a href="#" data-toggle="modal" data-target="#myModal88"> has
+						loweof</a>
 				</div>
 			</sec:authorize>
 		</sec:authorize>
+
 		<sec:authorize access="isAuthenticated()">
 			<div class="w3l_login">
 				<a href='${pageContext.request.contextPath}/auth/logout.do'> <span
@@ -213,6 +213,13 @@
 				</a>
 			</div>
 		</sec:authorize>
+		<sec:authorize access="! isAuthenticated()">
+			<div class="w3l_login">
+				<a href="#" data-toggle="modal" data-target="#myModal88"><span
+					class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+			</div>
+		</sec:authorize>
+
 
 		<div class="w3l_logo">
 			<h1 style="text-align: center;">

@@ -26,6 +26,7 @@ import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.domain.UserTokenDTO;
 import com.thebeauty.model.service.UserIdSearchServiceImpl;
 import com.thebeauty.model.service.UserJoinServiceImpl;
+import com.thebeauty.rating.Constants;
 import com.thebeauty.utils.MailService;
 
 /**
@@ -65,6 +66,7 @@ public class UserAuthController {
 		byte[] userToken = token.getBytes("UTF-8");
 		String encodeToken = encoder.encodeToString(userToken);
 		String msg = "";
+		user.setRatingType(Constants.NAN);
 		/** 회원 가입 */
 		int createToken = userJoinService.userJoin(user, encodeToken);
 

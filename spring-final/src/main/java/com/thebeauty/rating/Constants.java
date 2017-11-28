@@ -3,24 +3,24 @@ package com.thebeauty.rating;
 public class Constants {
 	
 	/* Admin 권한 */
-	public static String admin = "A";
+	public static String ADMIN = "ROLE_A";
 	
 	/* 회원 승인 대기 권한 */
-	public static String memberWaiting = "N";
+	public static String NAN = "ROLE_N";
 	
 	/* 브론즈 권한 */
-	public static String bronze = "B";
+	public static String BRONZE = "ROLE_B";
 	
 	/* 실버 권한 */
-	public static String silver = "S";
+	public static String SILVER = "ROLE_S";
 	
 	/* 골드 권한 */
-	public static String gold = "G";
+	public static String GOLD = "ROLE_G";
 	
 	/* 플레티넘 권한 */
-	public static String platinum = "P";
+	public static String PLATINUM = "ROLE_P";
 	
 	/* 다이아몬드 권한 */
-	public static String diamonde = "D";
+	public static String DIAMOND = "ROLE_D";
 	
 }
