@@ -80,6 +80,9 @@
 	width:90%;
 	padding-top: 10px
 }
+.socialImg{
+	cursor: pointer;
+}
 
 </style>
 <script type="text/javascript">
@@ -103,7 +106,7 @@
 	<div class="single">
 		<div class="container">
 			<div class="prd-info col-md-6 single-left">
-							<div class="rating1">
+				<div class="rating1" style="width:90%;">
 					<span class="starRating">
 						<input id="rating5" type="radio" name="rating" value="5"checked>
 						<label for="rating5">5</label>
@@ -116,7 +119,14 @@
 						<input id="rating1" type="radio" name="rating" value="1">
 						<label for="rating1">1</label>
 					</span>
+					<span style="float:right;">
+						<img class="socialImg" src="/final/images/social/facebook_icon_color.png" alt="" class="snsShare" onclick="socialShareType.shareURL('facebook')">
+						<img class="socialImg" src="/final/images/social/kakaoStory.png" alt="" class="snsShare" onclick="socialShareType.shareURL('kakao')">				
+						<img class="socialImg" src="/final/images/social/naver_icon_green.png" alt="" class="snsShare" onclick="socialShareType.shareURL('naver')">				
+						<img class="socialImg"  src="/final/images/social/twitter_icon.png" alt="" class="snsShare" onclick="socialShareType.shareURL('twitter')">
+					</span>
 				</div>
+				
 				<div class="flexslider" style="width:90%;">
 					<ul class="slides">
 					<c:forEach items="${list}" var="a"> 	
