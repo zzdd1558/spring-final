@@ -34,6 +34,7 @@ public class UserJoinServiceImpl implements UserJoinService {
 
 		/* 비밀번호 암호화 */
 		user.setUserPassword(passwordEncoder.encode(user.getUserPassword()));
+		
 		return userDao.userJoin(user) + createUserToken(key, encodeToken);
 	}
 

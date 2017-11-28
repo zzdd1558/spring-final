@@ -24,6 +24,8 @@
 	<!-- header -->
 <%@ include file="/WEB-INF/include/include-bodyHeader.jspf"%>
 	<!-- //header -->
+	
+	
 <!-- banner -->
 	<div class="flexslider">
 		<ul class="slides">

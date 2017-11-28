@@ -12,16 +12,15 @@
 
 	<security:http use-expressions="true" auto-config="true">
 	<!-- 접근 URL별 권한 설정 -->
-		<security:intercept-url pattern="/admin/**" access="hasRole('A')" />
+	<security:intercept-url pattern="/admin/**" access="hasRole('ROLE_A')" />
 		
 	<!-- CUSTOM Login Form 설정 및 연동. --> 
-		<security:form-login login-page="/userLogin.do"
+		<security:form-login login-page="/openmallMain.do"
 			login-processing-url="/auth/login.do" 
 			username-parameter="user_name"
 			password-parameter="user_password"
 			default-target-url="/"
 			authentication-failure-handler-ref="userAuthenticationFailureHandler" />
-	
 	</security:http>
 
 

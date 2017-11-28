@@ -59,17 +59,14 @@ public class UserAuthenticationProvider implements AuthenticationProvider{
 		
 		/* 권한이 없거나 'N' or 'n'일경우 */
 		System.out.println(user.getRatingType());
-		if(user.getRatingType() == null || user.getRatingType().equalsIgnoreCase("N")) {
+		if(user.getRatingType() == null || user.getRatingType().equalsIgnoreCase("NAN")) {
 			System.out.println("회원승인이 필요합니다");
 			throw new PermissionDeniedException("permissionDenined");
 		}
 		
 		/* 사용자로부터 받아온 권한을 목록에 저장 */
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		authorities.add(new SimpleGrantedAuthority((user.getRatingType())));
-		System.out.println(authorities);
-		
- 		
+		List<SimpleGrantedAuthority> authorities = new ArrayList<SimpleGrantedAuthority>();
+		authorities.add(new SimpleGrantedAuthority(user.getRatingType()));
 		return new UsernamePasswordAuthenticationToken(user, null, authorities);
 	}
 
