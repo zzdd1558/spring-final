@@ -254,7 +254,6 @@
 											}
 											
 										}
-										console.log(alreadyItem);
 									}
 									
 									function purchase(){
