@@ -3,10 +3,13 @@ package com.thebeauty.controller;
 import java.util.List;
 import java.util.Locale;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.LocalDataSourceJobStore;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +19,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thebeauty.model.domain.CosmeticMainTypeDTO;
 import com.thebeauty.model.domain.CosmeticSubTypeDTO;
+import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.service.ProductService;
 
 @Controller
@@ -26,8 +30,16 @@ public class HomeController {
 	
 	/* 메인페이지 시작 */
 	@RequestMapping(value = "openmallMain.do", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home(Model model , HttpServletRequest request , Authentication auth) {
 		List<CosmeticMainTypeDTO> list=service.categorySelect();
+		
+		
+		HttpSession session = request.getSession();
+		System.out.println(session);
+		
+		if(auth != null) {
+			session.setAttribute("user", ((UserDTO)auth.getPrincipal()).getUserId());
+		}
 		
 		ObjectMapper mapper=new ObjectMapper();
 		
