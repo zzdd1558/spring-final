@@ -124,7 +124,6 @@
         </tr>
 </table> --%>
 <script type="text/javascript">
-	console.log('${map['1']}');
 
 </script>
 </body>

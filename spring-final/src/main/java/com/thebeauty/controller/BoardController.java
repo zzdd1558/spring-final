@@ -35,7 +35,7 @@ public class BoardController {
 	//boardList form 구현
 		@RequestMapping(value = "BoardListform.do", method = RequestMethod.GET)
 		public ModelAndView boardList(@RequestParam(defaultValue="1") int curPage) {
-			ModelAndView mv=new ModelAndView("board/boardList");
+			ModelAndView mv=new ModelAndView("board/boardListTest");
 			List<BoardDTO> list=boardService.selectAll();
 			int count=list.size();
 			BoardPager boardPager = new BoardPager(count, curPage);
