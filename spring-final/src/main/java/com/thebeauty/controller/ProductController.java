@@ -35,7 +35,6 @@ public class ProductController{
 		ModelAndView mv=new  ModelAndView("detailView");
 		ObjectMapper mapper=new ObjectMapper();
 		
-		/*로그인시 유저 id 받아오기*/
 		
 		CosmeticProductDTO dto=service.selectAllByProdIdx(prodIdx);
 		CosmeticMainTypeDTO mainTypeDTO=service.mainTypeIdx(dto.getSubTypeIdx());

@@ -108,15 +108,15 @@
 			<div class="prd-info col-md-6 single-left">
 				<div class="rating1" style="width:90%;">
 					<span class="starRating">
-						<input id="rating5" type="radio" name="rating" value="5"checked>
+						<input id="rating5" type="radio" name="rating1" value="5"checked>
 						<label for="rating5">5</label>
-						<input id="rating4" type="radio" name="rating" value="4">
+						<input id="rating4" type="radio" name="rating1" value="4">
 						<label for="rating4">4</label>
-						<input id="rating3" type="radio" name="rating" value="3" >
+						<input id="rating3" type="radio" name="rating1" value="3" >
 						<label for="rating3">3</label>
-						<input id="rating2" type="radio" name="rating" value="2">
+						<input id="rating2" type="radio" name="rating1" value="2">
 						<label for="rating2">2</label>
-						<input id="rating1" type="radio" name="rating" value="1">
+						<input id="rating1" type="radio" name="rating1" value="1">
 						<label for="rating1">1</label>
 					</span>
 					<span style="float:right;">
@@ -169,7 +169,7 @@
 				</div>								
 <!-- 옵션이 없을 시에 활용 -->
 				<form id="demobox" name="prdOrder" action="test1.do">
-				<input type="hidden" name="prodIdx" value="${prd.prodIdx}">
+				<input type="hidden" id="prodIdx" name="prodIdx" value="${prd.prodIdx}">
 				<input type="hidden" name="subTypeIdx" value="${prd.subTypeIdx}">
 				<input type="hidden" name="codeOfProd" value="">
 				</form>
@@ -275,24 +275,71 @@
 				
 					
 				<!--=======================Reiew 게시판 출력=======================-->
-					<div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1" id="ReviewBoard"></div>
+					<div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1" >
+					<div id="ReviewBoard"></div>
+						
+						<div class="review_grids">
+							<h5>Add A Review</h5>
+							<form action="${pageContext.request.contextPath}/board/BoardWrite.do" method="POST" id="board"  name="board">
+							<input id="boardSubject" name="boardSubject" type="hidden" value="NaN"/>
+							<input id="boardFile" name="boardFile" type="hidden" value="boardFile"/>
+						    <input id="boardUserKey" name="boardUserKey" type="hidden" value="${sessionScope.user.userKey}"/>
+							<span>${sessionScope.user.userName}</span>
+								<span class="starRating" style="float:right">
+									<input id="ratingFive" type="radio" name="rating" value="5">
+									<label for="ratingFive">5</label>
+									<input id="ratingFour" type="radio" name="rating" value="4">
+									<label for="ratingFour">4</label>
+									<input id="ratingThr" type="radio" name="rating" value="3">
+									<label for="ratingThr">3</label>
+									<input id="ratingTwo" type="radio" name="rating" value="2">
+									<label for="ratingTwo">2</label>
+									<input id="ratingOne" type="radio" name="rating" value="1">
+									<label for="ratingOne">1</label>
+								</span>
+								<textarea id="boardContent" name="boardContent" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Add Your Review';}" required="">Add Your Review</textarea>
+								<input type="button" onclick="boardWrite(${prd.prodIdx})" value="Submit" >
+							</form>
+						</div>
+					</div>	
 				<!--=======================//Reiew 게시판 출력=======================-->	 			        					            	      
 				</div>	
+				
 			</div>
 			<script src="${pageContext.request.contextPath}/javascripts/easyResponsiveTabs.js" type="text/javascript"></script>
-			<script type="text/javascript">
-				$(document).ready(function () {
-					
-					httpRequest.sendRequest(httpRequest.getContextPath()+'/board/BoardListform.do',"",boardForm,'GET');
-					function boardForm(){
-						  if (this.readyState == 4 && this.status == 200) {
-							  var resData=this.responseText;
-						    	console.log(resData);
-						    	document.getElementById("ReviewBoard").innerHTML+=resData;
-						    	
-						  }
+			<script type="text/javascript">	
+			
+			
+			function boardWrite(prodIdx){
+				var boardSubject=document.getElementById('boardSubject').value;
+				var boardUserKey=document.getElementById('boardUserKey').value;
+				var boardContent=document.getElementById('boardContent').value;
+				var boardFile=document.getElementById('boardFile').value;
+				var UserprdScore = $(":input:radio[name=rating]:checked").val();
+				httpRequest.sendRequest(httpRequest.getContextPath()+'/board/BoardWrite.do',
+		'boardSubject='+boardSubject+'&boardUserKey='+boardUserKey+'&boardContent='+boardContent+'&boardFile='+boardFile+'&boardUseScore='+UserprdScore+'&boardCosmeticNum='+prodIdx,sensMsg,'POST',header,token);
+			}
+			
+			function sensMsg(){
+					if(this.readyState == 4 && this.status == 200){
+					var resData=this.responseText;
+					 	alert(resData);
+				    	document.getElementById("board").reset();
+				    	document.getElementById('ReviewBoard').innerHTML="";
+				    	httpRequest.sendRequest(httpRequest.getContextPath()+'/board/BoardListform.do','prodIdx=${prd.prodIdx}',boardForm,'GET');
 					}
+				
+			}
+			
+			
+			function list(page){
+							document.getElementById('ReviewBoard').innerHTML="";
+			    		   httpRequest.sendRequest(httpRequest.getContextPath()+'/board/BoardListform.do',"curPage="+page+'&prodIdx=${prd.prodIdx}',boardForm,'GET');
+			    }
+			
+			$(document).ready(function () {
 					
+					httpRequest.sendRequest(httpRequest.getContextPath()+'/board/BoardListform.do',"prodIdx="+'${prd.prodIdx}',boardForm,'GET');
 					
 					$('#horizontalTab1').easyResponsiveTabs({
 						type: 'default', //Types: default, vertical, accordion           
@@ -300,6 +347,74 @@
 						fit: true   // 100% fit in a container
 					});
 				});
+			
+			function boardForm(){
+				  if (this.readyState == 4 && this.status == 200) {
+					  var resData=this.responseText;
+					  resData=JSON.parse(resData);
+					  console.log(resData);
+					  var userkey="";
+					  var result="";
+					  var userPrdScore;
+	                  for(i=0;i<resData.list.length;i++){
+	                	userkey="userKey"+resData.list[i].boardUserKey;
+	                	userPrdScore=resData.list[i].boardUseScore;
+	                	result+='<div class="additional_info_sub_grids">'+
+	     				'<div class="col-xs-2 additional_info_sub_grid_left">'+
+	     					'<img src="${pageContext.request.contextPath}/images/women.png" alt=" " class="img-circle" />'+
+	     				'</div>'+
+	     				'<div class="col-xs-10 additional_info_sub_grid_right">'+
+	     					'<div class="additional_info_sub_grid_rightl">'+
+	     						'<a href="single.html"> '+resData[userkey]+'</a>'+
+	     						'<h5>'+resData.list[i].boardDate+'</h5>'+
+	     						'<p>'+resData.list[i].boardContent+'</p>'+
+	     					'</div>'+
+	     				'</div>'+
+						'<div class="additional_info_sub_grid_rightr">'+
+						'<div class="rating">';
+						for(j=0;j<userPrdScore;j++){							
+							result+='<div class="rating-left">'+
+								'<img src="${pageContext.request.contextPath}/images/test/star-.png" alt=" " class="img-responsive"></div>';
+						    }
+						for(j=0;j<(5-userPrdScore);j++){
+							result+='<div class="rating-left">'+
+								'<img src="${pageContext.request.contextPath}/images/test/star.png" alt=" " class="img-responsive"></div>';
+								
+						    }
+						result+='</div>'+
+								'</div>'+
+									'<div class="clearfix"> </div>'+
+								'</div>';
+	     				'<div class="clearfix"> </div>'+
+	     			'</div>';
+	                  }
+	                  result+='<table>';   
+	                  result+='<tr>';
+	                  result+='<td colspan="5">';
+	                 if(resData.boardPager.curBlock > 1){
+	                	 result+='<a href="javascript:list('+1+')">[처음]</a>';
+	                 }
+	                 if(resData.boardPager.curBlock > 1){
+	                	 result+='<a href="javascript:list('+resData.boardPager.prevPage+')">[이전]</a>';
+	                 }
+					for(i=resData.boardPager.blockBegin;i<resData.boardPager.blockEnd;i++){
+						if(i==resData.boardPager.curPage){
+							result+='<span style="color: red">'+i+'</span>&nbsp;';
+						}else{
+							result+=' <a href="javascript:list('+i+')">'+i+'</a>&nbsp;';
+						}
+					}		
+	               if(resData.boardPager.curBlock<=resData.boardPager.toBlock){
+	            	   result+='<a href="javascript:list('+resData.boardPager.nextPage+')">[다음]</a>';
+	               }
+	               if(resData.boardPager.curBlock<=resData.boardPager.totPage){
+	            	   result+='<a href="javascript:list('+resData.boardPager.totPage+')">[끝]</a>';
+	               }			            	   
+	               result+='</td></tr></table>';
+	          document.getElementById("ReviewBoard").innerHTML+=result;
+				    	
+				  }
+			}
 				
 			</script>
 		</div>

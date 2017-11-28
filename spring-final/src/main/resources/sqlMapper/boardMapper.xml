@@ -78,11 +78,18 @@
 	</delete>
 
 
-	<select id="listAll" parameterType="hashMap" resultMap="boardResultMap">
+	<select id="boardSelectCntByIdx" parameterType="int" resultType="int">
+		SELECT COUNT(*)
+		FROM BOARD_TB
+		WHERE BOARD_COSMETIC_NUM=#{prodIdx}
+	</select>
+
+	<select id="listByProdIdx" parameterType="hashMap" resultMap="boardResultMap">
 		<include refid="pagingHeader"></include>
 		SELECT LEVEL,
 		BOARD_TB.*
 		FROM BOARD_TB
+		WHERE BOARD_COSMETIC_NUM=#{prodIdx}
 		START WITH BOARD_PARENT = 0
 		CONNECT BY PRIOR BOARD_IDX = BOARD_PARENT
 		ORDER SIBLINGS BY BOARD_RE_REF DESC

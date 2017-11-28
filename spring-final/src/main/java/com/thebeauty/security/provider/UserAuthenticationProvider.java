@@ -58,7 +58,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider{
 		
 		/* 권한이 없거나 'N' or 'n'일경우 */
 		System.out.println(user.getRatingType());
-		if(user.getRatingType() == null || user.getRatingType().equalsIgnoreCase("NAN")) {
+		if(user.getRatingType() == null || user.getRatingType().equalsIgnoreCase("ROLE_N")) {
 			System.out.println("회원승인이 필요합니다");
 			throw new PermissionDeniedException("permissionDenined");
 		}

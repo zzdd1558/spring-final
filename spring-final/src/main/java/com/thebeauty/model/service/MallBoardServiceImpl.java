@@ -1,9 +1,6 @@
 package com.thebeauty.model.service;
 
-import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,27 +19,10 @@ public class MallBoardServiceImpl implements MallBoardService{
 	@Autowired
 	private UserDAO userDao;
 	
-	@Override
-	public List<BoardDTO> selectAll() {
-		// TODO Auto-generated method stub
-		List<BoardDTO> list=boardDao.selectAllboard();
-				list.sort(new Comparator<BoardDTO>() {
-
-			@Override
-			public int compare(BoardDTO o1, BoardDTO o2) {
-				// TODO Auto-generated method stub
-				return o1.getBoardIdx()-o2.getBoardIdx();
-			}
-		});
-		
-				
-		
-		return list;
-	}
+	
 
 
 	@Override
-	@Transactional
 	public int insertBoard(BoardDTO dto) {
 		dto.setBoardIdx(boardGetIdx()+1);
 		dto.setBoardReRef(dto.getBoardIdx());
@@ -80,8 +60,8 @@ public class MallBoardServiceImpl implements MallBoardService{
 
 
 	@Override
-	public List<BoardDTO> listAll(int start, int end){
-			return boardDao.listAll(start, end);
+	public List<BoardDTO> listAll(int start, int end,int prodIdx){
+			return boardDao.listAll(start, end,prodIdx);
 	}
 
 
@@ -100,6 +80,12 @@ public class MallBoardServiceImpl implements MallBoardService{
 	@Override
 	public String boardUserName(int userKey) {
 		return userDao.userNameSelect(userKey);
+	}
+
+	@Override
+	public int boardSelectCnt(int prodIdx) {
+		// TODO Auto-generated method stub
+		return boardDao.selectAllCount(prodIdx);
 	}
 
 

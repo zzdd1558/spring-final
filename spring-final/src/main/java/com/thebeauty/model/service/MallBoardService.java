@@ -8,7 +8,7 @@ import com.thebeauty.model.domain.BoardDTO;
 public interface MallBoardService {
 
 	/*board list*/
-	public abstract List<BoardDTO> selectAll();
+	public abstract int boardSelectCnt(int prodIdx);
 	/*board insertBoard*/
 	public abstract int insertBoard(BoardDTO dto);
 	/*board insertReply*/
@@ -18,7 +18,7 @@ public interface MallBoardService {
 	/*board detail*/
 	public abstract BoardDTO selectOneBoard(int boardIdx);
 	/*board list page*/
-	public List<BoardDTO> listAll(int start, int end);
+	public List<BoardDTO> listAll(int start, int end,int prodIdx);
 	/*board detail delete*/
 	public abstract int deleteBoard(BoardDTO dto);
 	/*board detail update*/

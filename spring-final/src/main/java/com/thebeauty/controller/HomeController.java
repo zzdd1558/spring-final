@@ -35,10 +35,9 @@ public class HomeController {
 		
 		
 		HttpSession session = request.getSession();
-		System.out.println(session);
 		
 		if(auth != null) {
-			session.setAttribute("user", ((UserDTO)auth.getPrincipal()).getUserId());
+			session.setAttribute("user", ((UserDTO)auth.getPrincipal()));
 		}
 		
 		ObjectMapper mapper=new ObjectMapper();
