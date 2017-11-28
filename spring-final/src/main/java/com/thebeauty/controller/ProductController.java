@@ -63,7 +63,7 @@ public class ProductController{
 		return "test";
 	}
 	
-	
+	 
 	@RequestMapping(value = "productView.do", method = RequestMethod.GET)
 	public ModelAndView productView(
 			@RequestParam int subTypeIdx,
