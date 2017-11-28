@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -106,6 +108,28 @@
 		}
 		document.getElementsByTagName('select')[1].innerHTML = result;
 	}
+
+
+	function disabledAlert(){
+		alert("로그인이 필요한 기능입니다. 로그인 창으로 이동합니다.");
+		$('#myModal88').modal();
+	}
+	
+	
+	
+	function changePrice(){
+	    let prodBox = document.getElementById('prodBox');
+	    let sum = 0;
+	    let prodNodes = prodBox.getElementsByClassName('prd_cnt_box');
+	    let prodPrice = document.getElementById('subPrice').value;
+
+	    for (let i = 0; i< prodNodes.length; i++){
+	        sum += Number(prodPrice) * Number(prodNodes[i].lastElementChild.firstElementChild.children[1].firstChild.innerHTML);
+	    }
+
+	    document.getElementById('prodTotalPrice').innerHTML = sum;
+	}
+	
 </script>
 </head>
 <body>
@@ -173,7 +197,7 @@
 				<!-- //zooming-effect -->
 			</div>
 			<div class="col-md-6 single-right">
-				<h3>${prd.cosmName}</h3>
+				<h3 id='prodTitle'>${prd.cosmName}</h3>
 				<h5>${prd.prodIntroduce}</h5>
 				<br>
 				<ul>
@@ -212,17 +236,23 @@
 									    let thisNode = event;
 									    let childNode = thisNode.previousElementSibling.childNodes[0];
 									    childNode.innerHTML = Number(childNode.innerHTML) + 1;
+									    
+									    changePrice();
 									}
-
+									
 									/** minus 버튼 클릭시 발생할 이벤트 */
 									function decrementProductValue(event){
 									    let thisNode = event;
 									    let childNode = thisNode.nextElementSibling.childNodes[0];
 									    if(childNode.innerHTML <= 1){
-									        childNode.innerHTML = 1;
+									        if(confirm('해당 상품을 빼시겠습니까?')){
+									        	event.parentElement.parentElement.parentElement.remove();	
+									        }
+									    	
 									    }else{
 									        childNode.innerHTML = Number(childNode.innerHTML) - 1;
 									    }
+									    changePrice();
 									}
 									
 									
@@ -254,6 +284,8 @@
 											}
 											
 										}
+										
+										changePrice();
 									}
 									
 									function purchase(){
@@ -269,16 +301,30 @@
 
 				<div class="prd_total_price">
 					<span style="float: left; font-size: 21px; padding-top: 10px;">상품금액
-						합계</span> <span style="float: right; font-size: 30px;"><span>${price}</span>원</span>
+						합계</span> <span style="float: right; font-size: 30px;"><span
+						id='prodTotalPrice'>0</span>원</span>
 				</div>
 
-				<div class="btn-box">
-					<button class="prd-btn btn btn-default btn-lg"
-						onclick='addCartItem();'>장바구니</button>
-					<button class="prd-btn btn btn-default btn-lg"
-						onclick="purchase();document.getElementById('demobox').submit();">구매하기</button>
-					<button class="favor-btn btn btn-default btn-lg">찜하기</button>
-				</div>
+				<sec:authorize access="! isAuthenticated()">
+					<div class="btn-box">
+						<button class="prd-btn btn btn-default btn-lg"
+							onclick='disabledAlert();'>장바구니</button>
+						<button class="prd-btn btn btn-default btn-lg"
+							onclick="disabledAlert();">구매하기</button>
+						<button class="favor-btn btn btn-default btn-lg">찜하기</button>
+					</div>
+
+				</sec:authorize>
+				<sec:authorize access="isAuthenticated()">
+					<div class="btn-box">
+						<button class="prd-btn btn btn-default btn-lg"
+							onclick='addCartItem();'>장바구니</button>
+						<button class="prd-btn btn btn-default btn-lg"
+							onclick="purchase();document.getElementById('demobox').submit();">구매하기</button>
+						<button class="favor-btn btn btn-default btn-lg">찜하기</button>
+					</div>
+				</sec:authorize>
+
 				<script type="text/javascript">
 				function purchase(){
 					var b=document.getElementsByName('codeOfProd');
@@ -341,7 +387,6 @@
 						  }
 					}
 					
-					
 					$('#horizontalTab1').easyResponsiveTabs({
 						type: 'default', //Types: default, vertical, accordion           
 						width: 'auto', //auto or any width like 600px
@@ -355,6 +400,7 @@
 				function addCartItem() {
 				    let prodForm = document.getElementById('prodBox');
 				    let prodIdx = prodForm.children[0].value;
+				    let prodTitle = document.getElementById('prodTitle').innerHTML;
 				    let subTypeIdx = prodForm.children[1].value;
 				    let price = prodForm.children[2].value;
 				    let childProd = prodForm.getElementsByClassName('prd_cnt_box');
@@ -377,9 +423,11 @@
 				                quantity: childProd[i].children[2].children[0].children[1].firstChild.innerHTML,
 				            };
 				        }
-				        localStorage.setItem('cartList', JSON.stringify(product(subTypeIdx, prodIdx, price, option, list)));
-				        alert('상품이 추가되었습니다.');
+				        localStorage.setItem('cartList', JSON.stringify(product(subTypeIdx, prodIdx, price, option, list,prodTitle)));
+				        alert('상품을 담았습니다.');
 				    }
+				    
+				    changeCartView();
 				}
 
 				/** subTypeIdx, prodIdx , 가격 , 옵션별 object 수.*/
@@ -389,6 +437,7 @@
 				    list[kindsOfCosmetic[Math.floor(Number(args[0]) / 100) - 1] + '_' + args[0] + '_' + args[1]] = {
 				        price: args[2],
 				        option: args[3],
+				        prodTitle : args[5],
 				        image: Math.floor(Number(args[0]) / 100) + '/' + args[0] + '/' + args[1] + '/' + args[0] + '_' + args[1]
 				    };
 
