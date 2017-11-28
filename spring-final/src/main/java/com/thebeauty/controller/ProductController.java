@@ -60,7 +60,7 @@ public class ProductController{
 		for (int a : codeOfProd) {
 			System.out.println(a);
 		}
-		return "test";
+		return "detailView";
 	}
 	
 	 
