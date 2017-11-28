@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<script>
+    // **원하는 페이지로 이동시 검색조건, 키워드 값을 유지하기 위해 
+    function list(page){
+        location.href="BoardListform.do?curPage="+page;
+    }
+</script>
 <style>
-#dropzone {
+	#dropzone {
 	border: 2px dotted #3292A2;
 	height: 50px;
 	color: #92AAB0;
@@ -14,15 +15,6 @@
 	font-size: 24px;
 }
 </style>
-<title>게시글 목록</title>
-<script>
-    // **원하는 페이지로 이동시 검색조건, 키워드 값을 유지하기 위해 
-    function list(page){
-        location.href="BoardListform.do?curPage="+page;
-    }
-</script>
-</head>
-<body>
 <c:forEach var="board" items="${map.list}">
                      <div class="additional_info_sub_grids">
 				<div class="col-xs-2 additional_info_sub_grid_left">
@@ -73,5 +65,3 @@
 								<input type="submit" value="Submit" >
 							</form>
 						</div>
-</body>
-</html>

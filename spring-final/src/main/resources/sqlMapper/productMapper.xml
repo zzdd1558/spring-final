@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="productMapper">
-	 <resultMap type="ProductImagePathDTO" id="imgResultMap">
+	 <resultMap type="productImagePathDTO" id="imgResultMap">
 	 	<id column="NUM_OF_PROD_IDX" property="numOfProdIdx"/>
 	 	<result column="CODE_OF_PROD" property="codeOfProd"/>
 	 	<result column="PATH_OF_IMAGE" property="pathOfImage"/>
 	 </resultMap>
 	 
-	 <resultMap type="KindsOfProductTypeDTO" id="prdOptionReultMap">
+	 <resultMap type="kindsOfProductTypeDTO" id="prdOptionReultMap">
 	 	<id column="CODE_OF_PROD" property="codeOfProd"/>
 	 	<result column="PROD_IDX" property="prodIdx"/>
 	 	<result column="PROD_COUNT" property="prodCount"/>

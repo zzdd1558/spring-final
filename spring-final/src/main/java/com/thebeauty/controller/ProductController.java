@@ -4,7 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,6 +20,7 @@ import com.thebeauty.model.domain.CosmeticMainTypeDTO;
 import com.thebeauty.model.domain.CosmeticProductDTO;
 import com.thebeauty.model.domain.KindsOfProductTypeDTO;
 import com.thebeauty.model.domain.ProductImagePathDTO;
+import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.service.ProductService;
 
 @Controller
@@ -30,6 +34,8 @@ public class ProductController{
 	public ModelAndView boardWriteForm(@RequestParam int prodIdx) { /*int productNum*/
 		ModelAndView mv=new  ModelAndView("detailView");
 		ObjectMapper mapper=new ObjectMapper();
+		
+		/*로그인시 유저 id 받아오기*/
 		
 		CosmeticProductDTO dto=service.selectAllByProdIdx(prodIdx);
 		CosmeticMainTypeDTO mainTypeDTO=service.mainTypeIdx(dto.getSubTypeIdx());
