@@ -9,6 +9,34 @@
 <%@taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <script>
+	
+	/** 상품추가할때마다 가격 및 상품 갯수 변경 */
+	function changeCartView() {
+		var totalCnt = 0;
+		var totalPrice = 0;
+		var items = JSON.parse(localStorage.getItem('cartList'));
+		for (key in items) {
+			console.log(key);
+			for (subKey in items[key].option) {
+				totalCnt += parseInt(items[key].option[subKey].quantity);
+				totalPrice += items[key].price * parseInt(items[key].option[subKey].quantity);
+			}
+		}
+		document.getElementById('prod_total_price').innerHTML = totalPrice;
+		document.getElementById('prod_total_quantity').innerHTML = totalCnt;
+		
+
+	}
+
+	
+	/** 세션 스토리지 비우기*/
+	function removeCartIteamAll() {
+
+		localStorage.removeItem('cartList');
+		changeCartView();
+		alert("장바구니를 비웠습니다.");
+	}
+
 	function checkWebStorageAvailable() {
 		try {
 			if (!localStorage) {
@@ -236,16 +264,15 @@
 			</div>
 		</div>
 		<div class="cart box_1">
-			<a href="${pageContext.request.contextPath}/static/checkout.jsp">
+			<a href="${pageContext.request.contextPath}/static/cartListView.jsp">
 				<div class="total">
-					<span class="simpleCart_total"></span> (<span
-						id="simpleCart_quantity" class="simpleCart_quantity"></span>
-					items)
+					<span id="prod_total_price">0</span>원 (<span
+						id="prod_total_quantity">0</span> 개의 상품)
 				</div> <img src="${pageContext.request.contextPath}/images/test/bag.png"
 				alt="" />
 			</a>
 			<p>
-				<a href="javascript:;" class="simpleCart_empty">Empty Cart</a>
+				<a href="javascript:;" onclick='removeCartIteamAll();' style='color: black;    float: right;    margin: 5px 0;'>상품 비우기</a>
 			</p>
 			<div class="clearfix"></div>
 		</div>
@@ -306,3 +333,6 @@
 		</nav>
 	</div>
 </div>
+<script>
+changeCartView();
+</script>

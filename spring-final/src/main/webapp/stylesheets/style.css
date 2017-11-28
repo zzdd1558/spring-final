@@ -2598,7 +2598,7 @@ td.invert-image a img {
 }
 .checkout-right-basket{
 	float: right;
-    margin: 8em 0 0 0em;
+    margin: 2em 0 0 1em;
 }
 .checkout-left-basket ul li span {
     float: right;
