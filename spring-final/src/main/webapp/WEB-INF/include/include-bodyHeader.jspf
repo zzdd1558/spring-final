@@ -1,3 +1,6 @@
+<%@page import="org.springframework.security.core.userdetails.User"%>
+<%@page import="javax.mail.Session"%>
+<%@page import="com.sun.xml.internal.bind.CycleRecoverable.Context"%>
 <%@page import="com.thebeauty.model.domain.UserDTO"%>
 <%@page
 	import="org.springframework.security.core.context.SecurityContextHolder"%>
@@ -197,14 +200,7 @@
 <div class="header">
 	<div class="container">
 
-		<sec:authorize access="isAuthenticated()">
-			<sec:authorize access='hasRole("ADMIN")'>
-				<div class="w3l_login">
-					<a href="#" data-toggle="modal" data-target="#myModal88"> has
-						loweof</a>
-				</div>
-			</sec:authorize>
-		</sec:authorize>
+
 
 		<sec:authorize access="isAuthenticated()">
 			<div class="w3l_login">
@@ -223,9 +219,9 @@
 
 		<div class="w3l_logo">
 			<h1 style="text-align: center;">
-				<a  href="${pageContext.request.contextPath}">The beauty
-				<div style="height:10px"></div>
-				<span>All about Cosmetic</span></a>
+				<a href="${pageContext.request.contextPath}">The beauty
+					<div style="height: 10px"></div> <span>All about Cosmetic</span>
+				</a>
 			</h1>
 		</div>
 		<div class="search">
@@ -288,6 +284,23 @@
 					<li><a
 						href="${pageContext.request.contextPath}/static/mail.jsp">Mail
 							Us</a></li>
+
+
+					<sec:authorize access="isAuthenticated()">
+						<sec:authorize access='hasRole("ROLE_A")'>
+							<li><a
+								href="${pageContext.request.contextPath}/admin/index.do">
+									Admin Page </a></li>
+						</sec:authorize>
+					</sec:authorize>
+
+					<sec:authorize access="isAuthenticated()">
+						<sec:authorize access='! hasRole("ROLE_A")'>
+							<li><a
+								href="${pageContext.request.contextPath}/user/index.do">My
+									Page</a></li>
+						</sec:authorize>
+					</sec:authorize>
 				</ul>
 			</div>
 		</nav>
