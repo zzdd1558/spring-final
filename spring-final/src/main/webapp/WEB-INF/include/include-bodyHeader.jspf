@@ -61,7 +61,7 @@
 													value="${_csrf.token}" /> <input name="user_name"
 													placeholder="아이디" type="text" required=""> <input
 													name="user_password" placeholder="비밀번호" type="password"
-													required="">
+													required="" style="font-family: sans-serif;">
 												<div class="col-sm-12 text-right" style="margin-top: 1em;">
 													<a
 														href="${pageContext.request.contextPath}/static/idSearch.jsp">아이디
