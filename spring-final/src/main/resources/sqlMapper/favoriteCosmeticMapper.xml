@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="favoriteMapper">
+	 
+	<resultMap type="favoriteCosmeticDTO" id="favoriteResultMap">
+		<result column="PROD_IDX" property="prodIdx"/>
+		<result column="USER_KEY" property="userKeyPkFk"/>
+	</resultMap>
+	
+	<select id="favoriteSelectAll" resultMap="favoriteResultMap">
+		SELECT * FROM FAVORITE_COSMETIC_TB ORDER BY PROD_IDX
+	</select>
+	
+</mapper>

@@ -19,6 +19,11 @@
 		<result column="RATING_TYPE" property="ratingType" />
 		<result column="QUESTION_KEY" property="questionKey" />
 	</resultMap>
+	
+	<!--  모든 회원 정보 가져오기 -->
+	<select id="userSearchAll" resultMap="userResultMap">
+		SELECT * FROM USER_TB
+	</select>
 
 	<!-- 회원 insert하는 부분 -->
 	<insert id="insertUser" parameterType="userDTO"  >

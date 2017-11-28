@@ -421,7 +421,7 @@
 						href="${pageContext.request.contextPath}/static/about.jsp">About
 							Us</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/static/short-codes.jsp">Short
+						href="${pageContext.request.contextPath}/static/admin.jsp">Short
 							Codes</a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/static/mail.jsp">Mail

@@ -1,11 +1,16 @@
 package com.thebeauty.model.dao;
 
+import java.util.List;
+
 import com.thebeauty.model.domain.UserDTO;
 
 public interface UserDAO {
 	
 	/** 회원 가입*/
 	public abstract int userJoin(UserDTO user);
+	
+	/** 모든 회원 가져오기*/
+	public abstract List<UserDTO> userSearchAll();
 	
 	/** maxIdx 가져오기 */
 	public abstract int getUserMaxIdx();
