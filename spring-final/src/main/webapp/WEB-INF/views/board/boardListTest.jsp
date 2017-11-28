@@ -16,14 +16,12 @@
 <c:forEach var="board" items="${map.list}">
                      <div class="additional_info_sub_grids">
 				<div class="col-xs-2 additional_info_sub_grid_left">
-					<c:set value="dinfree" var="msg"/>
-  						 msg : ${msg} <br>
-  						 <c:if test="${msg == 'dinfree'}" var="result">
-  						 test result = ${result } <br>
+  						 <c:if test="${true}" >
+					<img src="${pageContext.request.contextPath}/images/women.png" alt=" " class="img-circle" />
   						 </c:if>
-
-					<img src="${pageContext.request.contextPath}/images/men.png" alt=" " class="img-responsive" />
-					<img src="${pageContext.request.contextPath}/images/men.png" alt=" " class="img-responsive" />
+  						 <c:if test="${false}" >
+					<img src="${pageContext.request.contextPath}/images/women.png" alt=" " class="img-circle" />
+  						 </c:if>
 				</div>
 				<div class="col-xs-10 additional_info_sub_grid_right">
 					<div class="additional_info_sub_grid_rightl">

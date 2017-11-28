@@ -7,14 +7,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 html, body{
     font-size: 100%;
 	background:	#fff;
-	font-family: 'Jeju Gothic', serif;
+	font-family:  ¡®Nanum Gothic Coding¡¯,sans-serif;
 }
 p{
 	margin:0;
 	font-size:14px;
 }
 h1,h2,h3,h4,h5,h6{
-	font-family: 'Jeju Gothic', serif;
+	font-family:  ¡®Nanum Gothic Coding¡¯, sans-serif;
 	margin:0;
 }
 ul,label{
@@ -31,6 +31,7 @@ input[type="submit"],.panel-body ul li a,.checkout-right-basket a,.additional_in
 	-moz-transition:.5s ease-in-out;
 	-o-transition:.5s ease-in-out;
 }
+
 .header {
     padding: 2em 0 0;
 }

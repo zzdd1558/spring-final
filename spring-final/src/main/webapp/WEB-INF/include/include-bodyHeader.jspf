@@ -61,7 +61,7 @@
 													value="${_csrf.token}" /> <input name="user_name"
 													placeholder="아이디" type="text" required=""> <input
 													name="user_password" placeholder="비밀번호" type="password"
-													required="" style="font-family: sans-serif;">
+													required="">
 												<div class="col-sm-12 text-right" style="margin-top: 1em;">
 													<a
 														href="${pageContext.request.contextPath}/static/idSearch.jsp">아이디
@@ -216,8 +216,9 @@
 
 		<div class="w3l_logo">
 			<h1 style="text-align: center;">
-				<a href="${pageContext.request.contextPath}">The beauty<span>All
-						about Cosmetic</span></a>
+				<a  href="${pageContext.request.contextPath}">The beauty
+				<div style="height:10px"></div>
+				<span>All about Cosmetic</span></a>
 			</h1>
 		</div>
 		<div class="search">
