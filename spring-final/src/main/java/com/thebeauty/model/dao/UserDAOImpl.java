@@ -66,7 +66,13 @@ public class UserDAOImpl implements UserDAO{
 	@Override
 	public List<UserDTO> userSearchAll() {
 		return sqlSession.selectList("userMapper.userSearchAll");
-	}
 	
+	}
+		
+	/** user이름 가져오기*/
+	@Override
+	public String userNameSelect(int userKey) {
+		return sqlSession.selectOne("userMapper.userNameSelect", userKey);
+	}
 	
 }

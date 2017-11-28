@@ -14,6 +14,15 @@
 	 	<collection  property="subTypeList" resultMap="subTypeResultMap"/>
 	</resultMap>
 	
+	<select id="mainTypeSelect" parameterType="int" resultMap="MainTypeResultMap">
+		SELECT COSM_MAIN.* 
+		FROM  COSMETIC_MAIN_TYPE_TB COSM_MAIN 
+	    	  
+	    	  INNER JOIN COSMETIC_SUB_TYPE_TB COSM_SUB
+	    	  ON COSM_MAIN.MAIN_TYPE_IDX = COSM_SUB.MAIN_TYPE_IDX
+	    
+	    WHERE SUB_TYPE_IDX=#{subTypeIdx}
+	</select>
 	
 	<select id="categorySelect" resultMap="MainTypeResultMap">
 		SELECT  COSM_MAIN.*,COSM_SUB.*
@@ -22,14 +31,5 @@
 	    	ON COSM_MAIN.MAIN_TYPE_IDX = COSM_SUB.MAIN_TYPE_IDX
 	    ORDER BY COSM_MAIN.MAIN_TYPE_IDX ASC , COSM_SUB.SUB_TYPE_IDX ASC
 	</select>
-	
-	<select id="mainTypeName"  parameterType="int" resultMap="subTypeResultMap">
-		SELECT  COSM_MAIN.MAIN_NAME
-	    FROM COSMETIC_MAIN_TYPE_TB COSM_MAIN 
-	    	INNER JOIN COSMETIC_SUB_TYPE_TB COSM_SUB
-	    	ON COSM_MAIN.MAIN_TYPE_IDX = COSM_SUB.MAIN_TYPE_IDX
-	    WHERE SUB_TYPE_IDX=#{subTypeIdx}
-	</select>
-	
 	
 </mapper>

@@ -1,8 +1,9 @@
 package com.thebeauty.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,8 @@ import com.thebeauty.model.dao.QuestionDAO;
 import com.thebeauty.model.dao.UserDAO;
 import com.thebeauty.model.domain.CommentDTO;
 import com.thebeauty.model.domain.CosmeticProductDTO;
+import com.thebeauty.model.domain.KindsOfProductTypeDTO;
+import com.thebeauty.model.domain.ProductImagePathDTO;
 import com.thebeauty.model.domain.QuestionDTO;
 import com.thebeauty.model.domain.UserDTO;
 
@@ -76,11 +79,14 @@ public class AjaxController {
 	
 	/*prdList page Modal에 Ajax 적용*/
 	@RequestMapping(value="/prdModal.do",method=RequestMethod.GET)
-	public @ResponseBody CosmeticProductDTO prdModal(@RequestParam int prodIdx){
+	public @ResponseBody Map<String,Object> prdModal(@RequestParam int prodIdx){
+		Map<String,Object> map=new HashMap<>();
 		CosmeticProductDTO dto=productDAO.selectAllByProdIdx(prodIdx);
-		System.out.println(dto);
+		map.put("prd", dto);
+		List<ProductImagePathDTO> imgList=productDAO.codeImgSelect(dto.getOptionlist().get(0).getCodeOfProd()); 
+		map.put("imgIdx",imgList.get(0));
 		
-		return dto;
+		return map;
 	}
 	
 	

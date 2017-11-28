@@ -16,8 +16,8 @@ class SocialShareType{
         };
 
         /* 현재 아이템의 url을 얻어오는 부분 원래는 location.href 이어야 하나 localhost를 지원하지 않아 임의로 작성 */
-        this.href = 'https://www.naver.com';
-
+//        this.href = location.href;
+          this.href="https://www.naver.com/";
         /* social type 별 url을 저장한 리터럴 변수. */
         this.socialURL = {
             /* localhost.href로 하면 localhost라 지원 안함. */

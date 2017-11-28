@@ -42,7 +42,7 @@
 				<!--==================sorting 분류!!==================-->
 					<div class="w3ls_dresses_grid_right_grid2">
 						<div class="w3ls_dresses_grid_right_grid2_left">
-							<h3>Showing Results: 0-1</h3>
+							<h3>Showing Results: 1 ~ ${listSize}</h3>
 						</div>
 						<div class="w3ls_dresses_grid_right_grid2_right">
 							<select name="select_item" class="select_item">
@@ -89,15 +89,43 @@
 						    	var resData=this.responseText;
 						    	resData=JSON.parse(resData);
 						    	console.log(resData);
-						    	console.log(resData.cosmName);
-						    	console.log(resData.prodIntroduce);
-						    	console.log(resData.prodInfoType);
-								for(i=0;i<resData.optionlist.length;i++){
-									console.log(resData.optionlist[i].imgDTO.pathOfImage);
-									var a=resData.optionlist[i].imgDTO.pathOfImage;
-									document.getElementById('mdoalTest').innerHTML+='${imgMap[map['+resData.prdIdx+'][0].codeOfProd].pathOfImage}<br>';
-									document.getElementById('mdoalTest').innerHTML+=a+"<br>";
-								}							
+									var result='<div class="col-md-5 modal_body_left">';
+									result+='<div class="rating">';
+									for(i=0;i<4;i++){
+										result+='<div class="rating-left">';
+										result+='<img src="/final/images/test/star-.png" alt=" " class="img-responsive">';
+										result+='</div>';										
+										}
+									result+='<div class="rating-left">';
+									result+='<img src="/final/images/test/star.png" alt=" " class="img-responsive">';
+									result+='</div>';
+									result+='<div class="clearfix"> </div>';
+									result+='</div>';
+									result+='<img src="/final/images/cosmetic/${mainTypeIdx}/'+resData.prd.subTypeIdx+'/'+resData.prd.prodIdx+'/'+resData.imgIdx.pathOfImage+'.png" alt=" " class="img-responsive">';
+									result+='</div>';
+									result+='<div class="col-md-7 modal_body_right">';
+									result+='<h3>'+resData.prd.cosmName+'</h3>';
+									result+='<p>'+resData.prd.prodIntroduce+'</p>';
+									result+='<div style="width:100%;">';
+									for(i=0;i<resData.prd.optionlist.length;i++){
+										var img=resData.prd.optionlist[i].imgDTO.pathOfImage;
+										var length=resData.prd.optionlist.length;
+										if(length==1){
+											continue;
+										}else if(length<=5){
+										result+='<img src="/final/images/cosmetic/${mainTypeIdx}/'+resData.prd.subTypeIdx+'/'+resData.prd.prodIdx+'/'+img+'.png" style="width:33%">';
+										}else{
+										result+='<img src="/final/images/cosmetic/${mainTypeIdx}/'+resData.prd.subTypeIdx+'/'+resData.prd.prodIdx+'/'+img+'.png" style="width:'+(100/(length-4))+'%">';	
+										}
+									}
+									result+='</div>';
+									result+='<div class="modal_body_right_cart simpleCart_shelfItem" style="text-align: right;">';
+									result+='<p><i class="item_price">'+resData.prd.optionlist[0].prodPrice+'</i>원</p>';
+									result+='<p><a class="item_add" href="${pageContext.request.contextPath}/product/prdDetail.do?prodIdx='+resData.prd.prodIdx+'">상세보기</a></p>';
+									result+='</div>';
+									result+='</div>';	
+									result+='<div class="clearfix"> </div>';	
+									document.getElementById('modalTest').innerHTML=result;
 						    }
 						}
 						function prdDetail(prodIdx){
@@ -112,9 +140,7 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>						
 								</div>
 								<section>
-									<div class="modal-body" id='mdoalTest'>
-										<div class="clearfix"> </div>
-									</div>
+									<div class="modal-body" id='modalTest'></div>
 								</section>
 							</div>
 						</div>

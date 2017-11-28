@@ -19,6 +19,7 @@
 		<result column="USER_KEY" property="boardUserKey" />
 	</resultMap>
 
+
 	<select id="boardSearch" parameterType="int" resultMap="boardResultMap">
 		SELECT *
 		FROM BOARD_TB WHERE BOARD_IDX =#{boardIdx}

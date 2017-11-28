@@ -29,4 +29,7 @@ public interface UserDAO {
 	
 	/** 비밀번호 변경 */
 	public abstract int changePassword(UserDTO user);
+	
+	/** 이름 알아오기*/
+	public abstract String userNameSelect(int userKey);
 }

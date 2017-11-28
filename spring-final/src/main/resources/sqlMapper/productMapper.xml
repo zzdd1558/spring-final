@@ -31,14 +31,13 @@
 		<collection property="optionList" resultMap="prdOptionReultMap"></collection>
 	</resultMap>
 	
-	<select id="idxImgSelect" resultMap="imgResultMap">
+	<select id="codeImgSelect" resultMap="imgResultMap">
 		SELECT * 
 		FROM  PRODUCT_IMAGE_PATH_TB 
 		WHERE CODE_OF_PROD=#{codeOfProd} 
 		ORDER BY NUM_OF_PROD_IDX
 	</select>
-	
-	
+
 	<select id="productSelectAll" resultMap="productResultMap">
 		SELECT * FROM COSMETIC_PRODUCT_TB 
 		WHERE SUB_TYPE_IDX = #{subTypeIdx}

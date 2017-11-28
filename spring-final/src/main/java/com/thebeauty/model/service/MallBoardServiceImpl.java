@@ -1,13 +1,16 @@
 package com.thebeauty.model.service;
 
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.thebeauty.model.dao.MallBoardDAO;
+import com.thebeauty.model.dao.UserDAO;
 import com.thebeauty.model.domain.BoardDTO;
 
 @Service
@@ -16,11 +19,12 @@ public class MallBoardServiceImpl implements MallBoardService{
 	@Autowired
 	private MallBoardDAO boardDao;
 	
+	@Autowired
+	private UserDAO userDao;
 	
 	@Override
 	public List<BoardDTO> selectAll() {
 		// TODO Auto-generated method stub
-			
 		List<BoardDTO> list=boardDao.selectAllboard();
 				list.sort(new Comparator<BoardDTO>() {
 
@@ -30,6 +34,8 @@ public class MallBoardServiceImpl implements MallBoardService{
 				return o1.getBoardIdx()-o2.getBoardIdx();
 			}
 		});
+		
+				
 		
 		return list;
 	}
@@ -88,6 +94,12 @@ public class MallBoardServiceImpl implements MallBoardService{
 	@Override
 	public int updateBoard(BoardDTO dto) {
 		return boardDao.updateBoard(dto);
+	}
+
+
+	@Override
+	public String boardUserName(int userKey) {
+		return userDao.userNameSelect(userKey);
 	}
 
 

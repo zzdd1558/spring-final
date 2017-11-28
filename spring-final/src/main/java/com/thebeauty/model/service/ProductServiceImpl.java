@@ -32,14 +32,17 @@ public class ProductServiceImpl implements ProductService {
 		return dao.categorySelect();
 	}
 
-	@Override
-	public String mainTypeName(int subTypeIdx) {
-		return dao.mainTypeName(subTypeIdx);
-	}
+	
 
 	@Override
-	public List<ProductImagePathDTO> idxImgSelect(int codeOfProd) {
-		return dao.idxImgSelect(codeOfProd);
+	public List<ProductImagePathDTO> codeImgSelect(int codeOfProd) {
+		return dao.codeImgSelect(codeOfProd);
+	}
+
+	
+	@Override
+	public CosmeticMainTypeDTO mainTypeIdx(int subTypeIdx) {
+		return dao.mainTypeIdx(subTypeIdx);
 	}
 	
 

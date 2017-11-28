@@ -10,8 +10,12 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +29,7 @@ import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.domain.UserTokenDTO;
 import com.thebeauty.model.service.UserIdSearchServiceImpl;
 import com.thebeauty.model.service.UserJoinServiceImpl;
+import com.thebeauty.rating.Constants;
 import com.thebeauty.utils.MailService;
 
 /**
@@ -44,9 +49,6 @@ public class UserAuthController {
 	@Autowired
 	UserIdSearchServiceImpl userIdSearchService;
 	
-	@Autowired
-	private UserDAO userDao;
-
 	/* alert 페이지 */
 	private String url = "redirect:/static/handler/HandlerPage.jsp?Message=";
 
@@ -67,6 +69,7 @@ public class UserAuthController {
 		byte[] userToken = token.getBytes("UTF-8");
 		String encodeToken = encoder.encodeToString(userToken);
 		String msg = "";
+		user.setRatingType(Constants.NAN);
 		/** 회원 가입 */
 		int createToken = userJoinService.userJoin(user, encodeToken);
 
@@ -287,6 +290,17 @@ public class UserAuthController {
 		return returnUrl;
 	}
 
+	@RequestMapping(value="/logout.do", method = RequestMethod.GET)
+	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+		System.out.println(1);
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    if (auth != null){    
+	        new SecurityContextLogoutHandler().logout(request, response, auth);
+	    }
+	    return "redirect:/";
+	}
+
+
 	/* get방식 쿼리스트잉의 한글 처리 */
 	public String encodeMsg(String msg) throws UnsupportedEncodingException {
 		String encodeMsg = URLEncoder.encode(msg, "UTF-8");
@@ -308,13 +322,4 @@ public class UserAuthController {
 		}).start();
 	}
 	
-	/* 관리자 권한으로 모든 고객정보 가져오기*/
-	@RequestMapping("userList.do")
-	public String userAllSearch() {
-		ModelAndView mv = new ModelAndView("admin/userCon");
-		List<UserDTO> list = userDao.userSearchAll();
-		
-		return "userCon";
-	}
-
 }

@@ -26,7 +26,14 @@
 				result+='<div class="panel-body panel_text">';
 				result+='<ul>';
 						for(j=0;j<categoryList[i].subTypeList.length;j++){
-							result+='<li><a href="dresses.html">'+categoryList[i].subTypeList[j].subTypeName+'</a></li>';
+							var mainTypeIdx;
+							if((categoryList[i].subTypeList[j].subTypeIdx+"").length===3) {
+								mainTypeIdx=(categoryList[i].subTypeList[j].subTypeIdx+"").substring(0,1);
+							}
+							else{
+								mainTypeIdx=(categoryList[i].subTypeList[j].subTypeIdx+"").substring(0,2);
+							}
+							result+='<li><a href="/final/product/productView.do?mainTypeIdx=' + mainTypeIdx + '&subTypeIdx=' + categoryList[i].subTypeList[j].subTypeIdx+'">'+categoryList[i].subTypeList[j].subTypeName+'</a></li>';
 						}
 				result+='</ul>';
 				result+='</div>';

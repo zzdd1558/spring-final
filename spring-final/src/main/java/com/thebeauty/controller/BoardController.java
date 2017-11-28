@@ -35,19 +35,21 @@ public class BoardController {
 	//boardList form 구현
 		@RequestMapping(value = "BoardListform.do", method = RequestMethod.GET)
 		public ModelAndView boardList(@RequestParam(defaultValue="1") int curPage) {
-			ModelAndView mv=new ModelAndView("board/boardList");
+			ModelAndView mv=new ModelAndView("board/boardListTest");
 			List<BoardDTO> list=boardService.selectAll();
 			int count=list.size();
 			BoardPager boardPager = new BoardPager(count, curPage);
 		    int start = boardPager.getPageBegin();
 		    int end = boardPager.getPageEnd();
 		    list=boardService.listAll(start,end);
-		    
-		    
-			Map<String, Object> map = new HashMap<String, Object>();
+		    Map<String, Object> map = new HashMap<String, Object>();
+		    for (BoardDTO boardDTO : list) {
+		    	map.put("userKey"+boardDTO.getBoardUserKey(),boardService.boardUserName(boardDTO.getBoardUserKey()));
+		    }
 		    map.put("list", list); // list
 		    map.put("count", count); // 레코드의 갯수
 		    map.put("boardPager", boardPager);
+		    System.out.println(map);
 			mv.addObject("list", list);
 			mv.addObject("map", map);
 			return mv;
