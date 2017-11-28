@@ -1,35 +1,34 @@
 <%@ page pageEncoding="utf-8"%>
+<%@taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <script>
-        function checkWebStorageAvailable() {
-                try {
-                        if (!localStorage) {
-                                return "브라우저에서 localStorage를 지원하지 않습니다. 장바구니 기능을 사용하실수 없습니다.";
-                        }
-                }catch ( exception ){
-                        return exception + "발생으로 장바구니 사용 불가";
-                }
-        }
-
-        var storageMsg = checkWebStorageAvailable();
-
-        function getCategoryList() {
-	        if(storageMsg){
-	                alert(storageMsg);
-	        }else{
-	                if (window.sessionStorage.getItem('categoryList') != null) {
-	                        $('#category').append(window.sessionStorage.getItem('categoryList'));
-	                } else {
-	
-	                }
-	        }
-
+	function checkWebStorageAvailable() {
+		try {
+			if (!localStorage) {
+				return "브라우저에서 localStorage를 지원하지 않습니다. 장바구니 기능을 사용하실수 없습니다.";
+			}
+		} catch (exception) {
+			return exception + "발생으로 장바구니 사용 불가";
+		}
 	}
 
+	var storageMsg = checkWebStorageAvailable();
 
+	function getCategoryList() {
+		if (storageMsg) {
+			alert(storageMsg);
+		} else {
+			if (window.sessionStorage.getItem('categoryList') != null) {
+				$('#category').append(
+						window.sessionStorage.getItem('categoryList'));
+			} else {
 
+			}
+		}
 
+	}
+</script>
 
-	</script>
 <div class="modal fade" id="myModal88" tabindex="-1" role="dialog"
 	aria-labelledby="myModal88" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
@@ -193,13 +192,32 @@
 </div>
 <div class="header">
 	<div class="container">
-		<div class="w3l_login">
-			<a href="#" data-toggle="modal" data-target="#myModal88"><span
-				class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-		</div>
+		<sec:authorize access="! isAuthenticated()">
+			<div class="w3l_login">
+				<a href="#" data-toggle="modal" data-target="#myModal88"><span
+					class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+			</div>
+		</sec:authorize>
+		<sec:authorize access="isAuthenticated()">
+			<sec:authorize access="hasRole('A')">
+				<div class="w3l_login">
+					<a href="#" data-toggle="modal" data-target="#myModal88"><span
+						class="glyphicon glyphicon-user" aria-hidden="true"></span>sdojfhdskjfhsdfhdsifhdsiufdshiu</a>
+				</div>
+			</sec:authorize>
+		</sec:authorize>
+		<sec:authorize access="isAuthenticated()">
+			<div class="w3l_login">
+				<a href='${pageContext.request.contextPath}/auth/logout.do'> <span
+					class='glyphicon glyphicon-log-in' aria-hidden="true"></span>
+				</a>
+			</div>
+		</sec:authorize>
+
 		<div class="w3l_logo">
 			<h1 style="text-align: center;">
-			<a href="#">The beauty<span>All about Cosmetic</span></a>
+				<a href="${pageContext.request.contextPath}">The beauty<span>All
+						about Cosmetic</span></a>
 			</h1>
 		</div>
 		<div class="search">
@@ -252,171 +270,7 @@
 						class="dropdown-toggle" data-toggle="dropdown"
 						onclick='getCategoryList(); return false;'>Products <b
 							class="caret"></b>
-					</a> <%-- <ul class="dropdown-menu multi-column columns-3">
-							<div class="row">
-								<div class="col-sm-3">
-									<ul class="multi-column-dropdown">
-										<h6>아이</h6>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=101">윈컬러섀도우</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=102">아이섀도우</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=103">마스카라</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=104">아이라이너</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=105">아이브로우</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=106">아이프라이머</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-3">
-									<ul class="multi-column-dropdown">
-										<h6>립</h6>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=201">립스틱</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=202">립틴트</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=203">립글로스</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=204">립케어/컨실러</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=205">탑코트/케이스</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-3">
-									<ul class="multi-column-dropdown">
-										<h6>페이스</h6>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=301">쿠션</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=302">파운데이션/BB/컨실러</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=303">베이스/프라이머</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=304">파우더/팩트</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=305">컨투어링/하이라이터</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=306">치크</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-3">
-									<ul class="multi-column-dropdown">
-										<h6>네일</h6>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=401">네일컬러</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=402">네일케어</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=403">네일도구</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=404">네일리무버</a></li>
-									</ul>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="row">
-								<div class="col-sm-3">
-									<ul class="multi-column-dropdown">
-										<h6>스킨케어</h6>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=501">스킨</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=502">로션</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=503">에센스</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=504">크림</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=505">아이케어</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=506">미스트</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=507">선케어</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=508">스페셜케어</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=509">세트</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=510">남성</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-3">
-									<ul class="multi-column-dropdown">
-										<h6>팩/마스크</h6>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=601">마스크시트</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=602">마사지/수면팩</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=603">부분패치</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-3">
-									<ul class="multi-column-dropdown">
-										<h6>클렌징</h6>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=701">클렌징폼</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=702">워터/오일/크림</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=703">부분클렌징</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=704">필링/스크럽</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-3">
-									<ul class="multi-column-dropdown">
-										<h6>바디/헤어</h6>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=801">바디클렌저</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=802">바디보습</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=803">핸드/풋</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=804">제모/데오/에티켓</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=805">바디컨투어/패치</a></li>
-									</ul>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-							<div class="row">
-								<div class="col-sm-3">
-									<ul class="multi-column-dropdown">
-										<h6>향수</h6>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=901">향수</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=902">향제품</a></li>
-									</ul>
-								</div>
-								<div class="col-sm-3">
-									<ul class="multi-column-dropdown">
-										<h6>화장소품</h6>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=1001">브러쉬</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=1002">퍼프</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=1003">화장도구</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=1004">속눈썹</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=1005">파우치/공용기</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=1006">소품기타</a></li>
-										<li><a
-											href="${pageContext.request.contextPath}/product/productView.do?subTypeIdx=1007">화장솜</a></li>
-									</ul>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</ul> --%></li>
+					</a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/static/about.jsp">About
 							Us</a></li>

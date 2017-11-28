@@ -3,7 +3,7 @@ package com.thebeauty.rating;
 public class Constants {
 	
 	/* Admin 권한 */
-	public static String ADMIN = "A";
+	public static String admin = "A";
 	
 	/* 회원 승인 대기 권한 */
 	public static String memberWaiting = "N";

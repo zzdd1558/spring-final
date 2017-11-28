@@ -28,7 +28,7 @@ public class ProductController{
 	
 	@RequestMapping(value = "prdDetail", method = RequestMethod.GET)
 	public ModelAndView boardWriteForm(@RequestParam int prodIdx) { /*int productNum*/
-		ModelAndView mv=new  ModelAndView("test");
+		ModelAndView mv=new  ModelAndView("detailView");
 		ObjectMapper mapper=new ObjectMapper();
 		
 		CosmeticProductDTO dto=service.selectAllByProdIdx(prodIdx);
@@ -63,7 +63,7 @@ public class ProductController{
 		return "test";
 	}
 	
-	
+	 
 	@RequestMapping(value = "productView.do", method = RequestMethod.GET)
 	public ModelAndView productView(
 			@RequestParam int subTypeIdx,

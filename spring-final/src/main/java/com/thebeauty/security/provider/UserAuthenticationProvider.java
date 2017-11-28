@@ -67,6 +67,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider{
 		/* 사용자로부터 받아온 권한을 목록에 저장 */
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		authorities.add(new SimpleGrantedAuthority((user.getRatingType())));
+		System.out.println(authorities);
 		
  		
 		return new UsernamePasswordAuthenticationToken(user, null, authorities);

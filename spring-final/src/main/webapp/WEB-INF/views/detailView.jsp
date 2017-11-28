@@ -80,9 +80,6 @@
 	width:90%;
 	padding-top: 10px
 }
-.socialImg{
-	cursor: pointer;
-}
 
 </style>
 <script type="text/javascript">
@@ -106,7 +103,7 @@
 	<div class="single">
 		<div class="container">
 			<div class="prd-info col-md-6 single-left">
-				<div class="rating1" style="width:90%;">
+							<div class="rating1">
 					<span class="starRating">
 						<input id="rating5" type="radio" name="rating" value="5"checked>
 						<label for="rating5">5</label>
@@ -119,14 +116,7 @@
 						<input id="rating1" type="radio" name="rating" value="1">
 						<label for="rating1">1</label>
 					</span>
-					<span style="float:right;">
-						<img class="socialImg" src="/final/images/social/facebook_icon_color.png" alt="" class="snsShare" onclick="socialShareType.shareURL('facebook')">
-						<img class="socialImg" src="/final/images/social/kakaoStory.png" alt="" class="snsShare" onclick="socialShareType.shareURL('kakao')">				
-						<img class="socialImg" src="/final/images/social/naver_icon_green.png" alt="" class="snsShare" onclick="socialShareType.shareURL('naver')">				
-						<img class="socialImg"  src="/final/images/social/twitter_icon.png" alt="" class="snsShare" onclick="socialShareType.shareURL('twitter')">
-					</span>
 				</div>
-				
 				<div class="flexslider" style="width:90%;">
 					<ul class="slides">
 					<c:forEach items="${list}" var="a"> 	
@@ -177,21 +167,42 @@
 				
 <!-- 							quantity -->
 									<script>
+
+									/** plus 버튼 클릭시 발생할 이벤트 */
+									function incrementProductValue(event){
+									    let thisNode = event;
+									    let childNode = thisNode.previousElementSibling.childNodes[0];
+									    childNode.innerHTML = Number(childNode.innerHTML) + 1;
+									}
+
+									/** minus 버튼 클릭시 발생할 이벤트 */
+									function decrementProductValue(event){
+									    let thisNode = event;
+									    let childNode = thisNode.nextElementSibling.childNodes[0];
+									    if(childNode.innerHTML <= 1){
+									        childNode.innerHTML = 1;
+									    }else{
+									        childNode.innerHTML = Number(childNode.innerHTML) - 1;
+									    }
+									}
+									
+									
 									var prdCodes=new Array();
 									function onSelectOption() {
 										var prdCode=$(".form-control option:selected").val();
 										var prdName=$(".form-control option:selected").text();
 																					
-										document.getElementById("demobox").innerHTML+='<div  class="prd_cnt_box">
-											<span style="font-size:14px;">'+prdName+'</span>
+										document.getElementById("demobox").innerHTML+=
+											`<div  class="prd_cnt_box">
+											<span style="font-size:14px;">`+prdName+`</span>
 										 <div class="cont_area"> 
 											<div class="quantity-select">                           
-												<div class="entry value-minus1">&nbsp;</div>
+												<div class="entry value-minus1" onclick='decrementProductValue(this);'>&nbsp;</div>
 												<div class="entry value1"><span>1</span></div>
-												<div class="entry value-plus1 active">&nbsp;</div>
+												<div class="entry value-plus1 active" onclick='incrementProductValue(this);'>&nbsp;</div>
 											</div> 
 										</div>
-									</div>';
+									</div>`;
 									
 									}
 									
@@ -199,16 +210,7 @@
 										var b=document.getElementsByName('codeOfProd');
 										b[0].value=prdCodes;
 									}
-									
-									$('.value-plus1').on('click', function(){
-										var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
-										divUpd.text(newVal);
-									});
-
-									$('.value-minus1').on('click', function(){
-										var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
-										if(newVal>=1) divUpd.text(newVal);
-									});
+							
  									</script>
 <!-- 								quantity -->
 

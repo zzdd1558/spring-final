@@ -9,8 +9,12 @@ import java.util.Base64.Encoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -281,6 +285,17 @@ public class UserAuthController {
 		return returnUrl;
 	}
 
+	@RequestMapping(value="/logout.do", method = RequestMethod.GET)
+	public String logoutPage (HttpServletRequest request, HttpServletResponse response) {
+		System.out.println(1);
+	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    if (auth != null){    
+	        new SecurityContextLogoutHandler().logout(request, response, auth);
+	    }
+	    return "redirect:/";
+	}
+
+
 	/* get방식 쿼리스트잉의 한글 처리 */
 	public String encodeMsg(String msg) throws UnsupportedEncodingException {
 		String encodeMsg = URLEncoder.encode(msg, "UTF-8");
@@ -301,5 +316,9 @@ public class UserAuthController {
 			}
 		}).start();
 	}
+	
+	
+	
+	
 
 }
