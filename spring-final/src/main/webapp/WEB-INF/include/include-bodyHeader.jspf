@@ -9,6 +9,10 @@
 <%@taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <script>
+	function disabledAlert() {
+		alert("로그인이 필요한 기능입니다. 로그인 창으로 이동합니다.");
+		$('#myModal88').modal();
+	}
 	/** 상품추가할때마다 가격 및 상품 갯수 변경 */
 	function changeCartView() {
 		var totalCnt = 0;

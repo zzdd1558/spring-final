@@ -1,9 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="sec"
+	uri="http://www.springframework.org/security/tags"%>
 <!DOCTYPE html>
 <html>
 <head>
 <%@include file="/WEB-INF/include/include-header.jspf"%>
+
+<script>
+	function redirectOrder(event){
+		if(JSON.parse(localStorage.getItem('cartList')) == null){
+			alert('주문할 상품이 없습니다.');
+			return
+		}else{
+			alert('상품 주문페이지로 이동합니다.');
+			location.href =  "${pageContext.request.contextPath}/static/prodOrder.jsp";
+		}
+	}
+</script>
 </head>
 <body>
 	<!-- header -->
@@ -45,14 +59,22 @@
 							var target = event;
 							var tag = target.parentElement.parentElement;
 							var nodes = tag.children;
-							alert('해당 상품을 삭제하였습니다.' );
-							/* [nodes[0]].option[nodes[1]]; */
-							var removeJsonData = JSON.parse(localStorage.getItem('cartList'));
-							delete removeJsonData[nodes[0].value].option[nodes[1].value];
 							
-							localStorage.setItem('cartList', JSON.stringify(removeJsonData));
-							changeCartView();
-							drawCartList();
+							if(confirm("해당상품을 삭제하시겠습니까?")){
+								alert('해당 상품을 삭제하였습니다.');
+								/* [nodes[0]].option[nodes[1]]; */
+								var removeJsonData = JSON.parse(localStorage
+										.getItem('cartList'));
+								delete removeJsonData[nodes[0].value].option[nodes[1].value];
+
+								localStorage.setItem('cartList', JSON
+										.stringify(removeJsonData));
+								changeCartView();
+								drawCartList();
+	
+							}else{
+								alert("취소 되었습니다.");
+							}
 						}
 						function drawCartList() {
 							var cartList = JSON.parse(localStorage
@@ -97,19 +119,34 @@
 						drawCartList();
 					</script>
 					<!--quantity-->
-					
+
 					<!--quantity-->
 				</table>
 			</div>
 			<div id="demo"></div>
 			<div class="checkout-left">
-			<div class="checkout-right-basket">
-					<a href="${pageContext.request.contextPath}/order/prodOrder.do"><span
-						class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>상품 주문하기</a>
-				</div>
+
+				<sec:authorize access="! isAuthenticated()">
+					<div class="checkout-right-basket">
+						<a href="#" onclick='disabledAlert();'><span
+							class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>상품
+							주문하기</a>
+					</div>
+				</sec:authorize>
+
+				<sec:authorize access="isAuthenticated()">
+					<div class="checkout-right-basket">
+						<a href="javascript:redirectOrder(this);"><span
+							class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>상품
+							주문하기</a>
+					</div>
+				</sec:authorize>
+
+
 				<div class="checkout-right-basket">
 					<a href="${pageContext.request.contextPath}"><span
-						class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>계속 쇼핑하기</a>
+						class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>계속
+						쇼핑하기</a>
 				</div>
 				<div class="clearfix"></div>
 			</div>
