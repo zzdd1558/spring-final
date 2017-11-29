@@ -1,14 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-					<%@include file="/WEB-INF/include/include-header.jspf" %>
-</head>
-<body>
-					<!-- header -->
-					<%@include file="/WEB-INF/include/include-bodyHeader.jspf" %>	
-						<!-- //header -->
+
 <!-- banner -->
 	<div class="banner10" id="home1">
 		<div class="container">
@@ -173,67 +163,67 @@
 				<div class="col-md-6">
 					<nav>
 						<ul class="pagination pagination-lg">
-							<li><a href="#" aria-label="Previous"><span aria-hidden="true">Â«</span></a></li>
+							<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 							<li><a href="#">1</a></li>
 							<li><a href="#">2</a></li>
 							<li><a href="#">3</a></li>
 							<li><a href="#">4</a></li>
 							<li><a href="#">5</a></li>
-							<li><a href="#" aria-label="Next"><span aria-hidden="true">Â»</span></a></li>
+							<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
 						</ul>
 					</nav>
 					<nav>
 						<ul class="pagination">
-							<li><a href="#" aria-label="Previous"><span aria-hidden="true">Â«</span></a></li>
+							<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 							<li><a href="#">1</a></li>
 							<li><a href="#">2</a></li>
 							<li><a href="#">3</a></li>
 							<li><a href="#">4</a></li>
 							<li><a href="#">5</a></li>
-							<li><a href="#" aria-label="Next"><span aria-hidden="true">Â»</span></a></li>
+							<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
 						</ul>
 					</nav>
 					<nav>
 						<ul class="pagination pagination-sm">
-							<li><a href="#" aria-label="Previous"><span aria-hidden="true">Â«</span></a></li>
+							<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 							<li><a href="#">1</a></li>
 							<li><a href="#">2</a></li>
 							<li><a href="#">3</a></li>
 							<li><a href="#">4</a></li>
 							<li><a href="#">5</a></li>
-							<li><a href="#" aria-label="Next"><span aria-hidden="true">Â»</span></a></li>
+							<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
 						</ul>
 					</nav>
 				</div>
 				<div class="col-md-6">
 					<ul class="pagination pagination-lg">
-						<li class="disabled"><a href="#"><i class="fa fa-angle-left">Â«</i></a></li>
+						<li class="disabled"><a href="#"><i class="fa fa-angle-left">«</i></a></li>
 						<li class="active"><a href="#">1</a></li>
 						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
 						<li><a href="#">4</a></li>
 						<li><a href="#">5</a></li>
-						<li><a href="#"><i class="fa fa-angle-right">Â»</i></a></li>
+						<li><a href="#"><i class="fa fa-angle-right">»</i></a></li>
 					</ul>
 					<nav>
 						<ul class="pagination">
-							<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">Â«</span></a></li>
+							<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
 							<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
 							<li><a href="#">2</a></li>
 							<li><a href="#">3</a></li>
 							<li><a href="#">4</a></li>
 							<li><a href="#">5</a></li>
-							<li><a href="#" aria-label="Next"><span aria-hidden="true">Â»</span></a></li>
+							<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
 						</ul>
 					</nav>
 					<ul class="pagination pagination-sm">
-						<li class="disabled"><a href="#"><i class="fa fa-angle-left">Â«</i></a></li>
+						<li class="disabled"><a href="#"><i class="fa fa-angle-left">«</i></a></li>
 						<li class="active"><a href="#">1</a></li>
 						<li><a href="#">2</a></li>
 						<li><a href="#">3</a></li>
 						<li><a href="#">4</a></li>
 						<li><a href="#">5</a></li>
-						<li><a href="#"><i class="fa fa-angle-right">Â»</i></a></li>
+						<li><a href="#"><i class="fa fa-angle-right">»</i></a></li>
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
