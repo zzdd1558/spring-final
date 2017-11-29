@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="orderItemMapper">
+
+	<resultMap type="orderItemDTO" id="orderItemResultMap">
+		<result column="ORDER_ITEM_NUM" property="orderItemNum"/>
+		<result column="ORDER_NUM" property="orderNum"/>
+		<result column="CODE_OF_PROD" property="codeOfProd"/>
+		<result column="ORDER_ITEM_COUNT" property="orderItemCount"/>
+	</resultMap>
+
+	<insert id="insertOrderItem" parameterType="orderItemDTO">
+		INSERT INTO ORDER_ITEM_TB VALUES
+		( #{orderItemNum} , #{orderNum} , #{codeOfProd} , #{orderItemCount})
+	</insert>
+	
+	<select id="orderItemMaxIdx" resultType="string">
+		SELECT MAX(ORDER_ITEM_NUM) FROM ORDER_ITEM_TB
+	</select>
+
+	
+</mapper>

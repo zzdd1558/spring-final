@@ -109,12 +109,6 @@
 		document.getElementsByTagName('select')[1].innerHTML = result;
 	}
 
-
-	function disabledAlert(){
-		alert("로그인이 필요한 기능입니다. 로그인 창으로 이동합니다.");
-		$('#myModal88').modal();
-	}
-	
 	
 	
 	function changePrice(){
@@ -141,24 +135,27 @@
 	<div class="single">
 		<div class="container">
 			<div class="prd-info col-md-6 single-left">
-				<div class="rating1" style="width:90%;">
-					<span class="starRating">
-						<input id="rating5" type="radio" name="rating1" value="5"checked>
-						<label for="rating5">5</label>
+				<div class="rating1" style="width: 90%;">
+					<span class="starRating"> <input id="rating5" type="radio"
+						name="rating1" value="5" checked> <label for="rating5">5</label>
 						<input id="rating4" type="radio" name="rating1" value="4">
-						<label for="rating4">4</label>
-						<input id="rating3" type="radio" name="rating1" value="3" >
-						<label for="rating3">3</label>
+						<label for="rating4">4</label> <input id="rating3" type="radio"
+						name="rating1" value="3"> <label for="rating3">3</label>
 						<input id="rating2" type="radio" name="rating1" value="2">
-						<label for="rating2">2</label>
-						<input id="rating1" type="radio" name="rating1" value="1">
-						<label for="rating1">1</label>
-					</span>
-					<span style="float:right;">
-						<img class="socialImg" src="/final/images/social/facebook_icon_color.png" alt="" class="snsShare" onclick="socialShareType.shareURL('facebook')">
-						<img class="socialImg" src="/final/images/social/kakaoStory.png" alt="" class="snsShare" onclick="socialShareType.shareURL('kakao')">				
-						<img class="socialImg" src="/final/images/social/naver_icon_green.png" alt="" class="snsShare" onclick="socialShareType.shareURL('naver')">				
-						<img class="socialImg"  src="/final/images/social/twitter_icon.png" alt="" class="snsShare" onclick="socialShareType.shareURL('twitter')">
+						<label for="rating2">2</label> <input id="rating1" type="radio"
+						name="rating1" value="1"> <label for="rating1">1</label>
+					</span> <span style="float: right;"> <img class="socialImg"
+						src="/final/images/social/facebook_icon_color.png" alt=""
+						class="snsShare" onclick="socialShareType.shareURL('facebook')">
+						<img class="socialImg" src="/final/images/social/kakaoStory.png"
+						alt="" class="snsShare"
+						onclick="socialShareType.shareURL('kakao')"> <img
+						class="socialImg" src="/final/images/social/naver_icon_green.png"
+						alt="" class="snsShare"
+						onclick="socialShareType.shareURL('naver')"> <img
+						class="socialImg" src="/final/images/social/twitter_icon.png"
+						alt="" class="snsShare"
+						onclick="socialShareType.shareURL('twitter')">
 					</span>
 				</div>
 				<div class="flexslider" style="width: 90%;">
@@ -305,7 +302,8 @@
 					<div class="btn-box">
 						<button class="prd-btn btn btn-default btn-lg"
 							onclick='disabledAlert();'>장바구니</button>
-						<button class="prd-btn btn btn-default btn-lg" onclick="disabledAlert();">구매하기</button>
+						<button class="prd-btn btn btn-default btn-lg"
+							onclick="disabledAlert();">구매하기</button>
 						<button class="favor-btn btn btn-default btn-lg">찜하기</button>
 					</div>
 
@@ -315,16 +313,18 @@
 						<button class="prd-btn btn btn-default btn-lg"
 							onclick='addCartItem();'>장바구니</button>
 						<button class="prd-btn btn btn-default btn-lg"
-							onclick="purchase();document.getElementById('demobox').submit();">구매하기</button>
+							onclick="buySubmit();">구매하기</button>
 						<button class="favor-btn btn btn-default btn-lg">찜하기</button>
 					</div>
 				</sec:authorize>
 
 				<script type="text/javascript">
-				function purchase(){
-					var b=document.getElementsByName('codeOfProd');
-					b[0].value=prdCodes;
-					document.getElementById("demobox").onsubmit;
+				function buySubmit(){
+					let check = addCartItem();
+					
+					if(check){
+						location.href = httpRequest.getContextPath() + '/static/cartListView.jsp';	
+					}
 				}
 				</script>
 			</div>
@@ -347,51 +347,60 @@
 					<div class="tab-1 resp-tab-content additional_info_grid"
 						aria-labelledby="tab_item-0">
 						<h3>Swan Miami Red Skirt</h3>
-						<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-							eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-							Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut 
-							odit aut fugit, sed quia consequuntur magni dolores eos qui 
-							ratione voluptatem sequi nesciunt.Ut enim ad minima veniam, quis nostrum 
-							exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea 
-							commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate 
-							velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat 
-							quo voluptas nulla pariatur.</p>
-					</div>	
-				<!--=======================//상품 상세 내용 출력=======================-->	
-				
-					
-				<!--=======================Reiew 게시판 출력=======================-->
-					<div class="tab-2 resp-tab-content additional_info_grid" aria-labelledby="tab_item-1" >
-					<div id="ReviewBoard"></div>
-						
+						<p>Duis aute irure dolor in reprehenderit in voluptate velit
+							esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+							occaecat cupidatat non proident. Nemo enim ipsam voluptatem quia
+							voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+							magni dolores eos qui ratione voluptatem sequi nesciunt.Ut enim
+							ad minima veniam, quis nostrum exercitationem ullam corporis
+							suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+							Quis autem vel eum iure reprehenderit qui in ea voluptate velit
+							esse quam nihil molestiae consequatur, vel illum qui dolorem eum
+							fugiat quo voluptas nulla pariatur.</p>
+					</div>
+					<!--=======================//상품 상세 내용 출력=======================-->
+
+
+					<!--=======================Reiew 게시판 출력=======================-->
+					<div class="tab-2 resp-tab-content additional_info_grid"
+						aria-labelledby="tab_item-1">
+						<div id="ReviewBoard"></div>
+
 						<div class="review_grids">
 							<h5>Add A Review</h5>
-							<form action="${pageContext.request.contextPath}/board/BoardWrite.do" method="POST" id="board"  name="board">
-							<input id="boardSubject" name="boardSubject" type="hidden" value="NaN"/>
-							<input id="boardFile" name="boardFile" type="hidden" value="boardFile"/>
-						    <input id="boardUserKey" name="boardUserKey" type="hidden" value="${sessionScope.user.userKey}"/>
-							<span>${sessionScope.user.userName}</span>
-								<span class="starRating" style="float:right">
-									<input id="ratingFive" type="radio" name="rating" value="5">
-									<label for="ratingFive">5</label>
-									<input id="ratingFour" type="radio" name="rating" value="4">
-									<label for="ratingFour">4</label>
+							<form
+								action="${pageContext.request.contextPath}/board/BoardWrite.do"
+								method="POST" id="board" name="board">
+								<input id="boardSubject" name="boardSubject" type="hidden"
+									value="NaN" /> <input id="boardFile" name="boardFile"
+									type="hidden" value="boardFile" /> <input id="boardUserKey"
+									name="boardUserKey" type="hidden"
+									value="${sessionScope.user.userKey}" /> <span>${sessionScope.user.userName}</span>
+								<span class="starRating" style="float: right"> <input
+									id="ratingFive" type="radio" name="rating" value="5"> <label
+									for="ratingFive">5</label> <input id="ratingFour" type="radio"
+									name="rating" value="4"> <label for="ratingFour">4</label>
 									<input id="ratingThr" type="radio" name="rating" value="3">
-									<label for="ratingThr">3</label>
-									<input id="ratingTwo" type="radio" name="rating" value="2">
-									<label for="ratingTwo">2</label>
-									<input id="ratingOne" type="radio" name="rating" value="1">
-									<label for="ratingOne">1</label>
+									<label for="ratingThr">3</label> <input id="ratingTwo"
+									type="radio" name="rating" value="2"> <label
+									for="ratingTwo">2</label> <input id="ratingOne" type="radio"
+									name="rating" value="1"> <label for="ratingOne">1</label>
 								</span>
-								<textarea id="boardContent" name="boardContent" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Add Your Review';}" required="">Add Your Review</textarea>
-								<input type="button" onclick="boardWrite(${prd.prodIdx})" value="Submit" >
+								<textarea id="boardContent" name="boardContent"
+									onfocus="this.value = '';"
+									onblur="if (this.value == '') {this.value = 'Add Your Review';}"
+									required="">Add Your Review</textarea>
+								<input type="button" onclick="boardWrite(${prd.prodIdx})"
+									value="Submit">
 							</form>
 						</div>
-					</div>	
-				<!--=======================//Reiew 게시판 출력=======================-->	 			        					            	      
-				</div>	
+					</div>
+					<!--=======================//Reiew 게시판 출력=======================-->
+				</div>
 			</div>
-			<script src="${pageContext.request.contextPath}/javascripts/easyResponsiveTabs.js" type="text/javascript"></script>
+			<script
+				src="${pageContext.request.contextPath}/javascripts/easyResponsiveTabs.js"
+				type="text/javascript"></script>
 			<script type="text/javascript">	
 			
 			
@@ -512,17 +521,26 @@
 				    let price = prodForm.children[2].value;
 				    let childProd = prodForm.getElementsByClassName('prd_cnt_box');
 				    let list = JSON.parse(localStorage.getItem('cartList'));
-
-				    let option = {};
-				    
+					let check = true;
+					
+				    let option; 
 				    
 				    if(childProd.length <= 0){
+				    	check = false;
 				        alert('상품을 선택해주세요.');
 				    }else{
 				        if (list == null) {
 				            localStorage.setItem('cartList', JSON.stringify({}));
 				            list = JSON.parse(localStorage.getItem('cartList'));
 				        }
+				        
+				        console.log(list[kindsOfCosmetic[Math.floor(Number(subTypeIdx) / 100) - 1] + '_' + subTypeIdx + '_' + prodIdx]);
+				        if(list[kindsOfCosmetic[Math.floor(Number(subTypeIdx) / 100) - 1] + '_' + subTypeIdx + '_' + prodIdx] == null){
+				        	option = {};
+				        }else{
+				        	option = list[kindsOfCosmetic[Math.floor(Number(subTypeIdx) / 100) - 1] + '_' + subTypeIdx + '_' + prodIdx].option;
+				        }
+				        
 
 				        for (let i = 0; i < childProd.length; i++) {
 				            option[kindsOfCosmetic[Math.floor(Number(subTypeIdx) / 100) - 1] + '_' + childProd[i].children[0].value] = {
@@ -535,6 +553,8 @@
 				    }
 				    
 				    changeCartView();
+				    
+				    return check;
 				}
 
 				/** subTypeIdx, prodIdx , 가격 , 옵션별 object 수.*/

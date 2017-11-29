@@ -26,9 +26,4 @@
 			</props>
 		</property>
 	</bean>
-	
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-  		<property name="defaultEncoding" value="EUC-KR" /> <!-- 인코딩-->
-  		<property name="maxUploadSize" value="10000000" /> <!--  최대 사이즈-->
-	</bean>
 </beans>
