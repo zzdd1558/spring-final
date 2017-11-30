@@ -1,19 +1,13 @@
+<%@page import="com.thebeauty.model.domain.OrderDTO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!DOCTYPE html>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <style>
-.q h3 {
-	font-size: 1.5em;
-	color: #212121;
-	padding-left: 2em;
-	position: relative;
-	margin-bottom: 1em;
-}
-
 .myList table {
 	border-top: 2px solid #f7a2ba;
 	width: 100%;
@@ -28,9 +22,19 @@
 	border-bottom: 1px solid #ccc;
 }
 
+.myList table td {
+	line-height: 40px;
+	font-size: 14px;
+	color: #666;
+	text-align: center;
+	background: #fff;
+	border-bottom: 1px solid #ccc;
+}
+
 .topProcess {
 	margin: 2em 0;
-	padding: 1em 0; border-top : 1px solid #333;
+	padding: 1em 0;
+	border-top: 1px solid #333;
 	border-bottom: 1px solid #e5e5e5;
 	border-top: 1px solid #333;
 }
@@ -62,16 +66,30 @@
 	display: inline-block;
 }
 </style>
-
 <%@include file="/WEB-INF/include/include-header.jspf"%>
 </head>
+
 <body>
 	<!-- header -->
 	<%@include file="/WEB-INF/include/include-bodyHeader.jspf"%>
 	<!-- //header -->
 
+<%
 
-	<!--MyPage -->
+	List<OrderDTO> list = (List<OrderDTO>)request.getAttribute("list");
+	int array[] = {0,0,0,0,0};
+	for(int i = 0 ; i<list.size(); i++){
+		if(list.get(i).getDeliStatusCode() == 1){
+			array[2] += 1;
+		}else if(list.get(i).getDeliStatusCode() == 2){
+			array[3] += 1;
+		}else if(list.get(i).getDeliStatusCode() == 3){
+			array[4] += 1;
+		}
+	}
+%>
+
+
 	<div class="container-fluid" style="width: 79%;">
 		<div class="col-md-4 w3ls_dresses_grid_left">
 			<div class="w3ls_dresses_grid_left_grid">
@@ -116,18 +134,6 @@
 			</div>
 		</div>
 		<div class="col-md-8 w3ls_dresses_grid_left q">
-			<h3>My beauty</h3>
-			<div class="col-md-12" style="border: 1px solid black;'">
-				<br> 이름: ${sessionScope.user.userName}<br> 성 :
-				<c:if test="${fn:trim(sessionScope.user.userGender) eq '1'}">남성</c:if>
-				<c:if test="${fn:trim(sessionScope.user.userGender) eq '2'}">여성</c:if>
-				<br> 생일: ${sessionScope.user.userBirth}<br>
-				전화번호:${sessionScope.user.userPhone}<br>
-				주소:${sessionScope.user.userAddr}<br>
-				등급:${sessionScope.user.ratingType}<br>
-				포인트:${sessionScope.user.userPoint}<br>
-
-			</div>
 			<div class="col-md-12">
 				<div class="topProcess">
 					<ul>
@@ -145,19 +151,20 @@
 						</li>
 						<!-- 배송준비중 -->
 						<li>
-							<div class="num">0</div>
+							<div class="num"><%= array[2] %></div>
 							<div class="txt">배송준비중</div> <span
-							class="glyphicon glyphicon-chevron-right"></span>
+							class="glyphicon glyphicon-chevron-right">
+							</span>
 						</li>
 						<!-- 배송중 -->
 						<li>
-							<div class="num">0</div>
+							<div class="num"><%= array[3] %></div>
 							<div class="txt">배송중</div> <span
 							class="glyphicon glyphicon-chevron-right"></span>
 						</li>
 						<!-- 배송완료 -->
 						<li>
-							<div class="num">0</div>
+							<div class="num"><%= array[4] %></div>
 							<div class="txt">배송완료</div>
 						</li>
 					</ul>
@@ -184,14 +191,25 @@
 					</thead>
 					<tbody>
 
-						<tr>
-							<td class="noData" colspan="5"></td>
-						</tr>
+						<c:forEach items="${list}" var="list">
+							<tr>
+								<td>${list.orderorderDate}</td>
+								<td>${list.orderNumber}</td>
+								<td>${list.orderNumber}</td>
+								<td>${list.orderTotalPrice}원</td>
+								<td>${list.deliStatusCode}</td>
+							</tr>
+						</c:forEach>
+						
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
+
+
+
+
 	<!-- footer -->
 	<%@include file="/WEB-INF/include/include-footer.jspf"%>
 	<!-- //footer -->

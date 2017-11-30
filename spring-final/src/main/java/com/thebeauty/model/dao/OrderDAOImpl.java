@@ -1,5 +1,7 @@
 package com.thebeauty.model.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -27,5 +29,8 @@ public class OrderDAOImpl implements OrderDAO {
 		return sqlSession.insert("orderMapper.insertOrder" , order);
 	}
 	
-	
+	@Override
+	public List<OrderDTO> selectOrderListById(int idx){
+		return sqlSession.selectList("orderMapper.selectByUserIdx" , idx);
+	}
 }
