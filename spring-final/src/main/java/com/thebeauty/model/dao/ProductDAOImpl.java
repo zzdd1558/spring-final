@@ -104,6 +104,11 @@ public class ProductDAOImpl implements ProductDAO {
 	public List<String> searchPrdName(String inputText) {
 		return sqlsession.selectList("productMapper.searchPrdName",inputText);
 	}
+	
+	@Override
+	public KindsOfProductTypeDTO selectKindsOfProdByCode(int code) {
+		return sqlsession.selectOne("productMapper.searchKindsOfProductByCode", code);
+	}
 
 
 }

@@ -127,6 +127,10 @@
 					) A
 					) WHERE rn BETWEEN #{start} AND #{end}
 				</sql>
+				
+	<select id="searchKindsOfProductByCode" parameterType="int" resultMap="prdOptionReultMap">
+		SELECT * FROM KINDS_OF_PRODUCT_TYPE_TB WHERE CODE_OF_PROD = #{codeOfProd}
+	</select>
 	
 	<insert id="procuctInsert" parameterType="cosmeticProductDTO">
 		INSERT INTO COSMETIC_PRODUCT_TB VALUES (#{prodIdx},#{brandTypeIdx},#{subTypeIdx},#{faceTypeId},#{cosmName},#{paValue},#{spfValue},#{prodIntroduce},#{cosmReleaseDate})

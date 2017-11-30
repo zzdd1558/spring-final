@@ -3,3 +3,4 @@
 <% System.out.println("index.jsp 접속"); %>
 <jsp:forward page="openmallMain.do"/>
 
+

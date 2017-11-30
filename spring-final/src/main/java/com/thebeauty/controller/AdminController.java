@@ -46,7 +46,7 @@ public class AdminController {
 	public ModelAndView userAllSearch(@RequestParam(defaultValue="1") int curPage) {
 		ModelAndView mv = new ModelAndView("admin/admin");
 		List<UserDTO> list = userDao.userSearchAll();
-		int count  = list.size();
+		int count = list.size();
 		BoardPager boardPager = new BoardPager(count, curPage);
 		int start = boardPager.getPageBegin();
 	    int end = boardPager.getPageEnd();
@@ -123,9 +123,6 @@ public class AdminController {
 		int start = boardPager.getPageBegin();
 		int end = boardPager.getPageEnd();
 		list = productDao.kindsOfProdList(start, end, prodIdx);
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i).toString());
-		}
 		Map<String, Object> map = new HashMap<String, Object>();
 	    
 		map.put("list", list); // list
@@ -133,6 +130,14 @@ public class AdminController {
 	    map.put("boardPager", boardPager);
 		mv.addObject("list", list);
 		mv.addObject("map", map);
+		return mv;
+	}
+	
+	@RequestMapping(value="kindsOfProdOne.do", method=RequestMethod.GET)
+	public ModelAndView selectOneKindsOfProd(@RequestParam("codeOfProd") int code, KindsOfProductTypeDTO kPrd) {
+		ModelAndView mv = new ModelAndView("admin/kProdList");
+		kPrd = productDao.selectKindsOfProdByCode(code);
+		mv.addObject("kPrd", kPrd);
 		return mv;
 	}
 
@@ -146,7 +151,7 @@ public class AdminController {
 		}else if(command.equals("delete")) {
 			productDao.kindsOfProductDelete(code);		
 		}
-	return "redirect:admin/productList.do";
+	return "redirect:productList.do";
 	}
 }
 

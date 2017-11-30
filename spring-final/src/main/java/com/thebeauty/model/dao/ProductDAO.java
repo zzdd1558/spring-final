@@ -26,4 +26,6 @@ public interface ProductDAO {
 	/* kindsOfProduct 삭제*/
 	public abstract int kindsOfProductDelete(int code);
 	public abstract List<String> searchPrdName(String inputText);
+	/* codeOfProd값으로 상품옵션정보 상세보기*/
+	public abstract KindsOfProductTypeDTO selectKindsOfProdByCode(int code);
 }
