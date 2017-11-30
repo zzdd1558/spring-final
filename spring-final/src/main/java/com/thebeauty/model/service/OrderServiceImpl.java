@@ -1,5 +1,7 @@
 package com.thebeauty.model.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,9 +40,14 @@ public class OrderServiceImpl implements OrderService{
 			result += orderItemDao.insertOrderItem(orderItem);
 			
 		}
-		
-		
 		return result;
 	}
 
+	@Override
+	public List<OrderDTO> orderList(int idx){
+		
+		List<OrderDTO> list = orderDao.selectOrderListById(idx);
+		return list;
+	}
+	
 }
