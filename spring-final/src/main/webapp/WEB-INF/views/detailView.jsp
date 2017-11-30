@@ -397,8 +397,8 @@
 								<sec:authorize access="! isAuthenticated()">
 									인증된 사용자만 댓글사용이 가능합니다.
 								</sec:authorize>
-								
-								
+
+
 
 							</form>
 						</div>
@@ -413,13 +413,22 @@
 			
 			
 			function boardWrite(prodIdx){
+				var check = true;
 				var boardSubject=document.getElementById('boardSubject').value;
 				var boardUserKey=document.getElementById('boardUserKey').value;
 				var boardContent=document.getElementById('boardContent').value;
 				var boardFile=document.getElementById('boardFile').value;
 				var UserprdScore = $(":input:radio[name=rating]:checked").val();
+				
+				if(UserPrdScore === undefined){
+					alert("평점을 눌러주세요.");
+					check = false;
+				}
+				
+				if(check){
 				httpRequest.sendRequest(httpRequest.getContextPath()+'/board/BoardWrite.do',
 		'boardSubject='+boardSubject+'&boardUserKey='+boardUserKey+'&boardContent='+boardContent+'&boardFile='+boardFile+'&boardUseScore='+UserprdScore+'&boardCosmeticNum='+prodIdx,sensMsg,'POST',header,token);
+				}
 			}
 			
 			function sensMsg(){
