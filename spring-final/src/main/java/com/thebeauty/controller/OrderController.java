@@ -1,16 +1,22 @@
 package com.thebeauty.controller;
 
 import java.util.Arrays;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.thebeauty.model.domain.OrderDTO;
+import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.service.OrderService;
 
 @Controller
@@ -19,6 +25,19 @@ public  class OrderController {
 	
 	@Autowired
 	private OrderService service;
+	
+	@RequestMapping(value = "/orderList.do", method = RequestMethod.GET)
+	public @ResponseBody ModelAndView searchOrder(Authentication authentication) {
+		
+		ModelAndView mv = new ModelAndView("order/orderList");
+		UserDTO user = (UserDTO)authentication.getPrincipal();
+		
+		List<OrderDTO> list = service.orderList(user.getUserKey());
+		mv.addObject("list", list);
+		
+		return mv;
+	}
+	
 	
 	@RequestMapping(value = "/prodOrder.do", method = RequestMethod.POST)
 	public String prodOrder(HttpServletRequest request) {

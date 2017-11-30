@@ -76,14 +76,12 @@
 	color: black;
 	display: block;
 }
-
 #filter-count {
 	position: absolute;
 	z-index: 1000;
 	overflow: scroll;
 	height: 44%;
 }
-
 ::-webkit-scrollbar {
 	width: 0px;
 	background: transparent; /* make scrollbar transparent */
@@ -428,7 +426,7 @@
 						href="${pageContext.request.contextPath}/static/about.jsp">About
 							Us</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/static/short-codes.jsp">Short
+						href="${pageContext.request.contextPath}/admin/userListForm.do">Short
 							Codes</a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/static/mail.jsp">Mail
@@ -438,7 +436,7 @@
 					<sec:authorize access="isAuthenticated()">
 						<sec:authorize access='hasRole("ROLE_A")'>
 							<li><a
-								href="${pageContext.request.contextPath}/admin/index.do">
+								href="${pageContext.request.contextPath}/admin/userListForm.do">
 									Admin Page </a></li>
 						</sec:authorize>
 					</sec:authorize>

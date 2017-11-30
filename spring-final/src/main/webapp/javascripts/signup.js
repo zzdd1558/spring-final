@@ -26,6 +26,13 @@ let idCheck = false;
 let token = document.getElementById('_csrf').getAttribute('content');
 let header = document.getElementById('_csrf_header').getAttribute('content');
 
+/* 관리자 데이터 정보 수정 관련 변수 초기화*/
+
+let pCount = document.getElementById('prodCount');
+let pPrice = document.getElementById('prodPrice');
+let pColor = document.getElementById('prodColor');
+let pName = document.getElementById('prodName');
+
 const checkColor = {
     green: 'green',
 };
@@ -68,6 +75,9 @@ const checkMsg = {
 
     /* 구글 리캡차 관련*/
     checkReCaptcha: ' 로봇 확인 체크를 해주세요 . ',
+    
+    /* 관리자 관련*/
+    emptyMessage : ' 빈칸이 있으면 안됩니다. ',
 };
 
 
@@ -173,7 +183,27 @@ formSubmit.addEventListener('click', function () {
         checkContentFunc(googleReCaptcha , checkMsg.checkReCaptcha)
         formBoolean = false;
     }
-    	
+    
+    /* 상품수량 공백 체크 */
+    if (!inputValidator.isSet(pCount.value)) {
+        checkContentFunc(pCount, checkMsg.emptyMessage);
+        formBoolean = false;
+    }
+    /* 상품가격 공백 체크 */
+    if (!inputValidator.isSet(pPrice.value)) {
+    	checkContentFunc(pPrice, checkMsg.emptyMessage);
+    	formBoolean = false;
+    }
+    /* 상품컬러 공백 체크 */
+    if (!inputValidator.isSet(pColor.value)) {
+    	checkContentFunc(pColor, checkMsg.emptyMessage);
+    	formBoolean = false;
+    }
+    /* 상품이름 공백 체크 */
+    if (!inputValidator.isSet(pName.value)) {
+    	checkContentFunc(pName, checkMsg.emptyMessage);
+    	formBoolean = false;
+    }
     
     if(formBoolean){
     	uForm.setAttribute('method', 'POST');
@@ -185,6 +215,7 @@ formSubmit.addEventListener('click', function () {
 googleReCaptcha.addEventListener('click' , function(){
 	focusResetValue(googleReCaptcha);
 });
+
 
 
 
@@ -262,6 +293,23 @@ uBirthGender.addEventListener('keyup', function () {
     inputKeyUpReg.keyUpOnlyNumber(uBirthGender, uBirthGender.value);
 });
 
+/* 상품 수량 정보 입력 keyUp이벤트 */
+pCount.addEventListener('keyup', function () {
+    inputKeyUpReg.keyUpOnlyNumber(pCount, pCount.value);
+});
+/* 상품 가격 정보 입력 keyUp이벤트 */
+pPrice.addEventListener('keyup', function () {
+	inputKeyUpReg.keyUpOnlyNumber(pPrice, pPrice.value);
+});
+/* 상품 컬러 정보 입력 keyUp이벤트 */
+pColor.addEventListener('keyup', function () {
+	inputKeyUpReg.keyUpId(pColor, pColor.value);
+});
+/* 상품 이름 정보 입력 keyUp이벤트 */
+pName.addEventListener('keyup', function () {
+	inputKeyUpReg.keyUpId(pName, pName.value);
+});
+
 
 function focusResetValue(object) {
     object.nextElementSibling.innerHTML = '';
@@ -300,6 +348,22 @@ uAnswer.addEventListener('focus', function () {
 
 uEmail.addEventListener('focus', function () {
     focusResetValue(uEmail);
+});
+
+pCount.addEventListener('focus', function () {
+    focusResetValue(pCount);
+});
+
+pPrice.addEventListener('focus', function () {
+	focusResetValue(pPrice);
+});
+
+pColor.addEventListener('focus', function () {
+	focusResetValue(pColor);
+});
+
+pName.addEventListener('focus', function () {
+	focusResetValue(pName);
 });
 
 

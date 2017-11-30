@@ -22,6 +22,10 @@
 	<select id="orderMaxIdx" resultType="string">
 		SELECT MAX(ORDER_NUMBER) FROM ORDER_TB
 	</select>
+	
+	<select id="selectByUserIdx"  parameterType="int" resultMap="orderResultMap">
+		select ot.* from order_tb ot INNER JOIN USER_TB ut on ot.user_key = UT.user_key where ut.user_key = #{idx}
+	</select>
 
 	
 </mapper>

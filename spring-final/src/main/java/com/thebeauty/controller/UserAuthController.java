@@ -6,6 +6,7 @@ import java.net.URLEncoder;
 import java.util.Base64;
 import java.util.Base64.Decoder;
 import java.util.Base64.Encoder;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.thebeauty.model.dao.UserDAO;
 import com.thebeauty.model.domain.MailServiceDTO;
 import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.domain.UserTokenDTO;
@@ -45,7 +48,7 @@ public class UserAuthController {
 
 	@Autowired
 	UserIdSearchServiceImpl userIdSearchService;
-
+	
 	/* alert 페이지 */
 	private String url = "redirect:/static/handler/HandlerPage.jsp?Message=";
 
@@ -317,8 +320,4 @@ public class UserAuthController {
 			}
 		}).start();
 	}
-	
-	
-	
-
 }

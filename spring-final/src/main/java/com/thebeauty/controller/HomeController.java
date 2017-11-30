@@ -1,5 +1,6 @@
 package com.thebeauty.controller;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -17,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.thebeauty.model.dao.FavoriteCosmeticDAO;
 import com.thebeauty.model.domain.CosmeticMainTypeDTO;
 import com.thebeauty.model.domain.CosmeticSubTypeDTO;
+import com.thebeauty.model.domain.FavoriteCosmeticDTO;
 import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.service.ProductService;
 
@@ -28,11 +31,48 @@ public class HomeController {
 	@Autowired
 	private ProductService service;
 	
+	@Autowired
+	private FavoriteCosmeticDAO favoriteCosmeticDao;
+	
 	/* 메인페이지 시작 */
 	@RequestMapping(value = "openmallMain.do", method = RequestMethod.GET)
 	public String home(Model model , HttpServletRequest request , Authentication auth) {
 		List<CosmeticMainTypeDTO> list=service.categorySelect();
+
+		/* 좋아요 순으로 상품불러오기*/
+//		List<FavoriteCosmeticDTO> fList = favoriteCosmeticDao.favoriteSearchAll();
+//		
+//		int a[] = new int[450];
+//		System.out.println(a.length);
+//		for (int i = 0; i < fList.size(); i++) {
+//			int num = fList.get(i).getProdIdx();
+//			a[num] = a[num] + 1;
+//		}
+//		
+//		for (int i = 0; i < a.length; i++) {
+//		i~5 범위중 최대값 찾아서 i <-> 최대값위치
+//		int maxIndex = i; // 원소의 첫번째 방번호
+//		for (int j = i; j < a.length; j++) {
+//			if (a[maxIndex]<a[j]) {
+//				maxIndex = j; // 최대값의 인덱스만 저장
+//			}
+//		}
+//		i방의 값과 <-> 최소값위치방의 값
+//		int temp = a[maxIndex];
+//		a[maxIndex] = a[i];
+//		a[i] = temp;
+//	}
 		
+//	System.out.println(Arrays.toString(a));
+//	
+//	int bestProd[] = new int[10];
+//	for (int i = 0; i < 10; i++) {
+//		System.out.println(a[i]);
+//		bestProd[i] = a[i];
+//	}	
+	
+	/* 전체 product 값 가져와서 위에서 구한 favoriteCosmetic 높은 값들과 비교하여 일치하면 리스트에 담아 넘겨주기 */
+	
 		
 		HttpSession session = request.getSession();
 		
@@ -65,5 +105,7 @@ public class HomeController {
 	public String boardWriteForm() {
 		return "board/boardWrite";
 	}
+	
+	
 
 }

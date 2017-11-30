@@ -32,13 +32,15 @@ public class CosmeticProductDTO {
 	private String prodInfoType;	// PROD_INFOTYPE
 	private String prodIntroduce; // PROD_INTRODUCE
 	private String cosmReleaseDate; // COSM_RELEASE_DATE
+	private String brandTypeName; // BRAND_TYPE_NAME
+	private String subTypeName;
 	private List<KindsOfProductTypeDTO> optionList; //KindsOfProductTypeDTO_List
 	
 	/* 생성자 */
 	public CosmeticProductDTO() {}
 
 	public CosmeticProductDTO(int prodIdx, int brandTypeIdx, int subTypeIdx, int faceTypeId, String cosmName,
-			int paValue, int spfValue, String prodIntroduce, String cosmReleaseDate,String prodInfoType,List<KindsOfProductTypeDTO> optionList) {
+			int paValue, int spfValue, String prodIntroduce, String cosmReleaseDate,String prodInfoType,String brandTypeName,String subTypeName, List<KindsOfProductTypeDTO> optionList) {
 		super();
 		this.prodIdx = prodIdx;
 		this.brandTypeIdx = brandTypeIdx;
@@ -50,6 +52,8 @@ public class CosmeticProductDTO {
 		this.prodIntroduce = prodIntroduce;
 		this.cosmReleaseDate = cosmReleaseDate;
 		this.prodInfoType=prodInfoType;
+		this.brandTypeName=brandTypeName;
+		this.subTypeName=subTypeName;
 		this.optionList=optionList;
 	}
 
@@ -62,6 +66,14 @@ public class CosmeticProductDTO {
 		this.prodIdx = prodIdx;
 	}
 
+	public String getSubTypeName() {
+		return subTypeName;
+	}
+
+	public void setSubTypeName(String subTypeName) {
+		this.subTypeName = subTypeName;
+	}
+
 	public int getBrandTypeIdx() {
 		return brandTypeIdx;
 	}
@@ -72,6 +84,22 @@ public class CosmeticProductDTO {
 
 	public int getSubTypeIdx() {
 		return subTypeIdx;
+	}
+
+	public String getBrandTypeName() {
+		return brandTypeName;
+	}
+
+	public void setBrandTypeName(String brandTypeName) {
+		this.brandTypeName = brandTypeName;
+	}
+
+	public List<KindsOfProductTypeDTO> getOptionList() {
+		return optionList;
+	}
+
+	public void setOptionList(List<KindsOfProductTypeDTO> optionList) {
+		this.optionList = optionList;
 	}
 
 	public void setSubTypeIdx(int subTypeIdx) {
@@ -165,6 +193,10 @@ public class CosmeticProductDTO {
 		builder.append(prodInfoType);
 		builder.append(", cosmReleaseDate=");
 		builder.append(cosmReleaseDate);
+		builder.append(", brandTypeName=");
+		builder.append(brandTypeName);
+		builder.append(", subTypeName=");
+		builder.append(subTypeName);
 		builder.append(", optionList=");
 		builder.append(optionList);
 		builder.append("]");
