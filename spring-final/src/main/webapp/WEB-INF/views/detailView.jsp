@@ -140,9 +140,9 @@
 						name="rating1" value="5" checked> <label for="rating5">5</label>
 						<input id="rating4" type="radio" name="rating1" value="4">
 						<label for="rating4">4</label> <input id="rating3" type="radio"
-						name="rating1" value="3"> <label for="rating3">3</label>
-						<input id="rating2" type="radio" name="rating1" value="2">
-						<label for="rating2">2</label> <input id="rating1" type="radio"
+						name="rating1" value="3"> <label for="rating3">3</label> <input
+						id="rating2" type="radio" name="rating1" value="2"> <label
+						for="rating2">2</label> <input id="rating1" type="radio"
 						name="rating1" value="1"> <label for="rating1">1</label>
 					</span> <span style="float: right;"> <img class="socialImg"
 						src="/final/images/social/facebook_icon_color.png" alt=""
@@ -386,12 +386,20 @@
 									for="ratingTwo">2</label> <input id="ratingOne" type="radio"
 									name="rating" value="1"> <label for="ratingOne">1</label>
 								</span>
-								<textarea id="boardContent" name="boardContent"
-									onfocus="this.value = '';"
-									onblur="if (this.value == '') {this.value = 'Add Your Review';}"
-									required="">Add Your Review</textarea>
-								<input type="button" onclick="boardWrite(${prd.prodIdx})"
-									value="Submit">
+								<sec:authorize access="isAuthenticated()">
+									<textarea id="boardContent" name="boardContent"
+										onfocus="this.value = '';"
+										onblur="if (this.value == '') {this.value = 'Add Your Review';}"
+										required="">Add Your Review</textarea>
+									<input type="button" onclick="boardWrite(${prd.prodIdx})"
+										value="Submit">
+								</sec:authorize>
+								<sec:authorize access="! isAuthenticated()">
+									인증된 사용자만 댓글사용이 가능합니다.
+								</sec:authorize>
+								
+								
+
 							</form>
 						</div>
 					</div>
