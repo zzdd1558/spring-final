@@ -76,12 +76,14 @@
 	color: black;
 	display: block;
 }
+
 #filter-count {
 	position: absolute;
 	z-index: 1000;
 	overflow: scroll;
 	height: 44%;
 }
+
 ::-webkit-scrollbar {
 	width: 0px;
 	background: transparent; /* make scrollbar transparent */
@@ -366,8 +368,10 @@
 					for (i = 0; i < resData.length; i++) {
 						if (!test.includes(resData[i].codeOfProd_name)) {
 							test.push(resData[i].codeOfProd_name);
-							result += ' <li><a href="javascript:searchIdx(' + resData[i].prdIdx +')">'
-									+ resData[i].prdName + " : " + resData[i].codeOfProd_name + '</a></li>';
+							result += ' <li><a href="javascript:searchIdx('
+									+ resData[i].prdIdx + ')">'
+									+ resData[i].prdName + " : "
+									+ resData[i].codeOfProd_name + '</a></li>';
 						}
 					}
 					result += '</ul>';
@@ -419,33 +423,30 @@
 					<!-- Mega Menu -->
 					<li class="dropdown" id='category'><a href="#"
 						class="dropdown-toggle" data-toggle="dropdown"
-						onclick='getCategoryList(); return false;'>Products <b
+						onclick='getCategoryList(); return false;'>카테고리 <b
 							class="caret"></b>
 					</a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/static/about.jsp">About
 							Us</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/admin/userListForm.do">Short
-							Codes</a></li>
+						href="${pageContext.request.contextPath}/static/cartListView.jsp">장바구니</a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/static/mail.jsp">Mail
 							Us</a></li>
 
-
+					<sec:authorize access="isAuthenticated()">
+						<sec:authorize access='! hasRole("ROLE_N")'>
+							<li><a
+								href="${pageContext.request.contextPath}/user/myPage.do">My
+									Page</a></li>
+						</sec:authorize>
+					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 						<sec:authorize access='hasRole("ROLE_A")'>
 							<li><a
 								href="${pageContext.request.contextPath}/admin/userListForm.do">
 									Admin Page </a></li>
-						</sec:authorize>
-					</sec:authorize>
-
-					<sec:authorize access="isAuthenticated()">
-						<sec:authorize access='! hasRole("ROLE_A")'>
-							<li><a
-								href="${pageContext.request.contextPath}/static/myPage.jsp">My
-									Page</a></li>
 						</sec:authorize>
 					</sec:authorize>
 				</ul>

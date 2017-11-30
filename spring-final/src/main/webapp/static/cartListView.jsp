@@ -14,7 +14,7 @@
 			return
 		}else{
 			alert('상품 주문페이지로 이동합니다.');
-			location.href =  "${pageContext.request.contextPath}/static/prodOrder.jsp";
+			location.href =  "${pageContext.request.contextPath}/order/prodOrder.do";
 		}
 	}
 </script>
