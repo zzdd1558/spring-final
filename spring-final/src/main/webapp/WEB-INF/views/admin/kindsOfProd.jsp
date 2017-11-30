@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!-- 배열 또는 List, null 등에 데이터가 저장 되었는지 확인하기 위한 length() 사용을 위한 선언 -->
 <!DOCTYPE html>
 <html>
@@ -9,10 +10,28 @@
 					<%@include file="/WEB-INF/include/include-header.jspf" %>
 					
 </head>
+<script language=javascript>
+function sendUpdate(x){
+	var parent =  x.parentNode;
+	var p = parent.parentNode;
+	var child = p.childNodes;
+	for (var i = 0; i < child.length; i++) {
+		console.log(child[i].value);
+	}
+	console.log(child);
+	document.requestForm.command.value ="update";
+	//document.requestForm.submit();			
+}
+
+function sendDelete(){	
+			document.requestForm.command.value ="delete";
+			document.requestForm.submit();			
+}	
+</script>
 <script>
     // **원하는 페이지로 이동시 검색조건, 키워드 값을 유지하기 위해 
     function list(page){
-        location.href="userList.do?curPage="+page;
+        location.href="kindOfProdInfor.do?curPage="+page;
     }
 </script>
 <body>
@@ -26,7 +45,6 @@
 		</div>
 	</div>
 <!-- //banner -->
-
 <!-- breadcrumbs -->
 	<div class="breadcrumb_dress">
 		<div class="container">
@@ -82,65 +100,56 @@
 				<div class="col-md-8 w3ls_dresses_grid_right">
 
 					<div class="w3ls_dresses_grid_right_grid2">
-						<div class="w3ls_dresses_grid_right_grid2_left">
-							<h3>Showing Results: 0-1</h3>
-						</div>
-						<div class="w3ls_dresses_grid_right_grid2_right">
-							<select name="select_item" class="select_item">
-								<option selected="selected">Default sorting</option>
-								<option>Sort by popularity</option>
-								<option>Sort by average rating</option>
-								<option>Sort by newness</option>
-								<option>Sort by price: low to high</option>
-								<option>Sort by price: high to low</option>
-							</select>
-						</div>
 						<div class="clearfix"> </div>
 					</div>
 					<div class="container">
-						<h2>고객 관리</h2>
-  <table class="table table-striped">
-	<thead>
-      <tr>
-        <th>고객 번호</th>
-        <th>고객 아이디</th>
-        <th>고객 이름</th>
-        <th>고객 생년월일</th>
-        <th>고객 전화번호</th>
-        <th>고객 이메일</th>
-        <th></th>
-      </tr>
-    </thead>
-    <c:if test="${empty list || fn:length(list) == 0}">
-			<tr>
-				<td colspan="7">
-					<p align="center">
-						<b><span style="font-size: 9pt;">등록된 방명록이 없습니다.</span></b>
-					</p>
-				</td>
-			</tr>
-		</c:if>
-    <tbody>
-        <form action="${pageContext.request.contextPath}/admin/userInfo.do" method="get">
-    <c:forEach items="${requestScope.list}" var="data">
-      <tr>
-        <td>${data.userKey }</td>
-        <td>${data.userId }</td>
-        <td>${data.userName }</td>
-        <td>${data.userBirth }</td>
-        <td>${data.userPhone }</td>
-        <td>${data.userEmail }</td>
-        <td style="font-size: 10px;">
-        <input type="hidden" name="userKey" value="${data.userKey }">
-        <input type="submit" value="상세보기">
-        </td>
-      </tr>
-    </c:forEach>
-        </form>
-    </tbody>
-  </table>
-  <div style="margin:auto;"></div>
-  <table>   
+						<h2>상품 관리</h2>
+					<form action="${pageContext.request.contextPath}/admin/productUpdateAndDelete.do" method="get" name="requestForm">
+						<input type=hidden name="command" value="">
+						<table class="table table-striped">
+							<thead style="text-align: center;">
+								<tr>
+									<th>상품 옵션 코드</th>
+									<th>상품 번호</th>
+									<th>상품 재고</th>
+									<th>상품 가격</th>
+									<th>상품 옵션 색상</th>
+									<th>상품 옵션 이름</th>
+									<th colspan="2"></th>
+								</tr>
+							</thead>
+							<c:if test="${empty list || fn:length(list) == 0}">
+								<tr>
+									<td colspan="8">
+										<p align="center">
+											<b><span style="font-size: 9pt;">등록된 상품이 없습니다.</span></b>
+										</p>
+									</td>
+								</tr>
+							</c:if>
+							<tbody>
+								<c:forEach items="${requestScope.list}" var="data">
+									<tr>
+										<td><input type="text" value="${data.codeOfProd }" readonly></td>
+										<td><input type="text" value="${data.prodIdx }" readonly></td>
+										<td><input type="text" value="${data.prodCount }"></td>
+										<td><input type="text" value="${data.prodPrice }"></td>
+										<td><input type="text" value="${data.prodColor }"></td>
+										<td><input type="text" value="${data.prodName }"></td>
+										<td>
+										<input type=button value="수정하기" onClick="sendUpdate(this)">
+										</td>
+										<td> 
+										<input type="hidden" name="codeOfProd" value="${data.codeOfProd }">
+										<input type=button value="삭제하기" onClick="sendDelete()">
+										</td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</form>
+					<div>
+  <table style="margin:auto;">   
         <tr>
             <td colspan="5">
                 <!-- **처음페이지로 이동 : 현재 페이지가 1보다 크면  [처음]하이퍼링크를 화면에 출력-->
@@ -178,6 +187,7 @@
             </td>
         </tr>
 </table>
+</div>
 					</div>
 				</div>
 				</div>

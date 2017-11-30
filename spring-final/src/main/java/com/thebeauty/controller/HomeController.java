@@ -95,5 +95,7 @@ public class HomeController {
 	public String boardWriteForm() {
 		return "board/boardWrite";
 	}
+	
+	
 
 }

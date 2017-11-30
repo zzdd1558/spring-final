@@ -9,10 +9,24 @@
 					<%@include file="/WEB-INF/include/include-header.jspf" %>
 					
 </head>
+<!-- <!-- <SCRIPT> -->
+<!-- // function loadDoc1() { -->
+<!-- // 	var xhttp = new XMLHttpRequest(); -->
+<!-- // 	xhttp.onreadystatechange = function() { -->
+<!-- // 		if (this.readyState == 4 && this.status == 200) { -->
+<!-- // 			var resData = this.responseText; -->
+<!-- // 			console.log(resData); -->
+<!-- // 			document.getElementById("adminTable").innerHTML = resData; -->
+<!-- // 		} -->
+<!-- // 	}; -->
+<!-- // 	xhttp.open("GET", "${pageContext.request.contextPath}/"+"admin/userListForm.do", true); -->
+<!-- // 	xhttp.send(); -->
+<!-- // } -->
+<!-- <!-- </SCRIPT> --> -->
 <script>
     // **원하는 페이지로 이동시 검색조건, 키워드 값을 유지하기 위해 
     function list(page){
-        location.href="userList.do?curPage="+page;
+        location.href="productList.do?curPage="+page;
     }
 </script>
 <body>
@@ -82,38 +96,23 @@
 				<div class="col-md-8 w3ls_dresses_grid_right">
 
 					<div class="w3ls_dresses_grid_right_grid2">
-						<div class="w3ls_dresses_grid_right_grid2_left">
-							<h3>Showing Results: 0-1</h3>
-						</div>
-						<div class="w3ls_dresses_grid_right_grid2_right">
-							<select name="select_item" class="select_item">
-								<option selected="selected">Default sorting</option>
-								<option>Sort by popularity</option>
-								<option>Sort by average rating</option>
-								<option>Sort by newness</option>
-								<option>Sort by price: low to high</option>
-								<option>Sort by price: high to low</option>
-							</select>
-						</div>
 						<div class="clearfix"> </div>
 					</div>
-					<div class="container">
-						<h2>고객 관리</h2>
+					<div id="adminTable">
+						<h2>상품 관리</h2>
   <table class="table table-striped">
-	<thead>
+	<thead style="text-align: center;">
       <tr>
-        <th>고객 번호</th>
-        <th>고객 아이디</th>
-        <th>고객 이름</th>
-        <th>고객 생년월일</th>
-        <th>고객 전화번호</th>
-        <th>고객 이메일</th>
-        <th></th>
+        <th>상품 번호</th>
+        <th>브랜드 이름</th>
+        <th>서브타입 이름</th>
+        <th>상품 이름</th>
+        <th colspan="2"></th>
       </tr>
     </thead>
     <c:if test="${empty list || fn:length(list) == 0}">
 			<tr>
-				<td colspan="7">
+				<td colspan="4">
 					<p align="center">
 						<b><span style="font-size: 9pt;">등록된 방명록이 없습니다.</span></b>
 					</p>
@@ -121,26 +120,26 @@
 			</tr>
 		</c:if>
     <tbody>
-        <form action="${pageContext.request.contextPath}/admin/userInfo.do" method="get">
     <c:forEach items="${requestScope.list}" var="data">
       <tr>
-        <td>${data.userKey }</td>
-        <td>${data.userId }</td>
-        <td>${data.userName }</td>
-        <td>${data.userBirth }</td>
-        <td>${data.userPhone }</td>
-        <td>${data.userEmail }</td>
-        <td style="font-size: 10px;">
-        <input type="hidden" name="userKey" value="${data.userKey }">
+        <td>${data.prodIdx }</td>
+        <td>${data.brandTypeName }</td>
+        <td>${data.subTypeName }</td>
+        <td>${data.cosmName }</td>
+        <td>
+        <form action="${pageContext.request.contextPath}/admin/kindOfProdInfor.do" method="get">
+        <input type="hidden" name="prodIdx" value="${data.prodIdx }">
         <input type="submit" value="상세보기">
+        </form>
+        </td>
+        <td>
         </td>
       </tr>
     </c:forEach>
-        </form>
     </tbody>
   </table>
-  <div style="margin:auto;"></div>
-  <table>   
+  <div>
+  <table style="margin:auto;">   
         <tr>
             <td colspan="5">
                 <!-- **처음페이지로 이동 : 현재 페이지가 1보다 크면  [처음]하이퍼링크를 화면에 출력-->
@@ -178,6 +177,7 @@
             </td>
         </tr>
 </table>
+</div>
 					</div>
 				</div>
 				</div>

@@ -15,8 +15,11 @@ public interface UserDAO {
 	/** maxIdx 가져오기 */
 	public abstract int getUserMaxIdx();
 	
-	/** 회원 id로 회원정보 가저오기*/
+	/** 회원 ID로 회원정보 가저오기*/
 	public abstract UserDTO getUserInfo(String userId);
+	
+	/** 회원 번호로 회원정보 가저오기*/
+	public abstract UserDTO getUserDetail(int userKey);
 	
 	/** 회원승인으로 인한 Rating 업데이트*/
 	public abstract int userPermissionUpdate(String userId);
@@ -32,4 +35,12 @@ public interface UserDAO {
 	
 	/** 이름 알아오기*/
 	public abstract String userNameSelect(int userKey);
+	
+	/** 페이징 처리하여 고객정보 가져오기*/
+	public abstract List<UserDTO> listAll(int start, int end);
+	
+	/** 회원번호로 고객정보 수정하기*/
+	public abstract int updateUser(UserDTO user);
+	
+	public abstract int deleteUser(UserDTO user);
 }

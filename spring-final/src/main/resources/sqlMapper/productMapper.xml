@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="productMapper">
+
+	 <resultMap type="cosmeticBrandDTO" id="brandResultMap">
+	 	<id column="BRAND_TYPE_IDX" property="brandTypeIdx"/>
+	 	<result column="BRAND_NAME" property="brandTypeName"/>
+	 </resultMap>
+	 
+	 <resultMap type="cosmeticSubTypeDTO" id="subTypeResultMap">
+	 	<id column="SUB_TYPE_IDX" property="subTypeIdx"/>
+	 	<result column="SUB_NAME" property="subTypeName"/>
+	 </resultMap>
+
 	 <resultMap type="ProductImagePathDTO" id="imgResultMap">
 	 	<id column="NUM_OF_PROD_IDX" property="numOfProdIdx"/>
 	 	<result column="CODE_OF_PROD" property="codeOfProd"/>
@@ -16,7 +27,7 @@
 	 	<result column="PROD_NAME" property="prodName"/>
 	 	<collection property="imgDTO" resultMap="imgResultMap"></collection>
 	 </resultMap>
- 
+	 
  	<resultMap type="cosmeticProductDTO" id="productResultMap">
 		<id column="PROD_IDX"  property="prodIdx"/>
 		<result column="BRAND_TYPE_IDX"  property="brandTypeIdx"/>
@@ -28,6 +39,8 @@
 		<result column="PROD_INFOTYPE"  property="prodInfoType"/>
 		<result column="PROD_INTRODUCE"  property="prodIntroduce"/>
 		<result column="COSM_RELEASE_DATE"  property="cosmReleaseDate"/>
+		<result column="BRAND_NAME"  property="brandTypeName"/>
+		<result column="SUB_NAME" property="subTypeName"/>
 		<collection property="optionList" resultMap="prdOptionReultMap"></collection>
 	</resultMap>
 	
@@ -36,6 +49,10 @@
 		FROM  PRODUCT_IMAGE_PATH_TB 
 		WHERE CODE_OF_PROD=#{codeOfProd} 
 		ORDER BY NUM_OF_PROD_IDX
+	</select>
+	
+	<select id="codeImgSelectAll" resultMap="imgResultMap">
+		SELECT * FROM  PRODUCT_IMAGE_PATH_TB 
 	</select>
 
 	<select id="productSelectAll" resultMap="productResultMap">
@@ -53,6 +70,22 @@
 		ORDER BY prd.PROD_IDX ASC, kprd.CODE_OF_PROD ASC, iprd.NUM_OF_PROD_IDX ASC
 	</select>
 	
+	<select id="productAll" resultMap="productResultMap">
+		SELECT * FROM COSMETIC_PRODUCT_TB
+	</select>
+	
+	<select id="mainProductList" parameterType="hashMap" resultMap="productResultMap">
+		<include refid="pagingHeader"></include>
+		SELECT prd.*, brand.BRAND_NAME, sub.SUB_NAME FROM COSMETIC_PRODUCT_TB prd, COSMETIC_BRAND_TB brand, COSMETIC_SUB_TYPE_TB sub
+		WHERE prd.BRAND_TYPE_IDX = brand.BRAND_TYPE_IDX AND prd.SUB_TYPE_IDX = sub.SUB_TYPE_IDX
+		ORDER BY prd.PROD_IDX ASC
+		<include refid="pagingFooter"></include>
+	</select>
+				
+	<select id="kindsOfProdSelectAll" parameterType="int" resultMap="prdOptionReultMap">
+		SELECT * FROM KINDS_OF_PRODUCT_TYPE_TB WHERE PROD_IDX = #{prodIdx}
+	</select>
+	
 	<select id="productSelectAllByProdIdx" parameterType="int" resultMap="productResultMap">
 		SELECT prd.*,kprd.*,iprd.* 
 		FROM COSMETIC_PRODUCT_TB prd LEFT JOIN KINDS_OF_PRODUCT_TYPE_TB kprd 
@@ -63,24 +96,38 @@
 		ORDER BY prd.PROD_IDX ASC, kprd.CODE_OF_PROD ASC, iprd.NUM_OF_PROD_IDX ASC
 	</select>
 	
+	<select id="kindOfProdSelectByProdIdx" parameterType="hashMap" resultMap="prdOptionReultMap">
+		<include refid="pagingHeader"></include>
+		SELECT *
+		FROM KINDS_OF_PRODUCT_TYPE_TB
+		WHERE PROD_IDX=#{prodIdx}
+		ORDER BY CODE_OF_PROD ASC
+		<include refid="pagingFooter"></include>
+	</select>
+		<!-- 페이징 sql -->
+				<sql id="pagingHeader">
+					SELECT * FROM (
+					SELECT ROWNUM AS rn, A.* FROM (
+				</sql>
+				<sql id="pagingFooter">
+					) A
+					) WHERE rn BETWEEN #{start} AND #{end}
+				</sql>
+	
 	<insert id="procuctInsert" parameterType="cosmeticProductDTO">
 		INSERT INTO COSMETIC_PRODUCT_TB VALUES (#{prodIdx},#{brandTypeIdx},#{subTypeIdx},#{faceTypeId},#{cosmName},#{paValue},#{spfValue},#{prodIntroduce},#{cosmReleaseDate})
 	</insert>
 	
-	<update id="productUpdateByProdIdx" parameterType="cosmeticProductDTO">
-		UPDATE COSMETIC_PRODUCT_TB, 
-		SET BRAND_TYPE_IDX = #{brandTypeIdx}
-		, SUB_TYPE_IDX = #{subTypeIdx}
-		, FACE_TYPE_ID = #{faceTypeId}
-		, COSM_NAME = #{cosmName}
-		, PA_VALUE = #{paValue}
-		, SPF_VALUE = #{spfValue}
-		, PROD_INTRODUCE = #{prodIntroduce}
-		, COSM_RELEASE_DATE = #{cosmReleaseDate}
-		where PROD_IDX = #{prodIdx}
+	<update id="kindOfProductUpdateBycodeOfProd" parameterType="KindsOfProductTypeDTO">
+		UPDATE KINDS_OF_PRODUCT_TYPE_TB
+		SET PROD_COUNT = #{prodCount}
+		, PROD_PRICE = #{prodPrice}
+		, PROD_COLOR = #{prodColor}
+		, PROD_NAME = #{prodName}
+		where CODE_OF_PROD = #{codeOfProd}
 	</update>
 	
-	<delete id="productDeleteByProdIdx" parameterType="int">
-		DELETE FROM COSMETIC_PRODUCT_TB WHERE PROD_IDX = #{prodIdx}
+	<delete id="kindOfProductDeleteBycodeOfProd" parameterType="int">
+		DELETE FROM KINDS_OF_PRODUCT_TYPE_TB WHERE CODE_OF_PROD = #{codeOfProd}
 	</delete>
 </mapper>
