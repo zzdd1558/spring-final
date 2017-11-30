@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +12,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.thebeauty.model.domain.BoardDTO;
 import com.thebeauty.model.domain.CommentDTO;
+import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.service.BoardPager;
 import com.thebeauty.model.service.CommentService;
 import com.thebeauty.model.service.MallBoardService;
@@ -34,14 +38,14 @@ public class BoardController {
 	
 	//boardList form 구현
 		@RequestMapping(value = "BoardListform.do", method = RequestMethod.GET)
-		public ModelAndView boardList(@RequestParam(defaultValue="1") int curPage) {
-			ModelAndView mv=new ModelAndView("board/boardListTest");
-			List<BoardDTO> list=boardService.selectAll();
-			int count=list.size();
+		public @ResponseBody Map boardList(@RequestParam(defaultValue="1") int curPage,
+										   @RequestParam int prodIdx) {
+			
+			int count=boardService.boardSelectCnt(prodIdx);
 			BoardPager boardPager = new BoardPager(count, curPage);
 		    int start = boardPager.getPageBegin();
 		    int end = boardPager.getPageEnd();
-		    list=boardService.listAll(start,end);
+		    List<BoardDTO> list=boardService.listAll(start,end,prodIdx);
 		    Map<String, Object> map = new HashMap<String, Object>();
 		    for (BoardDTO boardDTO : list) {
 		    	map.put("userKey"+boardDTO.getBoardUserKey(),boardService.boardUserName(boardDTO.getBoardUserKey()));
@@ -49,10 +53,9 @@ public class BoardController {
 		    map.put("list", list); // list
 		    map.put("count", count); // 레코드의 갯수
 		    map.put("boardPager", boardPager);
-		    System.out.println(map);
-			mv.addObject("list", list);
-			mv.addObject("map", map);
-			return mv;
+//			mv.addObject("list", list);
+//			mv.addObject("map", map);
+			return map;
 		}
 		
 		//boardDetailList form 구현
@@ -69,11 +72,11 @@ public class BoardController {
 		}
 		
 		//boardWrite 글쓰기 구현
-		@RequestMapping(value = "BoardWrite.do", method = RequestMethod.GET)
-		public String boardWrite(@ModelAttribute("board")BoardDTO dto) {
-			System.out.println("boardWrite:"+dto);
+		@RequestMapping(value = "BoardWrite.do", method = RequestMethod.POST, produces="application/json; charset=utf8")
+		public @ResponseBody String boardWrite(BoardDTO dto) {
 			boardService.insertBoard(dto);
-			return "redirect:BoardListform.do";
+			String msg="리뷰가 달렸습니다.";
+			return msg;
 		}
 		
 		//boardDelete 게시글 삭제 구현
@@ -82,7 +85,7 @@ public class BoardController {
 			System.out.println("delete:"+dto);
 			boardService.deleteBoard(dto);
 			
-			return "redirect:BoardListform.do";
+			return "성공";
 		}
 		
 		//boardUpdateform 게시글 수정form 구현

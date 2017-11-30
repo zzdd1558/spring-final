@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cosmeticTypeMapper">
 	 
-	 <resultMap type="CosmeticSubTypeDTO" id="subTypeResultMap">
+	 <resultMap type="cosmeticSubTypeDTO" id="subTypeResultMap">
 	 	<result column="SUB_TYPE_IDX" property="subTypeIdx"/>
 	 	<result column="MAIN_TYPE_IDX" property="mainTypeIdx"/>
 	 	<result column="SUB_NAME" property="subTypeName"/>
 	 </resultMap>
  
- 	<resultMap type="CosmeticMainTypeDTO" id="MainTypeResultMap">
+ 	<resultMap type="cosmeticMainTypeDTO" id="MainTypeResultMap">
 		<result column="MAIN_TYPE_IDX"  property="mainTypeIdx"/>
 		<result column="MAIN_NAME"  property="mainTypeName"/>
 	 	<collection  property="subTypeList" resultMap="subTypeResultMap"/>

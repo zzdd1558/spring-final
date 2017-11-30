@@ -4,11 +4,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -17,6 +21,7 @@ import com.thebeauty.model.domain.CosmeticMainTypeDTO;
 import com.thebeauty.model.domain.CosmeticProductDTO;
 import com.thebeauty.model.domain.KindsOfProductTypeDTO;
 import com.thebeauty.model.domain.ProductImagePathDTO;
+import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.service.ProductService;
 
 @Controller
@@ -55,10 +60,7 @@ public class ProductController{
 			@RequestParam int prodIdx,
 			@RequestParam int subTypeIdx
 			) { /*int productNum*/
-		System.out.println(prodIdx);
-		System.out.println(subTypeIdx);
 		for (int a : codeOfProd) {
-			System.out.println(a);
 		}
 		return "detailView";
 	}
@@ -99,4 +101,22 @@ public class ProductController{
 		
 		return mv;
 	}
+	
+	@RequestMapping(value="searchprdName.do",method=RequestMethod.POST)
+	public @ResponseBody List<String> searchName(@RequestParam String inputText){
+		List<String> list= service.searchPrdName(inputText);
+		return list;
+	}
+	
+	@RequestMapping("searchIdx.do")
+	public String searchIdx(@RequestParam String name){
+		System.out.println(name);
+		
+		
+		return "";
+	}
+	
+	
+	
+	
 }

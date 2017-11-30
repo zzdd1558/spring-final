@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.thebeauty.model.domain.CosmeticMainTypeDTO;
 import com.thebeauty.model.domain.CosmeticProductDTO;
+import com.thebeauty.model.domain.KindsOfProductTypeDTO;
 import com.thebeauty.model.domain.ProductImagePathDTO;
 
 public interface ProductService {
@@ -13,4 +14,6 @@ public interface ProductService {
 	public abstract List<CosmeticMainTypeDTO> categorySelect();
 	public abstract CosmeticMainTypeDTO mainTypeIdx(int subTypeIdx);
 	public abstract List<ProductImagePathDTO> codeImgSelect(int codeOfProd);
+	public abstract List<String> searchPrdName(String inputText);
 }
+

@@ -100,4 +100,10 @@ public class ProductDAOImpl implements ProductDAO {
 	public int kindsOfProductDelete(int code) {
 		return sqlsession.delete("productMapper.kindOfProductDeleteBycodeOfProd", code);
 	}
+	@Override
+	public List<String> searchPrdName(String inputText) {
+		return sqlsession.selectList("productMapper.searchPrdName",inputText);
+	}
+
+
 }

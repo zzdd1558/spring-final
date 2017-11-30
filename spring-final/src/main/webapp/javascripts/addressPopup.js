@@ -15,4 +15,8 @@ function jusoCallBack(roadFullAddr, roadAddrPart1, addrDetail, roadAddrPart2,
 	document.getElementById('u_address_zip_no').value = zipNo;
 	document.getElementById('u_address_part').value = roadAddrPart1;
 	document.getElementById('u_address_detail').value = bdNm + " " +addrDetail;
+	
+	document.getElementById('fromUser_address_zip_no').value = zipNo;
+	document.getElementById('fromUser_address_part').value = roadAddrPart1;
+	document.getElementById('fromUser_address_detail').value = bdNm + " " +addrDetail;
 }

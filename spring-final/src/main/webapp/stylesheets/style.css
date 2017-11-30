@@ -88,7 +88,7 @@ label.icon-search {
 	overflow: hidden;
 	width: 20px;
 	height:0px;
-	background:#212121;
+	background:#d32c2c1c;
 	transition: height 0.2s ease-out 0.5s , top 0.2s ease-out 0.5s, padding 0.2s ease-out 0.5s, width 0.3s ease-out 0.2s;
 	-webkit-transition: height 0.2s ease-out 0.5s , top 0.2s ease-out 0.5s, padding 0.2s ease-out 0.5s, width 0.3s ease-out 0.2s;
 }
@@ -101,11 +101,10 @@ label.icon-search {
 	width: 380px;
     padding: 10px;
     outline: none;
-    font-size: 14px;
-    color:#fff;
-    border: 1px solid #999;
+    font-size: 19px;
+    color: #fff;
+    border: 0px;
     background: none;
-    margin-top: 1em;
 }
 .search_form input[type='text']::-webkit-input-placeholder{
 	color:#fff !important;
@@ -130,9 +129,9 @@ label.icon-search {
 	visibility: hidden;
 }
 .search_box:checked~.search_form{
-    width: 500px;
-    height: 62px;
-    padding: 10px;
+	border-radius : 10px;
+    width: 380px;
+    height: 50px;
     top: 44px;
 	transition: height 0.2s ease-out, top 0.2s ease-out, padding 0.2s ease-out, 0.3s width ease-out 0.2s;
 	-webkit-transition: height 0.2s ease-out, top 0.2s ease-out, padding 0.2s ease-out, 0.3s width ease-out 0.2s;
@@ -282,7 +281,7 @@ ul.multi-column-dropdown h6 {
     margin-left: 12em;
 }
 .dropdown-menu {
-    left: -130%;
+    left: 0;
 }
 .w3ls_products_pos h4 {
     font-size: 2em;
@@ -1341,7 +1340,7 @@ div#horizontalTab ul {
 .register input[type="button"]{
 	outline:none;
 	border:none;
-	background:#212121;
+	background:#ec70988c;
 	padding:10px 0;
 	color:#fff;
 	width:40%;
@@ -2592,7 +2591,7 @@ td.invert-image a img {
 }
 .checkout-right-basket{
 	float: right;
-    margin: 8em 0 0 0em;
+    margin: 2em 0 0 1em;
 }
 .checkout-left-basket ul li span {
     float: right;
@@ -3338,7 +3337,13 @@ td.invert-image a img {
 		width: 440px;
 	}
 	.search_form input[type='text'] {
-		width: 321px;
+		width: 380px;
+	    padding: 10px;
+	    outline: none;
+	    font-size: 17px;
+	    color: #fff;
+	    border: 0px;
+	    background: none;
 	}
 	.nav > li > a {
 		padding: 10px 14px;
@@ -4320,4 +4325,5 @@ td.invert-image a img {
 	.close1, .close2, .close3 {
 		right: 111px;
 	}
+
 }

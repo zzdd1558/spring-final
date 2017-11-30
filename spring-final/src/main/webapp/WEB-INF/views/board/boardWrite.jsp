@@ -23,7 +23,7 @@
     <form method="get" action="BoardWrite.do" name="boardForm" enctype="multipart/form-data">
     <table width="700" border="3" bordercolor="lightgray" align="center">
         <tr>
-            <td id="title">작성자</td>
+            <td id="title">${sessionScope.user.userName}</td>
             <td>
                 <input name="boardUserKey" type="number" />
 			</td>

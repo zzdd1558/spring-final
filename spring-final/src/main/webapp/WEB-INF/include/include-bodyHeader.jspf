@@ -1,3 +1,6 @@
+<%@page import="org.springframework.security.core.userdetails.User"%>
+<%@page import="javax.mail.Session"%>
+<%@page import="com.sun.xml.internal.bind.CycleRecoverable.Context"%>
 <%@page import="com.thebeauty.model.domain.UserDTO"%>
 <%@page
 	import="org.springframework.security.core.context.SecurityContextHolder"%>
@@ -6,6 +9,36 @@
 <%@taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <script>
+	function disabledAlert() {
+		alert("로그인이 필요한 기능입니다. 로그인 창으로 이동합니다.");
+		$('#myModal88').modal();
+	}
+	/** 상품추가할때마다 가격 및 상품 갯수 변경 */
+	function changeCartView() {
+		var totalCnt = 0;
+		var totalPrice = 0;
+		var items = JSON.parse(localStorage.getItem('cartList'));
+		for (key in items) {
+			console.log(key);
+			for (subKey in items[key].option) {
+				totalCnt += parseInt(items[key].option[subKey].quantity);
+				totalPrice += items[key].price
+						* parseInt(items[key].option[subKey].quantity);
+			}
+		}
+		document.getElementById('prod_total_price').innerHTML = totalPrice;
+		document.getElementById('prod_total_quantity').innerHTML = totalCnt;
+
+	}
+
+	/** 세션 스토리지 비우기*/
+	function removeCartIteamAll() {
+
+		localStorage.removeItem('cartList');
+		changeCartView();
+		alert("장바구니를 비웠습니다.");
+	}
+
 	function checkWebStorageAvailable() {
 		try {
 			if (!localStorage) {
@@ -32,6 +65,26 @@
 
 	}
 </script>
+<style>
+#filter-count li a{
+    border: 1px solid #dddddd69;
+    margin-top: -1px;
+    background-color: rgba(255, 255, 255, 0.88);
+    padding: 9px;
+    text-decoration: none;
+    font-size: 13px;
+    color: black;
+    display: block;
+}
+#filter-count{
+	position: absolute;
+    z-index: 1000;
+    overflow: hidden;
+    height: 44%;
+}
+
+</style>
+
 
 <div class="modal fade" id="myModal88" tabindex="-1" role="dialog"
 	aria-labelledby="myModal88" aria-hidden="true">
@@ -196,16 +249,6 @@
 </div>
 <div class="header">
 	<div class="container">
-
-		<sec:authorize access="isAuthenticated()">
-			<sec:authorize access='hasRole("ADMIN")'>
-				<div class="w3l_login">
-					<a href="#" data-toggle="modal" data-target="#myModal88"> has
-						loweof</a>
-				</div>
-			</sec:authorize>
-		</sec:authorize>
-
 		<sec:authorize access="isAuthenticated()">
 			<div class="w3l_login">
 				<a href='${pageContext.request.contextPath}/auth/logout.do'> <span
@@ -223,33 +266,106 @@
 
 		<div class="w3l_logo">
 			<h1 style="text-align: center;">
-				<a  href="${pageContext.request.contextPath}">The beauty
-				<div style="height:10px"></div>
-				<span>All about Cosmetic</span></a>
+				<a href="${pageContext.request.contextPath}">The beauty
+					<div style="height: 10px"></div> <span>All about Cosmetic</span>
+				</a>
 			</h1>
 		</div>
-		<div class="search">
-			<input class="search_box" type="checkbox" id="search_box"><label
-				class="icon-search" for="search_box"><span
-				class="glyphicon glyphicon-search" aria-hidden="true"></span></label>
-			<div class="search_form">
-				<form action="#" method="post">
-					<input type="text" name="Search" placeholder="Search..."><input
-						type="submit" value="Send">
-				</form>
-			</div>
-		</div>
+		<form id="live-search" action="" class="styled" method="post">
+			<fieldset>
+				<input type="text" class="text-input" id="filter" value="" style="margin-bottom: 3px;"/> 
+				<div id="filter-count"></div>
+			</fieldset>
+		</form>
+
+		<script type="text/javascript">
+			
+			$(document).ready( function() {
+								$("#filter").keyup(function() {
+						// Retrieve the input field text and reset the count to zero
+						var filter = $(this).val(), count = 0;
+						searchInfo(filter);
+						// Loop through the comment list
+						$("#filter-count ul li")
+								.each(
+										function() {
+
+											// If the list item does not contain the text phrase fade it out
+											if ($(
+													this)
+													.text()
+													.search(
+															new RegExp(
+																	filter,
+																	"i")) < 0) {
+												$(
+														this)
+														.fadeOut();
+
+												// Show the list item if the phrase matches and increase the count by 1
+											} else {
+												$(
+														this)
+														.show();
+											}
+										});
+
+						// Update the count
+
+						});
+				});
+			var delay = (function() {
+				var timer = 0;
+				return function(callback, ms) {
+					clearTimeout(timer);
+					timer = setTimeout(callback, ms);
+				};
+			})();
+			var inputTextValue;
+			function send() {
+				httpRequest.sendRequest(httpRequest.getContextPath()
+						+ '/product/searchprdName.do', "inputText="
+						+ inputTextValue, searchName, 'POST', header, token);
+			}
+
+			function searchInfo(inputText) {
+				inputTextValue = inputText;
+				delay(send, 1000);
+			}
+
+			function searchName() {
+				if (this.readyState == 4 && this.status == 200) {
+					var resData = this.responseText;
+					resData = JSON.parse(resData);
+					var result = '<ul>';
+					for (i = 0; i < resData.length; i++) {
+						result += ' <li><a href="javascript:searchIdx(this)">' + resData[i]
+								+ '</a></li>';
+					}
+					result += '</ul>';
+					document.getElementById('filter-count').innerHTML = result;
+				}
+			}
+			
+			function searchIdx(Idx){
+				console.log(Idx.innerHTML);
+				var name=Idx.innerHTML;
+				location.href=httpReqest.getContextPath()+'/product/searchIdx.do?name='+name;
+			}
+			
+		</script>
+
 		<div class="cart box_1">
-			<a href="${pageContext.request.contextPath}/static/checkout.jsp">
+			<a href="${pageContext.request.contextPath}/static/cartListView.jsp">
 				<div class="total">
-					<span class="simpleCart_total"></span> (<span
-						id="simpleCart_quantity" class="simpleCart_quantity"></span>
-					items)
+					<span id="prod_total_price">0</span>원 (<span
+						id="prod_total_quantity">0</span> 개의 상품)
 				</div> <img src="${pageContext.request.contextPath}/images/test/bag.png"
 				alt="" />
 			</a>
 			<p>
-				<a href="javascript:;" class="simpleCart_empty">Empty Cart</a>
+				<a href="javascript:;" onclick='removeCartIteamAll();'
+					style='color: black; float: right; margin: 5px 0;'>상품 비우기</a>
 			</p>
 			<div class="clearfix"></div>
 		</div>
@@ -288,8 +404,28 @@
 					<li><a
 						href="${pageContext.request.contextPath}/static/mail.jsp">Mail
 							Us</a></li>
+
+
+					<sec:authorize access="isAuthenticated()">
+						<sec:authorize access='hasRole("ROLE_A")'>
+							<li><a
+								href="${pageContext.request.contextPath}/admin/index.do">
+									Admin Page </a></li>
+						</sec:authorize>
+					</sec:authorize>
+
+					<sec:authorize access="isAuthenticated()">
+						<sec:authorize access='! hasRole("ROLE_A")'>
+							<li><a
+								href="${pageContext.request.contextPath}/static/myPage.jsp">My
+									Page</a></li>
+						</sec:authorize>
+					</sec:authorize>
 				</ul>
 			</div>
 		</nav>
 	</div>
 </div>
+<script>
+	changeCartView();
+</script>

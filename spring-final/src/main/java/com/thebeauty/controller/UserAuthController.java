@@ -94,7 +94,6 @@ public class UserAuthController {
 		}else {
 			msg = "회원가입 실패하였습니다.";
 		}
-
 		return "redirect:/static/handler/redirectHandlerPage.jsp?Message=" + encodeMsg(msg);
 	}
 	

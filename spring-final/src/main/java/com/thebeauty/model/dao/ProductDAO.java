@@ -25,4 +25,5 @@ public interface ProductDAO {
 	public abstract int kindsOfProductUpdate(KindsOfProductTypeDTO kProd);
 	/* kindsOfProduct 삭제*/
 	public abstract int kindsOfProductDelete(int code);
+	public abstract List<String> searchPrdName(String inputText);
 }

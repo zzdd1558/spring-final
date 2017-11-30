@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="orderMapper">
+
+	<resultMap type="orderDTO" id="orderResultMap">
+		<result column="ORDER_NUMBER"  property="orderNumber"/>
+		<result column="ORDER_TOTAL_PRICE"  property="orderTotalPrice"/>
+		<result column="ORDER_DATE"  property="orderorderDate"/>
+		<result column="RES_NAME"  property="resName"/>
+		<result column="RES_PHONE"  property="resPhone"/>
+		<result column="RES_ADDR"  property="resAddr"/>
+		<result column="ORDER_REQUEST"  property="orderRequest"/>
+		<result column="USER_KEY"  property="userKey"/>
+		<result column="DELI_STATUS_CODE"  property="deliStatusCode"/>
+	</resultMap>
+
+	<insert id="insertOrder" parameterType="orderDTO">
+		INSERT INTO ORDER_TB VALUES 
+		( #{orderNumber}, #{orderTotalPrice} , SYSDATE , #{resName} , #{resPhone} , #{resAddr} , #{orderRequest} , #{userKey} , 1 )
+	</insert>
+	
+	<select id="orderMaxIdx" resultType="string">
+		SELECT MAX(ORDER_NUMBER) FROM ORDER_TB
+	</select>
+
+	
+</mapper>

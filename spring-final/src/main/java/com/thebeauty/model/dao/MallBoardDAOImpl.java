@@ -16,14 +16,13 @@ public class MallBoardDAOImpl implements MallBoardDAO {
 	private SqlSession sqlsession;
 	
 	@Override
-	public List<BoardDTO> selectAllboard() {
+	public int selectAllCount(int prodIdx) {
 		// TODO Auto-generated method stub
-		return sqlsession.selectList("boardMapper.boardSelectAll");
+		return sqlsession.selectOne("boardMapper.boardSelectCntByIdx",prodIdx);
 	}
 
 	@Override
 	public int insertBoard(BoardDTO dto) {
-		System.out.println(dto);
 		return sqlsession.insert("boardMapper.boardInsert",dto);
 	}
 		
@@ -51,13 +50,14 @@ public class MallBoardDAOImpl implements MallBoardDAO {
 	}
 
 	@Override
-	public List<BoardDTO> listAll(int start, int end) {
+	public List<BoardDTO> listAll(int start, int end,int prodIdx) {
 		// TODO Auto-generated method stub
 		Map<String, Object> map = new HashMap<String, Object>();
 	    // BETWEEN #{start}, #{end}에 입력될 값을 맵에 
 	    map.put("start", start);
 	    map.put("end", end);
-	    return sqlsession.selectList("boardMapper.listAll", map);
+	    map.put("prodIdx",prodIdx);
+	    return sqlsession.selectList("boardMapper.listByProdIdx", map);
 	}
 
 	@Override

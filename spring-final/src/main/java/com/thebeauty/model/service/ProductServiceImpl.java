@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.thebeauty.model.dao.ProductDAO;
 import com.thebeauty.model.domain.CosmeticMainTypeDTO;
 import com.thebeauty.model.domain.CosmeticProductDTO;
+import com.thebeauty.model.domain.KindsOfProductTypeDTO;
 import com.thebeauty.model.domain.ProductImagePathDTO;
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -43,6 +44,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public CosmeticMainTypeDTO mainTypeIdx(int subTypeIdx) {
 		return dao.mainTypeIdx(subTypeIdx);
+	}
+
+	@Override
+	public List<String> searchPrdName(String inputText) {
+		return dao.searchPrdName(inputText);
 	}
 	
 

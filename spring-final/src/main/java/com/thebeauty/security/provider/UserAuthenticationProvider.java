@@ -40,7 +40,6 @@ public class UserAuthenticationProvider implements AuthenticationProvider{
 
 		/* DB로부터 User의 정보를 가져옴 */
 		UserDTO user = userDAO.getUserInfo(authentication.getName());
-		System.out.println("사용자 정보 : " + user);
 		
 		/* 사용자 정보를 조회한후 사용자 존재여부를 확인  */
 		if(user == null) {
@@ -59,7 +58,7 @@ public class UserAuthenticationProvider implements AuthenticationProvider{
 		
 		/* 권한이 없거나 'N' or 'n'일경우 */
 		System.out.println(user.getRatingType());
-		if(user.getRatingType() == null || user.getRatingType().equalsIgnoreCase("NAN")) {
+		if(user.getRatingType() == null || user.getRatingType().equalsIgnoreCase("ROLE_N")) {
 			System.out.println("회원승인이 필요합니다");
 			throw new PermissionDeniedException("permissionDenined");
 		}

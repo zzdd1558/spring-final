@@ -4,10 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.quartz.LocalDataSourceJobStore;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +22,7 @@ import com.thebeauty.model.dao.FavoriteCosmeticDAO;
 import com.thebeauty.model.domain.CosmeticMainTypeDTO;
 import com.thebeauty.model.domain.CosmeticSubTypeDTO;
 import com.thebeauty.model.domain.FavoriteCosmeticDTO;
+import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.service.ProductService;
 
 @Controller
@@ -32,9 +36,9 @@ public class HomeController {
 	
 	/* 메인페이지 시작 */
 	@RequestMapping(value = "openmallMain.do", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home(Model model , HttpServletRequest request , Authentication auth) {
 		List<CosmeticMainTypeDTO> list=service.categorySelect();
-		
+
 		/* 좋아요 순으로 상품불러오기*/
 //		List<FavoriteCosmeticDTO> fList = favoriteCosmeticDao.favoriteSearchAll();
 //		
@@ -68,7 +72,13 @@ public class HomeController {
 //	}	
 	
 	/* 전체 product 값 가져와서 위에서 구한 favoriteCosmetic 높은 값들과 비교하여 일치하면 리스트에 담아 넘겨주기 */
+	
 		
+		HttpSession session = request.getSession();
+		
+		if(auth != null) {
+			session.setAttribute("user", ((UserDTO)auth.getPrincipal()));
+		}
 		
 		ObjectMapper mapper=new ObjectMapper();
 		
