@@ -66,23 +66,28 @@
 	}
 </script>
 <style>
-#filter-count li a{
-    border: 1px solid #dddddd69;
-    margin-top: -1px;
-    background-color: rgba(255, 255, 255, 0.88);
-    padding: 9px;
-    text-decoration: none;
-    font-size: 13px;
-    color: black;
-    display: block;
-}
-#filter-count{
-	position: absolute;
-    z-index: 1000;
-    overflow: hidden;
-    height: 44%;
+#filter-count li a {
+	border: 1px solid #dddddd69;
+	margin-top: -1px;
+	background-color: rgba(255, 255, 255, 0.88);
+	padding: 9px;
+	text-decoration: none;
+	font-size: 13px;
+	color: black;
+	display: block;
 }
 
+#filter-count {
+	position: absolute;
+	z-index: 1000;
+	overflow: scroll;
+	height: 44%;
+}
+
+::-webkit-scrollbar {
+	width: 0px;
+	background: transparent; /* make scrollbar transparent */
+}
 </style>
 
 
@@ -273,47 +278,52 @@
 		</div>
 		<form id="live-search" action="" class="styled" method="post">
 			<fieldset>
-				<input type="text" class="text-input" id="filter" value="" style="margin-bottom: 3px;"/> 
+				<input type="text" class="text-input" id="filter" value=""
+					style="margin-bottom: 3px;" />
 				<div id="filter-count"></div>
 			</fieldset>
 		</form>
 
 		<script type="text/javascript">
-			
-			$(document).ready( function() {
-								$("#filter").keyup(function() {
-						// Retrieve the input field text and reset the count to zero
-						var filter = $(this).val(), count = 0;
-						searchInfo(filter);
-						// Loop through the comment list
-						$("#filter-count ul li")
-								.each(
-										function() {
+			var str;
+			$(document)
+					.ready(
+							function() {
+								$("#filter")
+										.keyup(
+												function() {
+													// Retrieve the input field text and reset the count to zero
+													var filter = $(this).val(), count = 0;
+													searchInfo(filter);
+													// Loop through the comment list
+													$("#filter-count ul li")
+															.each(
+																	function() {
 
-											// If the list item does not contain the text phrase fade it out
-											if ($(
-													this)
-													.text()
-													.search(
-															new RegExp(
-																	filter,
-																	"i")) < 0) {
-												$(
-														this)
-														.fadeOut();
+																		// If the list item does not contain the text phrase fade it out
+																		if ($(
+																				this)
+																				.text()
+																				.search(
+																						new RegExp(
+																								filter,
+																								"i")) < 0) {
+																			$(
+																					this)
+																					.fadeOut();
 
-												// Show the list item if the phrase matches and increase the count by 1
-											} else {
-												$(
-														this)
-														.show();
-											}
-										});
+																			// Show the list item if the phrase matches and increase the count by 1
+																		} else {
+																			$(
+																					this)
+																					.show();
+																		}
+																	});
 
-						// Update the count
+													// Update the count
 
-						});
-				});
+												});
+							});
 			var delay = (function() {
 				var timer = 0;
 				return function(callback, ms) {
@@ -332,27 +342,48 @@
 				inputTextValue = inputText;
 				delay(send, 1000);
 			}
+			/* 
+			 function searchName() {
+			 if (this.readyState == 4 && this.status == 200) {
+			 var resData = this.responseText;
+			 resData = JSON.parse(resData);
+			 console.log(resData);
+			 var result = '<ul>';
+			 for (i = 0; i < resData.length; i++) {
+			 result += ' <li><a href="javascript:searchIdx(this)">' + resData[i].prdIntroduce
+			 + '</a></li>';
+			 }
+			 result += '</ul>';
+			 document.getElementById('filter-count').innerHTML = result;
+			 }
+			 } */
 
 			function searchName() {
 				if (this.readyState == 4 && this.status == 200) {
 					var resData = this.responseText;
+					var test = [];
 					resData = JSON.parse(resData);
+					console.log(resData);
 					var result = '<ul>';
 					for (i = 0; i < resData.length; i++) {
-						result += ' <li><a href="javascript:searchIdx(this)">' + resData[i]
-								+ '</a></li>';
+						if (!test.includes(resData[i].codeOfProd_name)) {
+							test.push(resData[i].codeOfProd_name);
+							result += ' <li><a href="javascript:searchIdx('
+									+ resData[i].prdIdx + ')">'
+									+ resData[i].prdName + " : "
+									+ resData[i].codeOfProd_name + '</a></li>';
+						}
 					}
 					result += '</ul>';
 					document.getElementById('filter-count').innerHTML = result;
 				}
 			}
-			
-			function searchIdx(Idx){
-				console.log(Idx.innerHTML);
-				var name=Idx.innerHTML;
-				location.href=httpReqest.getContextPath()+'/product/searchIdx.do?name='+name;
+
+			function searchIdx(Idx) {
+				var name = Idx;
+				location.href = httpRequest.getContextPath()
+						+ '/product/prdDetail.do?prodIdx=' + name;
 			}
-			
 		</script>
 
 		<div class="cart box_1">
@@ -392,33 +423,30 @@
 					<!-- Mega Menu -->
 					<li class="dropdown" id='category'><a href="#"
 						class="dropdown-toggle" data-toggle="dropdown"
-						onclick='getCategoryList(); return false;'>Products <b
+						onclick='getCategoryList(); return false;'>카테고리 <b
 							class="caret"></b>
 					</a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/static/about.jsp">About
 							Us</a></li>
 					<li><a
-						href="${pageContext.request.contextPath}/admin/userListForm.do">Short
-							Codes</a></li>
+						href="${pageContext.request.contextPath}/static/cartListView.jsp">장바구니</a></li>
 					<li><a
 						href="${pageContext.request.contextPath}/static/mail.jsp">Mail
 							Us</a></li>
 
-
+					<sec:authorize access="isAuthenticated()">
+						<sec:authorize access='! hasRole("ROLE_N")'>
+							<li><a
+								href="${pageContext.request.contextPath}/user/myPage.do">My
+									Page</a></li>
+						</sec:authorize>
+					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 						<sec:authorize access='hasRole("ROLE_A")'>
 							<li><a
 								href="${pageContext.request.contextPath}/admin/userListForm.do">
 									Admin Page </a></li>
-						</sec:authorize>
-					</sec:authorize>
-
-					<sec:authorize access="isAuthenticated()">
-						<sec:authorize access='! hasRole("ROLE_A")'>
-							<li><a
-								href="${pageContext.request.contextPath}/static/myPage.jsp">My
-									Page</a></li>
 						</sec:authorize>
 					</sec:authorize>
 				</ul>

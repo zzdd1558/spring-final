@@ -106,6 +106,9 @@ public class HomeController {
 		return "board/boardWrite";
 	}
 	
-	
+	@RequestMapping(value = "user/myPage.do")
+	public String myPage() {
+		return "user/myPage";
+	}
 
 }

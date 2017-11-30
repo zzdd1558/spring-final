@@ -30,7 +30,8 @@
 
 .topProcess {
 	margin: 2em 0;
-	padding: 1em 0; border-top : 1px solid #333;
+	padding: 1em 0;
+	border-top: 1px solid #333;
 	border-bottom: 1px solid #e5e5e5;
 	border-top: 1px solid #333;
 }
@@ -124,71 +125,16 @@
 				<br> 생일: ${sessionScope.user.userBirth}<br>
 				전화번호:${sessionScope.user.userPhone}<br>
 				주소:${sessionScope.user.userAddr}<br>
-				등급:${sessionScope.user.ratingType}<br>
+				등급:
+				<c:choose>
+					<c:when test="${sessionScope.user.ratingType == 'ROLE_B'}">브론즈 등급</c:when>
+					<c:when test="${sessionScope.user.ratingType == 'ROLE_S'}">실버 등급</c:when>
+					<c:when test="${sessionScope.user.ratingType == 'ROLE_G'}">골드 등급</c:when>
+					<c:when test="${sessionScope.user.ratingType == 'ROLE_P'}">플레티넘 등급</c:when>
+					<c:when test="${sessionScope.user.ratingType == 'ROLE_D'}">다이아몬드 등급</c:when>
+					<c:when test="${sessionScope.user.ratingType == 'ROLE_A'}">관리자 등급</c:when>
+				</c:choose><br>
 				포인트:${sessionScope.user.userPoint}<br>
-
-			</div>
-			<div class="col-md-12">
-				<div class="topProcess">
-					<ul>
-						<!-- 주문결제 -->
-						<li>
-							<div class="num">0</div>
-							<div class="txt">주문접수</div> <span
-							class="glyphicon glyphicon-chevron-right"></span>
-						</li>
-						<!-- 결제완료 -->
-						<li>
-							<div class="num">0</div>
-							<div class="txt">결제완료</div> <span
-							class="glyphicon glyphicon-chevron-right"></span>
-						</li>
-						<!-- 배송준비중 -->
-						<li>
-							<div class="num">0</div>
-							<div class="txt">배송준비중</div> <span
-							class="glyphicon glyphicon-chevron-right"></span>
-						</li>
-						<!-- 배송중 -->
-						<li>
-							<div class="num">0</div>
-							<div class="txt">배송중</div> <span
-							class="glyphicon glyphicon-chevron-right"></span>
-						</li>
-						<!-- 배송완료 -->
-						<li>
-							<div class="num">0</div>
-							<div class="txt">배송완료</div>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="myList col-md-12">
-				<table summary="주문/배송 리스트">
-					<caption>주문/배송 리스트</caption>
-					<colgroup>
-						<col style="width: 12%;">
-						<col style="width: 23%;">
-						<col style="width: 35%;">
-						<col style="width: 15%;">
-						<col style="width: 15%;">
-					</colgroup>
-					<thead>
-						<tr>
-							<th>주문일자</th>
-							<th>주문번호</th>
-							<th>주문대표상품</th>
-							<th>결제금액</th>
-							<th>주문상태</th>
-						</tr>
-					</thead>
-					<tbody>
-
-						<tr>
-							<td class="noData" colspan="5"></td>
-						</tr>
-					</tbody>
-				</table>
 			</div>
 		</div>
 	</div>

@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.thebeauty.model.domain.FavoriteCosmeticDTO;
 import com.thebeauty.model.domain.UserDTO;
 
 @Repository
@@ -76,6 +77,21 @@ public class UserDAOImpl implements UserDAO{
 		return sqlSession.selectOne("userMapper.userNameSelect", userKey);
 	}
 
+	@Override
+	public int insertFavorProd(FavoriteCosmeticDTO favorDTO) {
+		return sqlSession.insert("userMapper.favoriteProd", favorDTO);
+	}
+
+	@Override
+	public int searchFavProd(FavoriteCosmeticDTO favorDTO) {
+		 return sqlSession.selectOne("userMapper.searchFavProd", favorDTO);
+	}
+	
+	@Override
+	public int deleteFavorProd(FavoriteCosmeticDTO favorDTO) {
+		return sqlSession.delete("userMapper.deleteFavorProd", favorDTO);
+	}
+	
 	/** 고객 정보 페이징해서 가져오기*/
 	@Override
 	public List<UserDTO> listAll(int start, int end) {

@@ -1,5 +1,6 @@
 package com.thebeauty.model.service;
 
+import com.thebeauty.model.domain.FavoriteCosmeticDTO;
 import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.domain.UserTokenDTO;
 
@@ -25,4 +26,8 @@ public interface UserJoinService {
 	
 	/** 비밀번호 변경 */
 	public abstract int userPasswordChange(String id , String password , String tokenKey);
+	
+	/** 좋아요 기능*/
+	public abstract int insertFavorProd(FavoriteCosmeticDTO favorDTO);
+	
 }

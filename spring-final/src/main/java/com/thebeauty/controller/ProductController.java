@@ -1,10 +1,13 @@
 package com.thebeauty.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.mail.Session;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -17,10 +20,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.thebeauty.model.dao.UserDAO;
 import com.thebeauty.model.domain.CosmeticMainTypeDTO;
 import com.thebeauty.model.domain.CosmeticProductDTO;
+import com.thebeauty.model.domain.FavoriteCosmeticDTO;
 import com.thebeauty.model.domain.KindsOfProductTypeDTO;
 import com.thebeauty.model.domain.ProductImagePathDTO;
+import com.thebeauty.model.domain.SearchDocDTO;
 import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.service.ProductService;
 
@@ -31,16 +37,37 @@ public class ProductController{
 	@Autowired
 	private ProductService service;
 	
+	@Autowired
+	private UserDAO userDAO;
+	
+	
 	@RequestMapping(value = "prdDetail", method = RequestMethod.GET)
-	public ModelAndView boardWriteForm(@RequestParam int prodIdx) { /*int productNum*/
+	public ModelAndView boardWriteForm(@RequestParam int prodIdx,HttpServletRequest request ) { /*int productNum*/
 		ModelAndView mv=new  ModelAndView("detailView");
-		ObjectMapper mapper=new ObjectMapper();
-		
+		ObjectMapper mapper=new ObjectMapper(); 
+		int flag=0;
 		CosmeticProductDTO dto=service.selectAllByProdIdx(prodIdx);
 		CosmeticMainTypeDTO mainTypeDTO=service.mainTypeIdx(dto.getSubTypeIdx());
 		List<KindsOfProductTypeDTO> optionList=dto.getOptionlist();
 		String price=optionList.get(0).getProdPrice();
 		
+		HttpSession session = request.getSession();
+		if(session.getAttribute("user")!=null) {
+			UserDTO user=(UserDTO) session.getAttribute("user");
+			System.out.println(user.getUserKey()+","+prodIdx);
+			FavoriteCosmeticDTO favorDTO=new FavoriteCosmeticDTO();
+			favorDTO.setProdIdx(prodIdx);
+			favorDTO.setUserKeyPkFk(user.getUserKey());
+			flag=userDAO.searchFavProd(favorDTO);
+			System.out.println(flag);
+			if(flag==1) {
+				System.out.println("좋아요 함");
+			}else if(flag==0) {
+				System.out.println("좋아요 안함");
+			}
+		}
+			
+		mv.addObject("flag",flag);
 		mv.addObject("price", price);
 		mv.addObject("prd", dto);
 		mv.addObject("list", optionList);
@@ -103,9 +130,27 @@ public class ProductController{
 	}
 	
 	@RequestMapping(value="searchprdName.do",method=RequestMethod.POST)
-	public @ResponseBody List<String> searchName(@RequestParam String inputText){
+	public @ResponseBody List<SearchDocDTO> searchName(@RequestParam String inputText){
 		List<String> list= service.searchPrdName(inputText);
-		return list;
+/**
+ * 1.mainTypeIdx
+ * 2.subTypeIdx
+ * 3.subTypeName
+ * 4.prdIdx
+ * 5.prdName
+ * 6.prdIntroduce
+ * 7.prd_infoType
+ * 8.codeOfProd
+ * 9.codeOfProd_name
+ * 10.numOfProdIdx
+ * 11.pathOfImage
+ */
+		List<SearchDocDTO> searchList=new ArrayList<>();
+		for (String prdName : list) {
+			String[] str=prdName.split("\\)");
+			searchList.add(new SearchDocDTO(str[0],str[1], str[2],str[3], str[4], str[5], str[6],str[7], str[8],str[9], str[10]));
+		}
+		return searchList;
 	}
 	
 	@RequestMapping("searchIdx.do")

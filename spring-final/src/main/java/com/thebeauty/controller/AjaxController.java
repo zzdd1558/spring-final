@@ -19,6 +19,7 @@ import com.thebeauty.model.dao.QuestionDAO;
 import com.thebeauty.model.dao.UserDAO;
 import com.thebeauty.model.domain.CommentDTO;
 import com.thebeauty.model.domain.CosmeticProductDTO;
+import com.thebeauty.model.domain.FavoriteCosmeticDTO;
 import com.thebeauty.model.domain.KindsOfProductTypeDTO;
 import com.thebeauty.model.domain.ProductImagePathDTO;
 import com.thebeauty.model.domain.QuestionDTO;
@@ -88,6 +89,21 @@ public class AjaxController {
 		
 		return map;
 	}
+	
+	/*좋아요 기능 구현*/
+	@RequestMapping(value="/prdFavorite.do",method=RequestMethod.GET, produces="application/json; charset=utf8")
+	public @ResponseBody String prdFavoriteChk(FavoriteCosmeticDTO favorDTO) {
+		int a=userDAO.insertFavorProd(favorDTO);
+		System.out.println(a);
+		return "+좋아요+ 체크하셨습니다";
+	}
+	@RequestMapping(value="/prdFavoriteUnChk.do",method=RequestMethod.GET, produces="application/json; charset=utf8")
+	public @ResponseBody String prdFavoriteUnChk(FavoriteCosmeticDTO favorDTO) {
+		int a=userDAO.deleteFavorProd(favorDTO);
+		System.out.println(a);
+		return "+좋아요+ 해제되었습니다.";
+	}
+	
 	
 	
 	

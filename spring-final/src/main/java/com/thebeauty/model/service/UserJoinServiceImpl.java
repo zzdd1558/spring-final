@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.thebeauty.model.dao.UserDAO;
 import com.thebeauty.model.dao.UserTokenDAO;
+import com.thebeauty.model.domain.FavoriteCosmeticDTO;
 import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.domain.UserTokenDTO;
 
@@ -79,5 +80,10 @@ public class UserJoinServiceImpl implements UserJoinService {
 		}else {
 			return userDao.changePassword(user);	
 		}
+	}
+
+	@Override
+	public int insertFavorProd(FavoriteCosmeticDTO favorDTO) {
+		return userDao.insertFavorProd(favorDTO);
 	}
 }

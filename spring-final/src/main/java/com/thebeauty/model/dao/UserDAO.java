@@ -1,5 +1,6 @@
 package com.thebeauty.model.dao;
 
+import com.thebeauty.model.domain.FavoriteCosmeticDTO;
 import java.util.List;
 
 import com.thebeauty.model.domain.UserDTO;
@@ -35,6 +36,12 @@ public interface UserDAO {
 	
 	/** 이름 알아오기*/
 	public abstract String userNameSelect(int userKey);
+	
+	/** 좋아요 관련 기능*/
+	public abstract int insertFavorProd(FavoriteCosmeticDTO favorDTO);
+	public abstract int deleteFavorProd(FavoriteCosmeticDTO favorDTO);
+	
+	public abstract int searchFavProd(FavoriteCosmeticDTO favorDTO);
 	
 	/** 페이징 처리하여 고객정보 가져오기*/
 	public abstract List<UserDTO> listAll(int start, int end);

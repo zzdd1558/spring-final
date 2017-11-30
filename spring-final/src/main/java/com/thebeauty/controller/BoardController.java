@@ -28,7 +28,7 @@ import com.thebeauty.model.service.MallBoardService;
 @Controller
 @RequestMapping("/board/")
 public class BoardController {
-
+	
 	@Autowired
 	private MallBoardService boardService;
 	
@@ -42,6 +42,7 @@ public class BoardController {
 										   @RequestParam int prodIdx) {
 			
 			int count=boardService.boardSelectCnt(prodIdx);
+			BoardPager.PAGE_SCALE= 3; 
 			BoardPager boardPager = new BoardPager(count, curPage);
 		    int start = boardPager.getPageBegin();
 		    int end = boardPager.getPageEnd();
