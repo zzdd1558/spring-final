@@ -92,11 +92,19 @@ public class AjaxController {
 	
 	/*좋아요 기능 구현*/
 	@RequestMapping(value="/prdFavorite.do",method=RequestMethod.GET, produces="application/json; charset=utf8")
-	public @ResponseBody String prdFavorite(FavoriteCosmeticDTO favorDTO) {
+	public @ResponseBody String prdFavoriteChk(FavoriteCosmeticDTO favorDTO) {
 		int a=userDAO.insertFavorProd(favorDTO);
 		System.out.println(a);
-		return "성공하셨습니다";
+		return "+좋아요+ 체크하셨습니다";
 	}
+	@RequestMapping(value="/prdFavoriteUnChk.do",method=RequestMethod.GET, produces="application/json; charset=utf8")
+	public @ResponseBody String prdFavoriteUnChk(FavoriteCosmeticDTO favorDTO) {
+		int a=userDAO.deleteFavorProd(favorDTO);
+		System.out.println(a);
+		return "+좋아요+ 해제되었습니다.";
+	}
+	
+	
 	
 	
 	/* 완성본 비동기 사용해서 처리할때 주석 풀어서 사용하면됨.*/

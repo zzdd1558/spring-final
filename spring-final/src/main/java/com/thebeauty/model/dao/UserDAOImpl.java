@@ -87,6 +87,11 @@ public class UserDAOImpl implements UserDAO{
 		 return sqlSession.selectOne("userMapper.searchFavProd", favorDTO);
 	}
 	
+	@Override
+	public int deleteFavorProd(FavoriteCosmeticDTO favorDTO) {
+		return sqlSession.delete("userMapper.deleteFavorProd", favorDTO);
+	}
+	
 	/** 고객 정보 페이징해서 가져오기*/
 	@Override
 	public List<UserDTO> listAll(int start, int end) {

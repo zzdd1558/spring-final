@@ -39,6 +39,7 @@ public interface UserDAO {
 	
 	/** 좋아요 관련 기능*/
 	public abstract int insertFavorProd(FavoriteCosmeticDTO favorDTO);
+	public abstract int deleteFavorProd(FavoriteCosmeticDTO favorDTO);
 	
 	public abstract int searchFavProd(FavoriteCosmeticDTO favorDTO);
 	

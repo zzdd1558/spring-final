@@ -45,7 +45,7 @@ public class ProductController{
 	public ModelAndView boardWriteForm(@RequestParam int prodIdx,HttpServletRequest request ) { /*int productNum*/
 		ModelAndView mv=new  ModelAndView("detailView");
 		ObjectMapper mapper=new ObjectMapper(); 
-		
+		int flag=0;
 		CosmeticProductDTO dto=service.selectAllByProdIdx(prodIdx);
 		CosmeticMainTypeDTO mainTypeDTO=service.mainTypeIdx(dto.getSubTypeIdx());
 		List<KindsOfProductTypeDTO> optionList=dto.getOptionlist();
@@ -58,7 +58,7 @@ public class ProductController{
 			FavoriteCosmeticDTO favorDTO=new FavoriteCosmeticDTO();
 			favorDTO.setProdIdx(prodIdx);
 			favorDTO.setUserKeyPkFk(user.getUserKey());
-			int flag=userDAO.searchFavProd(favorDTO);
+			flag=userDAO.searchFavProd(favorDTO);
 			System.out.println(flag);
 			if(flag==1) {
 				System.out.println("좋아요 함");
@@ -67,7 +67,7 @@ public class ProductController{
 			}
 		}
 			
-		
+		mv.addObject("flag",flag);
 		mv.addObject("price", price);
 		mv.addObject("prd", dto);
 		mv.addObject("list", optionList);

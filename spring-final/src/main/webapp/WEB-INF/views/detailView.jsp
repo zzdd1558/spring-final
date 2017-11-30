@@ -110,9 +110,13 @@
 </style>
 <script type="text/javascript">
 		var a = JSON.parse('${listOfString}');
-	
-	window.onload = function() {
-		
+		var flag='${flag}';
+		console.log(flag);
+		window.onload = function() {
+		if('1'===flag){
+			console.log('??');
+			$("#favor").attr('class','favor-btn-down btn btn-default btn-lg');
+		}
 		var result=`<option value="0" selected disabled /hidden >옵션을 선택하세요</option>`;
 		for (var i = 0; i < a.length; i++) {
 			result+=`<option value=`+(a[i].codeOfProd)+`>`+a[i].prodName+`</option>`;
@@ -331,9 +335,17 @@
 
 				<script type="text/javascript">
 				
-				function favoritePrd(x,userKey,prodIdx){
-					  x.classList.toggle("favor-btn-down");
-					httpRequest.sendRequest(httpRequest.getContextPath()+'/ajax/prdFavorite.do','prodIdx='+prodIdx+'&userKeyPkFk='+userKey,favorPrdResult,'GET');
+				function favoritePrd(x,userKey,prodIdx,){
+					
+					if(this.flag==0){
+						$("#favor").attr('class','favor-btn-down btn btn-default btn-lg');
+						httpRequest.sendRequest(httpRequest.getContextPath()+'/ajax/prdFavorite.do','prodIdx='+prodIdx+'&userKeyPkFk='+userKey,favorPrdResult,'GET');
+						this.flag=1;
+					}else if(this.flag==1){
+						$("#favor").attr('class','favor-btn-up btn btn-default btn-lg');						
+						httpRequest.sendRequest(httpRequest.getContextPath()+'/ajax/prdFavoriteUnChk.do','prodIdx='+prodIdx+'&userKeyPkFk='+userKey,favorPrdResult,'GET');
+						this.flag=0;
+					}
 				}
 				function favorPrdResult(){
 					if(this.readyState == 4 && this.status == 200){
