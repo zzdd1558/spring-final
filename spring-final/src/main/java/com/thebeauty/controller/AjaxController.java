@@ -19,6 +19,7 @@ import com.thebeauty.model.dao.QuestionDAO;
 import com.thebeauty.model.dao.UserDAO;
 import com.thebeauty.model.domain.CommentDTO;
 import com.thebeauty.model.domain.CosmeticProductDTO;
+import com.thebeauty.model.domain.FavoriteCosmeticDTO;
 import com.thebeauty.model.domain.KindsOfProductTypeDTO;
 import com.thebeauty.model.domain.ProductImagePathDTO;
 import com.thebeauty.model.domain.QuestionDTO;
@@ -89,6 +90,13 @@ public class AjaxController {
 		return map;
 	}
 	
+	/*좋아요 기능 구현*/
+	@RequestMapping(value="/prdFavorite.do",method=RequestMethod.GET, produces="application/json; charset=utf8")
+	public @ResponseBody String prdFavorite(FavoriteCosmeticDTO favorDTO) {
+		int a=userDAO.insertFavorProd(favorDTO);
+		System.out.println(a);
+		return "성공하셨습니다";
+	}
 	
 	
 	/* 완성본 비동기 사용해서 처리할때 주석 풀어서 사용하면됨.*/

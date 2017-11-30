@@ -30,11 +30,7 @@ class HttpRequest {
             httpUrl = httpUrl + "?" + httpParams;
         }
         this.httpRequest.open(httpMethod, httpUrl, true);
-    	if(typeof httpParams==="object"){
-    		this.httpRequest.setRequestHeader('Content-type',false);
-    	}else{
     		this.httpRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    	}
         
         /* post전송시 필요한 _csrf 공격 방어 header 와 token*/
         if(httpMethod == 'POST'){

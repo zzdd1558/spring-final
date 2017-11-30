@@ -76,11 +76,20 @@
 	color: #fff;
 }
 
-.favor-btn {
+.favor-btn-up {
 	width: 18%;
 	background:
-		url(http://www.oliveyoung.co.kr/pc-static-root/image/comm/ico_zzim.png)
+		url(/final/images/149217.png)
 		no-repeat 50% 50%;
+	background-size: contain;
+	text-indent: -9999px;
+}
+.favor-btn-down {
+	width: 18%;
+	background:
+		url(/final/images/148836.png)
+		no-repeat 50% 50%;
+	background-size: contain;
 	text-indent: -9999px;
 }
 
@@ -100,8 +109,10 @@
 }
 </style>
 <script type="text/javascript">
-		var a = JSON.parse('${listOfString}');	
+		var a = JSON.parse('${listOfString}');
+	
 	window.onload = function() {
+		
 		var result=`<option value="0" selected disabled /hidden >옵션을 선택하세요</option>`;
 		for (var i = 0; i < a.length; i++) {
 			result+=`<option value=`+(a[i].codeOfProd)+`>`+a[i].prodName+`</option>`;
@@ -163,21 +174,19 @@
 						<c:forEach items="${list}" var="a">
 							<li
 								data-thumb="/final/images/cosmetic/${mainType}/${prd.subTypeIdx}/${prd.prodIdx}/${a.imgDTO.pathOfImage}.png">
-								<img
-								src="/final/images/cosmetic/${mainType}/${prd.subTypeIdx}/${prd.prodIdx}/${a.imgDTO.pathOfImage}.png"
-								class="img-responsive">
+								<img 
+								src="/final/images/cosmetic/${mainType}/${prd.subTypeIdx}/${prd.prodIdx}/${a.imgDTO.pathOfImage}.png" 
+								title="${a.prodName}"class="img-responsive">
 							</li>
 						</c:forEach>
 					</ul>
 				</div>
 				<!-- flixslider -->
-				<script defer
-					src="${pageContext.request.contextPath}/javascripts/jquery.flexslider.js"></script>
-				<link rel="stylesheet"
-					href="${pageContext.request.contextPath}/stylesheets/flexslider.css"
-					type="text/css" media="screen" />
+				<script defer src="${pageContext.request.contextPath}/javascripts/jquery.flexslider.js"></script>
+				<link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheets/flexslider.css" type="text/css" media="screen" />
 				<script>
-					$(window).load(function() {
+				
+				$(window).load(function() {
 						  $('.flexslider').flexslider({
 						    animation: "slide",
 						    controlNav: "thumbnails"
@@ -304,7 +313,8 @@
 							onclick='disabledAlert();'>장바구니</button>
 						<button class="prd-btn btn btn-default btn-lg"
 							onclick="disabledAlert();">구매하기</button>
-						<button class="favor-btn btn btn-default btn-lg">찜하기</button>
+						<button class="favor-btn-up btn btn-default btn-lg"
+							onclick="disabledAlert();">찜하기</button>
 					</div>
 
 				</sec:authorize>
@@ -314,11 +324,24 @@
 							onclick='addCartItem();'>장바구니</button>
 						<button class="prd-btn btn btn-default btn-lg"
 							onclick="buySubmit();">구매하기</button>
-						<button class="favor-btn btn btn-default btn-lg">찜하기</button>
+						<button class="favor-btn-up btn btn-default btn-lg" id="favor"
+						    onclick="favoritePrd(this,'${sessionScope.user.userKey}','${prd.prodIdx}');">찜하기</button>
 					</div>
 				</sec:authorize>
 
 				<script type="text/javascript">
+				
+				function favoritePrd(x,userKey,prodIdx){
+					  x.classList.toggle("favor-btn-down");
+					httpRequest.sendRequest(httpRequest.getContextPath()+'/ajax/prdFavorite.do','prodIdx='+prodIdx+'&userKeyPkFk='+userKey,favorPrdResult,'GET');
+				}
+				function favorPrdResult(){
+					if(this.readyState == 4 && this.status == 200){
+						var resData=this.responseText;
+						alert(resData);
+					}
+				}
+				
 				function buySubmit(){
 					let check = addCartItem();
 					
@@ -410,8 +433,7 @@
 				var boardContent=document.getElementById('boardContent').value;
 				var boardFile=document.getElementById('boardFile').value;
 				var UserprdScore = $(":input:radio[name=rating]:checked").val();
-				httpRequest.sendRequest(httpRequest.getContextPath()+'/board/BoardWrite.do',
-		'boardSubject='+boardSubject+'&boardUserKey='+boardUserKey+'&boardContent='+boardContent+'&boardFile='+boardFile+'&boardUseScore='+UserprdScore+'&boardCosmeticNum='+prodIdx,sensMsg,'POST',header,token);
+				httpRequest.sendRequest(httpRequest.getContextPath()+'/board/BoardWrite.do','boardSubject='+boardSubject+'&boardUserKey='+boardUserKey+'&boardContent='+boardContent+'&boardFile='+boardFile+'&boardUseScore='+UserprdScore+'&boardCosmeticNum='+prodIdx,sensMsg,'POST',header,token);
 			}
 			
 			function sensMsg(){

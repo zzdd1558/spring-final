@@ -18,6 +18,7 @@
 <link href="${pageContext.request.contextPath}/stylesheets/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="${pageContext.request.contextPath}/stylesheets/style.css" rel="stylesheet" type="text/css" media="all"/>
 <link href="${pageContext.request.contextPath}/stylesheets/fasthover.css" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- js -->
 <script src="${pageContext.request.contextPath}/javascripts/jquery.min.js"></script>
 <!-- //js -->

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="userMapper">
+	
+	<resultMap type="FavoriteCosmeticDTO" id="favorResultMap">
+		<result column="PROD_IDX" property="prodIdx"/>
+		<result column="USER_KEY"  property="userKeyPkFk" />	
+	</resultMap>
 
 	<resultMap type="userDTO" id="userResultMap">
 		<result column="USER_KEY" property="userKey" />
@@ -69,5 +74,16 @@
 		WHERE USER_KEY=#{userKey}
 	</select>
 	
+	<insert id="favoriteProd" parameterType="FavoriteCosmeticDTO">
+		INSERT
+		INTO FAVORITE_COSMETIC_TB
+		VALUES (#{userKeyPkFk},#{prodIdx})
+	</insert>
+	
+	<select id="searchFavProd" parameterType="FavoriteCosmeticDTO" resultType="int">
+		SELECT COUNT(*)
+		FROM   FAVORITE_COSMETIC_TB
+		WHERE  PROD_IDX=#{prodIdx} AND USER_KEY=#{userKeyPkFk}
+	</select>
 	
 </mapper>
