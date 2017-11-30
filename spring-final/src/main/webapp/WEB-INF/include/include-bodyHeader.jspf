@@ -409,7 +409,7 @@
 					<sec:authorize access="isAuthenticated()">
 						<sec:authorize access='hasRole("ROLE_A")'>
 							<li><a
-								href="${pageContext.request.contextPath}/admin/index.do">
+								href="${pageContext.request.contextPath}/admin/userListForm.do">
 									Admin Page </a></li>
 						</sec:authorize>
 					</sec:authorize>
