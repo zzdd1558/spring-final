@@ -143,14 +143,9 @@ public class AdminController {
 
 	
 	@RequestMapping(value="productUpdateAndDelete.do", method=RequestMethod.GET)
-	public String UpdateAndDelete(@RequestParam("command") String command, KindsOfProductTypeDTO kProd) {
+	public String UpdateAndDelete(KindsOfProductTypeDTO kProd) {
 		System.out.println(kProd.toString());
-		int code = kProd.getCodeOfProd();
-		if(command.equals("update")) {
-			productDao.kindsOfProductUpdate(kProd);
-		}else if(command.equals("delete")) {
-			productDao.kindsOfProductDelete(code);		
-		}
+		productDao.kindsOfProductUpdate(kProd);
 	return "redirect:productList.do";
 	}
 }

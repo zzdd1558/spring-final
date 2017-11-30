@@ -23,17 +23,17 @@
         location.href="kindOfProdInfor.do?curPage="+page;
     }
 </script>
-<script language=javascript>
-function sendUpdate(){
-	document.requestForm.command.value ="update";
-	document.requestForm.submit();
-	}
+<!-- <!-- <script language=javascript> -->
+<!-- // function sendUpdate(){ -->
+<!-- // 	document.requestForm.command.value ="update"; -->
+<!-- // 	document.requestForm.submit(); -->
+<!-- // 	} -->
 
-function sendDelete(){	
-			document.requestForm.command.value ="delete";
-			document.requestForm.submit();			
-}	
-</script>
+<!-- // function sendDelete(){	 -->
+<!-- // 			document.requestForm.command.value ="delete"; -->
+<!-- // 			document.requestForm.submit();			 -->
+<!-- // }	 -->
+<!-- </script> -->
 <script>
 		function loadDoc(x) {
 			var xhttp = new XMLHttpRequest();
@@ -143,7 +143,7 @@ function sendDelete(){
 									<td>${data.prodPrice }</td>
 									<td>${data.prodColor }</td>
 									<td>${data.prodName }</td>
-										<td><input type=button value="변경및삭제" data-toggle="modal" data-target="#myModal" onclick="loadDoc(${data.codeOfProd })"></td>
+										<td><input type=button value="수정" data-toggle="modal" data-target="#myModal" onclick="loadDoc(${data.codeOfProd })"></td>
 								</tr>
 							</c:forEach>
 						</tbody>

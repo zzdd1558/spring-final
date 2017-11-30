@@ -5,30 +5,42 @@
 <html>
 <head>
 </head>
-<script language=javascript>
-function sendUpdate(){
-	document.requestForm.command.value ="update";
-	document.requestForm.submit();
-	}
-
-function sendDelete(){	
-			document.requestForm.command.value ="delete";
-			document.requestForm.submit();			
-}	
+<script src="${pageContext.request.contextPath}/javascripts/signup.js"></script>
+<script src="${pageContext.request.contextPath}/javascripts/update.js"></script>
+<script src="${pageContext.request.contextPath}/utils/HttpRequest.js"></script>
+<script src="${pageContext.request.contextPath}/utils/InputValidator.js"></script>
+<script src="${pageContext.request.contextPath}/utils/InputKeyUpReg.js"></script>
+<script type="text/javascript">
+let httpRequest = new HttpRequest();
+	let inputValidator = new InputValidator();
+	let inputKeyUpReg = new InputKeyReg();
 </script>
+<!-- <!-- <script language=javascript> -->
+<!-- // function sendUpdate(){ -->
+<!-- // 	document.requestForm.command.value ="update"; -->
+<!-- // 	document.requestForm.submit(); -->
+<!-- // 	} -->
+
+<!-- // function sendDelete(){	 -->
+<!-- // 			document.requestForm.command.value ="delete"; -->
+<!-- // 			document.requestForm.submit();			 -->
+<!-- // }	 -->
+<!-- <!-- </script> -->
 <body>
 			<div>
-				<form name="requestForm" method=GET action="${pageContext.request.contextPath}/admin/productUpdateAndDelete.do">
+				<form name="requestForm">
 					<table class="table table-striped" style="margin-top: 20px; ">
 						<tbody>
 							<tr>
 								<th>옵션 코드</th>
-								<td><input type="hidden" name="codeOfProd" value="${requestScope.kPrd.codeOfProd }">
-								${requestScope.kPrd.codeOfProd }</td>
+								<td><input type="hidden" id="codeOfProd" name="codeOfProd" value="${requestScope.kPrd.codeOfProd }">
+								${requestScope.kPrd.codeOfProd }
+								<input type="hidden" id="prodIdx" name="prodIdx" value="${requestScope.kPrd.prodIdx }">
+								</td>
 							</tr>
 							<tr>
 								<th>재고</th>
-								<td><input type="text" id="prodCount" name="prodCount"
+								<td><input type="number" min="0" id="prodCount" name="prodCount"
 									value="${requestScope.kPrd.prodCount }"></td>
 							</tr>
 							<tr>
@@ -49,9 +61,7 @@ function sendDelete(){
 						</tbody>
 					</table>
 					<div align="center">
-							<input type=hidden name="command" value="">
-							<input type=button value="수정하기" onClick="sendUpdate()">
-							<input type=button value="삭제하기" onClick="sendDelete()">
+							<input type="submit" value="수정하기" onclick="update()">
 					</div>
 						</form>
 				</div>
