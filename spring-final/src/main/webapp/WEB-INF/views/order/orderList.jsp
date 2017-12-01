@@ -197,7 +197,15 @@
 								<td>${list.orderNumber}</td>
 								<td>${list.orderNumber}</td>
 								<td>${list.orderTotalPrice}원</td>
-								<td>${list.deliStatusCode}</td>
+								<td>
+								<c:choose>
+									<c:when test="${list.deliStatusCode == 1 }"> 배송 준비 중 </c:when>
+									<c:when test="${list.deliStatusCode == 2 }"> 배송 중 </c:when>
+									<c:when test="${list.deliStatusCode == 3 }"> 배송 완료 </c:when>
+								</c:choose>
+								
+								
+								</td>
 							</tr>
 						</c:forEach>
 						
