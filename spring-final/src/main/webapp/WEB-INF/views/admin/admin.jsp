@@ -84,7 +84,7 @@
 										role="tabpanel" aria-labelledby="headingOne">
 										<div class="panel-body panel_text">
 											<ul>
-												<li><a href="boardCon.html">게시판 관리</a></li>
+												<li><a href="#">게시판 관리</a></li>
 											</ul>
 										</div>
 									</div>

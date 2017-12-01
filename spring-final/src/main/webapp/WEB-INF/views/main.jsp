@@ -105,8 +105,6 @@
 					<div class="col-md-5 wthree_banner_bottom_left">
 						<div class="flexslider">
 							<ul class="slides">
-								<li><iframe width="445" height="430"
-										src="https://www.youtube.com/embed/XGSy3_Czz8k"></iframe></li>
 								<li><img src="images/test/201711S1.jpg" /></li>
 								<li><img src="images/test/201711S2.jpg" /></li>
 								<li><img src="images/test/201711S3.jpg" /></li>
@@ -157,7 +155,7 @@
 							<div class="agile_ecommerce_tabs">
 								<div class="col-md-4 agile_ecommerce_tab_left">
 									<div class="sk-wrapper">
-										<img src="images/test/6.jpg" alt=" " class="img-responsive" />
+										<img src="images/cosmetic/1/101/2/101_2.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -168,11 +166,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">T-Shirt</a>
+										<a href="single.html">룩 앳 마이 아이즈 NEW</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											 <i class="item_price">5250원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -180,15 +178,8 @@
 									</div>
 								</div>
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
-										<img src="images/test/4.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/6.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/5.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/3.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/7.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/3.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/5.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/6.jpg" alt=" " class="img-responsive" />
+									<div class="sk-wrapper">
+										<img src="images/cosmetic/1/101/1/101_1.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -199,11 +190,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">T-Shirt</a>
+										<a href="single.html">룩 앳 마이 아이즈 카페</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">5250원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -211,15 +202,8 @@
 									</div>
 								</div>
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
-										<img src="images/test/5.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/6.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/4.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/3.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/7.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/3.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/5.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/6.jpg" alt=" " class="img-responsive" />
+									<div class="sk-wrapper">
+										<img src="images/cosmetic/1/101/3/101_3.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -230,11 +214,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">T-Shirt</a>
+										<a href="single.html">아이즈 카페</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">6250원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -248,15 +232,8 @@
 							aria-labelledby="skirts-tab">
 							<div class="agile_ecommerce_tabs">
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
-										<img src="images/test/8.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/9.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/10.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/8.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/9.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/10.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/8.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/9.jpg" alt=" " class="img-responsive" />
+									<div class="sk-wrapper">
+										<img src="images/cosmetic/1/102/10/102_10.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -279,15 +256,8 @@
 									</div>
 								</div>
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
-										<img src="images/test/9.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/8.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/10.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/8.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/9.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/10.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/8.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/9.jpg" alt=" " class="img-responsive" />
+									<div class="sk-wrapper">
+										<img src="images/cosmetic/1/103/20/101_20.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -298,11 +268,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">Skirt</a>
+										<a href="single.html">파운데이션</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">7500원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -310,15 +280,8 @@
 									</div>
 								</div>
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
-										<img src="images/test/10.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/8.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/9.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/8.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/9.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/10.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/8.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/9.jpg" alt=" " class="img-responsive" />
+									<div class="sk-wrapper">
+										<img src="images/cosmetic/1/104/30/104_30.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -329,11 +292,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">Skirt</a>
+										<a href="single.html">화이트</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">7200원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -347,15 +310,8 @@
 							aria-labelledby="watches-tab">
 							<div class="agile_ecommerce_tabs">
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
-										<img src="images/test/11.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/12.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/13.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/11.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/12.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/13.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/11.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/12.jpg" alt=" " class="img-responsive" />
+									<div class="sk-wrapper">
+										<img src="images/cosmetic/2/201/53/201_53.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -366,11 +322,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">Watch</a>
+										<a href="single.html">마이립</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">2500원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -378,15 +334,8 @@
 									</div>
 								</div>
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
-										<img src="images/test/12.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/11.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/13.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/11.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/12.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/13.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/11.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/12.jpg" alt=" " class="img-responsive" />
+									<div class="sk-wrapper">
+										<img src="images/cosmetic/2/202/63/202_63.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -397,11 +346,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">Watch</a>
+										<a href="single.html">마이 틴트</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">2500원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -409,15 +358,8 @@
 									</div>
 								</div>
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
-										<img src="images/test/13.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/11.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/12.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/11.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/12.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/13.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/11.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/12.jpg" alt=" " class="img-responsive" />
+									<div class="sk-wrapper">
+										<img src="images/cosmetic/2/203/72/203_72.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -428,11 +370,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">Watch</a>
+										<a href="single.html">마이 핑크</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">3200원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -446,15 +388,8 @@
 							aria-labelledby="sandals-tab">
 							<div class="agile_ecommerce_tabs">
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
-										<img src="images/test/14.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/15.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/16.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/14.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/15.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/16.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/14.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/15.jpg" alt=" " class="img-responsive" />
+									<div class="sk-wrapper">
+										<img src="images/cosmetic/3/301/85/301_85.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -465,11 +400,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">Sandal</a>
+										<a href="single.html">2호 톡톡</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">12000원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -477,15 +412,8 @@
 									</div>
 								</div>
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
-										<img src="images/test/15.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/14.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/16.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/14.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/15.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/16.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/14.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/15.jpg" alt=" " class="img-responsive" />
+									<div class="sk-wrapper">
+										<img src="images/cosmetic/3/301/86/301_86.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -496,11 +424,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">Sandal</a>
+										<a href="single.html">3호 톡톡</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">15000원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -508,15 +436,8 @@
 									</div>
 								</div>
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
-										<img src="images/test/16.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/14.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/15.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/14.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/15.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/16.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/14.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/15.jpg" alt=" " class="img-responsive" />
+									<div class="sk-wrapper">
+										<img src="images/cosmetic/3/301/87/301_87.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -527,11 +448,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">Sandal</a>
+										<a href="single.html">4호 톡톡</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">17000원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -545,15 +466,8 @@
 							aria-labelledby="jewellery-tab">
 							<div class="agile_ecommerce_tabs">
 								<div class="col-md-4 agile_ecommerce_tab_left">
-									<div class="hs-wrapper">
-										<img src="images/test/17.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/18.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/19.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/17.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/18.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/19.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/17.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/18.jpg" alt=" " class="img-responsive" />
+									<div class="sk-wrapper">
+										<img src="images/cosmetic/4/401/139/401_139.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -564,11 +478,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">Jewellery</a>
+										<a href="single.html">기획세트 1호</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">23000원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -577,14 +491,7 @@
 								</div>
 								<div class="col-md-4 agile_ecommerce_tab_left">
 									<div class="hs-wrapper">
-										<img src="images/test/18.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/17.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/19.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/17.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/18.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/19.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/17.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/18.jpg" alt=" " class="img-responsive" />
+										<img src="images/cosmetic/4/401/140/401_140.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -595,11 +502,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">Jewellery</a>
+										<a href="single.html">기획세트 2호</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">22000원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -608,14 +515,7 @@
 								</div>
 								<div class="col-md-4 agile_ecommerce_tab_left">
 									<div class="hs-wrapper">
-										<img src="images/test/19.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/17.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/18.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/17.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/18.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/19.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/17.jpg" alt=" " class="img-responsive" />
-										<img src="images/test/18.jpg" alt=" " class="img-responsive" />
+										<img src="images/cosmetic/5/501/169/501_169.png" alt=" " class="img-responsive" />
 										<div class="w3_hs_bottom">
 											<ul>
 												<li><a href="#" data-toggle="modal"
@@ -626,11 +526,11 @@
 										</div>
 									</div>
 									<h5>
-										<a href="single.html">Jewellery</a>
+										<a href="single.html">AC 토너</a>
 									</h5>
 									<div class="simpleCart_shelfItem">
 										<p>
-											<span>$320</span> <i class="item_price">$250</i>
+											<i class="item_price">7500원</i>
 										</p>
 										<p>
 											<a class="item_add" href="#">Add to cart</a>
@@ -642,504 +542,7 @@
 						</div>
 					</div>
 				</div>
-				<!--modal-video-->
-				<div class="modal video-modal fade" id="myModal" tabindex="-1"
-					role="dialog" aria-labelledby="myModal">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<section>
-								<div class="modal-body">
-									<div class="col-md-5 modal_body_left">
-										<img src="images/test/20.jpg" alt=" " class="img-responsive" />
-									</div>
-									<div class="col-md-7 modal_body_right">
-										<h4>a good look women's shirt</h4>
-										<p>Ut enim ad minim veniam, quis nostrud exercitation
-											ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis
-											aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint
-											occaecat cupidatat non proident, sunt in culpa qui officia
-											deserunt mollit anim id est laborum.</p>
-										<div class="rating">
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="clearfix"></div>
-										</div>
-										<div class="modal_body_right_cart simpleCart_shelfItem">
-											<p>
-												<span>$320</span> <i class="item_price">$250</i>
-											</p>
-											<p>
-												<a class="item_add" href="#">Add to cart</a>
-											</p>
-										</div>
-										<h5>Color</h5>
-										<div class="color-quality">
-											<ul>
-												<li><a href="#"><span></span>Red</a></li>
-												<li><a href="#" class="brown"><span></span>Yellow</a></li>
-												<li><a href="#" class="purple"><span></span>Purple</a></li>
-												<li><a href="#" class="gray"><span></span>Violet</a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</section>
-						</div>
-					</div>
-				</div>
-				<div class="modal video-modal fade" id="myModal1" tabindex="-1"
-					role="dialog" aria-labelledby="myModal1">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<section>
-								<div class="modal-body">
-									<div class="col-md-5 modal_body_left">
-										<img src="images/test/63.jpg" alt=" " class="img-responsive" />
-									</div>
-									<div class="col-md-7 modal_body_right">
-										<h4>a good look black women's jeans</h4>
-										<p>Ut enim ad minim veniam, quis nostrud exercitation
-											ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis
-											aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint
-											occaecat cupidatat non proident, sunt in culpa qui officia
-											deserunt mollit anim id est laborum.</p>
-										<div class="rating">
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="clearfix"></div>
-										</div>
-										<div class="modal_body_right_cart simpleCart_shelfItem">
-											<p>
-												<span>$320</span> <i class="item_price">$250</i>
-											</p>
-											<p>
-												<a class="item_add" href="#">Add to cart</a>
-											</p>
-										</div>
-										<h5>Color</h5>
-										<div class="color-quality">
-											<ul>
-												<li><a href="#"><span></span>Red</a></li>
-												<li><a href="#" class="brown"><span></span>Yellow</a></li>
-												<li><a href="#" class="purple"><span></span>Purple</a></li>
-												<li><a href="#" class="gray"><span></span>Violet</a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</section>
-						</div>
-					</div>
-				</div>
-				<div class="modal video-modal fade" id="myModal2" tabindex="-1"
-					role="dialog" aria-labelledby="myModal2">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<section>
-								<div class="modal-body">
-									<div class="col-md-5 modal_body_left">
-										<img src="images/test/23.jpg" alt=" " class="img-responsive" />
-									</div>
-									<div class="col-md-7 modal_body_right">
-										<h4>a good look women's Watch</h4>
-										<p>Ut enim ad minim veniam, quis nostrud exercitation
-											ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis
-											aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint
-											occaecat cupidatat non proident, sunt in culpa qui officia
-											deserunt mollit anim id est laborum.</p>
-										<div class="rating">
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="clearfix"></div>
-										</div>
-										<div class="modal_body_right_cart simpleCart_shelfItem">
-											<p>
-												<span>$320</span> <i class="item_price">$250</i>
-											</p>
-											<p>
-												<a class="item_add" href="#">Add to cart</a>
-											</p>
-										</div>
-										<h5>Color</h5>
-										<div class="color-quality">
-											<ul>
-												<li><a href="#"><span></span>Red</a></li>
-												<li><a href="#" class="brown"><span></span>Yellow</a></li>
-												<li><a href="#" class="purple"><span></span>Purple</a></li>
-												<li><a href="#" class="gray"><span></span>Violet</a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</section>
-						</div>
-					</div>
-				</div>
-				<div class="modal video-modal fade" id="myModal3" tabindex="-1"
-					role="dialog" aria-labelledby="myModal3">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<section>
-								<div class="modal-body">
-									<div class="col-md-5 modal_body_left">
-										<img src="images/test/24.jpg" alt=" " class="img-responsive" />
-									</div>
-									<div class="col-md-7 modal_body_right">
-										<h4>a good look women's Sandal</h4>
-										<p>Ut enim ad minim veniam, quis nostrud exercitation
-											ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis
-											aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint
-											occaecat cupidatat non proident, sunt in culpa qui officia
-											deserunt mollit anim id est laborum.</p>
-										<div class="rating">
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="clearfix"></div>
-										</div>
-										<div class="modal_body_right_cart simpleCart_shelfItem">
-											<p>
-												<span>$320</span> <i class="item_price">$250</i>
-											</p>
-											<p>
-												<a class="item_add" href="#">Add to cart</a>
-											</p>
-										</div>
-										<h5>Color</h5>
-										<div class="color-quality">
-											<ul>
-												<li><a href="#"><span></span>Red</a></li>
-												<li><a href="#" class="brown"><span></span>Yellow</a></li>
-												<li><a href="#" class="purple"><span></span>Purple</a></li>
-												<li><a href="#" class="gray"><span></span>Violet</a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</section>
-						</div>
-					</div>
-				</div>
-				<div class="modal video-modal fade" id="myModal4" tabindex="-1"
-					role="dialog" aria-labelledby="myModal4">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<section>
-								<div class="modal-body">
-									<div class="col-md-5 modal_body_left">
-										<img src="images/test/22.jpg" alt=" " class="img-responsive" />
-									</div>
-									<div class="col-md-7 modal_body_right">
-										<h4>a good look women's Necklace</h4>
-										<p>Ut enim ad minim veniam, quis nostrud exercitation
-											ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis
-											aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint
-											occaecat cupidatat non proident, sunt in culpa qui officia
-											deserunt mollit anim id est laborum.</p>
-										<div class="rating">
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="clearfix"></div>
-										</div>
-										<div class="modal_body_right_cart simpleCart_shelfItem">
-											<p>
-												<span>$320</span> <i class="item_price">$250</i>
-											</p>
-											<p>
-												<a class="item_add" href="#">Add to cart</a>
-											</p>
-										</div>
-										<h5>Color</h5>
-										<div class="color-quality">
-											<ul>
-												<li><a href="#"><span></span>Red</a></li>
-												<li><a href="#" class="brown"><span></span>Yellow</a></li>
-												<li><a href="#" class="purple"><span></span>Purple</a></li>
-												<li><a href="#" class="gray"><span></span>Violet</a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</section>
-						</div>
-					</div>
-				</div>
-				<div class="modal video-modal fade" id="myModal5" tabindex="-1"
-					role="dialog" aria-labelledby="myModal5">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<section>
-								<div class="modal-body">
-									<div class="col-md-5 modal_body_left">
-										<img src="images/test/35.jpg" alt=" " class="img-responsive" />
-									</div>
-									<div class="col-md-7 modal_body_right">
-										<h4>a good look women's Jacket</h4>
-										<p>Ut enim ad minim veniam, quis nostrud exercitation
-											ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis
-											aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint
-											occaecat cupidatat non proident, sunt in culpa qui officia
-											deserunt mollit anim id est laborum.</p>
-										<div class="rating">
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="clearfix"></div>
-										</div>
-										<div class="modal_body_right_cart simpleCart_shelfItem">
-											<p>
-												<span>$320</span> <i class="item_price">$250</i>
-											</p>
-											<p>
-												<a class="item_add" href="#">Add to cart</a>
-											</p>
-										</div>
-										<h5>Color</h5>
-										<div class="color-quality">
-											<ul>
-												<li><a href="#"><span></span>Red</a></li>
-												<li><a href="#" class="brown"><span></span>Yellow</a></li>
-												<li><a href="#" class="purple"><span></span>Purple</a></li>
-												<li><a href="#" class="gray"><span></span>Violet</a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</section>
-						</div>
-					</div>
-				</div>
-				<div class="modal video-modal fade" id="myModal6" tabindex="-1"
-					role="dialog" aria-labelledby="myModal6">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"
-									aria-label="Close">
-									<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<section>
-								<div class="modal-body">
-									<div class="col-md-5 modal_body_left">
-										<img src="images/test/39.jpg" alt=" " class="img-responsive" />
-									</div>
-									<div class="col-md-7 modal_body_right">
-										<h4>a good look women's Long Skirt</h4>
-										<p>Ut enim ad minim veniam, quis nostrud exercitation
-											ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis
-											aute irure dolor in reprehenderit in voluptate velit esse
-											cillum dolore eu fugiat nulla pariatur. Excepteur sint
-											occaecat cupidatat non proident, sunt in culpa qui officia
-											deserunt mollit anim id est laborum.</p>
-										<div class="rating">
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star-.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="rating-left">
-												<img src="images/test/star.png" alt=" "
-													class="img-responsive" />
-											</div>
-											<div class="clearfix"></div>
-										</div>
-										<div class="modal_body_right_cart simpleCart_shelfItem">
-											<p>
-												<span>$320</span> <i class="item_price">$250</i>
-											</p>
-											<p>
-												<a class="item_add" href="#">Add to cart</a>
-											</p>
-										</div>
-										<h5>Color</h5>
-										<div class="color-quality">
-											<ul>
-												<li><a href="#"><span></span>Red</a></li>
-												<li><a href="#" class="brown"><span></span>Yellow</a></li>
-												<li><a href="#" class="purple"><span></span>Purple</a></li>
-												<li><a href="#" class="gray"><span></span>Violet</a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-							</section>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-		</div>
-	</div>
-	</div>
-	<!-- //banner-bottom -->
+				
 
 	<!-- banner-bottom1 -->
 	<div class="banner-bottom1">
@@ -1165,99 +568,6 @@
 	</div>
 	<!-- //banner-bottom1 -->
 
-<!-- special-deals -->
-<!-- 	<div class="special-deals"> -->
-<!-- 		<div class="container"> -->
-<!-- 			<h2>Special Deals</h2> -->
-<!-- 			<div class="w3agile_special_deals_grids"> -->
-<!-- 				<div class="col-md-7 w3agile_special_deals_grid_left"> -->
-<!-- 					<div class="w3agile_special_deals_grid_left_grid"> -->
-<!-- 						<img src="images/test/26.jpg" alt=" " class="img-responsive" /> -->
-<!-- 						<div class="w3agile_special_deals_grid_left_grid_pos1"> -->
-<!-- 							<h5>30%<span>Off/-</span></h5> -->
-<!-- 						</div> -->
-<!-- 						<div class="w3agile_special_deals_grid_left_grid_pos"> -->
-<!-- 							<h4>We Offer <span>Best Products</span></h4> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<!-- 					<div class="wmuSlider example1"> -->
-<!-- 						<div class="wmuSliderWrapper"> -->
-<!-- 							<article style="position: absolute; width: 100%; opacity: 0;"> -->
-<!-- 								<div class="banner-wrap"> -->
-<!-- 									<div class="w3agile_special_deals_grid_left_grid1"> -->
-<!-- 										<img src="images/test/1.png" alt=" " class="img-responsive" /> -->
-<!-- 										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate -->
-<!-- 											velit esse quam nihil molestiae consequatur, vel illum qui dolorem -->
-<!-- 											eum fugiat quo voluptas nulla pariatur</p> -->
-<!-- 										<h4>Laura</h4> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<!-- 							</article> -->
-<!-- 							<article style="position: absolute; width: 100%; opacity: 0;"> -->
-<!-- 								<div class="banner-wrap"> -->
-<!-- 									<div class="w3agile_special_deals_grid_left_grid1"> -->
-<!-- 										<img src="images/test/2.png" alt=" " class="img-responsive" /> -->
-<!-- 										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate -->
-<!-- 											velit esse quam nihil molestiae consequatur, vel illum qui dolorem -->
-<!-- 											eum fugiat quo voluptas nulla pariatur</p> -->
-<!-- 										<h4>Michael</h4> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<!-- 							</article> -->
-<!-- 							<article style="position: absolute; width: 100%; opacity: 0;"> -->
-<!-- 								<div class="banner-wrap"> -->
-<!-- 									<div class="w3agile_special_deals_grid_left_grid1"> -->
-<!-- 										<img src="images/test/3.png" alt=" " class="img-responsive" /> -->
-<!-- 										<p>Quis autem vel eum iure reprehenderit qui in ea voluptate -->
-<!-- 											velit esse quam nihil molestiae consequatur, vel illum qui dolorem -->
-<!-- 											eum fugiat quo voluptas nulla pariatur</p> -->
-<!-- 										<h4>Rosy</h4> -->
-<!-- 									</div> -->
-<!-- 								</div> -->
-<!-- 							</article> -->
-<!-- 						</div> -->
-<!-- 					</div> -->
-<%-- 						<script src="${pageContext.request.contextPath}/javascripts/jquery.wmuSlider.js"></script> --%>
-<!-- 						<script> -->
-<!--  							$('.example1').wmuSlider(); -->
-<!-- 						</script> -->
-<!-- 				</div> -->
-<!-- 				<div class="col-md-5 w3agile_special_deals_grid_right"> -->
-<!-- 					<img src="images/test/25.jpg" alt=" " class="img-responsive" /> -->
-<!-- 					<div class="w3agile_special_deals_grid_right_pos"> -->
-<!-- 						<h4>Women's <span>Special</span></h4> -->
-<!-- 						<h5>save up <span>to</span> 30%</h5> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 				<div class="clearfix"> </div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-<!-- //special-deals -->
-
-<!-- top-brands -->
-<!-- 	<div class="top-brands"> -->
-<!-- 		<div class="container"> -->
-<!-- 			<h3>Top Brands</h3> -->
-<!-- 			<div class="sliderfig"> -->
-<!-- 				<ul id="flexiselDemo1"> -->
-<!-- 					<li> -->
-<!-- 						<img src="images/test/4.png" alt=" " class="img-responsive" /> -->
-<!-- 					</li> -->
-<!-- 					<li> -->
-<!-- 						<img src="images/test/5.png" alt=" " class="img-responsive" /> -->
-<!-- 					</li> -->
-<!-- 					<li> -->
-<!-- 						<img src="images/test/6.png" alt=" " class="img-responsive" /> -->
-<!-- 					</li> -->
-<!-- 					<li> -->
-<!-- 						<img src="images/test/7.png" alt=" " class="img-responsive" /> -->
-<!-- 					</li> -->
-<!-- 					<li> -->
-<!-- 						<img src="images/test/46.jpg" alt=" " class="img-responsive" /> -->
-<!-- 					</li> -->
-<!-- 				</ul> -->
-<!-- 			</div> -->
 					<script type="text/javascript">
 							$(window).load(function() {
 								$("#flexiselDemo1").flexisel({

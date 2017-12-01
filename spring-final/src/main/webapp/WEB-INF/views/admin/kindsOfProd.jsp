@@ -18,35 +18,135 @@
 }
 </style>
 <script>
+function del(code) {
+	var confirmflag = confirm("정말 삭제하시겠습니까?");
+    if(confirmflag){
+    	location.href="${pageContext.request.contextPath}/admin/productDelete.do?codeOfProd="+code;
+    }else{
+      	
+    }
+}
+
+function check(){
+
+var prodCount = document.getElementById('prodCount');
+var prodPrice = document.getElementById('prodPrice');
+var prodColor = document.getElementById('prodColor');
+var prodName = document.getElementById('prodName');
+
+ 
+
+if( prodCount.value == '' || prodCount.value == null ){
+    alert( '값을 입력해주세요' );
+    return false;
+}
+if( prodPrice.value == '' || prodPrice.value == null ){
+    alert( '값을 입력해주세요' );
+    return false;
+}
+if( prodColor.value == '' || prodColor.value == null ){
+    alert( '값을 입력해주세요' );
+    return false;
+}
+if( prodName.value == '' || prodName.value == null ){
+    alert( '값을 입력해주세요' );
+    return false;
+}
+
+var blank_pattern = /^\s+|\s+$/g;
+if( str.value.replace( blank_pattern, '' ) == "" ){
+    alert(' 공백만 입력되었습니다 ');
+    return false;
+}
+
+ 
+
+//공백 금지
+//var blank_pattern = /^\s+|\s+$/g;(/\s/g
+var blank_pattern = /[\s]/g;
+if( blank_pattern.test( str.value) == true){
+    alert(' 공백은 사용할 수 없습니다. ');
+    return false;
+}
+
+
+var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+
+if( special_pattern.test(str.value) == true ){
+    alert('특수문자는 사용할 수 없습니다.');
+    return false;
+}
+
+alert( '최종 : ' + str.value );
+
+/*
+if( str.value.search(/\W|\s/g) > -1 ){
+    alert( '특수문자 또는 공백을 입력할 수 없습니다.' );
+    str.focus();
+    return false;
+}*/
+
+}
+</script>
+<script>
     // **원하는 페이지로 이동시 검색조건, 키워드 값을 유지하기 위해 
     function list(page){
         location.href="kindOfProdInfor.do?curPage="+page;
     }
 </script>
-<script language=javascript>
-function sendUpdate(){
-	document.requestForm.command.value ="update";
-	document.requestForm.submit();
-	}
+<script type="text/javascript">
+						function modalAjax(codeOfProd){
+							httpRequest.sendRequest(httpRequest.getContextPath()+'/ajax/kPrdModal.do','codeOfProd='+codeOfProd,ViewModal,'GET');
+						}
+						function ViewModal(){
 
-function sendDelete(){	
-			document.requestForm.command.value ="delete";
-			document.requestForm.submit();			
-}	
-</script>
-<script>
-		function loadDoc(x) {
-			var xhttp = new XMLHttpRequest();
-			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-					var resData = this.responseText;
-					console.log(resData);
-					document.getElementById("modal-view").innerHTML = resData;
-				}
-			};
-			xhttp.open("GET", "${pageContext.request.contextPath}/admin/kindsOfProdOne.do?codeOfProd="+x, true);
-			xhttp.send();
-		}
+						    if (this.readyState == 4 && this.status == 200) {
+						    	var resData=this.responseText;
+						    	resData=JSON.parse(resData);
+						    	console.log(resData);
+									var result='<div>';
+									result+='<form name="requestForm" method="GET" action="${pageContext.request.contextPath}/admin/productUpdate.do"';
+									result+='<table class="table table-striped" style="margin-top: 20px; ">';
+									result+='<tr>';
+									result+='<th>옵션 코드</th>';
+									result+='<td>';
+									result+='<input type="hidden" id="codeOfProd" name="codeOfProd" value='+resData.kPrd.codeOfProd+'>'+resData.kPrd.codeOfProd+'';
+									result+='<input type="hidden" id="prodIdx" name="prodIdx" value='+resData.kPrd.prodIdx+'>';
+									result+='</td>';
+									result+='</tr>';
+									result+='<tr>';
+									result+='<th>재고</th>';
+									result+='<td>';
+									result+='<input type="text" id="prodCount" name="prodCount" value='+resData.kPrd.prodCount+'>';
+									result+='</tr>';
+									result+='<tr>';
+									result+='<th>가격</th>';
+									result+='<td>';
+									result+='<input type="text" id="prodPrice" name="prodPrice" value='+resData.kPrd.prodPrice+'>';
+									result+='</td>';
+									result+='</tr>';
+									result+='<tr>';
+									result+='<th>색상</th>';
+									result+='<td>';
+									result+='<input type="text" id="prodColor" name="prodColor" value='+resData.kPrd.prodColor+'>';
+									result+='</td>';
+									result+='</tr>';
+									result+='<tr>';
+									result+='<th>상품 옵션 이름</th>';
+									result+='<td>';
+									result+='<input type="text" id="prodName" name="prodName" value='+resData.kPrd.prodName+'>'
+									result+='</td>';
+									result+='</tr>';
+									result+='</table>';
+									result+='<div align="center">';
+									result+='<input type="submit" value="수정하기" onclick="check()">';
+									result+='<input type="button" value="삭제하기" onclick="del('+resData.kPrd.codeOfProd+')">';
+									result+='</div>';
+									result+='</form>';
+									result+='</div>';
+									document.getElementById('modal-view').innerHTML=result;
+						    }
+						}
 </script>
 <body>
 					<!-- header -->
@@ -101,7 +201,7 @@ function sendDelete(){
 								<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
 								  <div class="panel-body panel_text">
 									<ul>
-										<li><a href="boardCon.html">게시판 관리</a></li>
+										<li><a href="#">게시판 관리</a></li>
 									</ul>
 								  </div>
 								</div>
@@ -143,7 +243,7 @@ function sendDelete(){
 									<td>${data.prodPrice }</td>
 									<td>${data.prodColor }</td>
 									<td>${data.prodName }</td>
-										<td><input type=button value="변경및삭제" data-toggle="modal" data-target="#myModal" onclick="loadDoc(${data.codeOfProd })"></td>
+										<td><input type=button value="보기" data-toggle="modal" data-target="#myModal" onclick="modalAjax(${data.codeOfProd })"></td>
 								</tr>
 							</c:forEach>
 						</tbody>

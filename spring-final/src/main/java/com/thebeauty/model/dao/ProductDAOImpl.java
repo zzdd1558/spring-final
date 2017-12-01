@@ -105,10 +105,20 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlsession.selectList("productMapper.searchPrdName",inputText);
 	}
 	
+	/* 상품옵션번호로 상품 가져오기*/
 	@Override
 	public KindsOfProductTypeDTO selectKindsOfProdByCode(int code) {
 		return sqlsession.selectOne("productMapper.searchKindsOfProductByCode", code);
 	}
+
+
+	/* 상품옵션번호로 상품삭제*/
+	@Override
+	public int ProductDelete(int code) {
+		return sqlsession.delete("productMapper.kindOfProductDeleteBycodeOfProd", code);
+	}
+	
+	
 
 
 }
