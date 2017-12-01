@@ -141,13 +141,21 @@ public class AdminController {
 		return mv;
 	}
 
-	
-	@RequestMapping(value="productUpdateAndDelete.do", method=RequestMethod.GET)
-	public String UpdateAndDelete(KindsOfProductTypeDTO kProd) {
+	/* 상품 업데이트 하기*/
+	@RequestMapping(value="productUpdate.do", method=RequestMethod.GET)
+	public String UpdateProduct(KindsOfProductTypeDTO kProd) {
 		System.out.println(kProd.toString());
 		productDao.kindsOfProductUpdate(kProd);
 	return "redirect:productList.do";
 	}
+	
+	@RequestMapping(value="productDelete.do", method=RequestMethod.GET)
+	public String DeleteProduct(@RequestParam("codeOfProd") int code) {
+		System.out.println(code);
+		productDao.ProductDelete(code);
+	return "redirect:productList.do";
+	}
+	
 }
 
 

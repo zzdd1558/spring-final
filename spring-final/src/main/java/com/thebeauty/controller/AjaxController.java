@@ -104,6 +104,15 @@ public class AjaxController {
 		return "+좋아요+ 해제되었습니다.";
 	}
 	
+	@RequestMapping(value="/kPrdModal.do",method=RequestMethod.GET)
+	public @ResponseBody Map<String,Object> kPrdModal(@RequestParam int codeOfProd){
+		Map<String,Object> map=new HashMap<>();
+		KindsOfProductTypeDTO dto=productDAO.selectKindsOfProdByCode(codeOfProd);
+		map.put("kPrd", dto);
+		
+		return map;
+	}
+	
 	
 	
 	

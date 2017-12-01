@@ -5,7 +5,6 @@
 <html>
 <head>
 </head>
-<script src="${pageContext.request.contextPath}/javascripts/signup.js"></script>
 <script src="${pageContext.request.contextPath}/javascripts/update.js"></script>
 <script src="${pageContext.request.contextPath}/utils/HttpRequest.js"></script>
 <script src="${pageContext.request.contextPath}/utils/InputValidator.js"></script>
@@ -28,7 +27,7 @@ let httpRequest = new HttpRequest();
 <!-- <!-- </script> -->
 <body>
 			<div>
-				<form name="requestForm">
+				<form name="requestForm" action="${pageContext.request.contextPath}/admin/productUpdateAndDelete.do">
 					<table class="table table-striped" style="margin-top: 20px; ">
 						<tbody>
 							<tr>
@@ -58,7 +57,6 @@ let httpRequest = new HttpRequest();
 								<td><input type="text" id="prodName" name="prodName"
 									value="${requestScope.kPrd.prodName }"></td>
 							</tr>
-						</tbody>
 					</table>
 					<div align="center">
 							<input type="submit" value="수정하기" onclick="update()">

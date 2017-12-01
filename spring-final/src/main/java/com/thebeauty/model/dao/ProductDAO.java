@@ -28,4 +28,6 @@ public interface ProductDAO {
 	public abstract List<String> searchPrdName(String inputText);
 	/* codeOfProd값으로 상품옵션정보 상세보기*/
 	public abstract KindsOfProductTypeDTO selectKindsOfProdByCode(int code);
+	/* codeOfProd값으로 상품옵션정보 삭제하기*/
+	public abstract int ProductDelete(int code);
 }
