@@ -104,8 +104,8 @@ if( str.value.search(/\W|\s/g) > -1 ){
 						    	var resData=this.responseText;
 						    	resData=JSON.parse(resData);
 						    	console.log(resData);
-									var result='<div>';
-									result+='<form name="requestForm" method="GET" action="${pageContext.request.contextPath}/admin/productUpdate.do"';
+									var result='<div class="container" style="max-width:100%">';
+									result+='<form name="requestForm" method="GET" action="${pageContext.request.contextPath}/admin/productUpdate.do">';
 									result+='<table class="table table-striped" style="margin-top: 20px; ">';
 									result+='<tr>';
 									result+='<th>옵션 코드</th>';
