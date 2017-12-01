@@ -1,8 +1,13 @@
 package com.thebeauty.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+import java.util.Random;
 
 import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
@@ -20,8 +25,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thebeauty.model.dao.FavoriteCosmeticDAO;
 import com.thebeauty.model.domain.CosmeticMainTypeDTO;
+import com.thebeauty.model.domain.CosmeticProductDTO;
 import com.thebeauty.model.domain.CosmeticSubTypeDTO;
 import com.thebeauty.model.domain.FavoriteCosmeticDTO;
+import com.thebeauty.model.domain.KindsOfProductTypeDTO;
+import com.thebeauty.model.domain.ProductImagePathDTO;
 import com.thebeauty.model.domain.UserDTO;
 import com.thebeauty.model.service.ProductService;
 
@@ -70,7 +78,28 @@ public class HomeController {
 //		System.out.println(a[i]);
 //		bestProd[i] = a[i];
 //	}	
-	
+		 int a[] = new int[6]; //int형 배열 선언
+	        Random r = new Random(); //객체생성
+	        for(int i=0;i<=5;i++)    //숫자 6개를 뽑기위한 for문
+	        {
+	            a[i] = r.nextInt(200)+1; //1~10숫자중 랜덤으로 하나를 뽑아 a[0]~a[5]에 저장
+	            for(int j=0;j<i;j++) //중복제거를 위한 for문 
+	            {
+	                if(a[i]==a[j])  
+	                {
+	                    i--;
+	                }
+	            }
+	        }
+	    List<CosmeticProductDTO> prdlist=new ArrayList<>();    
+		for (int i = 0; i < a.length; i++) {
+			CosmeticProductDTO dto=service.selectAllByProdIdx(a[i]);
+			System.out.println(dto);
+			prdlist.add(dto);
+		}
+		System.out.println(prdlist);
+		
+		model.addAttribute("prdList", prdlist);
 	/* 전체 product 값 가져와서 위에서 구한 favoriteCosmetic 높은 값들과 비교하여 일치하면 리스트에 담아 넘겨주기 */
 	
 		
@@ -110,5 +139,5 @@ public class HomeController {
 	public String myPage() {
 		return "user/myPage";
 	}
-
+	
 }

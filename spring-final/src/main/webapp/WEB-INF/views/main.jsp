@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>	
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet"
@@ -55,19 +56,20 @@
 	<%
 		System.out.println(session.getAttribute("user"));
 	%>
-   <div class="bestSeller">
+ <div class="bestSeller">
       <div class="container">
          <h3>BEST SELLER</h3>
          <div class="agileinfo_new_products_grids">
             <div class="sliderfig">
                <div id="flexiselDemo1">
+                 <c:forEach items="${prdList}" var="prd">
                   <div class="col-md-3 agileinfo_new_products_grid">
-                     <div
-                        class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
+                     <div class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
                         <div class="sk-wrapper hs-wrapper1">
-                           <img src="images/test/27.jpg" alt=" " class="img-responsive" />
+                        	<c:set var="TextValue" value="${prd.subTypeIdx}"/>
+                           <img src="/final/images/cosmetic/${fn:substring(TextValue,0,1)}/${prd.subTypeIdx}/${prd.optionList[0].prodIdx}/${prd.optionList[0].imgDTO.pathOfImage}.png" alt=" " class="img-responsive" />
                            <div class="w3_hs_bottom w3_hs_bottom_sub">
-                              <a href="#" data-toggle="modal" data-target="#myModal6"
+                              <a href="${pageContext.request.contextPath}/product/prdDetail.do?prodIdx=${prd.optionList[0].prodIdx}" data-toggle="modal" data-target="#myModal6"
                                  style="bottom: 15px; right: 0; position: absolute; width: 100%;">
                                  <span class="glyphicon glyphicon-eye-open" aria-hidden="true"
                                  style="font-size: 160%;"></span>
@@ -75,155 +77,16 @@
                            </div>
                         </div>
                         <h5>
-                           <a href="single.html">Skirts</a>
+                           <a href="${pageContext.request.contextPath}/product/prdDetail.do?prodIdx=${prd.optionList[0].prodIdx}">${prd.optionList[0].prodName}</a>
                         </h5>
                         <div class="simpleCart_shelfItem">
                            <p>
-                              <span>$320</span> <i class="item_price">$250</i>
-                           </p>
-                           <p>
-                              <a class="item_add" href="#">Add to cart</a>
+                              <i class="item_price">${prd.optionList[0].prodPrice}</i>
                            </p>
                         </div>
                      </div>
                   </div>
-                  <div class="col-md-3 agileinfo_new_products_grid">
-                     <div
-                        class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-                        <div class="hs-wrapper hs-wrapper1">
-                           <img src="images/test/27.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/28.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/29.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/30.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/27.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/28.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/29.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/30.jpg" alt=" " class="img-responsive" />
-                           <div class="w3_hs_bottom w3_hs_bottom_sub">
-                              <ul>
-                                 <li><a href="#" data-toggle="modal"
-                                    data-target="#myModal6"><span
-                                       class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                        <h5>
-                           <a href="single.html">Skirts</a>
-                        </h5>
-                        <div class="simpleCart_shelfItem">
-                           <p>
-                              <span>$320</span> <i class="item_price">$250</i>
-                           </p>
-                           <p>
-                              <a class="item_add" href="#">Add to cart</a>
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-3 agileinfo_new_products_grid">
-                     <div
-                        class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-                        <div class="hs-wrapper hs-wrapper1">
-                           <img src="images/test/31.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/32.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/33.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/34.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/31.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/32.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/33.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/34.jpg" alt=" " class="img-responsive" />
-                           <div class="w3_hs_bottom w3_hs_bottom_sub">
-                              <ul>
-                                 <li><a href="#" data-toggle="modal"
-                                    data-target="#myModal5"><span
-                                       class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                        <h5>
-                           <a href="single.html">Jackets</a>
-                        </h5>
-                        <div class="simpleCart_shelfItem">
-                           <p>
-                              <span>$320</span> <i class="item_price">$250</i>
-                           </p>
-                           <p>
-                              <a class="item_add" href="#">Add to cart</a>
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-3 agileinfo_new_products_grid">
-                     <div
-                        class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-                        <div class="hs-wrapper hs-wrapper1">
-                           <img src="images/test/37.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/30.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/36.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/38.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/37.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/30.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/36.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/38.jpg" alt=" " class="img-responsive" />
-                           <div class="w3_hs_bottom w3_hs_bottom_sub">
-                              <ul>
-                                 <li><a href="#" data-toggle="modal"
-                                    data-target="#myModal6"><span
-                                       class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                        <h5>
-                           <a href="single.html">Dresses</a>
-                        </h5>
-                        <div class="simpleCart_shelfItem">
-                           <p>
-                              <span>$320</span> <i class="item_price">$250</i>
-                           </p>
-                           <p>
-                              <a class="item_add" href="#">Add to cart</a>
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-md-3 agileinfo_new_products_grid">
-                     <div
-                        class="agile_ecommerce_tab_left agileinfo_new_products_grid1">
-                        <div class="hs-wrapper hs-wrapper1">
-                           <img src="images/test/40.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/41.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/42.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/43.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/40.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/41.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/42.jpg" alt=" " class="img-responsive" />
-                           <img src="images/test/43.jpg" alt=" " class="img-responsive" />
-                           <div class="w3_hs_bottom w3_hs_bottom_sub">
-                              <ul>
-                                 <li><a href="#" data-toggle="modal"
-                                    data-target="#myModal1"><span
-                                       class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                        <h5>
-                           <a href="single.html">Jeans</a>
-                        </h5>
-                        <div class="simpleCart_shelfItem">
-                           <p>
-                              <span>$320</span> <i class="item_price">$250</i>
-                           </p>
-                           <p>
-                              <a class="item_add" href="#">Add to cart</a>
-                           </p>
-                        </div>
-                     </div>
-                  </div>
-
+                 </c:forEach>  
                </div>
                <div class="clearfix"></div>
             </div>
